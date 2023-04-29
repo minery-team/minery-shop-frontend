@@ -1,2 +1,1 @@
-<<<<<<< HEAD
 # Minery frontend
