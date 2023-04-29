@@ -1,11 +1,10 @@
-import { NextPage } from 'next';
 import MyPageTemplate from '../MyPageTemplate';
 import { Profile, MenuList, OrderDashboard } from '../components';
 
-const MyPage: NextPage = () => {
+function MyPage() {
   return (
     <MyPageTemplate>
-      <Profile />
+      <Profile name="유저 이름" phoneNumber="010-0000-0000" />
       <OrderDashboard />
       <MenuList
         menus={[
@@ -21,6 +20,6 @@ const MyPage: NextPage = () => {
       />
     </MyPageTemplate>
   );
-};
+}
 
 export default MyPage;

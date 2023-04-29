@@ -19,11 +19,9 @@ const Header = styled.header`
   padding: 0px 12px;
 `;
 
-interface MyPageTemplateProps {}
+interface Props {}
 
-const MyPageTemplate = ({
-  children,
-}: PropsWithChildren<MyPageTemplateProps>) => {
+function MyPageTemplate({ children }: PropsWithChildren<Props>) {
   const router = useRouter();
 
   return (
@@ -39,6 +37,6 @@ const MyPageTemplate = ({
       {children}
     </Container>
   );
-};
+}
 
 export default memo(MyPageTemplate);

@@ -18,7 +18,7 @@ const OrderStatusList = styled.div`
   gap: 20px;
 `;
 
-const OrderDashboard = () => {
+function OrderDashboard() {
   return (
     <Container>
       <h3 css={{ margin: 0 }}>주문내역</h3>
@@ -34,6 +34,6 @@ const OrderDashboard = () => {
       </OrderStatusList>
     </Container>
   );
-};
+}
 
 export default memo(OrderDashboard);

@@ -18,16 +18,16 @@ const Button = styled.button`
   }
 `;
 
-interface IconButtonProps extends HTMLAttributes<HTMLButtonElement> {
+interface Props extends HTMLAttributes<HTMLButtonElement> {
   icon: ReactNode;
 }
 
-const IconButton = ({ icon, ...buttonProps }: IconButtonProps) => {
+function IconButton({ icon, ...buttonProps }: Props) {
   return (
     <Button aria-label="icon-button" type="button" {...buttonProps}>
       {icon}
     </Button>
   );
-};
+}
 
 export default memo(IconButton);

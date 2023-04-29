@@ -8,13 +8,18 @@ const Container = styled.section`
   padding: 25px 20px;
 `;
 
-const Profile = () => {
+interface Props {
+  name: string;
+  phoneNumber: string;
+}
+
+function Profile({ name, phoneNumber }: Props) {
   return (
     <Container>
-      <h2 css={{ margin: 0 }}>유저 이름</h2>
-      <span>휴대폰 번호 010-0000-0000</span>
+      <h2 css={{ margin: 0 }}>{name}</h2>
+      <span>{`휴대폰 번호 ${phoneNumber}`}</span>
     </Container>
   );
-};
+}
 
 export default memo(Profile);

@@ -15,14 +15,14 @@ const Menu = styled(Link)`
   padding: 24px 20px;
 `;
 
-interface MenuListProps {
+interface Props {
   menus: {
     label: string;
     to: string;
   }[];
 }
 
-const MenuList = ({ menus }: MenuListProps) => {
+function MenuList({ menus }: Props) {
   return (
     <Container>
       {menus.map(({ label, to }) => (
@@ -33,6 +33,6 @@ const MenuList = ({ menus }: MenuListProps) => {
       ))}
     </Container>
   );
-};
+}
 
 export default memo(MenuList);

@@ -17,19 +17,19 @@ const Container = styled(Link)`
   text-decoration: none;
 `;
 
-interface OrderStatusProps {
+interface Props {
   count: number;
   status: OrderStatusType;
   href: string;
 }
 
-const OrderStatus = ({ count, status, href }: OrderStatusProps) => {
+function OrderStatus({ count, status, href }: Props) {
   return (
     <Container href={href}>
       <p css={{ fontSize: '24px', margin: 0 }}>{count}</p>
       <span css={{ fontSize: '14px' }}>{status}</span>
     </Container>
   );
-};
+}
 
 export default memo(OrderStatus);
