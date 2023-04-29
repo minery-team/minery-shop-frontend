@@ -1,14 +1,35 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { OrderStatusType } from '../types';
 import { useRouter } from 'next/router';
+import styled from '@emotion/styled';
 
-const MyOrderFilterList = () => {
+interface MyOrderFilterProps {
+  label: string;
+  statusCode?: number;
+  count: number;
+  selected?: boolean;
+}
+
+const FilterContainer = styled.div<{ selected?: boolean }>`
+  padding: 8px 16px;
+  border: 1px solid #808080;
+  border-radius: 24px;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: ${(p) => (p.selected ? 'bold' : undefined)};
+`;
+
+const MyOrderFilter = memo(function MyOrderFilter({
+  label,
+  statusCode,
+  count,
+  selected,
+}: MyOrderFilterProps) {
   const router = useRouter();
-  const { query } = router;
 
   const handleClickFilter = useCallback(
     (status?: number) => {
-      if (!status) {
+      if (typeof status === 'undefined') {
         router.replace('/my/order');
         return;
       }
@@ -18,26 +39,53 @@ const MyOrderFilterList = () => {
   );
 
   return (
-    <ul>
-      <li
+    <FilterContainer
+      onClick={() => handleClickFilter(statusCode)}
+      selected={selected}
+    >
+      <span css={{ fontSize: '14px' }}>{`${label} ${count}`}</span>
+    </FilterContainer>
+  );
+});
+
+const FilterSection = styled.section`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 24px 20px;
+  overflow-x: scroll;
+`;
+
+function MyOrderFilterList() {
+  const router = useRouter();
+  const { query } = router;
+
+  return (
+    <FilterSection>
+      <div
         css={{
-          fontWeight: !query.status ? 'bold' : undefined,
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: '8px',
         }}
       >
-        전체
-      </li>
-      {Object.entries(OrderStatusType).map(([key, value], index) => (
-        <li
-          css={{
-            fontWeight:
-              !!query.status && +query.status === index ? 'bold' : undefined,
-          }}
-        >
-          {value}
-        </li>
-      ))}
-    </ul>
+        <MyOrderFilter
+          label="전체"
+          count={0}
+          selected={typeof query.status === 'undefined'}
+        />
+        {Object.entries(OrderStatusType).map(([, value], index) => (
+          <MyOrderFilter
+            label={value}
+            count={0}
+            statusCode={index}
+            selected={query.status === String(index)}
+          />
+        ))}
+      </div>
+    </FilterSection>
   );
-};
+}
 
 export default memo(MyOrderFilterList);

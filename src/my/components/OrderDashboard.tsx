@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import OrderStatus from './OrderStatus';
 import { OrderStatusType } from '../types';
 import { memo } from 'react';
+import Link from 'next/link';
 
 const Container = styled.section`
   display: flex;
@@ -21,7 +22,9 @@ const OrderStatusList = styled.div`
 function OrderDashboard() {
   return (
     <Container>
-      <h3 css={{ margin: 0 }}>주문내역</h3>
+      <Link href="/my/order">
+        <h3 css={{ margin: 0 }}>주문내역</h3>
+      </Link>
       <OrderStatusList>
         {Object.entries(OrderStatusType).map(([key, value], index) => (
           <OrderStatus
