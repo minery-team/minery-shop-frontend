@@ -123,6 +123,8 @@ type ButtonProps = {
   variant?: Variant;
   size?: SizeType;
   color?: Color ;
+  width?: string;
+  height?: string;
   children: React.ReactNode;
 };
 
@@ -152,6 +154,8 @@ const Button = React.forwardRef<
 const StyledButton = styled.button<ButtonProps>`
   ${({ variant }) => variantStyles[variant ?? 'filled']};
   ${({ color }) => colorStyles[color ?? 'brand']};
+  ${({ width }) => width && `width: ${width};`}
+  ${({ height }) => height && `height: ${height};`}
 `
 
 function getSizeType(size: SizeType) {
