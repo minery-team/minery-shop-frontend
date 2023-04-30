@@ -1,5 +1,6 @@
 export const colors = {
     white: "#FFFFFE",
+    black:"#000000",
     background: "#FFFFFF",
     ripple: "rgba(0,0,0,0.08)",
     cardRipple: "rgba(245, 244, 242, 1)",

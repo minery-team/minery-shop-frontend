@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import { Icon } from '@iconify/react';
@@ -19,8 +18,13 @@ export default function Home() {
       <main className={`${styles.main} ${inter.className}`}>
         <Icon icon="mdi-light:home" />
         <div>
-        <Button color="brand" size="large" variant="rounded">버튼</Button>
-        <Button color="red" size="small" variant="ghost">버튼2</Button>
+        <Button size="large" color="brand" variant="filled">디폴트 버튼</Button>
+        </div>
+        <div>
+        <Button size="large" variant="rounded"> rounded 버튼</Button>
+        </div>
+        <div>
+        <Button color="none" size="large" variant="ghost">ghost 버튼</Button>
         </div>
       </main>
     </>

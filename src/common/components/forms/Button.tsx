@@ -1,19 +1,131 @@
 import React from 'react';
 import styled from '@emotion/styled';
+
 import colors from '@/styles/colors';
 import { mergeRefs } from 'react-merge-refs';
 
-type Color = 'brand' | 'gray' | 'red';
-type SizeType = 'large' | 'medium' | 'small';
 type Variant = 'filled' | 'ghost' | 'rounded';
+type Color = 'brand' | 'gray' | 'red' | 'none' | 'black';
+type SizeType = 'large' | 'medium' | 'small';
+
+
+const variantStyles: Record<Variant, string> = {
+  filled: `
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease-out;
+    &:disabled {
+      cursor: not-allowed;
+    }
+  `,
+  ghost: `
+    background-color: transparent;
+    color: #1f2937;
+    border: 0px solid #e5e7eb;
+    border-radius: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease-out;
+
+    &:hover {
+      background-color: #e1e2e4;
+    }
+
+    &:active {
+      background-color: #e5e7eb;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      border-color: #cbd5e0;
+      color: #a0aec0;
+    }
+  `,
+  rounded: `
+    border: none;
+    border-radius: 9999px;
+    padding: 0.375rem 1.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease-out;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  `,
+};
+
+const colorStyles: Record<Color, string> = {
+  none: '',
+  brand: `
+  color: ${colors.white};
+  background-color: ${colors.blue['500']};
+  &:hover {
+    background-color: ${colors.blue['600']};
+  }
+  &:active {
+    background-color:${colors.blue['700']};
+  }
+  &:disabled {
+    cursor: not-allowed;
+    background-color:${colors.blue['300']};
+  }`,
+  gray: `
+  color: ${colors.white};
+  background-color: ${colors.gray['500']};
+  &:hover {
+    background-color: ${colors.gray['600']};
+  }
+  &:active {
+    background-color:${colors.gray['700']};
+  }
+  &:disabled {
+    cursor: not-allowed;
+    background-color:${colors.gray['300']};
+  }
+  `,
+  red: `
+  color: ${colors.white};
+  background-color: ${colors.red['500']};
+  &:hover {
+    background-color: ${colors.red['600']};
+  }
+  &:active {
+    background-color:${colors.red['700']};
+  }
+  &:disabled {
+    cursor: not-allowed;
+    background-color:${colors.red['300']};
+  }`,
+  black: `
+  color: ${colors.white};
+  background-color: ${colors.gray['800']};
+  &:hover {
+    background-color: ${colors.gray['600']};
+  }
+  &:active {
+    background-color:${colors.gray['800']};
+  }
+  &:disabled {
+    cursor: not-allowed;
+    background-color:${colors.gray['300']};
+  }
+  `,
+};
 
 
 type ButtonProps = {
   variant?: Variant;
   size?: SizeType;
-  color?: Color;
+  color?: Color ;
   children: React.ReactNode;
 };
+
 
 const Button = React.forwardRef<
   HTMLButtonElement,
@@ -37,80 +149,10 @@ const Button = React.forwardRef<
   }
 );
 
-const StyledButton = styled.button<{variant:Variant,color:Color}>`
-width: 100%;
-${(p) => {
-    const variant = getVariant(p.variant);
-    const colors = getColorSet(p.color);
-    return `
-      cursor: pointer;
-      color: ${colors.color};
-      background: ${colors.background};
-      border-color: ${colors.color};
-      padding:${variant.padding};
-      border-radius:${variant.borderRadius};
-      &:active {
-        background: ${colors.active?.background};
-      }
-      &:disabled {
-        background: ${colors.color};
-        color: ${colors.color || "auto"};
-        border-color: ${colors.color || "auto"};
-      }`;
-  }}
+const StyledButton = styled.button<ButtonProps>`
+  ${({ variant }) => variantStyles[variant ?? 'filled']};
+  ${({ color }) => colorStyles[color ?? 'brand']};
 `
-
-function getColorSet(type: Color) {
-  switch (type) {
-    case "brand":
-      return {
-        color: colors.indigo[700],
-        background: colors.white,
-        active: { background: colors.gray[50] },
-        disabled: { background: colors.gray[100], color: colors.gray[500] },
-      };
-    case "gray":
-      return {
-        color: colors.gray,
-        background: colors.white,
-        active: { background: colors.gray[50] },
-        disabled: { background: colors.gray[200] },
-      };
-    case "red":
-      return {
-        color: colors.red[300],
-        background: colors.white,
-        active: { background: colors.red[300] },
-        disabled: { background: colors.gray[200] },
-      };
-  }
-}
-
-function getVariant(variant: Variant) {
-  switch (variant) {
-    case 'filled':
-      return {
-        backgroundColor: "#000",
-        color: "#fff",
-        border: "none",
-      }
-    case 'ghost':
-      return {
-        padding : "0.5rem 0.25rem",
-        backgroundColor: "transparent",
-        border: "none",
-        borderRadius: "0.25rem",
-      }
-    case 'rounded':
-      return {
-        display:"flex",
-        gap:"2rem",
-        padding : "1.5rem 3rem",
-        border: "none",
-        borderRadius: "9999px",
-      }
-  }
-}
 
 function getSizeType(size: SizeType) {
   switch (size) {
