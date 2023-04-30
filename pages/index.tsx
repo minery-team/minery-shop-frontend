@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import { Icon } from '@iconify/react';
 import Button from '@/common/components/forms/Button';
+import { Input } from '@/common/components/forms/Input';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,14 +19,17 @@ export default function Home() {
       <main className={`${styles.main} ${inter.className}`}>
         <Icon icon="mdi-light:home" />
         <div>
-        <Button size="large" color="brand" variant="filled">디폴트 버튼</Button>
+          <Button size="large" color="gray" variant="filled">
+            디폴트 버튼
+          </Button>
+          <Button size="large" variant="rounded">
+            rounded 버튼
+          </Button>
+          <Button color="none" size="large" variant="ghost">
+            ghost 버튼
+          </Button>
         </div>
-        <div>
-        <Button size="large" variant="rounded"> rounded 버튼</Button>
-        </div>
-        <div>
-        <Button color="none" size="large" variant="ghost">ghost 버튼</Button>
-        </div>
+        <Input />
       </main>
     </>
   );
