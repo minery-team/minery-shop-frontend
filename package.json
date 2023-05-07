@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@boxfox/axios": "^0.0.7",
+    "@boxfox/core-hooks": "^1.0.14",
     "@boxfox/logger": "^0.0.22",
     "@boxfox/react-web": "^0.0.7",
-    "@boxfox/useful-hooks": "^1.0.42",
     "@boxfox/utils": "^0.0.23",
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
