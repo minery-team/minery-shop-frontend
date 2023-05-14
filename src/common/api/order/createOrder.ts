@@ -1,4 +1,4 @@
-import { Order } from '@/models/Order';
+import { Order } from '@/common/models/Order';
 import { requester } from '@/common/api/requester';
 
 export async function createOrder(data: InstantPaymentDTO) {

@@ -1,5 +1,5 @@
 import { assertAxiosError } from '@boxfox/axios';
-import { User } from '@/models/User';
+import { User } from '@/common/models/User';
 import { requester } from '@/common/api/requester';
 
 export async function fetchCurrentUser() {

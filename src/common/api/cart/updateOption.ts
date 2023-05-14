@@ -1,4 +1,4 @@
-import { CartCreateItemOption } from '@/models/Cart';
+import { CartCreateItemOption } from '@/common/models/Cart';
 import { requester } from '@/common/api/requester';
 
 export async function updateOption(id: number, data: CartCreateItemOption[]) {

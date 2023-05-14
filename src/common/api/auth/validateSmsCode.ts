@@ -1,6 +1,6 @@
 import { assertAxiosError } from '@boxfox/axios';
 import { requester } from '@/common/api/requester';
-import { setAccessToken } from 'utils/access-token';
+import { setAccessToken } from '@/common/utils/access-token';
 
 export async function validateSmsCode(phoneNumber: string, code: string) {
   try {

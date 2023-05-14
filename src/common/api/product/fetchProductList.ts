@@ -1,4 +1,4 @@
-import { Product } from '@/models/Product';
+import { Product } from '@/common/models/Product';
 import { requester } from '@/common/api/requester';
 
 export async function fetchProductList() {
