@@ -1,6 +1,6 @@
+import { useUserQuery } from '@/common/hooks/queries/useUserQuery';
 import MyPageTemplate from '../MyPageTemplate';
 import { Profile, MenuList, OrderDashboard } from '../components';
-import { useUserQuery } from '@/hooks/queries/useUserQuery';
 
 function MyPage() {
   const { data: userInfo } = useUserQuery(0)
