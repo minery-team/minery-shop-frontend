@@ -15,7 +15,7 @@ function MyPage() {
       <MenuList
         menus={[
           {
-            label: '주소관리',
+            label: '문의하기',
             to: '/',
           },
           {
