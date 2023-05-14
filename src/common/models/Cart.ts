@@ -1,14 +1,16 @@
 import { Product, ProductOption } from './Product';
 
 export interface CartItem {
-  id: string;
+  id: number;
+  isLocal?: boolean;
   amount: number;
   product: Product;
   options: CartItemOption[];
 }
 
 export interface CartItemOption {
-  id: number | string;
+  id: number;
+  isLocal?: boolean;
   option: ProductOption;
   amount: number;
 }
