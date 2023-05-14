@@ -1,15 +1,21 @@
+import { useUserQuery } from '@/common/hooks/queries/useUserQuery';
 import MyPageTemplate from '../MyPageTemplate';
 import { Profile, MenuList, OrderDashboard } from '../components';
 
 function MyPage() {
+  const { data: userInfo } = useUserQuery(0)
+
+  // TODO: Loading, Error 처리
+  if (!userInfo) return null;
+
   return (
     <MyPageTemplate>
-      <Profile name="유저 이름" phoneNumber="010-0000-0000" />
+      <Profile name={userInfo.name} phoneNumber={userInfo.phone} />
       <OrderDashboard />
       <MenuList
         menus={[
           {
-            label: '주소관리',
+            label: '문의하기',
             to: '/',
           },
           {
