@@ -6,6 +6,14 @@ import { AxiosProvider } from '@common/context';
 import { Global } from '@emotion/react';
 import { globalStyles } from '@/styles';
 
+import { Rozha_One } from 'next/font/google';
+
+const rozha_one = Rozha_One({
+  weight: '400',
+  subsets: ['latin'],
+});
+
+
 export default function App({ Component, pageProps }: AppProps) {
   const queryClient = useRef<QueryClient>(new QueryClient());
 
@@ -15,7 +23,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <Global styles={globalStyles} />
         <QueryClientProvider client={queryClient.current}>
           <AxiosProvider>
-            <Component {...pageProps} />
+            <main className={rozha_one.className}>
+              <Component {...pageProps} />
+            </main>
           </AxiosProvider>
         </QueryClientProvider>
       </RecoilRoot>
