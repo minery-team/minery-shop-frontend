@@ -1,90 +1,36 @@
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
 import { Icon } from '@iconify/react';
 import styled from '@emotion/styled';
+import { commaizeNumber } from '@boxfox/utils';
 
-import { insertCommasToPrice } from '@cart/utils/cart';
-import { ReactElement } from 'react';
+import { addToCart, deleteFromCart, clearCart } from '@/common/api/cart';
+import { CartItem } from '@/common/models';
 
-interface IWine {
-  id: number;
-  image: string;
-  name: string;
-  price: number;
-  count: number;
-}
-
-interface IProps {
-  wineList: IWine[];
+interface Props {
+  wineList: CartItem[];
   setWineList: Function;
 }
 
-export default function WineList({ wineList, setWineList }: IProps) {
+export default function WineList({ wineList, setWineList }: Props) {
   const router = useRouter();
   let totalPrice = 0;
 
-  const { mutate: addItem } = useMutation(
-    ['add-item'],
-    async () => {
-      return await axios.put('');
-    },
-    {
-      onSuccess: (res) => {
-        console.log('success res : ', res);
-      },
-      onError: (err) => {
-        console.log('error : ', err);
-      },
-    }
-  );
+  const renderWineList = () => {
+    return wineList.map((item: CartItem, index: number) => {
+      totalPrice += item.amount * item.product.price;
 
-  const { mutate: minusItem } = useMutation(
-    ['minus-item'],
-    async () => {
-      return await axios.put('');
-    },
-    {
-      onSuccess: (res) => {
-        console.log('success res : ', res);
-      },
-      onError: (err) => {
-        console.log('error : ', err);
-      },
-    }
-  );
-
-  const { mutate: clearCart } = useMutation(
-    ['minus-item'],
-    async () => {
-      return await axios.put('');
-    },
-    {
-      onSuccess: (res) => {
-        console.log('success res : ', res);
-      },
-      onError: (err) => {
-        console.log('error : ', err);
-      },
-    }
-  );
-
-  return wineList.map((item: IWine, index: number) => {
-    totalPrice += item.count * item.price;
-
-    return (
-      <>
-        <ItemWrapper>
+      return (
+        <ItemWrapper key={`${item.product.name}_${index}`}>
           <div>
             <Image
-              src={item.image}
-              alt={`${item.image}`}
+              src={item.product.image}
+              alt={`${item.id}`}
               width={50}
               height={50}
             />
-            <div>{item.name}</div>
-            <div>{insertCommasToPrice(item.price)}원</div>
+            <div>{item.product.name}</div>
+            <div>{commaizeNumber(item.product.price)}원</div>
           </div>
           <div>
             <Icon
@@ -97,8 +43,7 @@ export default function WineList({ wineList, setWineList }: IProps) {
                 tmp.splice(index, 1);
                 setWineList([...tmp]);
 
-                // clear API
-                clearCart();
+                // clearCart();
               }}
             />
             <CountWrapper>
@@ -109,16 +54,15 @@ export default function WineList({ wineList, setWineList }: IProps) {
                 onClick={() => {
                   const tmp = [...wineList];
 
-                  if (tmp[index].count > 1) {
-                    tmp[index].count -= 1;
+                  if (tmp[index].amount > 1) {
+                    tmp[index].amount -= 1;
                     setWineList([...tmp]);
 
-                    // minus API
-                    minusItem();
+                    // deleteFromCart();
                   }
                 }}
               />
-              <div>{item.count}</div>
+              <div>{item.amount}</div>
               <Icon
                 icon="entypo:circle-with-plus"
                 width={30}
@@ -126,26 +70,31 @@ export default function WineList({ wineList, setWineList }: IProps) {
                 onClick={() => {
                   const tmp = [...wineList];
 
-                  tmp[index].count += 1;
+                  tmp[index].amount += 1;
                   setWineList([...tmp]);
 
-                  // plus API
-                  addItem();
+                  // addToCart();
                 }}
               />
             </CountWrapper>
           </div>
         </ItemWrapper>
-        <BottomNavigator
-          onClick={() => {
-            router.push('/OrderPage');
-          }}
-        >
-          {insertCommasToPrice(totalPrice)}원 주문하러가기
-        </BottomNavigator>
-      </>
-    );
-  });
+      );
+    });
+  };
+
+  return (
+    <>
+      {renderWineList()}
+      <BottomNavigator
+        onClick={() => {
+          router.push('/OrderPage');
+        }}
+      >
+        {commaizeNumber(totalPrice)}원 주문하러가기
+      </BottomNavigator>
+    </>
+  );
 }
 
 const ItemWrapper = styled.div`
@@ -168,7 +117,7 @@ const BottomNavigator = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 100px;
   background-color: green;
 `;
