@@ -7,18 +7,11 @@ import { Icon } from '@iconify/react';
 
 import WineList from '@cart/pages/wineList';
 import NoWineList from '@cart/pages/noWineList';
-
-interface IWine {
-  id: number;
-  image: string;
-  name: string;
-  price: number;
-  count: number;
-}
+import { CartItem } from '@/common/models';
 
 export default function CartPage() {
   const router = useRouter();
-  const [wineList, setWineList] = useState<IWine[]>([]);
+  const [wineList, setWineList] = useState<CartItem[]>([]);
 
   useQuery(
     ['cart-list'],
@@ -60,7 +53,7 @@ export default function CartPage() {
       {wineList.length ? (
         <WineList
           wineList={wineList}
-          setWineList={(wineList: IWine[]) => setWineList(wineList)}
+          setWineList={(wineList: CartItem[]) => setWineList(wineList)}
         />
       ) : (
         <NoWineList />
@@ -81,7 +74,7 @@ const TopNavigator = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 56px;
   padding: 0 20px;
 `;
