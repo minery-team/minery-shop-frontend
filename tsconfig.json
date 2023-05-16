@@ -20,7 +20,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@common/*": ["./src/common/*"],
-      "@my/*": ["./src/my/*"]
+      "@my/*": ["./src/my/*"],
+      "@order/*": ["./src/order/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
