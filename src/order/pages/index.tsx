@@ -2,12 +2,13 @@ import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 import { Icon } from '@iconify/react';
 
+import { useUserQuery, useCartList } from '@/common/hooks/queries';
 import WineInfoCard from '@order/components/WineIinfoCart';
-import { fetchCartList } from '@/common/api/cart';
-import { CartItem } from '@/common/models';
 
-export default function OrderPage({ cartList }: CartItem[]) {
+export default function OrderPage() {
   const router = useRouter();
+  const [userInfo] = useUserQuery(0); // TODO userId 변경
+  const [catList] = useCartList();
 
   return (
     <div>
@@ -24,7 +25,7 @@ export default function OrderPage({ cartList }: CartItem[]) {
       </TopNavigator>
       <FlexDiv>
         <div>고객정보</div>
-        <div>권혁창</div>
+        <div>{userInfo?.name}</div>
       </FlexDiv>
       <FlexDiv>
         <div>배송지</div>
@@ -55,16 +56,6 @@ export default function OrderPage({ cartList }: CartItem[]) {
       </BottomNavigator>
     </div>
   );
-}
-
-export async function getServerSideProps() {
-  const cartList = await fetchCartList();
-
-  return {
-    props: {
-      cartList,
-    },
-  };
 }
 
 const TopNavigator = styled.div`
