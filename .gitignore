@@ -36,10 +36,6 @@ Temporary Items
 *.icloud
 
 ### NextJS ###
-<<<<<<< HEAD
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-=======
->>>>>>> 246b4b2 (chore: init project)
 # dependencies
 /node_modules
 /.pnp
