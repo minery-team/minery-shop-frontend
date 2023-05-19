@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { Icon } from '@iconify/react';
@@ -14,12 +15,19 @@ interface Props {
 
 export default function WineList({ wineList, setWineList }: Props) {
   const router = useRouter();
-  let totalPrice = 0;
+
+  const totalPrice = useMemo(() => {
+    let tmp = 0;
+
+    wineList.map((item: CartItem) => {
+      tmp += item.amount * item.product.price;
+    });
+
+    return tmp;
+  }, [wineList]);
 
   const renderWineList = () => {
     return wineList.map((item: CartItem, index: number) => {
-      totalPrice += item.amount * item.product.price;
-
       return (
         <ItemWrapper key={`${item.product.name}_${index}`}>
           <div>
