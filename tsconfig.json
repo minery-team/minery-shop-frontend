@@ -13,7 +13,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
 
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
 
     "incremental": true,
@@ -21,7 +21,8 @@
       "@/*": ["./src/*"],
       "@common/*": ["./src/common/*"],
       "@my/*": ["./src/my/*"],
-      "@order/*": ["./src/order/*"]
+      "@order/*": ["./src/order/*"],
+      "@newAddress/*": ["./src/newAddress/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
