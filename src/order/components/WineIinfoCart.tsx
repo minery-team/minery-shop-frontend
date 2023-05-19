@@ -18,7 +18,11 @@ export default function WineInfoCard({ wineList }: { wineList: CartItem[] }) {
             />
             <div>
               <div>{item.product.name}</div>
-              <div>{commaizeNumber(item.product.price)}원</div>
+              <PriceInfoWrapper>
+                <div>{commaizeNumber(item.product.price)}원</div>
+                <Divider />
+                <div>{item.amount}개</div>
+              </PriceInfoWrapper>
             </div>
           </CardWrapper>
         );
@@ -30,4 +34,17 @@ export default function WineInfoCard({ wineList }: { wineList: CartItem[] }) {
 const CardWrapper = styled.div`
   display: flex;
   border: 1px solid black;
+`;
+
+const PriceInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const Divider = styled.div`
+  width: 2px;
+  height: 15px;
+  background-color: gray;
+  margin: 0 10px;
 `;
