@@ -1,4 +1,5 @@
 import { sendSmsCode, validateSmsCode, updateName } from '@/common/api/auth';
+import { useUser } from '@/common/hooks';
 import { checkValidPhoneNumber } from '@/common/utils/phoneUtil';
 import { useAsyncCallback, useInputState, useStep } from '@boxfox/core-hooks';
 import { sleep } from '@boxfox/utils';
@@ -67,7 +68,4 @@ export function useAuthForm(
     codeRef,
     nameRef,
   };
-}
-function useUser(): [any, any] {
-  throw new Error('Function not implemented.');
 }

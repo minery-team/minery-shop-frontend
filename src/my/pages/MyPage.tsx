@@ -1,4 +1,4 @@
-import { useUserQuery } from '@/common/hooks/queries/useUserQuery';
+import { withAuth } from '@/common/hocs';
 import MyPageTemplate from '../MyPageTemplate';
 import { Profile, MenuList, OrderDashboard } from '../components';
 import { useUser } from '@/common/hooks';
@@ -29,4 +29,4 @@ function MyPage() {
   );
 }
 
-export default MyPage;
+export default withAuth(MyPage);

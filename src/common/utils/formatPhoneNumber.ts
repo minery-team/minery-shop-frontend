@@ -1,9 +1,9 @@
 export function formatPhoneNumber(rawPhoneNumber: string) {
   if (!rawPhoneNumber) {
-    return "";
+    return '';
   }
-  const phoneNumber = rawPhoneNumber.replace(/[^0-9]/g, "");
-  const isSeoulNumber = phoneNumber.startsWith("02");
+  const phoneNumber = rawPhoneNumber.replace(/[^0-9]/g, '');
+  const isSeoulNumber = phoneNumber.startsWith('02');
   // 서울 국번(02)인 경우에만 지역번호가 2자리입니다.
   const areaCodeEndIndex = isSeoulNumber ? 2 : 3;
 
@@ -18,5 +18,5 @@ export function formatPhoneNumber(rawPhoneNumber: string) {
     phoneNumber.substr(areaCodeEndIndex + centerLength, 4),
   ]
     .filter((i) => i.length > 0)
-    .join("-");
+    .join('-');
 }
