@@ -13,6 +13,7 @@
     "@boxfox/bds-common": "^0.0.18",
     "@boxfox/bds-web": "^0.0.86",
     "@boxfox/core-hooks": "^1.0.14",
+    "@boxfox/core-hooks-dom": "^0.0.22",
     "@boxfox/logger": "^0.0.22",
     "@boxfox/react-query": "^0.0.10",
     "@boxfox/react-web": "^0.0.7",

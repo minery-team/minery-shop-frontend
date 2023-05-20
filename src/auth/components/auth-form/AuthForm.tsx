@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { animated, useSpring } from 'react-spring';
 import { formatPhoneNumber } from '@/common/utils/formatPhoneNumber';
 import { useAuthForm } from './useAuthForm';
+import { colors } from '@/common/constants';
 
 export function AuthForm({
   controls,
@@ -22,7 +23,7 @@ export function AuthForm({
             휴대폰 번호를 입력해주세요
           </Text>
           <Spacing height={4} />
-          <Text size="sm" color={colors.gray[600]}>
+          <Text size="sm" color={colors.gray600}>
             본인 확인을 위해 휴대폰 번호를 입력해주세요
           </Text>
           <Spacing height={24} />
@@ -31,7 +32,7 @@ export function AuthForm({
             value={formatPhoneNumber(phone.value)}
             autoFocus
             onChange={phone.onChange}
-            style={{ color: colors.gray[900] }}
+            style={{ color: colors.gray900 }}
             type="tel"
           />
         </FormContainer>
@@ -40,7 +41,7 @@ export function AuthForm({
             인증번호 입력해주세요
           </Text>
           <Spacing height={4} />
-          <Text size="sm" color={colors.gray[600]}>
+          <Text size="sm" color={colors.gray600}>
             본인 확인을 위해 휴대폰으로 발송된 인증번호를 입력해주세요
           </Text>
           <Spacing height={24} />
@@ -49,7 +50,7 @@ export function AuthForm({
             value={code.value}
             onChange={code.onChange}
             ref={codeRef}
-            style={{ color: colors.gray[900] }}
+            style={{ color: colors.gray900 }}
             type="tel"
             // @ts-ignore
             inputmode="numeric"
@@ -63,7 +64,7 @@ export function AuthForm({
             이름을 입력해주세요
           </Text>
           <Spacing height={4} />
-          <Text size="sm" color={colors.gray[600]}>
+          <Text size="sm" color={colors.gray600}>
             본인 확인을 위해 실명을 입력해주세요
           </Text>
           <Spacing height={24} />
@@ -73,7 +74,7 @@ export function AuthForm({
             onChange={name.onChange}
             ref={nameRef}
             maxLength={6}
-            style={{ color: colors.gray[900] }}
+            style={{ color: colors.gray900 }}
           />
         </FormContainer>
       </ContentContainer>

@@ -1,10 +1,8 @@
-import { useAsyncCallback, useStep } from "@boxfox/core-hooks";
-import { useInputState } from "@boxfox/core-hooks-dom";
-import { sleep } from "@boxfox/utils";
-import { useUser } from "hooks/useUser";
-import { useMemo, useRef } from "react";
-import { sendSmsCode, updateName, validateSmsCode } from "remotes/auth";
-import { checkValidPhoneNumber } from "utils/phoneUtil";
+import { sendSmsCode, validateSmsCode, updateName } from '@/common/api/auth';
+import { checkValidPhoneNumber } from '@/common/utils/phoneUtil';
+import { useAsyncCallback, useInputState, useStep } from '@boxfox/core-hooks';
+import { sleep } from '@boxfox/utils';
+import { useMemo, useRef } from 'react';
 
 export function useAuthForm(
   onFinish: (params: { phone: string; name: string }) => void
@@ -56,7 +54,7 @@ export function useAuthForm(
   });
 
   const stepName =
-    step.value === 0 ? "phone" : step.value === 1 ? "code" : "name";
+    step.value === 0 ? 'phone' : step.value === 1 ? 'code' : 'name';
 
   return {
     step,
@@ -69,4 +67,7 @@ export function useAuthForm(
     codeRef,
     nameRef,
   };
+}
+function useUser(): [any, any] {
+  throw new Error('Function not implemented.');
 }
