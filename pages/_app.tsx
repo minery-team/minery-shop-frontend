@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StrictMode, useRef } from 'react';
 import { RecoilRoot } from 'recoil';
-import { AxiosProvider } from '@common/context';
+import { AxiosProvider, FontProvider } from '@common/context';
 import { Global } from '@emotion/react';
 import { globalStyles } from '@/styles';
 
@@ -13,7 +13,6 @@ const rozha_one = Rozha_One({
   subsets: ['latin'],
 });
 
-
 export default function App({ Component, pageProps }: AppProps) {
   const queryClient = useRef<QueryClient>(new QueryClient());
 
@@ -23,9 +22,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <Global styles={globalStyles} />
         <QueryClientProvider client={queryClient.current}>
           <AxiosProvider>
-            <main className={rozha_one.className}>
-              <Component {...pageProps} />
-            </main>
+            <FontProvider>
+              <main className={rozha_one.className}>
+                <Component {...pageProps} />
+              </main>
+            </FontProvider>
           </AxiosProvider>
         </QueryClientProvider>
       </RecoilRoot>

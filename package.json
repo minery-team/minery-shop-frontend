@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@boxfox/axios": "^0.0.7",
+    "@boxfox/bds-web": "^0.0.86",
     "@boxfox/core-hooks": "^1.0.14",
     "@boxfox/logger": "^0.0.22",
     "@boxfox/react-web": "^0.0.7",
