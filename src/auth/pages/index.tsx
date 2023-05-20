@@ -3,27 +3,30 @@ import { AuthForm, useAuthForm } from '../components/auth-form';
 import { QS } from '@boxfox/next-utils';
 import Router from 'next/router';
 import { LoggingClick, LoggingState } from '@boxfox/logger';
-import {
-  Spacing,
-  FixedBottomCTA,
-  Button,
-  FixedBottomContainer,
-} from '@boxfox/bds-web';
+import { Spacing, FixedBottomCTA } from '@boxfox/bds-web';
 import styled from '@emotion/styled';
 import { AppBar } from '@/common/components';
 
 export default function AuthPage() {
-  const [, reload] = useUser();
-  const controls = useAuthForm(async () => {
-    await reload();
+  const [user, reload] = useUser();
+  const redirect = () => {
     const redirectUrl = QS.get('redirectUrl')!;
     if (redirectUrl) {
       Router.replace(redirectUrl);
     } else {
       Router.back();
     }
+  };
+  const controls = useAuthForm(async () => {
+    await reload();
+    redirect();
   });
   const { stepName, submit, isDisabled, step } = controls;
+
+  if (user) {
+    redirect();
+    return null;
+  }
 
   return (
     <LoggingState name="Page View - Auth" params={{ step: stepName }}>
