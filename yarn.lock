@@ -56,6 +56,7 @@
   resolved "https://boxfox.bytesafe.dev/r/boxfox/-/pull/@boxfox%2Faxios/0.0.7#7e96f03d646b0172614f67f95f5ac242883899a4"
   integrity sha512-zyfVxE+ONcNg6s0JX/1ayZiOhFQszhKKGLNQbA8Sgq/YxaPR/n/dw/2STKc5aPtRbVFRiqsjnIe7tLmLMfJgJA==
 
+<<<<<<< HEAD
 "@boxfox/bds-common@^0.0.18":
   version "0.0.18"
   resolved "https://boxfox.bytesafe.dev/r/boxfox/-/pull/@boxfox%2Fbds-common/0.0.18#1eb424ac432a6ab5f182554825e2c526604699bd"
@@ -65,6 +66,12 @@
   version "0.0.86"
   resolved "https://boxfox.bytesafe.dev/r/boxfox/-/pull/@boxfox%2Fbds-web/0.0.86#776af74629e3ae40fa6f213ab5acf9d205a74328"
   integrity sha512-rTIZvRZVr52McoUT3oWvYtkyUNhaaAMGV4dLhP0Nd24REfT5aU9D6nPZu6guawb/4XHsAVcYoM5SZkXnIh/8tg==
+=======
+"@boxfox/bds-web@^0.0.81":
+  version "0.0.81"
+  resolved "https://boxfox.bytesafe.dev/r/boxfox/-/pull/@boxfox%2Fbds-web/0.0.81#61f55650166c6eb0573d867d54dc33b26761706b"
+  integrity sha512-ZcXwEc/TNI7av5gBQZwK/L2d2DLXgzQZpFJHRNijCxGPImf3yTHaxHOaCfN8E4UaAh8VC0cqvoOLKHMTideUNA==
+>>>>>>> c661f69 (Add AuthForm)
   dependencies:
     "@heroicons/react" "^1.0.6"
     clsx "^1.1.1"
@@ -2295,6 +2302,7 @@ react-lottie@^1.2.3:
     babel-runtime "^6.26.0"
     lottie-web "^5.1.3"
 
+<<<<<<< HEAD
 react-query@^3.39.3:
   version "3.39.3"
   resolved "https://registry.yarnpkg.com/react-query/-/react-query-3.39.3.tgz#4cea7127c6c26bdea2de5fb63e51044330b03f35"
@@ -2314,6 +2322,8 @@ react-responsive@^9.0.2:
     prop-types "^15.6.1"
     shallow-equal "^1.2.1"
 
+=======
+>>>>>>> c661f69 (Add AuthForm)
 react-spring@^9.7.1:
   version "9.7.1"
   resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-9.7.1.tgz#8acfed700823490a4d9d4cf131c5fea12d1aaa93"
