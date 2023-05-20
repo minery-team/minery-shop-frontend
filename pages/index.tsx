@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { Icon } from '@iconify/react';
+import { Text } from '@boxfox/bds-web';
 
 export default function Home() {
   return (
@@ -13,6 +14,9 @@ export default function Home() {
       <main>
         <Icon icon="mdi-light:home" />
         <p>Main</p>
+        <Text size="lg" weight="semibold">
+          test
+        </Text>
       </main>
     </>
   );
