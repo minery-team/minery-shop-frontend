@@ -19,8 +19,8 @@ export async function fetchCurrentUser() {
 // TODO: Remove
 const dummyUser: User = {
   id: 0,
-  name: "알콜과 엔돌핀",
-  email: "drink@drink.com",
-  phone: "010-2023-0514",
-  registeredAt: "2021-01-01",
-}
+  name: '알콜과 엔돌핀',
+  email: 'drink@drink.com',
+  phone: '010-2023-0514',
+  registeredAt: '2021-01-01',
+};

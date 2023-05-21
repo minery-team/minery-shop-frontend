@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo } from 'react';
-import { OrderStatusType } from '../types';
 import { useRouter } from 'next/router';
+import { OrderStatusType } from '../types';
 
 const MyOrderFilterList = () => {
   const router = useRouter();

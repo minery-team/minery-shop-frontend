@@ -5,13 +5,13 @@ import {
 import { ReactNode } from 'react';
 import { textSizes } from '../constants/textStyles';
 
-export function FontProvider({ children }: { children: ReactNode }) {
+export const FontProvider = ({ children }: { children: ReactNode }) => {
   return (
     <BaseFontProvider fontSize={getFontSize} lineHeight={getLineHeight}>
       {children}
     </BaseFontProvider>
   );
-}
+};
 
 function getFontSize(props: TextStyleProps) {
   return textSizes[props.size ?? 'base'];

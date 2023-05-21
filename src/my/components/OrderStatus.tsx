@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { OrderStatusType } from '../types';
 import Link from 'next/link';
 import { memo } from 'react';
+import { OrderStatusType } from '../types';
 
 const Container = styled(Link)`
   flex: 1;
@@ -23,13 +23,13 @@ interface Props {
   href: string;
 }
 
-function OrderStatus({ count, status, href }: Props) {
+const OrderStatus = ({ count, status, href }: Props) => {
   return (
     <Container href={href}>
       <p css={{ fontSize: '24px', margin: 0 }}>{count}</p>
       <span css={{ fontSize: '14px' }}>{status}</span>
     </Container>
   );
-}
+};
 
 export default memo(OrderStatus);

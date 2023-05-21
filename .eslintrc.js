@@ -1,4 +1,4 @@
-const prettierConfig = require('./_prettier');
+const prettierConfig = require('./.prettierrc.js');
 
 module.exports = {
   extends: [
@@ -19,6 +19,9 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+    project: [
+      './tsconfig.json',
+    ]
   },
   rules: {
     'no-console': ['warn', { allow: ['error'] }],
