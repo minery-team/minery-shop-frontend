@@ -1,9 +1,15 @@
-import { useUserQuery } from '@/common/hooks/queries/useUserQuery';
+import { withAuth } from '@/common/hocs';
 import MyPageTemplate from '../MyPageTemplate';
 import { Profile, MenuList, OrderDashboard } from '../components';
+import { useUser } from '@/common/hooks';
 
+<<<<<<< HEAD
 const MyPage = () => {
   const { data: userInfo } = useUserQuery(0);
+=======
+function MyPage() {
+  const [userInfo] = useUser();
+>>>>>>> main
 
   // TODO: Loading, Error 처리
   if (!userInfo) return null;
@@ -28,4 +34,4 @@ const MyPage = () => {
   );
 };
 
-export default MyPage;
+export default withAuth(MyPage);
