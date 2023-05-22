@@ -22,7 +22,7 @@ interface Props {
   }[];
 }
 
-function MenuList({ menus }: Props) {
+const MenuList = ({ menus }: Props) => {
   return (
     <Container>
       {menus.map(({ label, to }) => (
@@ -33,6 +33,6 @@ function MenuList({ menus }: Props) {
       ))}
     </Container>
   );
-}
+};
 
 export default memo(MenuList);

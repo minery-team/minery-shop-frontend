@@ -21,7 +21,7 @@ const Header = styled.header`
 
 interface Props {}
 
-function MyPageTemplate({ children }: PropsWithChildren<Props>) {
+const MyPageTemplate = ({ children }: PropsWithChildren<Props>) => {
   const router = useRouter();
 
   return (
@@ -37,6 +37,6 @@ function MyPageTemplate({ children }: PropsWithChildren<Props>) {
       {children}
     </Container>
   );
-}
+};
 
 export default memo(MyPageTemplate);

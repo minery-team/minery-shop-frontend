@@ -1,9 +1,9 @@
 import { withAuth } from '@/common/hocs';
+import { useUser } from '@/common/hooks';
 import MyPageTemplate from '../MyPageTemplate';
 import { Profile, MenuList, OrderDashboard } from '../components';
-import { useUser } from '@/common/hooks';
 
-function MyPage() {
+const MyPage = () => {
   const [userInfo] = useUser();
 
   // TODO: Loading, Error 처리
@@ -27,6 +27,6 @@ function MyPage() {
       />
     </MyPageTemplate>
   );
-}
+};
 
 export default withAuth(MyPage);
