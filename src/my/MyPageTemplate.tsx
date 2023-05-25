@@ -1,16 +1,7 @@
-import { IconButton } from '@/common/components/buttons';
+import { AppBar } from '@/common/components';
+import Container from '@/common/components/layout/Container';
 import styled from '@emotion/styled';
-import { Icon } from '@iconify/react';
-import { useRouter } from 'next/router';
 import { PropsWithChildren, memo } from 'react';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 500px;
-  margin: 0 auto;
-`;
 
 const Header = styled.header`
   display: flex;
@@ -22,20 +13,11 @@ const Header = styled.header`
 interface Props {}
 
 const MyPageTemplate = ({ children }: PropsWithChildren<Props>) => {
-  const router = useRouter();
-
   return (
-    <Container>
-      <Header>
-        <IconButton
-          icon={
-            <Icon icon="material-symbols:chevron-left-rounded" width={36} />
-          }
-          onClick={() => router.back()}
-        />
-      </Header>
-      {children}
-    </Container>
+    <>
+      <AppBar back />
+      <Container>{children}</Container>
+    </>
   );
 };
 

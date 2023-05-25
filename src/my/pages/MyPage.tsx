@@ -1,5 +1,6 @@
 import { withAuth } from '@/common/hocs';
 import { useUser } from '@/common/hooks';
+import { Spacing } from '@boxfox/bds-web';
 import MyPageTemplate from '../MyPageTemplate';
 import { Profile, MenuList, OrderDashboard } from '../components';
 
@@ -12,7 +13,9 @@ const MyPage = () => {
   return (
     <MyPageTemplate>
       <Profile name={userInfo.name} phoneNumber={userInfo.phone} />
+      <Spacing height={16} />
       <OrderDashboard />
+      <Spacing height={16} />
       <MenuList
         menus={[
           {

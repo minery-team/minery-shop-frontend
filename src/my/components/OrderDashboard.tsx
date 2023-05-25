@@ -6,7 +6,6 @@ import { memo } from 'react';
 const Container = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 25px 20px;
   gap: 20px;
 `;
 
