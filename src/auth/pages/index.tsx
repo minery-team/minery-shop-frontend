@@ -1,11 +1,11 @@
 import { useUser } from '@/common/hooks';
-import { AuthForm, useAuthForm } from '../components/auth-form';
-import { QS } from '@boxfox/next-utils';
+import { QS } from '@boxfox/next';
 import Router from 'next/router';
 import { LoggingClick, LoggingState } from '@boxfox/logger';
 import { Spacing, FixedBottomCTA } from '@boxfox/bds-web';
 import styled from '@emotion/styled';
 import { AppBar } from '@/common/components';
+import { AuthForm, useAuthForm } from '../components/auth-form';
 
 export default function AuthPage() {
   const [user, reload] = useUser();
