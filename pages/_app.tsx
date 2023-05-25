@@ -9,6 +9,7 @@ import { globalStyles } from '@/styles';
 import { Rozha_One } from 'next/font/google';
 import { LoggerRoot } from '@/common/components';
 import { PopupProvider, PortalProvider } from '@boxfox/bds-web';
+import useChannelTalk from '@/channelTalk/hooks/useChannelTalk';
 
 const rozha_one = Rozha_One({
   weight: '400',
@@ -17,6 +18,10 @@ const rozha_one = Rozha_One({
 
 export default function App({ Component, pageProps }: AppProps) {
   const queryClient = useRef<QueryClient>(new QueryClient());
+
+  if (typeof window !== 'undefined') {
+    useChannelTalk();
+  }
 
   return (
     <StrictMode>
