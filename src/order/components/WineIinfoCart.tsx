@@ -9,7 +9,7 @@ export default function WineInfoCard({ wineList }: { wineList: CartItem[] }) {
     <>
       {wineList.map((item: CartItem, index: number) => {
         return (
-          <CardWrapper>
+          <CardWrapper key={`${item.id}_${index}`}>
             <Image
               src={item.product.image}
               alt={`${item.product.id}_${index}`}
