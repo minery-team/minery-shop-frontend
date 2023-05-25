@@ -3,9 +3,9 @@ import styled from '@emotion/styled';
 import { useUserQuery } from '@/common/hooks/queries';
 
 export default function UserInfo({
-  setIsOpen,
+  onAddressClick,
 }: {
-  setIsOpen: (isOpen: boolean) => void;
+  onAddressClick: (isClickAddress: boolean) => void;
 }) {
   const [userInfo] = useUserQuery(0); // TODO userId 변경
 
@@ -17,7 +17,7 @@ export default function UserInfo({
       </FlexDiv>
       <FlexDiv>
         <div>배송지</div>
-        <div onClick={() => setIsOpen(true)}>룰루랄라</div>
+        <div onClick={() => onAddressClick(true)}>룰루랄라</div>
       </FlexDiv>
     </>
   );
