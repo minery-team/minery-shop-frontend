@@ -15,7 +15,7 @@ export default function OrderPage() {
   const router = useRouter();
 
   const [cartList] = useCartList();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isAddressModalVisible, setIsAddressModalVisible] = useState(false);
 
   // TODO 주소 등록 및 추가 시 바뀌는 부분 구현
   // TODO modal 수정
@@ -45,7 +45,7 @@ export default function OrderPage() {
           <div>주문하기</div>
         </Wrapper>
       </TopNavigator>
-      <UserInfo setIsOpen={(v: boolean) => setIsOpen(v)} />
+      <UserInfo onAddressClick={(v: boolean) => setIsAddressModalVisible(v)} />
       <WineInfoCard wineList={cartList ?? []} />
       <PaymentInfo totalPayment={totalPayment} />
       <BottomNavigator
@@ -57,8 +57,8 @@ export default function OrderPage() {
       </BottomNavigator>
       <CommonModal
         children={<AddressList />}
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
+        isOpen={isAddressModalVisible}
+        onClose={() => setIsAddressModalVisible(false)}
       />
     </div>
   );
