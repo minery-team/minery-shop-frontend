@@ -1,8 +1,8 @@
 import { useUser } from '@/common/hooks';
-import { QS } from '@boxfox/next';
+import { QS } from '@boxfoxs/next';
 import Router from 'next/router';
-import { LoggingClick, LoggingState } from '@boxfox/logger';
-import { Spacing, FixedBottomCTA } from '@boxfox/bds-web';
+import { LoggingClick, LoggingState } from '@boxfoxs/logger';
+import { Spacing, FixedBottomCTA } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import { AppBar } from '@/common/components';
 import { AuthForm, useAuthForm } from '../components/auth-form';

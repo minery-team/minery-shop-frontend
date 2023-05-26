@@ -8,7 +8,7 @@ import { globalStyles } from '@/styles';
 
 import { Rozha_One } from 'next/font/google';
 import { LoggerRoot } from '@/common/components';
-import { PopupProvider, PortalProvider } from '@boxfox/bds-web';
+import { PopupProvider, PortalProvider } from '@boxfoxs/bds-web';
 
 const rozha_one = Rozha_One({
   weight: '400',

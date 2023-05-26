@@ -1,5 +1,5 @@
-import { isClient, QS } from '@boxfox/next';
-import { withSuspense } from '@boxfox/react';
+import { isClient, QS } from '@boxfoxs/next';
+import { withSuspense } from '@boxfoxs/react';
 import Router from 'next/router';
 import React, { ComponentType } from 'react';
 import { useUser } from '../hooks';

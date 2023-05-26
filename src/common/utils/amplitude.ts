@@ -1,5 +1,5 @@
-import { AmplitudeLogger, Logger, LogParams } from '@boxfox/logger';
-import { isServer } from '@boxfox/next';
+import { AmplitudeLogger, Logger, LogParams } from '@boxfoxs/logger';
+import { isServer } from '@boxfoxs/next';
 import type { AmplitudeClient } from 'amplitude-js';
 
 const AMPLITUDE_API_KEY = '7266988443867d11011c285d5f08ba7a';
@@ -17,16 +17,16 @@ export function createWebAmplitudeLogger(): Logger & AmplitudeLogger {
   client.init(AMPLITUDE_API_KEY);
   return {
     log: async (name: string, params?: LogParams) => {
-      //if (isAlpha()) {
+      // if (isAlpha()) {
       console.log(
         '\x1b[36m[Alpha-Log]',
         name,
         JSON.stringify(params),
         '\x1b[0m'
       );
-      //} else {
+      // } else {
       client.logEvent(name, params ?? {});
-      //}
+      // }
     },
     setUserId: (id: string) => client.setUserId(id),
     setUserProperties: (props: Record<string, unknown>) =>

@@ -1,7 +1,7 @@
 import {
   FontProvider as BaseFontProvider,
   TextStyleProps,
-} from '@boxfox/bds-web';
+} from '@boxfoxs/bds-web';
 import { ReactNode } from 'react';
 import { textSizes } from '../constants/textStyles';
 

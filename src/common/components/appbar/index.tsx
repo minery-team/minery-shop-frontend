@@ -1,12 +1,12 @@
-import { Flex, Spacing, Text } from '@boxfox/bds-web';
+import { Flex, Spacing, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import { ChevronLeftIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Router from 'next/router';
 import { ComponentProps, ReactNode } from 'react';
+import { colors } from '@/common/constants';
 import { ControlBox } from './ControlBox';
 import { FloatingAppBarContainer } from './FloatingAppBarContainer';
 import { Profile } from './Profile';
-import { colors } from '@/common/constants';
 
 interface Props {
   back?: boolean | 'x';
@@ -24,7 +24,7 @@ interface Props {
   children?: ReactNode;
 }
 
-export function AppBar({
+export const AppBar = ({
   initialHidden,
   fixed,
   floating,
@@ -35,7 +35,7 @@ export function AppBar({
   logo,
   takeSpace,
   children,
-}: Props) {
+}: Props) => {
   const content = (
     <InnerContainer elevated={elevated} backgrounded={backgrounded}>
       {children && <ContentContainer>{children}</ContentContainer>}
@@ -75,9 +75,9 @@ export function AppBar({
       {content}
     </FloatingAppBarContainer>
   );
-}
+};
 
-AppBar.Title = function (props: ComponentProps<typeof Text>) {
+AppBar.Title = (props: ComponentProps<typeof Text>) => {
   return (
     <TitleContainer>
       <Text
@@ -111,9 +111,9 @@ const InnerContainer = styled(Flex.CenterVertical)<{
   ${(p) => (p.elevated ? `border-bottom: 1px solid ${colors.gray200};` : '')}
 `;
 
-function Logo() {
+const Logo = () => {
   return <Text>Minery</Text>;
-}
+};
 
 const ContentContainer = styled.div`
   position: absolute;
