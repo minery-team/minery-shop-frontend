@@ -1,5 +1,5 @@
-import { createObservableStorage, useStorage } from "@boxfox/core-hooks-dom";
-import { safeSessionStorage } from "@boxfox/next";
+import { createObservableStorage, useStorage } from '@boxfoxs/core-hooks-dom';
+import { safeSessionStorage } from '@boxfoxs/next';
 
 const sessionStorage$ = createObservableStorage(safeSessionStorage);
 

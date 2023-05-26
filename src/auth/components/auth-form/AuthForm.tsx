@@ -1,15 +1,15 @@
-import { Form, Spacing, Text } from '@boxfox/bds-web';
+import { Form, Spacing, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import { animated, useSpring } from 'react-spring';
 import { formatPhoneNumber } from '@/common/utils/formatPhoneNumber';
-import { useAuthForm } from './useAuthForm';
 import { colors } from '@/common/constants';
+import { useAuthForm } from './useAuthForm';
 
-export function AuthForm({
+export const AuthForm = ({
   controls,
 }: {
   controls: ReturnType<typeof useAuthForm>;
-}) {
+}) => {
   const { phone, code, name, step, codeRef, nameRef } = controls;
   const style = useSpring({
     left: `-${step.value * 100}%`,
@@ -80,7 +80,7 @@ export function AuthForm({
       </ContentContainer>
     </div>
   );
-}
+};
 const ContentContainer = styled(animated.div)`
   display: flex;
   width: 300%;

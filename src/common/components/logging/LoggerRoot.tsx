@@ -1,11 +1,11 @@
 import { useSessionStorage } from '@/common/hooks';
 import { logger } from '@/common/utils';
 import { trackFbPageView } from '@/common/utils/trackFbPageView';
-import { LoggerParamsProvider, LoggerProvider } from '@boxfox/logger';
-import { QS } from '@boxfox/next';
+import { LoggerParamsProvider, LoggerProvider } from '@boxfoxs/logger';
+import { QS } from '@boxfoxs/next';
 import { ReactNode, useEffect } from 'react';
 
-export function LoggerRoot({ children }: { children: ReactNode }) {
+export const LoggerRoot = ({ children }: { children: ReactNode }) => {
   const rawFrom = QS.get('from');
   const [from, setFrom] = useSessionStorage('from');
 
@@ -34,4 +34,4 @@ export function LoggerRoot({ children }: { children: ReactNode }) {
       </LoggerParamsProvider>
     </LoggerProvider>
   );
-}
+};

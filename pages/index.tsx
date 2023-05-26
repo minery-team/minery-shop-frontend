@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { Icon } from '@iconify/react';
-import { Text } from '@boxfox/bds-web';
+import { Text } from '@boxfoxs/bds-web';
 
 export default function Home() {
   return (

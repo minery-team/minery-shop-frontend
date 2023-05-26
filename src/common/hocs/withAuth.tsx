@@ -1,6 +1,5 @@
-import { isClient } from '@boxfox/next';
-import { QS } from '@boxfox/next-utils';
-import { withSuspense } from '@boxfox/react';
+import { isClient, QS } from '@boxfoxs/next';
+import { withSuspense } from '@boxfoxs/react';
 import Router from 'next/router';
 import React, { ComponentType } from 'react';
 import { useUser } from '../hooks';
@@ -14,7 +13,7 @@ export function withAuth<T extends JSX.IntrinsicAttributes>(
       Router.replace(
         `/auth${QS.create({ redirectUrl: location.href, back: true })}`
       );
-      return <React.Fragment />;
+      return <></>;
     }
     return <Component {...props} />;
   });

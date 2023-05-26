@@ -1,5 +1,5 @@
-import { isServer } from '@boxfox/next';
-import { isAlpha } from '@boxfox/next-utils';
+import { isServer } from '@boxfoxs/next';
+import { isAlpha } from './stage';
 
 // @TODO pxiel id 설정 필요
 const PIXEL_ID = '';
