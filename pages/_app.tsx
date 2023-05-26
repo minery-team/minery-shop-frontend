@@ -10,6 +10,7 @@ import { Rozha_One } from 'next/font/google';
 import { LoggerRoot } from '@/common/components';
 import { PopupProvider, PortalProvider } from '@boxfoxs/bds-web';
 import useChannelTalk from '@/channelTalk/hooks/useChannelTalk';
+import '../src/styles/colors.css';
 
 const rozha_one = Rozha_One({
   weight: '400',
