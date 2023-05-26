@@ -23,11 +23,6 @@ export default function AuthPage() {
   });
   const { stepName, submit, isDisabled, step } = controls;
 
-  if (user) {
-    redirect();
-    return null;
-  }
-
   return (
     <LoggingState name="Page View - Auth" params={{ step: stepName }}>
       <Container>

@@ -19,12 +19,11 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    project: [
-      './tsconfig.json',
-    ]
+    project: ['./tsconfig.json'],
   },
   rules: {
     'no-console': ['warn', { allow: ['error'] }],
+    '@typescript-eslint/no-use-before-define': 'off',
     'class-methods-use-this': 'off',
     'import/prefer-default-export': 'off',
     'prettier/prettier': ['error', prettierConfig],
@@ -32,12 +31,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'react/require-default-props': 'off',
-    'react/function-component-definition': [
-      'error',
-      {
-        namedComponents: 'arrow-function',
-        unnamedComponents: 'arrow-function',
-      },
-    ],
+    'react/function-component-definition': 'off',
   },
 };

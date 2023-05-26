@@ -18,7 +18,7 @@ function getFontSize(props: TextStyleProps) {
 }
 
 function getLineHeight(props: TextStyleProps) {
-  if ((props.weight = 'semibold')) {
+  if (props.weight === 'semibold') {
     return '130%';
   }
   return '140%';
