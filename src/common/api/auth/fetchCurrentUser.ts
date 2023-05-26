@@ -1,4 +1,4 @@
-import { assertAxiosError } from '@boxfox/axios';
+import { assertAxiosError } from '@boxfoxs/axios';
 import { User } from '@/common/models/User';
 import { requester } from '@/common/api/requester';
 

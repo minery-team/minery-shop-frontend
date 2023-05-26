@@ -1,8 +1,8 @@
 import { sendSmsCode, validateSmsCode, updateName } from '@/common/api/auth';
 import { useUser } from '@/common/hooks';
 import { checkValidPhoneNumber } from '@/common/utils/phoneUtil';
-import { useAsyncCallback, useInputState, useStep } from '@boxfox/core-hooks';
-import { sleep } from '@boxfox/utils';
+import { useAsyncCallback, useInputState, useStep } from '@boxfoxs/core-hooks';
+import { sleep } from '@boxfoxs/utils';
 import { useMemo, useRef } from 'react';
 
 export function useAuthForm(
@@ -18,11 +18,11 @@ export function useAuthForm(
   const isDisabled = useMemo(() => {
     if (step.value === 0) {
       return !checkValidPhoneNumber(phone);
-    } else if (step.value === 1) {
-      return code.length !== 6;
-    } else {
-      return name.length < 2;
     }
+    if (step.value === 1) {
+      return code.length !== 6;
+    }
+    return name.length < 2;
   }, [step.value, phone, name, code]);
   const [, reloadUser] = useUser();
 
@@ -37,7 +37,8 @@ export function useAuthForm(
         codeRef.current?.focus();
       });
       return;
-    } else if (step.value === 1) {
+    }
+    if (step.value === 1) {
       await validateSmsCode(phone, code);
       const { data: user } = await reloadUser();
       if (!user?.name) {

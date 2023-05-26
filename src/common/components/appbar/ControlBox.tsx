@@ -1,5 +1,5 @@
-import { Flex } from "@boxfox/bds-web";
-import styled from "@emotion/styled";
+import { Flex } from '@boxfoxs/bds-web';
+import styled from '@emotion/styled';
 
 export const ControlBox = styled(Flex.Center)`
   background: white;

@@ -1,5 +1,5 @@
-import { useBooleanState } from "@boxfox/core-hooks";
-import { LoggingState } from "@boxfox/logger";
+import { useBooleanState } from '@boxfoxs/core-hooks';
+import { LoggingState } from '@boxfoxs/logger';
 import {
   ComponentProps,
   ReactNode,
@@ -8,12 +8,12 @@ import {
   useEffect,
   useRef,
   useState,
-} from "react";
+} from 'react';
 
-export function LoggingRead({
+export const LoggingRead = ({
   children,
   ...rest
-}: ComponentProps<typeof LoggingState>) {
+}: ComponentProps<typeof LoggingState>) => {
   const ref = useRef<HTMLDivElement>(null);
   const [log, setLogTrue] = useBooleanState(false);
 
@@ -37,9 +37,9 @@ export function LoggingRead({
       }
     };
     const target = parent ?? document;
-    target.addEventListener("scroll", handler);
+    target.addEventListener('scroll', handler);
     return () => {
-      target.removeEventListener("scroll", handler);
+      target.removeEventListener('scroll', handler);
     };
   }, [log, parent]);
 
@@ -48,7 +48,7 @@ export function LoggingRead({
       <div ref={ref}>{children}</div>
     </LoggingState>
   );
-}
+};
 
 LoggingRead.Parent = function Parent({
   children,
