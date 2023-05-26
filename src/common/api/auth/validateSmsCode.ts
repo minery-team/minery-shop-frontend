@@ -1,4 +1,4 @@
-import { assertAxiosError } from '@boxfox/axios';
+import { assertAxiosError } from '@boxfoxs/axios';
 import { requester } from '@/common/api/requester';
 import { setAccessToken } from '@/common/utils/access-token';
 
