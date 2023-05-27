@@ -1,5 +1,5 @@
 import { useUser } from '@/common/hooks';
-import { QS } from '@boxfox/next';
+import { QS } from '@boxfoxs/next';
 import Router from 'next/router';
 import { LoggingClick, LoggingState } from '@boxfoxs/logger';
 import { Spacing, FixedBottomCTA } from '@boxfoxs/bds-web';
