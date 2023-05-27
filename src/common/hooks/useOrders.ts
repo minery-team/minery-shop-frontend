@@ -1,0 +1,28 @@
+import { useEffect, useState } from 'react';
+import { Order, OrderStatus } from '../models';
+import { useOrderList } from './queries/useOrderList';
+
+export type OrderStatusForFilter = OrderStatus | 'ALL';
+
+interface Props {
+  status?: OrderStatusForFilter;
+}
+
+const useOrders = ({ status }: Props) => {
+  const [orders, refetch] = useOrderList();
+
+  useEffect(() => {
+    refetch();
+  }, [status]);
+
+  const filteredOrders = orders?.filter((order) => {
+    if (status === 'ALL') {
+      return true;
+    }
+    return order.status === status;
+  });
+
+  return filteredOrders;
+};
+
+export default useOrders;

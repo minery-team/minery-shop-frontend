@@ -75,4 +75,46 @@ const dummyOrderList: Order[] = [
       },
     ],
   },
+  {
+    id: 0,
+    cost: 10000,
+    time: new Date(),
+    address: dummyAddress,
+    status: OrderStatus.SENT,
+    items: [
+      {
+        id: 0,
+        product: dummyProduct,
+        amount: 1,
+        options: [],
+      },
+      {
+        id: 1,
+        product: dummyProduct,
+        amount: 1,
+        options: [],
+      },
+    ],
+  },
+  {
+    id: 0,
+    cost: 10000,
+    time: new Date(),
+    address: dummyAddress,
+    status: OrderStatus.PAYMENT,
+    items: [
+      {
+        id: 0,
+        product: dummyProduct,
+        amount: 1,
+        options: [],
+      },
+      {
+        id: 1,
+        product: dummyProduct,
+        amount: 1,
+        options: [],
+      },
+    ],
+  },
 ];
