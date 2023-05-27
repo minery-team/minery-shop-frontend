@@ -5,15 +5,11 @@ import { useOrderList } from './queries/useOrderList';
 export type OrderStatusForFilter = OrderStatus | 'ALL';
 
 interface Props {
-  status?: OrderStatusForFilter;
+  status: OrderStatusForFilter;
 }
 
 const useOrders = ({ status }: Props) => {
-  const [orders, refetch] = useOrderList();
-
-  useEffect(() => {
-    refetch();
-  }, [status]);
+  const [orders] = useOrderList(status);
 
   const filteredOrders = orders?.filter((order) => {
     if (status === 'ALL') {
