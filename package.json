@@ -35,6 +35,7 @@
     "next-seo": "^6.0.0",
     "rambda": "^7.5.0",
     "react": "18.2.0",
+    "react-channel-plugin": "^2.2.0",
     "react-dom": "18.2.0",
     "react-facebook-pixel": "^1.0.4",
     "react-hook-form": "^7.43.9",
