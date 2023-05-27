@@ -1,6 +1,8 @@
+import { isClient } from '@boxfoxs/next';
+
 class ChannelService {
   constructor() {
-    if (typeof window !== 'undefined') this.loadScript();
+    if (isClient()) this.loadScript();
   }
 
   loadScript() {
