@@ -4,12 +4,12 @@ import { StrictMode, useRef } from 'react';
 import { RecoilRoot } from 'recoil';
 import { AxiosProvider, FontProvider } from '@common/context';
 import { Global } from '@emotion/react';
+import { ReactChannelIO } from 'react-channel-plugin';
 import { globalStyles } from '@/styles';
 
 import { Rozha_One } from 'next/font/google';
 import { LoggerRoot } from '@/common/components';
 import { PopupProvider, PortalProvider } from '@boxfoxs/bds-web';
-import useChannelTalk from '@/channelTalk/hooks/useChannelTalk';
 import '../src/styles/colors.css';
 
 const rozha_one = Rozha_One({
@@ -19,10 +19,6 @@ const rozha_one = Rozha_One({
 
 export default function App({ Component, pageProps }: AppProps) {
   const queryClient = useRef<QueryClient>(new QueryClient());
-
-  if (typeof window !== 'undefined') {
-    useChannelTalk();
-  }
 
   return (
     <StrictMode>
@@ -34,9 +30,15 @@ export default function App({ Component, pageProps }: AppProps) {
               <PopupProvider>
                 <AxiosProvider>
                   <FontProvider>
-                    <main className={rozha_one.className}>
-                      <Component {...pageProps} />
-                    </main>
+                    <ReactChannelIO
+                      pluginKey={process.env.NEXT_PUBLIC_CHANNEL_TALK_KEY!}
+                      language="ko"
+                      autoBoot
+                    >
+                      <main className={rozha_one.className}>
+                        <Component {...pageProps} />
+                      </main>
+                    </ReactChannelIO>
                   </FontProvider>
                 </AxiosProvider>
               </PopupProvider>
