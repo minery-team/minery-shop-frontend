@@ -29,7 +29,7 @@ const dummyAddress: Address = {
 
 const dummyProduct: Product = {
   id: 0,
-  name: '샤또 몬텔레나, 나파 밸리 샤도네이 2019 + 살라미',
+  name: '샤또 몬텔레나, 나파 밸리 샤도네이 2019 + 아주 맛 좋은 살라미',
   enName: 'Chateau Montelena, Napa Valley Chardonnay',
   desc: '1976년 파리 테이스팅에서 화이트 와인 부문 1위를 차지한 기념비적인 와인',
   price: 200000,
