@@ -2,8 +2,8 @@ import { css } from '@emotion/react';
 import { Text } from '@boxfoxs/bds-web';
 import Image, { StaticImageData } from 'next/image';
 
-import ratingStar from '../../../public/assets/rating_star.svg';
 import { formatPrice } from '@/common/utils';
+import ratingStar from '../../../public/assets/rating_star.svg';
 
 // FIXME: 카테고리와 tag와의 연관성
 export type WineInfo = {
@@ -25,8 +25,8 @@ export function WineCard({
   onClick: () => void;
 }) {
   return (
-    // eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events
-    <div
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+    <article
       onClick={onClick}
       css={css({
         display: 'flex',
@@ -91,6 +91,6 @@ export function WineCard({
           ({info.reviewCnt})
         </Text>
       </div>
-    </div>
+    </article>
   );
 }
