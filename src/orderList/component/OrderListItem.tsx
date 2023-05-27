@@ -9,6 +9,44 @@ import { Spacing, Text } from '@boxfoxs/bds-web';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 
+interface Props {
+  order: Order;
+}
+
+const OrderListItem = ({ order }: Props) => {
+  return (
+    <OrderListItemContainer>
+      <OrderListItemHeader>
+        <DateIndicator>{dateToYYYYMMDDHHmm(order.time)}</DateIndicator>
+        <OrderStatusIndicator
+          style={{
+            backgroundColor: orderStatusToBackgroundColor(order.status),
+          }}
+        >
+          <Text color={orderStatusToTextColor(order.status)}>
+            {orderStatusToHumanReadable(order.status)}
+          </Text>
+        </OrderStatusIndicator>
+      </OrderListItemHeader>
+      <Spacing height={20} />
+      {order.items.map((item) => (
+        <OrderProductListItem key={item.id}>
+          <ProductImage src={item.product.image} alt={item.product.name} />
+          <ProductInfoContainer>
+            <ProductTitle weight="semibold">{item.product.name}</ProductTitle>
+            <Text color={colors.gray600}>{item.amount}개</Text>
+            <Text weight="semibold" size="2xl">
+              {commaizeNumber(item.product.price)}
+            </Text>
+          </ProductInfoContainer>
+        </OrderProductListItem>
+      ))}
+    </OrderListItemContainer>
+  );
+};
+
+export default OrderListItem;
+
 const OrderListItemContainer = styled(ContentCard)`
   &:not(:last-of-type) {
     margin-bottom: 20px;
@@ -107,41 +145,3 @@ function orderStatusToTextColor(status: OrderStatus) {
       throw new Error('Invalid OrderStatus');
   }
 }
-
-interface Props {
-  order: Order;
-}
-
-const OrderListItem = ({ order }: Props) => {
-  return (
-    <OrderListItemContainer>
-      <OrderListItemHeader>
-        <DateIndicator>{dateToYYYYMMDDHHmm(order.time)}</DateIndicator>
-        <OrderStatusIndicator
-          style={{
-            backgroundColor: orderStatusToBackgroundColor(order.status),
-          }}
-        >
-          <Text color={orderStatusToTextColor(order.status)}>
-            {orderStatusToHumanReadable(order.status)}
-          </Text>
-        </OrderStatusIndicator>
-      </OrderListItemHeader>
-      <Spacing height={20} />
-      {order.items.map((item) => (
-        <OrderProductListItem key={item.id}>
-          <ProductImage src={item.product.image} alt={item.product.name} />
-          <ProductInfoContainer>
-            <ProductTitle weight="semibold">{item.product.name}</ProductTitle>
-            <Text color={colors.gray600}>{item.amount}개</Text>
-            <Text weight="semibold" size="2xl">
-              {commaizeNumber(item.product.price)}
-            </Text>
-          </ProductInfoContainer>
-        </OrderProductListItem>
-      ))}
-    </OrderListItemContainer>
-  );
-};
-
-export default OrderListItem;

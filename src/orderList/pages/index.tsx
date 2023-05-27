@@ -1,18 +1,11 @@
 import { AppBar } from '@/common/components';
 import Container from '@/common/components/layout/Container';
 import styled from '@emotion/styled';
-import Section from '@/common/components/layout/Section';
 import { colors } from '@/common/constants';
 import useOrders, { OrderStatusForFilter } from '@/common/hooks/useOrders';
 import { useState } from 'react';
 import OrderListItem from '../component/OrderListItem';
 import OrderListFilter from '../component/OrderListFilter';
-
-const OrderListContainer = styled.div`
-  background-color: ${colors.gray100};
-  // background-color: red;
-  padding: 20px;
-`;
 
 const OrderListPage = () => {
   const [filterStatus, setFilterStatus] = useState<OrderStatusForFilter>('ALL');
@@ -38,3 +31,8 @@ const OrderListPage = () => {
 };
 
 export default OrderListPage;
+
+const OrderListContainer = styled.div`
+  background-color: ${colors.gray100};
+  padding: 20px;
+`;
