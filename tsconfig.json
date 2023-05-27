@@ -19,11 +19,18 @@
     "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
     "incremental": true,
-    "paths": {
-      "@/*": ["./src/*"],
-      "@common/*": ["./src/common/*"],
-      "@my/*": ["./src/my/*"],
-      "@cart/*": ["./src/cart/*"]
+    "paths": {"@/*": [
+        "./src/*"
+      ],
+      "@common/*": [
+        "./src/common/*"
+      ],
+      "@my/*": [
+        "./src/my/*"
+      ],
+      "@auth/*": [
+        "./src/auth/*"
+      ]
     }
   },
   "include": [

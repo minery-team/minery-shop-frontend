@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
+import { memo } from 'react';
 import OrderStatus from './OrderStatus';
 import { OrderStatusType } from '../types';
-import { memo } from 'react';
 
 const Container = styled.section`
   display: flex;
@@ -18,7 +18,7 @@ const OrderStatusList = styled.div`
   gap: 20px;
 `;
 
-function OrderDashboard() {
+const OrderDashboard = () => {
   return (
     <Container>
       <h3 css={{ margin: 0 }}>주문내역</h3>
@@ -34,6 +34,6 @@ function OrderDashboard() {
       </OrderStatusList>
     </Container>
   );
-}
+};
 
 export default memo(OrderDashboard);

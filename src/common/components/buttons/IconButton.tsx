@@ -22,12 +22,12 @@ interface Props extends HTMLAttributes<HTMLButtonElement> {
   icon: ReactNode;
 }
 
-function IconButton({ icon, ...buttonProps }: Props) {
+const IconButton = ({ icon, ...buttonProps }: Props) => {
   return (
     <Button aria-label="icon-button" type="button" {...buttonProps}>
       {icon}
     </Button>
   );
-}
+};
 
 export default memo(IconButton);
