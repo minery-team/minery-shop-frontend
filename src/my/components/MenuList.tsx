@@ -12,7 +12,7 @@ const Menu = styled(Link)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 20px;
+  padding: 16px 0;
 `;
 
 interface Props {

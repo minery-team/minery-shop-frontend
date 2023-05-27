@@ -1,35 +1,64 @@
+import { OrderStatus } from '@/common/models';
 import styled from '@emotion/styled';
+import Link from 'next/link';
 import { memo } from 'react';
-import OrderStatus from './OrderStatus';
-import { OrderStatusType } from '../types';
 
 const Container = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 25px 20px;
   gap: 20px;
 `;
 
-const OrderStatusList = styled.div`
+const OrderStatusList = styled(Link)`
+  text-decoration: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+  background: #f1f1f1;
+  border-radius: 16px;
 `;
+
+const OrderStatusIndicator = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 4px;
+  color: black;
+`;
+
+const orderStatusToHumanReadable = (status: OrderStatus) => {
+  switch (status) {
+    case OrderStatus.PAYMENT:
+      return '결제';
+    case OrderStatus.PREPARE:
+      return '준비중';
+    case OrderStatus.SENT:
+      return '배송중';
+    case OrderStatus.DONE:
+      return '배송완료';
+    default:
+      throw new Error('Invalid OrderStatus');
+  }
+};
 
 const OrderDashboard = () => {
   return (
     <Container>
       <h3 css={{ margin: 0 }}>주문내역</h3>
-      <OrderStatusList>
-        {Object.entries(OrderStatusType).map(([key, value], index) => (
-          <OrderStatus
-            key={key}
-            count={0}
-            status={value}
-            href={`/my/order?status=${index}`}
-          />
+      <OrderStatusList href="/orderList">
+        {Object.keys(OrderStatus).map((status) => (
+          <OrderStatusIndicator key={status}>
+            <h1 css={{ margin: 0 }}>{0}</h1>
+            <span css={{ fontSize: '14px' }}>
+              {orderStatusToHumanReadable(status as unknown as OrderStatus)}
+            </span>
+          </OrderStatusIndicator>
         ))}
       </OrderStatusList>
     </Container>

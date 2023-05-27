@@ -5,7 +5,6 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 25px 20px;
 `;
 
 interface Props {
