@@ -1,6 +1,6 @@
 import { withAuth } from '@/common/hocs';
 import { useUser } from '@/common/hooks';
-import { Spacing } from '@boxfox/bds-web';
+import { Spacing } from '@boxfoxs/bds-web';
 import Container from '@/common/components/layout/Container';
 import { AppBar } from '@/common/components';
 import Section from '@/common/components/layout/Section';

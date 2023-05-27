@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
-import { commaizeNumber } from '@boxfox/utils';
+import { commaizeNumber } from '@boxfoxs/utils';
 import { sum } from 'lodash';
 
 import WineListItem from '@cart/components/WineListItem';
