@@ -23,10 +23,10 @@ class MemoStorage implements Storage {
 }
 class LocalStorage implements Storage {
   public static canUse(): boolean {
-    const TEST_KEY = "LOCAL_STORAGE_TEST_KEY";
+    const TEST_KEY = 'LOCAL_STORAGE_TEST_KEY';
 
     try {
-      localStorage.setItem(TEST_KEY, "test");
+      localStorage.setItem(TEST_KEY, 'test');
       localStorage.removeItem(TEST_KEY);
       return true;
     } catch (err) {
@@ -48,10 +48,10 @@ class LocalStorage implements Storage {
 }
 class SessionStorage implements Storage {
   public static canUse(): boolean {
-    const TEST_KEY = "SESSION_STORAGE_TEST_KEY";
+    const TEST_KEY = 'SESSION_STORAGE_TEST_KEY';
 
     try {
-      sessionStorage.setItem(TEST_KEY, "test");
+      sessionStorage.setItem(TEST_KEY, 'test');
       sessionStorage.removeItem(TEST_KEY);
       return true;
     } catch (err) {

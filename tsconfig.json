@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -12,19 +16,24 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-
     "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
-
     "incremental": true,
     "paths": {
       "@/*": ["./src/*"],
       "@common/*": ["./src/common/*"],
       "@my/*": ["./src/my/*"],
       "@order/*": ["./src/order/*"],
-      "@newAddress/*": ["./src/newAddress/*"]
+      "@newAddress/*": ["./src/newAddress/*"],
+      "@auth/*": ["./src/auth/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -12,7 +12,7 @@ const Menu = styled(Link)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 20px;
+  padding: 16px 0;
 `;
 
 interface Props {
@@ -22,7 +22,7 @@ interface Props {
   }[];
 }
 
-function MenuList({ menus }: Props) {
+const MenuList = ({ menus }: Props) => {
   return (
     <Container>
       {menus.map(({ label, to }) => (
@@ -33,6 +33,6 @@ function MenuList({ menus }: Props) {
       ))}
     </Container>
   );
-}
+};
 
 export default memo(MenuList);
