@@ -7,6 +7,7 @@ export async function fetchCurrentUser() {
     // const res = await requester.get<User>('/auth/me');
     // return res.data;
     return dummyUser;
+    // return undefined;
   } catch (e) {
     assertAxiosError(e);
     if (e.response?.status === 401) {

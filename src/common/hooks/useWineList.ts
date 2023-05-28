@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { WineInfo } from '@/components/home/WineCard';
+import { type WineInfo } from '@/components/home/WineCard';
 import hero from '../../../public/assets/hero.jpg';
 
 export function useWineList({ category }: { category: string }) {

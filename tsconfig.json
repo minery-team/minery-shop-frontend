@@ -19,8 +19,7 @@
     "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
     "incremental": true,
-    "paths": {
-      "@/*": [
+    "paths": {"@/*": [
         "./src/*"
       ],
       "@common/*": [
@@ -31,6 +30,9 @@
       ],
       "@auth/*": [
         "./src/auth/*"
+      ],
+      "@orderList/*": [
+        "./src/orderList/*"
       ]
     }
   },
