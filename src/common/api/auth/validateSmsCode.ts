@@ -11,9 +11,6 @@ export async function validateSmsCode(phoneNumber: string, code: string) {
         code,
       }
     );
-
-    console.log(res.data.access_token);
-
     await setAccessToken(res.data.access_token);
   } catch (e) {
     assertAxiosError(e);

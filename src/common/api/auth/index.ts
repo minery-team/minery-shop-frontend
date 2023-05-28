@@ -3,4 +3,4 @@ export * from './validateSmsCode';
 export * from './updateName';
 export * from './fetchCurrentUser';
 export * from './authWithKakao';
-export * from './findUser';
+export * from './checkUserExist';
