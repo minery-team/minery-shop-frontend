@@ -30,6 +30,9 @@
       ],
       "@auth/*": [
         "./src/auth/*"
+      ],
+      "@orderList/*": [
+        "./src/orderList/*"
       ]
     }
   },
