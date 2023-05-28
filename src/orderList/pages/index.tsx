@@ -1,5 +1,4 @@
-import { AppBar } from '@/common/components';
-import Container from '@/common/components/layout/Container';
+import { AppBar, Container } from '@/common/components';
 import styled from '@emotion/styled';
 import { colors } from '@/common/constants';
 import useOrders, { OrderStatusForFilter } from '@/common/hooks/useOrders';

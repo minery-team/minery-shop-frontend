@@ -1,10 +1,12 @@
 import { withAuth } from '@/common/hocs';
 import { useUser } from '@/common/hooks';
 import { Spacing } from '@boxfoxs/bds-web';
-import Container from '@/common/components/layout/Container';
-import { AppBar } from '@/common/components';
-import Section from '@/common/components/layout/Section';
-import SectionDivider from '@/common/components/layout/SectionDivider';
+import {
+  Container,
+  Section,
+  SectionDivider,
+  AppBar,
+} from '@/common/components';
 import { Profile, MenuList, OrderDashboard } from '../components';
 
 const MyPage = () => {
