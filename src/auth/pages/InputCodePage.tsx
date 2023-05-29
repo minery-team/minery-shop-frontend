@@ -6,7 +6,7 @@ import { useAsyncCallback, useBooleanState } from '@boxfoxs/core-hooks';
 import { useInputState } from '@boxfoxs/core-hooks-dom';
 import { QS } from '@boxfoxs/next';
 import Router from 'next/router';
-import { redirectAfterAuth } from '../utils/redirectAfterauth';
+import { redirectAfterAuth } from '../utils/redirectAfterAuth';
 
 export default function InputCodePage() {
   const phone = QS.get('phone');

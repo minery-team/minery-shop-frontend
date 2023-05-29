@@ -1,5 +1,5 @@
 import { useUser } from '@/common/hooks';
-import { redirectAfterAuth } from '../utils/redirectAfterauth';
+import { redirectAfterAuth } from '../utils/redirectAfterAuth';
 import InputPhonePage from './InputPhonePage';
 
 export default function AuthPage() {
@@ -7,6 +7,7 @@ export default function AuthPage() {
 
   if (user) {
     redirectAfterAuth();
+    return null;
   }
 
   return <InputPhonePage />;

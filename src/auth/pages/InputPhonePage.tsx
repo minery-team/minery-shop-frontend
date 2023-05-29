@@ -8,7 +8,7 @@ import { useAsyncCallback } from '@boxfoxs/core-hooks';
 import { useInputState } from '@boxfoxs/core-hooks-dom';
 import { QS } from '@boxfoxs/next';
 import Router from 'next/router';
-import { redirectAfterAuth } from '../utils/redirectAfterauth';
+import { redirectAfterAuth } from '../utils/redirectAfterAuth';
 
 export default function InputPhonePage() {
   const [, reload] = useUser();
