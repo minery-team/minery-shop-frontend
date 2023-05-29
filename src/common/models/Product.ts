@@ -1,3 +1,5 @@
+import { Wine } from './Wine';
+
 export interface Product {
   id: number;
   name: string;
@@ -10,6 +12,7 @@ export interface Product {
   options: ProductOption[];
   images: string[];
   order?: number;
+  wine: Wine;
 }
 
 export interface ProductOption {
