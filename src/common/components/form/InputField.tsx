@@ -1,5 +1,5 @@
 import { colors } from '@/common/constants';
-import { useTextStyle } from '@boxfoxs/bds-web';
+import { Flex, useTextStyle } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import React, {
   CSSProperties,
@@ -20,15 +20,18 @@ export const InputField = React.forwardRef(function InputField(
 ) {
   const textStyle = useTextStyle({ size: 'xl' });
   return (
-    <Container>
+    <Container style={containerStyle}>
       {label && <Label>{label}</Label>}
       <StyledInput {...props} ref={ref} style={{ ...textStyle, ...style }} />
-      {right}
+      {right && <RightContainer>{right}</RightContainer>}
     </Container>
   );
 });
 
-const Container = styled.div``;
+const Container = styled.div`
+  position: relative;
+  width: 100%;
+`;
 
 const Label = styled.label`
   color: ${colors.gray600};
@@ -49,4 +52,11 @@ const StyledInput = styled.input`
   &::placeholder {
     color: ${colors.gray400};
   }
+`;
+
+const RightContainer = styled(Flex.Center)`
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
 `;

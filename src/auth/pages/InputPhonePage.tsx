@@ -36,7 +36,7 @@ export default function InputPhonePage() {
     <Container>
       <AppBar back />
       <Section>
-        <Text size="2xl" weight="semibold" color={colors.gray900}>
+        <Text size="xxl" weight="semibold" color={colors.gray900}>
           우선, 휴대폰 번호를 알려주세요
         </Text>
         <Spacing height={6} />

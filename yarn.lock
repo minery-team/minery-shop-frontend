@@ -84,10 +84,10 @@
   resolved "https://registry.yarnpkg.com/@boxfoxs/bds-common/-/bds-common-0.0.18.tgz#11c79d95eaa963dca6a8f38000fd6261f4997740"
   integrity sha512-tHI2Mu7RX3+n1m48BEsOxaiFAR8ovhGqNYO0ytK5B5bfeHdp6eNbOfWb4iRGpNhrcBPusLN5pnqEQbjBEoCINQ==
 
-"@boxfoxs/bds-web@^0.0.86":
-  version "0.0.86"
-  resolved "https://registry.yarnpkg.com/@boxfoxs/bds-web/-/bds-web-0.0.86.tgz#1a20365816540443d8df9899bc745ddf0407ac3a"
-  integrity sha512-q63GxtOCFWGBXZwU+venQ6FENjAtNdWn7OZ08L80/vCEsyi9BGzuPOYengIOyve5VIK/S3xkkMuNRXOpd6n+Qg==
+"@boxfoxs/bds-web@^0.0.89":
+  version "0.0.89"
+  resolved "https://registry.yarnpkg.com/@boxfoxs/bds-web/-/bds-web-0.0.89.tgz#38e1f2d51c320485cd83b85aa82059cb1802f12d"
+  integrity sha512-H55sM83+2aSrKCxPpCIvtoBmqbeCtKRETQJ1MSUkWACLoGfQ0gyRKaF+lfzpF4oi/dmkoJ969rNB3btUPiF4fg==
   dependencies:
     "@heroicons/react" "^1.0.6"
     clsx "^1.1.1"
