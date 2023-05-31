@@ -25,6 +25,7 @@ export function WineCard({
   onClick: () => void;
 }) {
   return (
+    // FIXME: eslint 에러제거 필요
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
     <article
       onClick={onClick}

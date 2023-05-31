@@ -12,7 +12,7 @@ import styled from '@emotion/styled';
 import logo from '../../../public/assets/logo.svg';
 import profile from '../../../public/assets/profile.svg';
 import basket from '../../../public/assets/basket.svg';
-import hero from '../../../public/assets/hero.jpg';
+import hero from '../../../public/assets/hero.png';
 import down from '../../../public/assets/down.svg';
 import up from '../../../public/assets/up.svg';
 
@@ -21,6 +21,7 @@ type TagKey = 'popular' | 'red' | 'white' | 'etc';
 export type TagInfo = {
   key: TagKey;
   text: string;
+  spotColor: string;
 };
 
 export function Home() {
@@ -28,14 +29,17 @@ export function Home() {
     {
       key: 'red',
       text: '레드',
+      spotColor: ' #A10000',
     },
     {
       key: 'white',
       text: '화이트',
+      spotColor: '#F3F0E8',
     },
     {
       key: 'etc',
       text: '기타',
+      spotColor: '#CCCCCC',
     },
   ];
 
@@ -101,12 +105,14 @@ export function Home() {
       </nav>
       <section
         css={css({
-          width: '375px',
+          width: '100%',
           height: '540px',
           position: 'relative',
+          display: 'flex',
+          justifyContent: 'center',
         })}
       >
-        <Image src={hero} width={375} height={540} alt="hero" />
+        <Image src={hero} fill alt="" />
         <ScrollMainButton
           type="button"
           onClick={() => {
@@ -151,6 +157,7 @@ export function Home() {
             <Tag
               onClick={() => handleTagClick(tag.key)}
               text={tag.text}
+              spotColor={tag.spotColor}
               key={tag.key}
             />
           );
@@ -159,18 +166,24 @@ export function Home() {
       <Space bottom="6px" />
       <WineList category={category} />
       <Space bottom="32px" />
-      <ScrollTopButton
-        type="button"
-        onClick={() => {
-          handleScroll('top');
-        }}
+      <div
+        css={css`
+          padding: 0 20px;
+        `}
       >
-        <Image src={up} width={16} height={16} alt="" />
-        <Space left="8px" />
-        <Text size="lg" weight="bold" color={colors.defaultBlack}>
-          맨 위로
-        </Text>
-      </ScrollTopButton>
+        <ScrollTopButton
+          type="button"
+          onClick={() => {
+            handleScroll('top');
+          }}
+        >
+          <Image src={up} width={16} height={16} alt="" />
+          <Space left="8px" />
+          <Text size="lg" weight="bold" color={colors.defaultBlack}>
+            맨 위로
+          </Text>
+        </ScrollTopButton>
+      </div>
     </main>
   );
 }
@@ -196,6 +209,7 @@ const TagBox = styled.section`
   align-items: center;
   gap: 6px;
   height: 56px;
+  padding: 0 20px;
 `;
 
 const ScrollTopButton = styled.button`

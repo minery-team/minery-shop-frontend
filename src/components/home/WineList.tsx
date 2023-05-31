@@ -9,6 +9,19 @@ export function WineList({ category }: { category: string }) {
     console.log('상세페이지로 이동');
   };
 
+  // FIXME: 스켈레톤 사용하면 좋을듯싶어 임시 대응하였습니다.
+  if (isLoading) {
+    return (
+      <div
+        css={css`
+          height: 500px;
+        `}
+      >
+        is loading...
+      </div>
+    );
+  }
+
   return (
     <section
       css={css({
