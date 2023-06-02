@@ -9,7 +9,8 @@ import { useRef, useState } from 'react';
 import { Space } from '@/common/components';
 import { WineList } from '@/components/home/WineList';
 import styled from '@emotion/styled';
-import logo from '../../../public/assets/logo.svg';
+import { Footer } from '@/common/components/footer';
+import logo from '../../../public/assets/text_logo.svg';
 import profile from '../../../public/assets/profile.svg';
 import basket from '../../../public/assets/basket.svg';
 import hero from '../../../public/assets/hero.png';
@@ -168,7 +169,8 @@ export function Home() {
       <Space bottom="32px" />
       <div
         css={css`
-          padding: 0 20px;
+          display: flex;
+          justify-content: center;
         `}
       >
         <ScrollTopButton
@@ -179,11 +181,13 @@ export function Home() {
         >
           <Image src={up} width={16} height={16} alt="" />
           <Space left="8px" />
-          <Text size="lg" weight="bold" color={colors.defaultBlack}>
+          <Text size="lg" weight="medium" color={colors.defaultBlack}>
             맨 위로
           </Text>
         </ScrollTopButton>
       </div>
+      <Space bottom="32px" />
+      <Footer />
     </main>
   );
 }
