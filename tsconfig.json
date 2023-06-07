@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,29 +15,15 @@
     "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
     "incremental": true,
-    "paths": {"@/*": [
-        "./src/*"
-      ],
-      "@common/*": [
-        "./src/common/*"
-      ],
-      "@my/*": [
-        "./src/my/*"
-      ],
-      "@auth/*": [
-        "./src/auth/*"
-      ],
-      "@orderList/*": [
-        "./src/orderList/*"
-      ]
+    "paths": {
+      "@/*": ["./src/*"],
+      "@common/*": ["./src/common/*"],
+      "@my/*": ["./src/my/*"],
+      "@auth/*": ["./src/auth/*"],
+      "@orderList/*": ["./src/orderList/*"],
+      "@cart*": ["./src/cart/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
