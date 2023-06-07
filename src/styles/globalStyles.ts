@@ -8,8 +8,16 @@ const globalStyles = css`
   }
 
   body {
+    width: 100%;
+    height: 100%;
     background-color: white;
     color: black;
+  }
+
+  #__next,
+  main {
+    width: 100%;
+    height: 100%;
   }
 `;
 
