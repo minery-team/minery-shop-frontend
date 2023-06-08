@@ -83,9 +83,9 @@ AppBar.Title = (props: ComponentProps<typeof Text>) => {
     <TitleContainer>
       <Text
         style={{
-          fontWeight: 700,
-          fontSize: '18px',
-          lineHeight: '18px',
+          fontWeight: 600,
+          fontSize: '16px',
+          lineHeight: '20.8px',
           textAlign: 'center',
         }}
         {...props}
