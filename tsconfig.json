@@ -19,21 +19,14 @@
     "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
     "incremental": true,
-    "paths": {"@/*": [
-        "./src/*"
-      ],
-      "@common/*": [
-        "./src/common/*"
-      ],
-      "@my/*": [
-        "./src/my/*"
-      ],
-      "@auth/*": [
-        "./src/auth/*"
-      ],
-      "@orderList/*": [
-        "./src/orderList/*"
-      ]
+    "paths": {
+      "@/*": ["./src/*"],
+      "@common/*": ["./src/common/*"],
+      "@my/*": ["./src/my/*"],
+      "@order/*": ["./src/order/*"],
+      "@newAddress/*": ["./src/newAddress/*"],
+      "@auth/*": ["./src/auth/*"],
+      "@orderList/*": ["./src/orderList/*"]
     }
   },
   "include": [
