@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import Image from 'next/image';
 import styled from '@emotion/styled';
 import { Spacing, Text, Divider } from '@boxfoxs/bds-web';
 import { commaizeNumber } from '@boxfoxs/utils';
 
+import DeleteProduct from '@cart/containers/DeleteProduct';
 import { useCartList } from '@/common/hooks/queries/useCartList';
+import Modal from '@/common/components/modal/Modal';
 import { updateAmount, deleteFromCart } from '@/common/api/cart';
 import { CartItem } from '@/common/models';
 import { colors } from '@/common/constants';
@@ -20,6 +23,7 @@ export default function WineListItem({
   setSelectItem: (bool: boolean) => void;
 }) {
   const [cartList, refetch] = useCartList();
+  const [showModal, setShowModal] = useState(false);
 
   const plusWine = () => {
     updateAmount(item.id, item.amount + 1);
@@ -36,6 +40,7 @@ export default function WineListItem({
   const deleteWine = () => {
     deleteFromCart(item.id);
     refetch();
+    setShowModal(false);
   };
 
   return (
@@ -123,7 +128,7 @@ export default function WineListItem({
           alt="close"
           width={16}
           height={16}
-          onClick={deleteWine}
+          onClick={() => setShowModal(true)}
           style={{ marginLeft: '12px' }}
         />
       </Wrapper>
@@ -134,6 +139,12 @@ export default function WineListItem({
           style={{ marginLeft: '20px' }}
         />
       )}
+      <Modal show={showModal} onClose={() => setShowModal(false)}>
+        <DeleteProduct
+          onConfirm={deleteWine}
+          onClose={() => setShowModal(false)}
+        />
+      </Modal>
     </>
   );
 }
