@@ -7,7 +7,10 @@ import { sum } from 'lodash';
 import WineList from '@cart/pages/wineList';
 import NoWineList from '@cart/pages/noWineList';
 import Payment from '@cart/pages/payment';
+import MaxPricePopUp from '@cart/containers/MaxPricePopUp';
+import AdultCertGuidePopUp from '@cart/containers/AdultCertGuidePopUp';
 import { AppBar } from '@/common/components';
+import Modal from '@/common/components/modal/Modal';
 import { useCartList } from '@/common/hooks/queries/useCartList';
 import { colors } from '@/common/constants';
 
@@ -15,6 +18,7 @@ export default function CartPage() {
   const router = useRouter();
   const [cartList, refetch] = useCartList();
   const [hasSelectedItem, setHasSelectedItem] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const totalPrice = useMemo(() => {
     if (cartList && cartList.length > 0)
@@ -26,6 +30,12 @@ export default function CartPage() {
     if (hasSelectedItem) return '323,400원 주문하기';
     return '상품을 선택해주세요';
   }, [hasSelectedItem]);
+
+  const selectPopUp = () => {
+    if (totalPrice > 5000000)
+      return <MaxPricePopUp setPopUpState={setShowModal} />;
+    return <AdultCertGuidePopUp setPopUpState={setShowModal} />;
+  };
 
   return (
     <Container>
@@ -47,11 +57,19 @@ export default function CartPage() {
           않습니다.
         </Text>
       </WarningText>
-      <OrderButton isItemSelected={hasSelectedItem}>
+      <OrderButton
+        isItemSelected={hasSelectedItem}
+        onClick={() => {
+          if (hasSelectedItem) setShowModal(true);
+        }}
+      >
         <Text size="xl" weight="semibold" color={colors.defaultWhite}>
           {buttonText}
         </Text>
       </OrderButton>
+      <Modal show={showModal} onClose={() => setShowModal(false)}>
+        {selectPopUp()}
+      </Modal>
     </Container>
   );
 }
