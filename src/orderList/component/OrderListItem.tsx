@@ -1,4 +1,4 @@
-import ContentCard from '@/common/components/layout/ContentCard';
+import { ContentCard } from '@/common/components/layout/ContentCard';
 import { colors } from '@/common/constants';
 import {
   Order,
