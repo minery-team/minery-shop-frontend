@@ -5,6 +5,7 @@ import { AxiosProvider, FontProvider } from '@common/context';
 import { Global } from '@emotion/react';
 import type { AppProps } from 'next/app';
 import { StrictMode, useRef } from 'react';
+import { ReactChannelIO } from 'react-channel-plugin';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
 
@@ -68,9 +69,11 @@ export default function App({ Component, pageProps }: AppProps) {
               <PopupProvider>
                 <AxiosProvider>
                   <FontProvider>
-                    <main className={Pretendard.className}>
-                      <Component {...pageProps} />
-                    </main>
+                    <ReactChannelIO
+                      pluginKey={process.env.NEXT_PUBLIC_CHANNEL_TALK_KEY!}
+                      language="ko"
+                      autoBoot
+                    ></ReactChannelIO>
                   </FontProvider>
                 </AxiosProvider>
               </PopupProvider>
