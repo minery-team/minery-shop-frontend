@@ -25,7 +25,8 @@
       "@my/*": ["./src/my/*"],
       "@order/*": ["./src/order/*"],
       "@newAddress/*": ["./src/newAddress/*"],
-      "@auth/*": ["./src/auth/*"]
+      "@auth/*": ["./src/auth/*"],
+      "@orderList/*": ["./src/orderList/*"]
     }
   },
   "include": [

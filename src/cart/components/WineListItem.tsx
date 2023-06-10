@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styled from '@emotion/styled';
 import { Icon } from '@iconify/react';
-import { commaizeNumber } from '@boxfox/utils';
+import { commaizeNumber } from '@boxfoxs/utils';
 
 import { useCartList } from '@/common/hooks/queries/useCartList';
 import { updateAmount, deleteFromCart } from '@/common/api/cart';

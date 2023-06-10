@@ -77,7 +77,8 @@ export const AppBar = ({
   );
 };
 
-AppBar.Title = (props: ComponentProps<typeof Text>) => {
+// TODO: 정확한 Center 정렬로 수정
+AppBar.Title = function AppBarTitle(props: ComponentProps<typeof Text>) {
   return (
     <TitleContainer>
       <Text
@@ -85,6 +86,7 @@ AppBar.Title = (props: ComponentProps<typeof Text>) => {
           fontWeight: 700,
           fontSize: '18px',
           lineHeight: '18px',
+          textAlign: 'center',
         }}
         {...props}
       />
