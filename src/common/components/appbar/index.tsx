@@ -78,7 +78,7 @@ export const AppBar = ({
 };
 
 // TODO: 정확한 Center 정렬로 수정
-AppBar.Title = (props: ComponentProps<typeof Text>) => {
+AppBar.Title = function AppBarTitle(props: ComponentProps<typeof Text>) {
   return (
     <TitleContainer>
       <Text

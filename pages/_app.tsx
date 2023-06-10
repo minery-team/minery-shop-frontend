@@ -1,12 +1,12 @@
 import '../styles/global.css';
 
-import type { AppProps } from 'next/app';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { StrictMode, useRef } from 'react';
-import { RecoilRoot } from 'recoil';
+import { globalStyles } from '@/styles';
 import { AxiosProvider, FontProvider } from '@common/context';
 import { Global } from '@emotion/react';
-import { globalStyles } from '@/styles';
+import type { AppProps } from 'next/app';
+import { StrictMode, useRef } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { RecoilRoot } from 'recoil';
 
 import { LoggerRoot } from '@/common/components';
 import { PopupProvider, PortalProvider } from '@boxfoxs/bds-web';
