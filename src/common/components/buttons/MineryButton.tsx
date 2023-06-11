@@ -1,11 +1,11 @@
-import { MTextSize, colors } from '@/common/constants';
+import { MTextSize, colors } from 'common/constants';
 import {
   Spacing,
   TextStyleProps,
   UrlLottie,
   useTextStyle,
 } from '@boxfoxs/bds-web';
-import { coerceCssPixelValue } from '@common/utils/coerceCssPixelValue';
+import { coerceCssPixelValue } from 'common/utils/coerceCssPixelValue';
 import styled from '@emotion/styled';
 import {
   AllHTMLAttributes,

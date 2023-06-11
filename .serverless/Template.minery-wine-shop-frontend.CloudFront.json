@@ -1,0 +1,133 @@
+{
+  "id": "E3UEKP0PSVMGFD",
+  "arn": "arn:aws:cloudfront::917306879000:distribution/E3UEKP0PSVMGFD",
+  "url": "https://d368ewov7ts4oc.cloudfront.net",
+  "region": "us-east-1",
+  "enabled": true,
+  "comment": "",
+  "priceClass": "PriceClass_All",
+  "origins": [
+    {
+      "url": "http://minery-wine-shop-frontend-live.s3.ap-northeast-2.amazonaws.com",
+      "private": true,
+      "pathPatterns": {
+        "_next/static/*": {
+          "minTTL": 0,
+          "defaultTTL": 86400,
+          "maxTTL": 31536000,
+          "forward": {
+            "headers": "none",
+            "cookies": "none",
+            "queryString": false
+          }
+        },
+        "static/*": {
+          "minTTL": 0,
+          "defaultTTL": 86400,
+          "maxTTL": 31536000,
+          "forward": {
+            "headers": "none",
+            "cookies": "none",
+            "queryString": false
+          }
+        },
+        "api/*": {
+          "minTTL": 0,
+          "defaultTTL": 0,
+          "maxTTL": 31536000,
+          "allowedHttpMethods": [
+            "HEAD",
+            "DELETE",
+            "POST",
+            "GET",
+            "OPTIONS",
+            "PUT",
+            "PATCH"
+          ],
+          "forward": {
+            "headers": [
+              "Authorization",
+              "Host"
+            ],
+            "cookies": "all",
+            "queryString": true
+          },
+          "lambda@edge": {
+            "origin-request": "arn:aws:lambda:us-east-1:917306879000:function:yy81ksi-16vw9uq:1"
+          }
+        },
+        "_next/image*": {
+          "minTTL": 0,
+          "defaultTTL": 60,
+          "maxTTL": 31536000,
+          "allowedHttpMethods": [
+            "HEAD",
+            "DELETE",
+            "POST",
+            "GET",
+            "OPTIONS",
+            "PUT",
+            "PATCH"
+          ],
+          "forward": {
+            "headers": [
+              "Accept"
+            ]
+          },
+          "lambda@edge": {
+            "origin-request": "arn:aws:lambda:us-east-1:917306879000:function:yy81ksi-dd5s4zm:1"
+          }
+        },
+        "_next/data/*": {
+          "minTTL": 0,
+          "defaultTTL": 0,
+          "maxTTL": 31536000,
+          "allowedHttpMethods": [
+            "HEAD",
+            "GET"
+          ],
+          "forward": {
+            "cookies": "all",
+            "headers": [
+              "Authorization",
+              "Host"
+            ],
+            "queryString": true
+          },
+          "lambda@edge": {
+            "origin-request": "arn:aws:lambda:us-east-1:917306879000:function:minery-wine-shop-frontend-live:1",
+            "origin-response": "arn:aws:lambda:us-east-1:917306879000:function:minery-wine-shop-frontend-live:1"
+          }
+        }
+      }
+    }
+  ],
+  "errorPages": [],
+  "defaults": {
+    "minTTL": 0,
+    "defaultTTL": 0,
+    "maxTTL": 31536000,
+    "forward": {
+      "headers": [
+        "Authorization",
+        "Host"
+      ],
+      "cookies": "all",
+      "queryString": true
+    },
+    "allowedHttpMethods": [
+      "HEAD",
+      "DELETE",
+      "POST",
+      "GET",
+      "OPTIONS",
+      "PUT",
+      "PATCH"
+    ],
+    "lambda@edge": {
+      "origin-request": "arn:aws:lambda:us-east-1:917306879000:function:minery-wine-shop-frontend-live:1",
+      "origin-response": "arn:aws:lambda:us-east-1:917306879000:function:minery-wine-shop-frontend-live:1"
+    },
+    "compress": true
+  }
+}

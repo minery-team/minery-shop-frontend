@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import { Spacing } from '@boxfoxs/bds-web';
-import { pressableStyle } from '@common/utils/pressableStyle';
+import { pressableStyle } from 'common/utils/pressableStyle';
 import Link from 'next/link';
 import logo from '../../../public/assets/text_logo.svg';
 import profile from '../../../public/assets/profile.svg';

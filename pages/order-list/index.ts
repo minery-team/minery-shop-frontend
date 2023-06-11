@@ -1,1 +1,1 @@
-export { default } from '@orderList/pages/index';
+export { default } from 'orderList/pages/index';

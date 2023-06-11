@@ -3,9 +3,9 @@ import Image from 'next/image';
 import styled from '@emotion/styled';
 import { Divider, Text } from '@boxfoxs/bds-web';
 
-import WineListItem from '@cart/components/WineListItem';
-import { CartItem } from '@common/models';
-import { colors } from '@common/constants';
+import WineListItem from 'cart/components/WineListItem';
+import { CartItem } from 'common/models';
+import { colors } from 'common/constants';
 
 export default function WineList({
   wineList,

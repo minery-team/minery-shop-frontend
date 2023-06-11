@@ -1,7 +1,7 @@
 import { Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import { colors } from '@common/constants';
+import { colors } from 'common/constants';
 
 export function PaymentInfo() {
   return (

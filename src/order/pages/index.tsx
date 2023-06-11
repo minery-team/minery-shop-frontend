@@ -3,8 +3,8 @@ import { Icon } from '@iconify/react';
 import { useRouter } from 'next/router';
 import { useCallback, useMemo } from 'react';
 
-import { useModal } from '@common/components';
-import { useCartList } from '@common/hooks/queries';
+import { useModal } from 'common/components';
+import { useCartList } from 'common/hooks/queries';
 import { sumBy } from 'lodash';
 import { AddressList } from '../components/AddressList';
 import { WineInfoCard } from '../components/WineIinfoCart';
@@ -41,9 +41,9 @@ export default function OrderPage() {
           <div>주문하기</div>
         </Wrapper>
       </TopNavigator>
-      <UserInfo onAddressClick={openAddressListModal} />
+      {/* <UserInfo onAddressClick={openAddressListModal} />
       <WineInfoCard wineList={cartList ?? []} />
-      <PaymentInfo totalPayment={totalPayment} />
+      <PaymentInfo totalPayment={totalPayment} /> */}
       <BottomNavigator
         onClick={() => {
           // TODO 토스 페이먼츠 연동

@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { Icon } from '@iconify/react';
-import Link from 'next/link';
 import { memo } from 'react';
 
 const Container = styled.nav`
@@ -8,11 +7,12 @@ const Container = styled.nav`
   flex-direction: column;
 `;
 
-const Menu = styled(Link)`
+const Menu = styled.a`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 0;
+  text-decoration: none;
 `;
 
 export interface MenuItem {

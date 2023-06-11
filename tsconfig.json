@@ -15,16 +15,16 @@
     "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
     "incremental": true,
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["./src/*"],
-      "@common/*": ["./src/common/*"],
-      "@my/*": ["./src/my/*"],
-      "@auth/*": ["./src/auth/*"],
-      "@orderList/*": ["./src/orderList/*"],
-      "@cart*": ["./src/cart/*"],
-      "@order/*": ["./src/order/*"],
-      "@address/*": ["./src/address/*"],
-      "@home/*": ["./src/home/*"]
+      "common": ["./src/common/*"],
+      "my": ["./src/my/*"],
+      "auth": ["./src/auth/*"],
+      "orderList": ["./src/orderList/*"],
+      "cart": ["./src/cart/*"],
+      "order": ["./src/order/*"],
+      "address": ["./src/address/*"],
+      "home": ["./src/home/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

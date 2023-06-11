@@ -1,8 +1,8 @@
 import { Flex, Spacing, Text } from '@boxfoxs/bds-web';
 import { useAsyncCallback, useBooleanState } from '@boxfoxs/core-hooks';
 import { useInputState } from '@boxfoxs/core-hooks-dom';
-import { QS } from '@boxfoxs/next';
-import { sendSmsCode, validateSmsCode } from '@common/api/auth';
+import { QS, isClient } from '@boxfoxs/next';
+import { sendSmsCode, validateSmsCode } from 'common/api/auth';
 import {
   AppBar,
   Container,
@@ -11,9 +11,9 @@ import {
   MText,
   MineryButton,
   Section,
-} from '@common/components';
-import { colors } from '@common/constants';
-import { useCountdown, useUser } from '@common/hooks';
+} from 'common/components';
+import { colors } from 'common/constants';
+import { useCountdown, useUser } from 'common/hooks';
 import Router from 'next/router';
 import { useRef } from 'react';
 import { redirectAfterAuth } from '../utils/redirectAfterAuth';
@@ -23,7 +23,7 @@ export default function InputCodePage() {
   const [, reloadUser] = useUser();
   const [code, onCodeChange] = useInputState();
   const [isError, setError, clearError] = useBooleanState();
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(null);
   const countdown = useCountdown(180);
   const cta = useAsyncCallback(async () => {
     if (!phone) {
@@ -47,7 +47,7 @@ export default function InputCodePage() {
     inputRef.current?.focus();
   };
 
-  if (!phone) {
+  if (!phone && isClient()) {
     Router.replace('/auth');
     return null;
   }

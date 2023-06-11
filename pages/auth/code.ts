@@ -1,1 +1,1 @@
-export { default } from '@auth/pages/InputCodePage';
+export { default } from 'auth/pages/InputCodePage';
