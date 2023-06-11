@@ -1,5 +1,6 @@
 import { checkUserExist, confirmPass, sendSmsCode } from '@/common/api/auth';
 import { AppBar, Container, InputField, Section } from '@/common/components';
+import { colors } from '@/common/constants';
 import { useUser } from '@/common/hooks';
 import { checkValidPhoneNumber, formatPhoneNumber } from '@/common/utils';
 import { IMP } from '@/common/utils/IMP';
@@ -8,7 +9,6 @@ import { useAsyncCallback } from '@boxfoxs/core-hooks';
 import { useInputState } from '@boxfoxs/core-hooks-dom';
 import { QS } from '@boxfoxs/next';
 import Router from 'next/router';
-import { colors } from '@/common/constants';
 import { redirectAfterAuth } from '../utils/redirectAfterAuth';
 
 export default function InputPhonePage() {

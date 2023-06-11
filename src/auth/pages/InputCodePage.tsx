@@ -6,13 +6,13 @@ import {
   MText,
   Section,
 } from '@/common/components';
+import { colors } from '@/common/constants';
 import { useUser } from '@/common/hooks';
 import { Button, FixedBottomCTA, Flex, Spacing, Text } from '@boxfoxs/bds-web';
 import { useAsyncCallback, useBooleanState } from '@boxfoxs/core-hooks';
 import { useInputState } from '@boxfoxs/core-hooks-dom';
 import { QS } from '@boxfoxs/next';
 import Router from 'next/router';
-import { colors } from '@/common/constants';
 import { redirectAfterAuth } from '../utils/redirectAfterAuth';
 
 export default function InputCodePage() {
