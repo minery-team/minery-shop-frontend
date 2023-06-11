@@ -1,4 +1,4 @@
-export const textSizes: Record<string, number> = {
+export const textSizes = {
   base: 14,
   sm: 12,
   lg: 16,
@@ -9,4 +9,6 @@ export const textSizes: Record<string, number> = {
   heading3: 30,
   heading4: 24,
   caption: 10,
-};
+} as const;
+
+export type MTextSize = keyof typeof textSizes;

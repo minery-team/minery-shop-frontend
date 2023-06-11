@@ -21,7 +21,7 @@
       "@my/*": ["./src/my/*"],
       "@auth/*": ["./src/auth/*"],
       "@orderList/*": ["./src/orderList/*"],
-      "@cart*": ["./src/cart/*"]
+      "@cart*": ["./src/cart/*"],
       "@order/*": ["./srcorder/*"],
       "@newAddress/*": ["./src/newAddress/*"]
     }

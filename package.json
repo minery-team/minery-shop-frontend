@@ -11,7 +11,7 @@
   "dependencies": {
     "@boxfoxs/axios": "^0.0.7",
     "@boxfoxs/bds-common": "^0.0.18",
-    "@boxfoxs/bds-web": "^0.0.86",
+    "@boxfoxs/bds-web": "^0.0.89",
     "@boxfoxs/core-hooks": "^1.0.14",
     "@boxfoxs/core-hooks-dom": "^0.0.24",
     "@boxfoxs/logger": "^0.0.22",

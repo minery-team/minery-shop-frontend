@@ -84,10 +84,10 @@
   resolved "https://registry.yarnpkg.com/@boxfoxs/bds-common/-/bds-common-0.0.18.tgz#11c79d95eaa963dca6a8f38000fd6261f4997740"
   integrity sha512-tHI2Mu7RX3+n1m48BEsOxaiFAR8ovhGqNYO0ytK5B5bfeHdp6eNbOfWb4iRGpNhrcBPusLN5pnqEQbjBEoCINQ==
 
-"@boxfoxs/bds-web@^0.0.86":
-  version "0.0.86"
-  resolved "https://registry.yarnpkg.com/@boxfoxs/bds-web/-/bds-web-0.0.86.tgz#1a20365816540443d8df9899bc745ddf0407ac3a"
-  integrity sha512-q63GxtOCFWGBXZwU+venQ6FENjAtNdWn7OZ08L80/vCEsyi9BGzuPOYengIOyve5VIK/S3xkkMuNRXOpd6n+Qg==
+"@boxfoxs/bds-web@^0.0.89":
+  version "0.0.89"
+  resolved "https://registry.yarnpkg.com/@boxfoxs/bds-web/-/bds-web-0.0.89.tgz#38e1f2d51c320485cd83b85aa82059cb1802f12d"
+  integrity sha512-H55sM83+2aSrKCxPpCIvtoBmqbeCtKRETQJ1MSUkWACLoGfQ0gyRKaF+lfzpF4oi/dmkoJ969rNB3btUPiF4fg==
   dependencies:
     "@heroicons/react" "^1.0.6"
     clsx "^1.1.1"
@@ -283,11 +283,6 @@
   version "2.0.18"
   resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.18.tgz#f80301907c243df03c7e9fd76c0286e95361f7c1"
   integrity sha512-7TyMjRrZZMBPa+/5Y8lN0iyvUU/01PeMGX2+RE7cQWpEUIcb4QotzUObFkJDejj/HUH4qjP/eQ0gzzKs2f+6Yw==
-
-"@heroicons/react@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-1.0.6.tgz#35dd26987228b39ef2316db3b1245c42eb19e324"
-  integrity sha512-JJCXydOFWMDpCP4q13iEplA503MQO3xLoZiKum+955ZCtHINWnx26CUxVxxFQu/uLb4LW3ge15ZpzIkXKkJ8oQ==
 
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
@@ -2546,11 +2541,6 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-daum-postcode@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/react-daum-postcode/-/react-daum-postcode-3.1.1.tgz#8d349a45177cc88cc69e9f94dcc56ebc41a1d420"
-  integrity sha512-IFlC8XBSK+uobSIBHaWlxeecYpv9RhCFNu4YJ3+CrfGyEVdc4+yaaUH6BIfJbTZOybVx0V3s4nUeAEsssXBNJg==
-
 rambda@^7.5.0:
   version "7.5.0"
   resolved "https://registry.yarnpkg.com/rambda/-/rambda-7.5.0.tgz#1865044c59bc0b16f63026c6e5a97e4b1bbe98fe"
@@ -2563,6 +2553,11 @@ react-channel-plugin@^2.2.0:
   dependencies:
     fast-deep-equal "3.1.3"
     tslib "^2.4.0"
+
+react-daum-postcode@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/react-daum-postcode/-/react-daum-postcode-3.1.1.tgz#8d349a45177cc88cc69e9f94dcc56ebc41a1d420"
+  integrity sha512-IFlC8XBSK+uobSIBHaWlxeecYpv9RhCFNu4YJ3+CrfGyEVdc4+yaaUH6BIfJbTZOybVx0V3s4nUeAEsssXBNJg==
 
 react-dom@18.2.0:
   version "18.2.0"
