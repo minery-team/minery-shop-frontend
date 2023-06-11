@@ -23,7 +23,7 @@
       "@orderList/*": ["./src/orderList/*"],
       "@cart*": ["./src/cart/*"],
       "@order/*": ["./srcorder/*"],
-      "@newAddress/*": ["./src/newAddress/*"],
+      "@address/*": ["./src/address/*"],
       "@home/*": ["./src/home/*"]
     }
   },

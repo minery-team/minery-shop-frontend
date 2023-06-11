@@ -35,7 +35,7 @@ export function AddressList() {
       </AddressWrapper>
       <AddAddressButton
         onClick={() => {
-          router.push('/NewAddressPage');
+          router.push('/address/new-address');
         }}
       >
         주소 추가하기
