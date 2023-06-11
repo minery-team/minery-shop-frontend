@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import { useUserQuery } from '@/common/hooks/queries';
 import { colors } from '@/common/constants';
 
-export default function UserInfo() {
+export function UserInfo() {
   const [userInfo] = useUserQuery(0); // TODO userId 변경
   const [isChecked, setIsChecked] = useState(false);
 

@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { Icon } from '@iconify/react';
 import styled from '@emotion/styled';
 
-export default function AddressList() {
+export function AddressList() {
   const router = useRouter();
 
   // TODO address list get API 추가
@@ -35,7 +35,7 @@ export default function AddressList() {
       </AddressWrapper>
       <AddAddressButton
         onClick={() => {
-          router.push('/NewAddressPage');
+          router.push('/address/new-address');
         }}
       >
         주소 추가하기

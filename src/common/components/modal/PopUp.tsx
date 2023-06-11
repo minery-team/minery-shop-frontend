@@ -1,10 +1,11 @@
 import { ReactNode } from 'react';
-import { Text } from '@boxfoxs/bds-web';
+import { Flex, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
 import { colors } from '@/common/constants';
+import { CommonModal } from './Modal';
 
-export default function PopUp({
+export function PopUp({
   type,
   content,
   confirmText = '확인',
@@ -61,10 +62,12 @@ export default function PopUp({
   };
 
   return (
-    <Wrapper>
-      <ContentWrapper>{content}</ContentWrapper>
-      {button()}
-    </Wrapper>
+    <CommonModal onClose={onClose}>
+      <Wrapper>
+        <ContentWrapper>{content}</ContentWrapper>
+        {button()}
+      </Wrapper>
+    </CommonModal>
   );
 }
 

@@ -1,21 +1,19 @@
 import { Text } from '@boxfoxs/bds-web';
 import { css } from '@emotion/react';
-import { Tag } from '@/components/home/Tag';
+import { Tag } from '@/home/components/Tag';
 import Image from 'next/image';
 
 import { colors } from '@/common/constants/colors';
 
 import { useRef, useState } from 'react';
 import { Space } from '@/common/components';
-import { WineList } from '@/components/home/WineList';
 import styled from '@emotion/styled';
 import { Footer } from '@/common/components/footer';
-import logo from '../../../public/assets/text_logo.svg';
-import profile from '../../../public/assets/profile.svg';
-import basket from '../../../public/assets/basket.svg';
+import { WineList } from '../components/WineList';
 import hero from '../../../public/assets/hero.png';
 import down from '../../../public/assets/down.svg';
 import up from '../../../public/assets/up.svg';
+import { Header } from '../components/Header';
 
 type TagKey = 'popular' | 'red' | 'white' | 'etc';
 
@@ -85,25 +83,7 @@ export function Home() {
 
   return (
     <main>
-      <nav
-        css={css({
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '0 20px',
-          height: '56px',
-        })}
-      >
-        <Image src={logo} width={91} height={32} alt="logo" />
-        <div
-          css={css({
-            display: 'flex',
-          })}
-        >
-          <Image src={basket} width={40} height={40} alt="basket" />
-          <Image src={profile} width={40} height={40} alt="profile" />
-        </div>
-      </nav>
+      <Header />
       <section
         css={css({
           width: '100%',

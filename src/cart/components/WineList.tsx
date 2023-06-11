@@ -37,7 +37,7 @@ export default function WineList({
     return wineList.map((item: CartItem, index: number) => {
       return (
         <WineListItem
-          key={`${index}_${item.product.name}`}
+          key={`${item.id}`}
           item={item}
           index={index}
           isSelected={selectedItems[index]}

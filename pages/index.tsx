@@ -1,4 +1,4 @@
-import { Home } from '@/components/home';
+import { Home } from '@/home/pages';
 import Head from 'next/head';
 
 export default function HomePage() {

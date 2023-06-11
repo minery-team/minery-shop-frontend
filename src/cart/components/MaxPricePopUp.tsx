@@ -1,14 +1,11 @@
-import { Text } from '@boxfoxs/bds-web';
+import { Text, usePopup } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import PopUp from '@/common/components/modal/PopUp';
+import { PopUp } from '@/common/components';
 import { colors } from '@/common/constants';
+import { useCallback } from 'react';
 
-export default function MaxPricePopUp({
-  setPopUpState,
-}: {
-  setPopUpState: (bool: boolean) => void;
-}) {
+export function MaxPricePopUp({ onClose }: { onClose: () => void }) {
   return (
     <PopUp
       type="confirm"
@@ -23,9 +20,16 @@ export default function MaxPricePopUp({
           </StyledText>
         </TextWrapper>
       }
-      onConfirm={() => setPopUpState(false)}
+      onConfirm={onClose}
     />
   );
+}
+
+export function useMaxPriceGuide() {
+  const { open, close } = usePopup('max-price-popup');
+  return useCallback(() => {
+    open({ children: <MaxPricePopUp onClose={close} />, onClose: close });
+  }, [open, close]);
 }
 
 const TextWrapper = styled.div`

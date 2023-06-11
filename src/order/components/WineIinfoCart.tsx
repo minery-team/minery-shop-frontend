@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
-import styled from '@emotion/styled';
+import { Divider, Spacing, Text } from '@boxfoxs/bds-web';
 import { commaizeNumber } from '@boxfoxs/utils';
-import { Text, Spacing, Divider } from '@boxfoxs/bds-web';
+import styled from '@emotion/styled';
+import Image from 'next/image';
+import { useState } from 'react';
 
-import { CartItem } from '@/common/models';
 import { colors } from '@/common/constants';
+import { CartItem } from '@/common/models';
 
-export default function WineInfoCard({ wineList }: { wineList: CartItem[] }) {
+export function WineInfoCard({ wineList }: { wineList: CartItem[] }) {
   const [isShowList, setIsShowList] = useState(false);
 
   const renderWineList = () => {

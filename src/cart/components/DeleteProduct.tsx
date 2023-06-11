@@ -1,8 +1,9 @@
-import { Text } from '@boxfoxs/bds-web';
+import { Text, usePopup } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import PopUp from '@/common/components/modal/PopUp';
 import { colors } from '@/common/constants';
+import { useCallback } from 'react';
+import { PopUp } from '@/common/components';
 
 export default function DeleteProduct({
   onConfirm,
@@ -25,6 +26,18 @@ export default function DeleteProduct({
       onClose={onClose}
     />
   );
+}
+
+export function useDeleteProduct() {
+  const { open, close } = usePopup('delete-product-popup');
+  return useCallback(() => {
+    return new Promise<void>((resolve, reject) => {
+      open({
+        children: <DeleteProduct onConfirm={resolve} onClose={reject} />,
+        onClose: reject,
+      });
+    }).finally(close);
+  }, [open, close]);
 }
 
 const TextWrapper = styled.div`
