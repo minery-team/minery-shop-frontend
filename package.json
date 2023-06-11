@@ -18,6 +18,7 @@
     "@boxfoxs/core-hooks-dom": "^0.0.24",
     "@boxfoxs/logger": "^0.0.22",
     "@boxfoxs/next": "^0.0.12",
+    "@boxfoxs/next-seo": "^0.0.14",
     "@boxfoxs/react": "^0.0.7",
     "@boxfoxs/react-query": "^0.0.10",
     "@boxfoxs/react-web": "^0.0.7",

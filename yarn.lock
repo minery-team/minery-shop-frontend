@@ -110,6 +110,11 @@
   dependencies:
     "@boxfoxs/core-hooks" "^1.0.14"
 
+"@boxfoxs/next-seo@^0.0.14":
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/@boxfoxs/next-seo/-/next-seo-0.0.14.tgz#23986db14f1b03fe6907efdcc45759d45c691730"
+  integrity sha512-eQXcnejwZTJw+jZsQP5Jvo3p4TyM+ZSAVCeUODti7MPuHfO7N7S1PMjdzqKy3ycg3NdXT7nCFUj/z9qklwKHow==
+
 "@boxfoxs/next@^0.0.12":
   version "0.0.12"
   resolved "https://registry.yarnpkg.com/@boxfoxs/next/-/next-0.0.12.tgz#325d4600b9800974532debc067a30a42417be438"
