@@ -23,25 +23,25 @@ export type TagInfo = {
   spotColor: string;
 };
 
-export function Home() {
-  const tagList: TagInfo[] = [
-    {
-      key: 'red',
-      text: '레드',
-      spotColor: ' #A10000',
-    },
-    {
-      key: 'white',
-      text: '화이트',
-      spotColor: '#F3F0E8',
-    },
-    {
-      key: 'etc',
-      text: '기타',
-      spotColor: '#CCCCCC',
-    },
-  ];
+const tagList: TagInfo[] = [
+  {
+    key: 'red',
+    text: '레드',
+    spotColor: ' #A10000',
+  },
+  {
+    key: 'white',
+    text: '화이트',
+    spotColor: '#F3F0E8',
+  },
+  {
+    key: 'etc',
+    text: '기타',
+    spotColor: '#CCCCCC',
+  },
+];
 
+export default function Home() {
   const mainTextRef = useRef(null);
 
   const [category, setCategory] = useState<string>('popular');
