@@ -4,7 +4,7 @@ import { ReactNode, useCallback } from 'react';
 
 interface ModalProps {
   children: ReactNode;
-  onClose: () => void;
+  onClose?: () => void;
 }
 
 export function CommonModal({ children, onClose }: ModalProps) {

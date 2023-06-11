@@ -4,7 +4,7 @@ import { globalStyles } from '@/styles';
 import { AxiosProvider, FontProvider } from '@common/context';
 import { Global } from '@emotion/react';
 import type { AppProps } from 'next/app';
-import { StrictMode, useRef } from 'react';
+import { StrictMode } from 'react';
 import { ReactChannelIO } from 'react-channel-plugin';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
@@ -56,15 +56,15 @@ const Pretendard = localFont({
   ],
 });
 
-export default function App({ Component, pageProps }: AppProps) {
-  const queryClient = useRef<QueryClient>(new QueryClient());
+const queryClient = new QueryClient();
 
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <StrictMode>
       <RecoilRoot>
         <Global styles={globalStyles} />
         <LoggerRoot>
-          <QueryClientProvider client={queryClient.current}>
+          <QueryClientProvider client={queryClient}>
             <PortalProvider zIndex={3}>
               <PopupProvider>
                 <AxiosProvider>

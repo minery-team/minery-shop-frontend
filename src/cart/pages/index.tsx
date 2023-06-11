@@ -1,18 +1,19 @@
 import { Divider, Spacing, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
-import { sum, sumBy } from 'lodash';
+import { sumBy } from 'lodash';
 import { useMemo, useState } from 'react';
 
+import EmptyWineList from '@/cart/components/EmptyWineList';
+import WineList from '@/cart/components/WineList';
 import { AppBar } from '@/common/components';
 import { colors } from '@/common/constants';
+import { withAuth } from '@/common/hocs';
 import { useCartList } from '@/common/hooks/queries/useCartList';
-import { useMaxPriceGuide } from '@cart/containers/MaxPricePopUp';
-import EmptyWineList from '@/cart/components/EmptyWineList';
+import { useMaxPriceGuide } from '@cart/components/MaxPricePopUp';
 import Payment from '@cart/pages/payment';
-import WineList from '@/cart/components/WineList';
 import { useAdultCartGuide } from '../components/AdultCertGuidePopUp';
 
-export default function CartPage() {
+export default withAuth(function CartPage() {
   const [cartList, refetch] = useCartList();
   const [hasSelectedItem, setHasSelectedItem] = useState(false);
 
@@ -67,7 +68,7 @@ export default function CartPage() {
       </OrderButton>
     </Container>
   );
-}
+});
 
 const Container = styled.div`
   display: flex;
