@@ -27,4 +27,8 @@ export interface Wine {
   foods: string[];
   importer: string;
   viewCount: number;
+  kinds: {
+    id: string;
+    name: string;
+  }[];
 }

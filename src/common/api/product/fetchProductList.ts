@@ -66,5 +66,11 @@ const dummyWine: Product = {
     ],
     importer: '금양인터내셔날&nbsp;&nbsp;&nbsp;',
     viewCount: 0,
+    kinds: [
+      {
+        id: '6f54fd4e4a20e4984fb0b8a57760dad0',
+        name: '카베르네 소비뇽 (Cabernet Sauvignon)',
+      },
+    ],
   },
 };

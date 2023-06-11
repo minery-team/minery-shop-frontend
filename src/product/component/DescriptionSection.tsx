@@ -10,6 +10,7 @@ import snack_example from '../../../public/assets/snack_example.png';
 import wine_description from '../../../public/assets/wine_description.png';
 
 import WineTasteLevel from './WineTasteLevel';
+import WineKindDescription from './WineKindDescription';
 
 interface Props {
   product: Product;
@@ -167,6 +168,7 @@ const DescriptionSection = ({ product }: Props) => {
           </tr>
         </WineInfoTable>
       </Section>
+      <WineKindDescription product={product} />
       <Spacing height={9} />
       <Section>
         <Text size="xl" weight="semibold">
