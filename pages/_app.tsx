@@ -14,6 +14,8 @@ import { PopupProvider, PortalProvider } from '@boxfoxs/bds-web';
 import '../src/styles/colors.css';
 
 import localFont from 'next/font/local';
+import styled from '@emotion/styled';
+import { colors } from '@/common/constants';
 
 const Pretendard = localFont({
   src: [
@@ -69,9 +71,9 @@ export default function App({ Component, pageProps }: AppProps) {
               <PopupProvider>
                 <AxiosProvider>
                   <FontProvider>
-                    <main className={Pretendard.className}>
+                    <RootContainer className={Pretendard.className}>
                       <Component {...pageProps} />
-                    </main>
+                    </RootContainer>
                     <ReactChannelIO
                       pluginKey={process.env.NEXT_PUBLIC_CHANNEL_TALK_KEY!}
                       language="ko"
@@ -87,3 +89,21 @@ export default function App({ Component, pageProps }: AppProps) {
     </StrictMode>
   );
 }
+
+const RootContainer = styled.main`
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  *::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    display: none;
+  }
+  background: ${colors.defaultWhite};
+  min-height: 100vh;
+  max-width: 500px;
+  overflow-x: hidden;
+`;
