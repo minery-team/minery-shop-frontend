@@ -1,5 +1,5 @@
-import { CartItem } from '@/common/models/Cart';
-import { requester } from '@/common/api/requester';
+import { CartItem } from '@common/models/Cart';
+import { requester } from '@common/api/requester';
 
 export async function fetchCartList() {
   const res = await requester.get<CartItem[]>('/cart');

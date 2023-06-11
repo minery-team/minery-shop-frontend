@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { useWineList } from '@/common/hooks';
+import { useWineList } from '@common/hooks';
 import { WineCard, WineInfo } from './WineCard';
 
 export function WineList({ category }: { category: string }) {

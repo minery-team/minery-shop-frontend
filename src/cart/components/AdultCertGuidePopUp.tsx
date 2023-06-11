@@ -1,8 +1,8 @@
 import { Text, usePopup } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import { colors } from '@/common/constants';
-import { PopUp } from '@/common/components';
+import { colors } from '@common/constants';
+import { PopUp } from '@common/components';
 import { useCallback } from 'react';
 
 export function AdultCertGuidePopUp({ onClose }: { onClose: () => void }) {

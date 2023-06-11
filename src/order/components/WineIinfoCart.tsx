@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import Image from 'next/image';
 import { useState } from 'react';
 
-import { colors } from '@/common/constants';
-import { CartItem } from '@/common/models';
+import { colors } from '@common/constants';
+import { CartItem } from '@common/models';
 
 export function WineInfoCard({ wineList }: { wineList: CartItem[] }) {
   const [isShowList, setIsShowList] = useState(false);

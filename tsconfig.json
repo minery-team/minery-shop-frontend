@@ -22,7 +22,7 @@
       "@auth/*": ["./src/auth/*"],
       "@orderList/*": ["./src/orderList/*"],
       "@cart*": ["./src/cart/*"],
-      "@order/*": ["./srcorder/*"],
+      "@order/*": ["./src/order/*"],
       "@address/*": ["./src/address/*"],
       "@home/*": ["./src/home/*"]
     }

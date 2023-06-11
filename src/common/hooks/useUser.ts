@@ -1,5 +1,5 @@
-import { fetchCurrentUser } from '@/common/api/auth';
-import { User } from '@/common/models';
+import { fetchCurrentUser } from '@common/api/auth';
+import { User } from '@common/models';
 import { UseQueryOptions, useQuery } from 'react-query';
 
 export function useUser(options?: UseQueryOptions<User | undefined>) {
