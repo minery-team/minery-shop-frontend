@@ -15,18 +15,21 @@ const Menu = styled(Link)`
   padding: 16px 0;
 `;
 
+export interface MenuItem {
+  label: string;
+  to: string;
+  onClick?: () => void;
+}
+
 interface Props {
-  menus: {
-    label: string;
-    to: string;
-  }[];
+  menus: MenuItem[];
 }
 
 const MenuList = ({ menus }: Props) => {
   return (
     <Container>
-      {menus.map(({ label, to }) => (
-        <Menu aria-label={label} key={label} href={to}>
+      {menus.map(({ label, to, onClick }) => (
+        <Menu aria-label={label} key={label} href={to} onClick={onClick}>
           {label}
           <Icon icon="material-symbols:chevron-right-rounded" width={24} />
         </Menu>

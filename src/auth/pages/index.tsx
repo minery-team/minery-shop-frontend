@@ -1,4 +1,4 @@
-import { useUser } from '@/common/hooks';
+import { useUser } from '@common/hooks';
 import { redirectAfterAuth } from '../utils/redirectAfterAuth';
 import InputPhonePage from './InputPhonePage';
 

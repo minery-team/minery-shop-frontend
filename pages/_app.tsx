@@ -9,13 +9,13 @@ import { ReactChannelIO } from 'react-channel-plugin';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
 
-import { LoggerRoot } from '@/common/components';
+import { LoggerRoot } from '@common/components';
 import { PopupProvider, PortalProvider } from '@boxfoxs/bds-web';
 import '../src/styles/colors.css';
 
 import localFont from 'next/font/local';
 import styled from '@emotion/styled';
-import { colors } from '@/common/constants';
+import { colors } from '@common/constants';
 
 const Pretendard = localFont({
   src: [

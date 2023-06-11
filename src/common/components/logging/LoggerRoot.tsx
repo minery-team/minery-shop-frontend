@@ -1,6 +1,6 @@
-import { useSessionStorage } from '@/common/hooks';
-import { logger } from '@/common/utils';
-import { trackFbPageView } from '@/common/utils/trackFbPageView';
+import { useSessionStorage } from '@common/hooks';
+import { logger } from '@common/utils';
+import { trackFbPageView } from '@common/utils/trackFbPageView';
 import { LoggerParamsProvider, LoggerProvider } from '@boxfoxs/logger';
 import { QS } from '@boxfoxs/next';
 import { ReactNode, useEffect } from 'react';

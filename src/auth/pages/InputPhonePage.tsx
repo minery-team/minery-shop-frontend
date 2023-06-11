@@ -1,9 +1,9 @@
-import { checkUserExist, confirmPass, sendSmsCode } from '@/common/api/auth';
-import { AppBar, Container, InputField, Section } from '@/common/components';
-import { colors } from '@/common/constants';
-import { useUser } from '@/common/hooks';
-import { checkValidPhoneNumber, formatPhoneNumber } from '@/common/utils';
-import { IMP } from '@/common/utils/IMP';
+import { checkUserExist, confirmPass, sendSmsCode } from '@common/api/auth';
+import { AppBar, Container, InputField, Section } from '@common/components';
+import { colors } from '@common/constants';
+import { useUser } from '@common/hooks';
+import { checkValidPhoneNumber, formatPhoneNumber } from '@common/utils';
+import { IMP } from '@common/utils/IMP';
 import { FixedBottomCTA, Spacing, Text } from '@boxfoxs/bds-web';
 import { useAsyncCallback } from '@boxfoxs/core-hooks';
 import { useInputState } from '@boxfoxs/core-hooks-dom';

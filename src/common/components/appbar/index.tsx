@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { ChevronLeftIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Router from 'next/router';
 import { ComponentProps, ReactNode } from 'react';
-import { colors } from '@/common/constants';
+import { colors } from '@common/constants';
 import { ControlBox } from './ControlBox';
 import { FloatingAppBarContainer } from './FloatingAppBarContainer';
 import { Profile } from './Profile';

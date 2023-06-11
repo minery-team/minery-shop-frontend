@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 
-import { fetchCartList } from '@/common/api/cart';
+import { fetchCartList } from '@common/api/cart';
 
 export const TEST_CART_DATA = [
   {

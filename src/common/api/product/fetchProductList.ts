@@ -1,6 +1,6 @@
-import { Product } from '@/common/models/Product';
-import { requester } from '@/common/api/requester';
-import { WineType } from '@/common/models';
+import { Product } from '@common/models/Product';
+import { requester } from '@common/api/requester';
+import { WineType } from '@common/models';
 
 export async function fetchProductList({
   wineType,

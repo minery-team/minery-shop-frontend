@@ -1,9 +1,9 @@
 import { Text, usePopup } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import { colors } from '@/common/constants';
+import { colors } from '@common/constants';
 import { useCallback } from 'react';
-import { PopUp } from '@/common/components';
+import { PopUp } from '@common/components';
 
 export default function DeleteProduct({
   onConfirm,

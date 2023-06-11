@@ -2,8 +2,8 @@ import { css } from '@emotion/react';
 import { Text } from '@boxfoxs/bds-web';
 import Image, { StaticImageData } from 'next/image';
 
-import { formatPrice } from '@/common/utils';
-import { Space } from '@/common/components';
+import { formatPrice } from '@common/utils';
+import { Space } from '@common/components';
 import ratingStar from '../../../public/assets/rating_star.svg';
 
 export type WineInfo = {

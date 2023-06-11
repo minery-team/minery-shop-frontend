@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 
-import { fetchCurrentUser } from '@/common/api/auth';
+import { fetchCurrentUser } from '@common/api/auth';
 
 export const useUserQuery = (userId: number) => {
   const query = useQuery(['/auth/me'], async () => {

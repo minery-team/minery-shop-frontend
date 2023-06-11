@@ -1,13 +1,13 @@
-import { validateSmsCode } from '@/common/api/auth';
+import { validateSmsCode } from '@common/api/auth';
 import {
   AppBar,
   Container,
   InputField,
   MText,
   Section,
-} from '@/common/components';
-import { colors } from '@/common/constants';
-import { useUser } from '@/common/hooks';
+} from '@common/components';
+import { colors } from '@common/constants';
+import { useUser } from '@common/hooks';
 import { Button, FixedBottomCTA, Flex, Spacing, Text } from '@boxfoxs/bds-web';
 import { useAsyncCallback, useBooleanState } from '@boxfoxs/core-hooks';
 import { useInputState } from '@boxfoxs/core-hooks-dom';

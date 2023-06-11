@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styled from '@emotion/styled';
 import { Text } from '@boxfoxs/bds-web';
 
-import { colors } from '@/common/constants';
+import { colors } from '@common/constants';
 
 export default function EmptyWineList() {
   const router = useRouter();

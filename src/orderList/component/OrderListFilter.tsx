@@ -1,6 +1,6 @@
-import { colors } from '@/common/constants';
-import { OrderStatusForFilter } from '@/common/hooks/useOrders';
-import { OrderStatus, orderStatusToHumanReadable } from '@/common/models';
+import { colors } from '@common/constants';
+import { OrderStatusForFilter } from '@common/hooks/useOrders';
+import { OrderStatus, orderStatusToHumanReadable } from '@common/models';
 import styled from '@emotion/styled';
 
 interface Props {

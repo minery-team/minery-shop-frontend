@@ -4,7 +4,7 @@ import { useDaumPostcodePopup, Address } from 'react-daum-postcode';
 import { Icon } from '@iconify/react';
 import styled from '@emotion/styled';
 
-import { useUserQuery } from '@/common/hooks/queries';
+import { useUserQuery } from '@common/hooks/queries';
 
 export default function NewAddress() {
   const router = useRouter();

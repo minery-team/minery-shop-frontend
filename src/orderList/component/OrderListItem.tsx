@@ -1,10 +1,6 @@
-import { ContentCard } from '@/common/components/layout/ContentCard';
-import { colors } from '@/common/constants';
-import {
-  Order,
-  OrderStatus,
-  orderStatusToHumanReadable,
-} from '@/common/models';
+import { ContentCard } from '@common/components/layout/ContentCard';
+import { colors } from '@common/constants';
+import { Order, OrderStatus, orderStatusToHumanReadable } from '@common/models';
 import { Spacing, Text } from '@boxfoxs/bds-web';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';

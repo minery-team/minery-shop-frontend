@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { Flex, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import { colors } from '@/common/constants';
+import { colors } from '@common/constants';
 import { CommonModal } from './Modal';
 
 export function PopUp({

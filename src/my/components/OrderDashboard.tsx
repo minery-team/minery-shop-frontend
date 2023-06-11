@@ -1,4 +1,4 @@
-import { OrderStatus, orderStatusToHumanReadable } from '@/common/models';
+import { OrderStatus, orderStatusToHumanReadable } from '@common/models';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import { memo } from 'react';

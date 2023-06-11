@@ -1,6 +1,6 @@
-import { Order } from '@/common/models/Order';
-import { requester } from '@/common/api/requester';
-import { Address, OrderStatus, Product } from '@/common/models';
+import { Order } from '@common/models/Order';
+import { requester } from '@common/api/requester';
+import { Address, OrderStatus, Product } from '@common/models';
 
 export async function fetchOrders() {
   // const res = await requester.get<Order[]>('/order');
