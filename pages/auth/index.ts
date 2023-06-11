@@ -1,1 +1,1 @@
-export { default } from '@auth/pages/index';
+export { default } from 'auth/pages/index';

@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import Image from 'next/image';
 import { useState } from 'react';
 
-import { colors } from '@common/constants';
-import { WARNING_TEXT } from '@order/model/WarningText';
+import { colors } from 'common/constants';
+import { WARNING_TEXT } from 'order/model/WarningText';
 
 export default function Warning() {
   const [isShowWaring, setIsShowWarning] = useState(false);

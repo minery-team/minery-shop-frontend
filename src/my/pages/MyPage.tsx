@@ -1,8 +1,8 @@
-import { withAuth } from '@common/hocs';
-import { useUser } from '@common/hooks';
+import { withAuth } from 'common/hocs';
+import { useUser } from 'common/hooks';
 import { Spacing } from '@boxfoxs/bds-web';
-import { Container, Section, SectionDivider, AppBar } from '@common/components';
-import { clearAccessToken } from '@common/utils';
+import { Container, Section, SectionDivider, AppBar } from 'common/components';
+import { clearAccessToken } from 'common/utils';
 import Router from 'next/router';
 import { Profile, MenuList, OrderDashboard } from '../components';
 
@@ -15,7 +15,7 @@ const MyPage = () => {
   };
 
   // TODO: Loading, Error 처리
-  if (!userInfo) return null;
+  if (!userInfo) return <div />;
 
   return (
     <Container>

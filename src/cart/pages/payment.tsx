@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Text } from '@boxfoxs/bds-web';
 import { commaizeNumber } from '@boxfoxs/utils';
 
-import { colors } from '@common/constants';
+import { colors } from 'common/constants';
 
 export default function Payment() {
   return (

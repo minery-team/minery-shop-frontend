@@ -1,14 +1,14 @@
 import { Text } from '@boxfoxs/bds-web';
 import { css } from '@emotion/react';
-import { Tag } from '@home/components/Tag';
+import { Tag } from 'home/components/Tag';
 import Image from 'next/image';
 
-import { colors } from '@common/constants/colors';
+import { colors } from 'common/constants/colors';
 
 import { useRef, useState } from 'react';
-import { Space } from '@common/components';
+import { Space } from 'common/components';
 import styled from '@emotion/styled';
-import { Footer } from '@common/components/footer';
+import { Footer } from 'common/components/footer';
 import { WineList } from '../components/WineList';
 import hero from '../../../public/assets/hero.png';
 import down from '../../../public/assets/down.svg';
@@ -93,7 +93,7 @@ export function Home() {
           justifyContent: 'center',
         })}
       >
-        <Image src={hero} fill alt="" />
+        <Image src={hero} alt="" />
         <ScrollMainButton
           type="button"
           onClick={() => {

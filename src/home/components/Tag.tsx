@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { Text } from '@boxfoxs/bds-web';
-import { Space } from '@common/components';
+import { Space } from 'common/components';
 
 import Image from 'next/image';
 import swap from '../../../public/assets/swap.svg';

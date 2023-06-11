@@ -3,10 +3,10 @@ import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 
-import { deleteFromCart, updateAmount } from '@common/api/cart';
-import { colors } from '@common/constants';
-import { useCartList } from '@common/hooks/queries/useCartList';
-import { CartItem } from '@common/models';
+import { deleteFromCart, updateAmount } from 'common/api/cart';
+import { colors } from 'common/constants';
+import { useCartList } from 'common/hooks/queries/useCartList';
+import { CartItem } from 'common/models';
 import { useDeleteProduct } from './DeleteProduct';
 
 export default function WineListItem({

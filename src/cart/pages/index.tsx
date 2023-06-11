@@ -3,14 +3,14 @@ import styled from '@emotion/styled';
 import { sumBy } from 'lodash';
 import { useMemo, useState } from 'react';
 
-import EmptyWineList from '@cart/components/EmptyWineList';
-import WineList from '@cart/components/WineList';
-import { AppBar } from '@common/components';
-import { colors } from '@common/constants';
-import { withAuth } from '@common/hocs';
-import { useCartList } from '@common/hooks/queries/useCartList';
-import { useMaxPriceGuide } from '@cart/components/MaxPricePopUp';
-import Payment from '@cart/pages/payment';
+import EmptyWineList from 'cart/components/EmptyWineList';
+import WineList from 'cart/components/WineList';
+import { AppBar } from 'common/components';
+import { colors } from 'common/constants';
+import { withAuth } from 'common/hocs';
+import { useCartList } from 'common/hooks/queries/useCartList';
+import { useMaxPriceGuide } from 'cart/components/MaxPricePopUp';
+import Payment from 'cart/pages/payment';
 import { useAdultCartGuide } from '../components/AdultCertGuidePopUp';
 
 export default withAuth(function CartPage() {
@@ -47,7 +47,10 @@ export default withAuth(function CartPage() {
         <AppBar.Title>장바구니</AppBar.Title>
       </AppBar>
       {cartList && cartList.length ? (
-        <WineList wineList={cartList} isItemSelected={setHasSelectedItem} />
+        <WineList
+          wineList={cartList as any}
+          isItemSelected={setHasSelectedItem}
+        />
       ) : (
         <EmptyWineList />
       )}

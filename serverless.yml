@@ -1,0 +1,17 @@
+stage: ${env.STAGE}
+distributionId: ${env.DISTRIBUTION_ID}
+
+minery-wine-shop-frontend:
+  component: '@sls-next/serverless-component@3.6.0'
+  inputs:
+    bucketName: 'minery-wine-shop-frontend-${stage}'
+    bucketRegion: ap-northeast-2
+    name:
+      defaultLambda: 'minery-wine-shop-frontend-${stage}'
+    roleArn: arn:aws:iam::917306879000:role/8m1ef18-etyjhsc
+    build:
+      env:
+        STAGE: '${stage}'
+    cloudfront:
+      distributionId: E3UEKP0PSVMGFD
+      comment: 'minery-wine-shop-frontend-${stage}'

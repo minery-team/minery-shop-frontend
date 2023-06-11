@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Text, Divider } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import { useUserQuery } from '@common/hooks/queries';
-import { colors } from '@common/constants';
+import { useUserQuery } from 'common/hooks/queries';
+import { colors } from 'common/constants';
 
 export function UserInfo() {
   const [userInfo] = useUserQuery(0); // TODO userId 변경
