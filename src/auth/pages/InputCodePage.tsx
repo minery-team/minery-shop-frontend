@@ -1,18 +1,21 @@
-import { validateSmsCode } from '@common/api/auth';
-import {
-  AppBar,
-  Container,
-  InputField,
-  MText,
-  Section,
-} from '@common/components';
-import { colors } from '@common/constants';
-import { useUser } from '@common/hooks';
-import { Button, FixedBottomCTA, Flex, Spacing, Text } from '@boxfoxs/bds-web';
+import { Flex, Spacing, Text } from '@boxfoxs/bds-web';
 import { useAsyncCallback, useBooleanState } from '@boxfoxs/core-hooks';
 import { useInputState } from '@boxfoxs/core-hooks-dom';
 import { QS } from '@boxfoxs/next';
+import { sendSmsCode, validateSmsCode } from '@common/api/auth';
+import {
+  AppBar,
+  Container,
+  FixedBottomCTA,
+  InputField,
+  MText,
+  MineryButton,
+  Section,
+} from '@common/components';
+import { colors } from '@common/constants';
+import { useCountdown, useUser } from '@common/hooks';
 import Router from 'next/router';
+import { useRef } from 'react';
 import { redirectAfterAuth } from '../utils/redirectAfterAuth';
 
 export default function InputCodePage() {
@@ -20,6 +23,8 @@ export default function InputCodePage() {
   const [, reloadUser] = useUser();
   const [code, onCodeChange] = useInputState();
   const [isError, setError, clearError] = useBooleanState();
+  const inputRef = useRef<HTMLInputElement>();
+  const countdown = useCountdown(180);
   const cta = useAsyncCallback(async () => {
     if (!phone) {
       return;
@@ -32,6 +37,15 @@ export default function InputCodePage() {
       setError();
     }
   });
+
+  const handleResendClick = async () => {
+    if (!phone) {
+      return;
+    }
+    await sendSmsCode(phone);
+    countdown.reset();
+    inputRef.current?.focus();
+  };
 
   if (!phone) {
     Router.replace('/auth');
@@ -52,19 +66,40 @@ export default function InputCodePage() {
         <Spacing height={24} />
         <Flex.CenterVertical>
           <InputField
-            value={code}
+            ref={inputRef}
+            value={code.slice(0, 6)}
             onChange={onCodeChange}
             placeholder="인증번호"
-            right={<CountdownLabel />}
+            autoFocus
+            type="tel"
+            inputMode="numeric"
+            pattern="[0-9]"
+            autoComplete="one-time-code"
+            maxLength={6}
+            right={
+              <CountdownLabel
+                minute={countdown.minutes}
+                second={countdown.seconds}
+              />
+            }
           />
           <Spacing width={20} />
-          <Button style={{ width: '90px', height: '46px' }}>재요청</Button>
+          <MineryButton
+            style={{ width: '90px' }}
+            height={46}
+            type="light"
+            textStyle={{ size: 'lg' }}
+            onClick={handleResendClick}
+          >
+            재요청
+          </MineryButton>
         </Flex.CenterVertical>
       </Section>
       <FixedBottomCTA
         disabled={code.length < 6}
         onClick={cta.callback}
         loading={cta.isLoading}
+        type="default"
       >
         확인
       </FixedBottomCTA>
@@ -72,10 +107,16 @@ export default function InputCodePage() {
   );
 }
 
-function CountdownLabel() {
+function CountdownLabel({
+  minute,
+  second,
+}: {
+  minute: number;
+  second: number;
+}) {
   return (
     <Text color={colors.systemError} size="lg">
-      03:00
+      {minute.toString().padStart(2, '0')}:{second.toString().padStart(2, '0')}
     </Text>
   );
 }
