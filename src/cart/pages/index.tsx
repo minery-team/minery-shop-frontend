@@ -1,40 +1,43 @@
-import { useState, useMemo } from 'react';
-import { useRouter } from 'next/router';
+import { Divider, Spacing, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
-import { Spacing, Divider, Text } from '@boxfoxs/bds-web';
-import { sum } from 'lodash';
+import { sum, sumBy } from 'lodash';
+import { useMemo, useState } from 'react';
 
-import WineList from '@cart/pages/wineList';
-import NoWineList from '@cart/pages/noWineList';
-import Payment from '@cart/pages/payment';
-import MaxPricePopUp from '@cart/containers/MaxPricePopUp';
-import AdultCertGuidePopUp from '@cart/containers/AdultCertGuidePopUp';
 import { AppBar } from '@/common/components';
-import Modal from '@/common/components/modal/Modal';
-import { useCartList } from '@/common/hooks/queries/useCartList';
 import { colors } from '@/common/constants';
+import { useCartList } from '@/common/hooks/queries/useCartList';
+import { useMaxPriceGuide } from '@cart/containers/MaxPricePopUp';
+import EmptyWineList from '@/cart/components/EmptyWineList';
+import Payment from '@cart/pages/payment';
+import WineList from '@/cart/components/WineList';
+import { useAdultCartGuide } from '../components/AdultCertGuidePopUp';
 
 export default function CartPage() {
-  const router = useRouter();
   const [cartList, refetch] = useCartList();
   const [hasSelectedItem, setHasSelectedItem] = useState(false);
-  const [showModal, setShowModal] = useState(false);
 
-  const totalPrice = useMemo(() => {
-    if (cartList && cartList.length > 0)
-      return sum(cartList.map((item) => item.amount * item.product.price));
-    return 0;
-  }, [cartList]);
+  const openMaxPriceGuide = useMaxPriceGuide();
+  const openAdultCartGuide = useAdultCartGuide();
+
+  const totalPrice = useMemo(
+    () => sumBy(cartList, (item) => item.amount * item.product.price) || 0,
+    [cartList]
+  );
 
   const buttonText = useMemo(() => {
     if (hasSelectedItem) return '323,400원 주문하기';
     return '상품을 선택해주세요';
   }, [hasSelectedItem]);
 
-  const selectPopUp = () => {
-    if (totalPrice > 5000000)
-      return <MaxPricePopUp setPopUpState={setShowModal} />;
-    return <AdultCertGuidePopUp setPopUpState={setShowModal} />;
+  const handleCTAClick = () => {
+    if (!hasSelectedItem) {
+      return;
+    }
+    if (totalPrice > 5000000) {
+      openMaxPriceGuide();
+      return;
+    }
+    openAdultCartGuide();
   };
 
   return (
@@ -45,7 +48,7 @@ export default function CartPage() {
       {cartList && cartList.length ? (
         <WineList wineList={cartList} isItemSelected={setHasSelectedItem} />
       ) : (
-        <NoWineList />
+        <EmptyWineList />
       )}
       <Spacing height={20} />
       <Divider width="100%" height="6px" color={colors.gray100} />
@@ -57,19 +60,11 @@ export default function CartPage() {
           않습니다.
         </Text>
       </WarningText>
-      <OrderButton
-        isItemSelected={hasSelectedItem}
-        onClick={() => {
-          if (hasSelectedItem) setShowModal(true);
-        }}
-      >
+      <OrderButton isItemSelected={hasSelectedItem} onClick={handleCTAClick}>
         <Text size="xl" weight="semibold" color={colors.defaultWhite}>
           {buttonText}
         </Text>
       </OrderButton>
-      <Modal show={showModal} onClose={() => setShowModal(false)}>
-        {selectPopUp()}
-      </Modal>
     </Container>
   );
 }

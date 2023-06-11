@@ -1,14 +1,11 @@
-import { Text } from '@boxfoxs/bds-web';
+import { Text, usePopup } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import PopUp from '@/common/components/modal/PopUp';
 import { colors } from '@/common/constants';
+import { PopUp } from '@/common/components';
+import { useCallback } from 'react';
 
-export default function AdultCertGuidePopUp({
-  setPopUpState,
-}: {
-  setPopUpState: (bool: boolean) => void;
-}) {
+export function AdultCertGuidePopUp({ onClose }: { onClose: () => void }) {
   return (
     <PopUp
       type="confirm"
@@ -22,9 +19,16 @@ export default function AdultCertGuidePopUp({
         </TextWrapper>
       }
       confirmText="다음"
-      onConfirm={() => setPopUpState(false)}
+      onConfirm={onClose}
     />
   );
+}
+
+export function useAdultCartGuide() {
+  const { open, close } = usePopup('adult-cart-guide-popup');
+  return useCallback(() => {
+    open({ children: <AdultCertGuidePopUp onClose={close} />, onClose: close });
+  }, [open, close]);
 }
 
 const TextWrapper = styled.div`

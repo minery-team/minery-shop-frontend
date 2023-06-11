@@ -5,7 +5,7 @@ import { Text } from '@boxfoxs/bds-web';
 
 import { colors } from '@/common/constants';
 
-export default function NoWineList() {
+export default function EmptyWineList() {
   const router = useRouter();
 
   return (
