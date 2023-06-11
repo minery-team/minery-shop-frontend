@@ -20,6 +20,7 @@ import notice from '../../../public/assets/notice.svg';
 import snack_for_wine from '../../../public/assets/snack_for_wine.png';
 import package_for_wine from '../../../public/assets/package_for_wine.png';
 import DescriptionSection from '../component/DescriptionSection';
+import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 
 const HEADER_SIZE = 112;
 
@@ -112,18 +113,7 @@ const ProductPage = () => {
         </div>
       </Section>
       {/* 배송비 */}
-      <div
-        style={{
-          background: colors.gray100,
-          padding: '20px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-        }}
-      >
-        <Image src={notice} width={16} height={16} alt="배송비 안내" />
-        <Text>30,000원 이상 무료배송</Text>
-      </div>
+      <DeliveryFeeNotice />
       <Section>
         {/* 상품 설명 */}
         <Text size="xl" weight="semibold">
