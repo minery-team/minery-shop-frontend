@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { Icon } from '@iconify/react';
 import styled from '@emotion/styled';
 
-export default function AddressList() {
+export function AddressList() {
   const router = useRouter();
 
   // TODO address list get API 추가

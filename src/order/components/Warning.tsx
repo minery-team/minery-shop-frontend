@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { Text, Spacing, Divider } from '@boxfoxs/bds-web';
+import { Divider, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
+import Image from 'next/image';
+import { useState } from 'react';
 
-import { WARNING_TEXT } from '@order/model/WarningText';
 import { colors } from '@/common/constants';
+import { WARNING_TEXT } from '@/order/model/WarningText';
 
 export default function Warning() {
   const [isShowWaring, setIsShowWarning] = useState(false);
 
-  const textIndent = (prefixText, suffixText) => {
+  const textIndent = (prefixText: string, suffixText: string) => {
     return (
       <TextIndent>
         <Text

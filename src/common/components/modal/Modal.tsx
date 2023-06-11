@@ -1,35 +1,32 @@
-import { useEffect, useState, ReactNode } from 'react';
-import ReactDOM from 'react-dom';
+import { usePopup } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
+import { ReactNode, useCallback } from 'react';
 
 interface ModalProps {
-  show: boolean;
-  onClose: () => void;
   children: ReactNode;
+  onClose: () => void;
 }
 
-const Modal = ({ show, onClose, children }: ModalProps) => {
-  const [target, setTarget] = useState<Element | null>(null);
-  const handleCloseClick = (e: any) => {
-    e.preventDefault();
-    onClose();
-  };
-
-  const modalContent = show && (
-    <BackDrop>
-      <StyledModal>{children}</StyledModal>
+export function CommonModal({ children, onClose }: ModalProps) {
+  return (
+    <BackDrop onClick={onClose}>
+      <StyledModal onClick={(e) => e.stopPropagation()}>{children}</StyledModal>
     </BackDrop>
   );
-  useEffect(() => {
-    if (document) {
-      setTarget(document.querySelector('#modal'));
-    }
-  }, []);
+}
 
-  if (!target) return <></>;
-
-  return ReactDOM.createPortal(modalContent, target);
-};
+export function useModal(key: string) {
+  const { open, close } = usePopup(key);
+  return useCallback(
+    (children: ReactNode) => {
+      open({
+        children: <CommonModal onClose={close}>{children}</CommonModal>,
+        onClose: close,
+      });
+    },
+    [open, close]
+  );
+}
 
 const BackDrop = styled.div`
   position: fixed;
@@ -57,5 +54,3 @@ const StyledModal = styled.div`
   animation-name: fadeIn;
   animation-fill-mode: forwards;
 `;
-
-export default Modal;

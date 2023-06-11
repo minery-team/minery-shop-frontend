@@ -1,35 +1,31 @@
-import { useState, useMemo } from 'react';
-import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 import { Icon } from '@iconify/react';
+import { useRouter } from 'next/router';
+import { useCallback, useMemo } from 'react';
 
+import { useModal } from '@/common/components';
 import { useCartList } from '@/common/hooks/queries';
-import WineInfoCard from '@order/components/WineIinfoCart';
-import UserInfo from '@order/components/UserInfo';
-import PaymentInfo from '@order/components/PaymentInfo';
-import { CommonModal } from '@/components/common/Modal';
-import AddressList from '@order/components/AddressList';
-import { CartItem } from '@/common/models';
+import { AddressList } from '@/order/components/AddressList';
+import { WineInfoCard } from '@/order/components/WineIinfoCart';
+import { sumBy } from 'lodash';
+import { PaymentInfo } from '../components/PaymentInfo';
+import { UserInfo } from '../components/UserInfo';
 
 export default function OrderPage() {
   const router = useRouter();
 
   const [cartList] = useCartList();
-  const [isAddressModalVisible, setIsAddressModalVisible] = useState(false);
+
+  const openAddressListModal = useAddressModal();
 
   // TODO 주소 등록 및 추가 시 바뀌는 부분 구현
   // TODO modal 수정
 
   const totalPayment = useMemo(() => {
-    if (cartList) {
-      let payment = 0;
-      cartList.map((item: CartItem) => {
-        payment += item.product.price * item.amount;
-      });
-
-      return payment;
+    if (!cartList) {
+      return 0;
     }
-    return 0;
+    return sumBy(cartList, (item) => item.product.price * item.amount);
   }, []);
 
   return (
@@ -45,7 +41,7 @@ export default function OrderPage() {
           <div>주문하기</div>
         </Wrapper>
       </TopNavigator>
-      <UserInfo onAddressClick={(v: boolean) => setIsAddressModalVisible(v)} />
+      <UserInfo onAddressClick={openAddressListModal} />
       <WineInfoCard wineList={cartList ?? []} />
       <PaymentInfo totalPayment={totalPayment} />
       <BottomNavigator
@@ -55,13 +51,15 @@ export default function OrderPage() {
       >
         주문하러가기
       </BottomNavigator>
-      <CommonModal
-        children={<AddressList />}
-        isOpen={isAddressModalVisible}
-        onClose={() => setIsAddressModalVisible(false)}
-      />
     </div>
   );
+}
+
+function useAddressModal() {
+  const open = useModal('address');
+  return useCallback(() => {
+    open(<AddressList />);
+  }, [open]);
 }
 
 const TopNavigator = styled.div`

@@ -1,11 +1,9 @@
-import React from 'react';
-import styled from '@emotion/styled';
 import { Text } from '@boxfoxs/bds-web';
-import { commaizeNumber } from '@boxfoxs/utils';
+import styled from '@emotion/styled';
 
 import { colors } from '@/common/constants';
 
-export default function PaymentInfo() {
+export function PaymentInfo() {
   return (
     <Wrapper>
       <TextWrapper>

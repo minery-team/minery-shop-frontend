@@ -36,5 +36,6 @@ module.exports = {
     'no-new': 'off',
     'no-restricted-exports': 'off',
     '@typescript-eslint/no-namespace': 'off',
+    'import/export': 'off',
   },
 };

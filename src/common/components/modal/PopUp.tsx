@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 import { colors } from '@/common/constants';
 
-export default function PopUp({
+export function PopUp({
   type,
   content,
   confirmText = '확인',
