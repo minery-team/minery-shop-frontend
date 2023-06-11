@@ -17,15 +17,20 @@ export function CommonModal({ children, onClose }: ModalProps) {
 
 export function useModal(key: string) {
   const { open, close } = usePopup(key);
-  return useCallback(
-    (children: ReactNode) => {
-      open({
-        children: <CommonModal onClose={close}>{children}</CommonModal>,
-        onClose: close,
-      });
-    },
-    [open, close]
-  );
+  return {
+    close,
+    open: useCallback(
+      (options: Parameters<ReturnType<typeof usePopup>['open']>[0]) => {
+        open({
+          ...options,
+          children: (
+            <CommonModal onClose={close}>{options.children}</CommonModal>
+          ),
+        });
+      },
+      [open, close]
+    ),
+  };
 }
 
 const BackDrop = styled.div`
