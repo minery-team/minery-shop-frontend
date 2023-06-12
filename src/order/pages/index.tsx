@@ -11,8 +11,9 @@ import {
 import { AddressInfo } from 'order/components/AddressInfo';
 import { AppBar } from 'common/components';
 import { useCartList } from 'common/hooks/queries';
+import { withAuth } from 'common/hocs';
 
-export default function OrderPage() {
+export default withAuth(function OrderPage() {
   const router = useRouter();
 
   const [cartList] = useCartList();
@@ -30,7 +31,7 @@ export default function OrderPage() {
       <PaymentButton />
     </Wrapper>
   );
-}
+});
 
 const Wrapper = styled.div`
   display: flex;
