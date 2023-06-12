@@ -1,4 +1,4 @@
-import { Text } from '@boxfoxs/bds-web';
+import { Text, Divider } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
 import { colors } from 'common/constants';
@@ -6,6 +6,10 @@ import { colors } from 'common/constants';
 export function PaymentInfo() {
   return (
     <Wrapper>
+      <Text size="lg" weight="semibold" color={colors.gray900}>
+        결제 정보
+      </Text>
+      <Divider width="100%" height={1} color={colors.gray100} />
       <TextWrapper>
         <Text size="base" weight="regular" color={colors.gray900}>
           상품금액
