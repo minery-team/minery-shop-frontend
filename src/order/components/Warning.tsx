@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { colors } from 'common/constants';
 import { WARNING_TEXT } from 'order/model/WarningText';
 
-export default function Warning() {
+export function Warning() {
   const [isShowWaring, setIsShowWarning] = useState(false);
 
   const textIndent = (prefixText: string, suffixText: string) => {
