@@ -26,7 +26,7 @@ export default withAuth(function OrderPage() {
       <WineInfoCard wineList={cartList ?? []} />
       <AddressInfo />
       <UserInfo />
-      <PaymentInfo />
+      <PaymentInfo cartList={cartList} />
       <Warning />
       <PaymentButton />
     </Wrapper>
