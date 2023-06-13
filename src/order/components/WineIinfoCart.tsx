@@ -47,7 +47,7 @@ export function WineInfoCard({ wineList }: { wineList: CartItem[] }) {
                       weight="regular"
                       color={colors.gray500}
                     >
-                      {commaizeNumber(item.product.price)}원
+                      {commaizeNumber(item.product.originalPrice)}원
                     </OriginPriceText>
                   </PriceInfoWrapper>
                 </WineInfoWrapper>
