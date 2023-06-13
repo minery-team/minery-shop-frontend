@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import styled from '@emotion/styled';
 import { Divider, Text } from '@boxfoxs/bds-web';
+import { sumBy } from 'lodash';
 
 import WineListItem from 'cart/components/WineListItem';
 import { CartItem } from 'common/models';
@@ -9,15 +10,16 @@ import { colors } from 'common/constants';
 
 export default function WineList({
   wineList,
-  isItemSelected,
+  totalPrice,
+  setTotalPrice,
 }: {
   wineList: CartItem[];
-  isItemSelected: (bool: boolean) => void;
+  totalPrice: number;
+  setTotalPrice: (nbr: number) => void;
 }) {
   const [selectedItems, setSelectedItems] = useState<boolean[]>(
     (Array(wineList.length) as boolean[]).fill(false)
   );
-
   const isSelectedAll = useMemo(() => {
     const selectedItemLen = selectedItems.filter(
       (isSelected: boolean) => isSelected
@@ -25,12 +27,6 @@ export default function WineList({
 
     if (selectedItemLen === wineList.length) return true;
     return false;
-  }, [selectedItems]);
-
-  useEffect(() => {
-    if (selectedItems.filter((item) => item === true).length > 0)
-      isItemSelected(true);
-    else isItemSelected(false);
   }, [selectedItems]);
 
   const renderWineList = () => {
@@ -47,6 +43,17 @@ export default function WineList({
               newList[index] = bool;
               return newList;
             });
+
+            if (bool)
+              setTotalPrice(
+                totalPrice +
+                  wineList[index].amount * wineList[index].product.price
+              );
+            else
+              setTotalPrice(
+                totalPrice -
+                  wineList[index].amount * wineList[index].product.price
+              );
           }}
         />
       );
@@ -63,6 +70,14 @@ export default function WineList({
             setSelectedItems(
               (Array(wineList.length) as boolean[]).fill(!isSelectedAll)
             );
+
+            if (!isSelectedAll) {
+              const price =
+                sumBy(wineList, (item) => item.amount * item.product.price) ||
+                0;
+
+              setTotalPrice(price);
+            } else setTotalPrice(0);
           }}
           style={{ accentColor: colors.primary700Default }}
         />

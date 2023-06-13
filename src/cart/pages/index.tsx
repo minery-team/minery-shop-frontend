@@ -1,6 +1,6 @@
 import { Divider, Spacing, Text } from '@boxfoxs/bds-web';
+import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
-import { sumBy } from 'lodash';
 import { useMemo, useState } from 'react';
 
 import EmptyWineList from 'cart/components/EmptyWineList';
@@ -15,23 +15,18 @@ import { useAdultCartGuide } from '../components/AdultCertGuidePopUp';
 
 export default withAuth(function CartPage() {
   const [cartList, refetch] = useCartList();
-  const [hasSelectedItem, setHasSelectedItem] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const openMaxPriceGuide = useMaxPriceGuide();
   const openAdultCartGuide = useAdultCartGuide();
 
-  const totalPrice = useMemo(
-    () => sumBy(cartList, (item) => item.amount * item.product.price) || 0,
-    [cartList]
-  );
-
   const buttonText = useMemo(() => {
-    if (hasSelectedItem) return '323,400원 주문하기';
+    if (totalPrice > 0) return `${commaizeNumber(totalPrice)}원 주문하기`;
     return '상품을 선택해주세요';
-  }, [hasSelectedItem]);
+  }, [totalPrice]);
 
   const handleCTAClick = () => {
-    if (!hasSelectedItem) {
+    if (!totalPrice) {
       return;
     }
     if (totalPrice > 5000000) {
@@ -49,7 +44,8 @@ export default withAuth(function CartPage() {
       {cartList && cartList.length ? (
         <WineList
           wineList={cartList as any}
-          isItemSelected={setHasSelectedItem}
+          totalPrice={totalPrice}
+          setTotalPrice={setTotalPrice}
         />
       ) : (
         <EmptyWineList />
@@ -64,7 +60,7 @@ export default withAuth(function CartPage() {
           않습니다.
         </Text>
       </WarningText>
-      <OrderButton isItemSelected={hasSelectedItem} onClick={handleCTAClick}>
+      <OrderButton isItemSelected={totalPrice > 0} onClick={handleCTAClick}>
         <Text size="xl" weight="semibold" color={colors.defaultWhite}>
           {buttonText}
         </Text>
