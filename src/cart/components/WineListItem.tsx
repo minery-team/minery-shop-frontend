@@ -12,13 +12,13 @@ import { useDeleteProduct } from './DeleteProduct';
 export default function WineListItem({
   item,
   index,
-  isSelected,
+  selectedItems,
   setSelectItem,
 }: {
   item: CartItem;
   index: number;
-  isSelected: boolean;
-  setSelectItem: (bool: boolean) => void;
+  selectedItems: number[];
+  setSelectItem: (nbr: number) => void;
 }) {
   const [cartList, refetch] = useCartList();
   const confirmDelete = useDeleteProduct();
@@ -37,7 +37,10 @@ export default function WineListItem({
 
   const deleteWine = async () => {
     await confirmDelete();
-    deleteFromCart(item.id);
+
+    for (let i = 0; i < selectedItems.length; i += 1) {
+      if (selectedItems[i] > 0) deleteFromCart(selectedItems[i]);
+    }
     refetch();
   };
 
@@ -48,9 +51,10 @@ export default function WineListItem({
           <input
             id={`${index}`}
             type="checkbox"
-            checked={isSelected}
+            checked={selectedItems[index] > 0}
             onChange={() => {
-              setSelectItem(!isSelected);
+              if (selectedItems[index] > 0) setSelectItem(0);
+              else setSelectItem(item.id);
             }}
             style={{ accentColor: colors.primary700Default }}
           />

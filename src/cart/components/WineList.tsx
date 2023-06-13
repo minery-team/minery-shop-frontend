@@ -23,21 +23,21 @@ export default function WineList({
     originalPrice: number;
   }) => void;
 }) {
-  const [selectedItems, setSelectedItems] = useState<boolean[]>(
-    (Array(wineList.length) as boolean[]).fill(false)
+  const [selectedItems, setSelectedItems] = useState<number[]>(
+    (Array(wineList.length) as number[]).fill(0)
   );
 
   const isSelectedAll = useMemo(() => {
     const selectedItemLen = selectedItems.filter(
-      (isSelected: boolean) => isSelected
+      (isSelected: number) => isSelected > 0
     ).length;
 
     if (selectedItemLen === wineList.length) return true;
     return false;
   }, [selectedItems]);
 
-  const onSelectItem = (isSelect: boolean, index: number) => {
-    setSelectedItems((prev: boolean[]) => {
+  const onSelectItem = (isSelect: number, index: number) => {
+    setSelectedItems((prev: number[]) => {
       const newList = [...prev];
       newList[index] = isSelect;
       return newList;
@@ -71,8 +71,8 @@ export default function WineList({
           key={`${item.id}`}
           item={item}
           index={index}
-          isSelected={selectedItems[index]}
-          setSelectItem={(bool: boolean) => onSelectItem(bool, index)}
+          selectedItems={selectedItems}
+          setSelectItem={(nbr: number) => onSelectItem(nbr, index)}
         />
       );
     });
@@ -85,11 +85,8 @@ export default function WineList({
           type="checkbox"
           checked={isSelectedAll}
           onChange={() => {
-            setSelectedItems(
-              (Array(wineList.length) as boolean[]).fill(!isSelectedAll)
-            );
-
             if (!isSelectedAll) {
+              setSelectedItems(wineList.map((item) => item.id));
               const price =
                 sumBy(wineList, (item) => item.amount * item.product.price) ||
                 0;
@@ -100,7 +97,10 @@ export default function WineList({
                 ) || 0;
 
               setPriceInfo({ price, originalPrice });
-            } else setPriceInfo({ price: 0, originalPrice: 0 });
+            } else {
+              setSelectedItems((Array(wineList.length) as number[]).fill(0));
+              setPriceInfo({ price: 0, originalPrice: 0 });
+            }
           }}
           style={{ accentColor: colors.primary700Default }}
         />
