@@ -13,7 +13,7 @@ import { useCartList } from 'common/hooks/queries/useCartList';
 import { useMaxPriceGuide } from 'cart/components/MaxPricePopUp';
 import { useAdultCartGuide } from 'cart/components/AdultCertGuidePopUp';
 
-export default function CartPage() {
+export default withAuth(function CartPage() {
   const [cartList, refetch] = useCartList();
   const [priceInfo, setPriceInfo] = useState({ price: 0, originalPrice: 0 });
 
@@ -71,13 +71,14 @@ export default function CartPage() {
       </OrderButton>
     </Container>
   );
-}
+});
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
+  padding-bottom: 58px;
 `;
 
 const WarningText = styled.div`
@@ -86,9 +87,14 @@ const WarningText = styled.div`
 `;
 
 const OrderButton = styled.div<{ isItemSelected: boolean }>`
+  position: fixed;
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 500px;
+  height: 58px;
   padding: 16px 0;
   background-color: ${({ isItemSelected }) =>
     isItemSelected ? colors.primary700Default : colors.gray400};
