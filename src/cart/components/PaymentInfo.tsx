@@ -4,7 +4,7 @@ import { commaizeNumber } from '@boxfoxs/utils';
 
 import { colors } from 'common/constants';
 
-export default function Payment() {
+export function PaymentInfo() {
   return (
     <Wrapper>
       <TextWrapper>
