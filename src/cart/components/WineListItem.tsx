@@ -7,7 +7,7 @@ import { deleteFromCart, updateAmount } from 'common/api/cart';
 import { colors } from 'common/constants';
 import { useCartList } from 'common/hooks/queries/useCartList';
 import { CartItem } from 'common/models';
-import { useDeleteProduct } from './DeleteProduct';
+import { useDeleteProduct, useDeleteProductToast } from './DeleteProduct';
 
 export default function WineListItem({
   item,
@@ -22,6 +22,7 @@ export default function WineListItem({
 }) {
   const [cartList, refetch] = useCartList();
   const confirmDelete = useDeleteProduct();
+  const deleteToast = useDeleteProductToast();
 
   const plusWine = () => {
     updateAmount(item.id, item.amount + 1);
@@ -42,6 +43,7 @@ export default function WineListItem({
       if (selectedItems[i] > 0) deleteFromCart(selectedItems[i]);
     }
     refetch();
+    deleteToast();
   };
 
   return (
