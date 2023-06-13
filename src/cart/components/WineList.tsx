@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import styled from '@emotion/styled';
 import { Divider, Text } from '@boxfoxs/bds-web';
@@ -10,16 +10,23 @@ import { colors } from 'common/constants';
 
 export default function WineList({
   wineList,
-  totalPrice,
-  setTotalPrice,
+  priceInfo,
+  setPriceInfo,
 }: {
   wineList: CartItem[];
-  totalPrice: number;
-  setTotalPrice: (nbr: number) => void;
+  priceInfo: { price: number; originalPrice: number };
+  setPriceInfo: ({
+    price,
+    originalPrice,
+  }: {
+    price: number;
+    originalPrice: number;
+  }) => void;
 }) {
   const [selectedItems, setSelectedItems] = useState<boolean[]>(
     (Array(wineList.length) as boolean[]).fill(false)
   );
+
   const isSelectedAll = useMemo(() => {
     const selectedItemLen = selectedItems.filter(
       (isSelected: boolean) => isSelected
@@ -29,6 +36,34 @@ export default function WineList({
     return false;
   }, [selectedItems]);
 
+  const onSelectItem = (isSelect: boolean, index: number) => {
+    setSelectedItems((prev: boolean[]) => {
+      const newList = [...prev];
+      newList[index] = isSelect;
+      return newList;
+    });
+
+    if (isSelect) {
+      const price =
+        priceInfo.price +
+        wineList[index].amount * wineList[index].product.price;
+      const originalPrice =
+        priceInfo.originalPrice +
+        wineList[index].amount * wineList[index].product.originalPrice;
+
+      setPriceInfo({ price, originalPrice });
+    } else {
+      const price =
+        priceInfo.price -
+        wineList[index].amount * wineList[index].product.price;
+      const originalPrice =
+        priceInfo.originalPrice -
+        wineList[index].amount * wineList[index].product.originalPrice;
+
+      setPriceInfo({ price, originalPrice });
+    }
+  };
+
   const renderWineList = () => {
     return wineList.map((item: CartItem, index: number) => {
       return (
@@ -37,24 +72,7 @@ export default function WineList({
           item={item}
           index={index}
           isSelected={selectedItems[index]}
-          setSelectItem={(bool: boolean) => {
-            setSelectedItems((prev: boolean[]) => {
-              const newList = [...prev];
-              newList[index] = bool;
-              return newList;
-            });
-
-            if (bool)
-              setTotalPrice(
-                totalPrice +
-                  wineList[index].amount * wineList[index].product.price
-              );
-            else
-              setTotalPrice(
-                totalPrice -
-                  wineList[index].amount * wineList[index].product.price
-              );
-          }}
+          setSelectItem={(bool: boolean) => onSelectItem(bool, index)}
         />
       );
     });
@@ -75,9 +93,14 @@ export default function WineList({
               const price =
                 sumBy(wineList, (item) => item.amount * item.product.price) ||
                 0;
+              const originalPrice =
+                sumBy(
+                  wineList,
+                  (item) => item.amount * item.product.originalPrice
+                ) || 0;
 
-              setTotalPrice(price);
-            } else setTotalPrice(0);
+              setPriceInfo({ price, originalPrice });
+            } else setPriceInfo({ price: 0, originalPrice: 0 });
           }}
           style={{ accentColor: colors.primary700Default }}
         />

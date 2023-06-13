@@ -5,31 +5,32 @@ import { useMemo, useState } from 'react';
 
 import EmptyWineList from 'cart/components/EmptyWineList';
 import WineList from 'cart/components/WineList';
+import PaymentInfo from 'cart/components/PaymentInfo';
 import { AppBar } from 'common/components';
 import { colors } from 'common/constants';
 import { withAuth } from 'common/hocs';
 import { useCartList } from 'common/hooks/queries/useCartList';
 import { useMaxPriceGuide } from 'cart/components/MaxPricePopUp';
-import Payment from 'cart/pages/payment';
-import { useAdultCartGuide } from '../components/AdultCertGuidePopUp';
+import { useAdultCartGuide } from 'cart/components/AdultCertGuidePopUp';
 
-export default withAuth(function CartPage() {
+export default function CartPage() {
   const [cartList, refetch] = useCartList();
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [priceInfo, setPriceInfo] = useState({ price: 0, originalPrice: 0 });
 
   const openMaxPriceGuide = useMaxPriceGuide();
   const openAdultCartGuide = useAdultCartGuide();
 
   const buttonText = useMemo(() => {
-    if (totalPrice > 0) return `${commaizeNumber(totalPrice)}원 주문하기`;
+    if (priceInfo.price > 0)
+      return `${commaizeNumber(priceInfo.price)}원 주문하기`;
     return '상품을 선택해주세요';
-  }, [totalPrice]);
+  }, [priceInfo]);
 
   const handleCTAClick = () => {
-    if (!totalPrice) {
+    if (!priceInfo) {
       return;
     }
-    if (totalPrice > 5000000) {
+    if (priceInfo.price > 5000000) {
       openMaxPriceGuide();
       return;
     }
@@ -44,15 +45,15 @@ export default withAuth(function CartPage() {
       {cartList && cartList.length ? (
         <WineList
           wineList={cartList as any}
-          totalPrice={totalPrice}
-          setTotalPrice={setTotalPrice}
+          priceInfo={priceInfo}
+          setPriceInfo={setPriceInfo}
         />
       ) : (
         <EmptyWineList />
       )}
       <Spacing height={20} />
       <Divider width="100%" height="6px" color={colors.gray100} />
-      <Payment />
+      <PaymentInfo priceInfo={priceInfo} />
       <WarningText>
         <Text size="base" weight="regular" color={colors.gray600}>
           (주)마이너리는 통신판매중개자이며, 통신판매의 당사자가 아닙니다.
@@ -60,14 +61,17 @@ export default withAuth(function CartPage() {
           않습니다.
         </Text>
       </WarningText>
-      <OrderButton isItemSelected={totalPrice > 0} onClick={handleCTAClick}>
+      <OrderButton
+        isItemSelected={priceInfo.price > 0}
+        onClick={handleCTAClick}
+      >
         <Text size="xl" weight="semibold" color={colors.defaultWhite}>
           {buttonText}
         </Text>
       </OrderButton>
     </Container>
   );
-});
+}
 
 const Container = styled.div`
   display: flex;
