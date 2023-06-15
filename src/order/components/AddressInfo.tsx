@@ -1,22 +1,25 @@
-import { useState, useCallback } from 'react';
-import { useRouter } from 'next/router';
+import { useState, useCallback, useMemo } from 'react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import { Text, Divider } from '@boxfoxs/bds-web';
 
 import { DeliveryRequest, EnrollAddress } from 'order/components';
-import { useUserQuery } from 'common/hooks/queries';
 import SlideUp from 'common/components/modal/SlideUp';
 import { useModal } from 'common/components/modal/Modal';
+import { useFetchAddress } from 'common/hooks/queries';
 import { colors } from 'common/constants';
 
 export function AddressInfo() {
-  const router = useRouter();
-  const [userInfo] = useUserQuery(0); // TODO userId 변경
   const [requestText, setRequestText] = useState('');
+  const [addressList, refetch] = useFetchAddress();
+
+  const defaultAddress = useMemo(() => {
+    if (addressList) return addressList.filter((address) => address.default)[0];
+    return undefined;
+  }, [addressList]);
 
   const openDeliveryRequestModal = useDeliveryRequestModal(setRequestText);
-  const openEnrollAddressModal = useEnrollAddress();
+  const openEnrollAddressModal = useEnrollAddress(refetch);
 
   return (
     <>
@@ -26,8 +29,14 @@ export function AddressInfo() {
             <Text size="lg" weight="semibold" color={colors.gray900}>
               배송지 정보
             </Text>
-            <Text size="base" weight="regular" color={colors.gray600}>
-              배송받을 주소를 등록해주세요.
+            <Text
+              size="base"
+              weight="regular"
+              color={defaultAddress ? colors.gray900 : colors.gray600}
+            >
+              {defaultAddress
+                ? `${defaultAddress.address}(${defaultAddress.detailAddress})`
+                : '배송받을 주소를 등록해주세요.'}
             </Text>
           </DeleveryInfoWrapper>
           <Text
@@ -38,7 +47,7 @@ export function AddressInfo() {
               openEnrollAddressModal();
             }}
           >
-            등록하기
+            {defaultAddress ? '변경하기' : '등록하기'}
           </Text>
         </DeleveryWrapper>
         <DeleveryRequestWrapper onClick={openDeliveryRequestModal}>
@@ -62,12 +71,12 @@ export function AddressInfo() {
   );
 }
 
-function useEnrollAddress() {
+function useEnrollAddress(refetch: any) {
   const { open, close } = useModal('enroll-address');
 
   return useCallback(() => {
     open({
-      children: <EnrollAddress onClose={close} />,
+      children: <EnrollAddress onClose={close} refetch={refetch} />,
     });
   }, [open]);
 }

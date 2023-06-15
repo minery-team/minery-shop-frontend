@@ -3,13 +3,30 @@ import Image from 'next/image';
 import { Text, Divider } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import { colors } from 'common/constants';
 import { UserInfo } from 'order/components/enrollAddress/UserInfo';
 import { ShippingAddress } from 'order/components/enrollAddress/ShippingAddress';
+import { useUserQuery, useCreateAddress } from 'common/hooks/queries';
+import { colors } from 'common/constants';
 
-export function EnrollAddress({ onClose }: { onClose: () => void }) {
+export function EnrollAddress({
+  onClose,
+  refetch,
+}: {
+  onClose: () => void;
+  refetch: any;
+}) {
+  const [userInfo] = useUserQuery(0);
   const [roadAddress, setRoadAddress] = useState('');
   const [detailAddress, setDetailAddress] = useState('');
+  const [postalCode, setPostalCode] = useState('');
+  const [, createAddress] = useCreateAddress({
+    address: roadAddress,
+    detailAddress,
+    postalCode,
+    phone: userInfo?.phone || '',
+    name: userInfo?.name || '',
+    default: true,
+  });
 
   const isFindAddress = useMemo(() => {
     if (roadAddress.length > 0 && detailAddress.length > 0) return true;
@@ -38,9 +55,10 @@ export function EnrollAddress({ onClose }: { onClose: () => void }) {
         style={{ margin: '0 20px' }}
       />
       <ShippingAddress
-        onChangeAddress={(road: string, detail: string) => {
+        onChangeAddress={(road: string, detail: string, code: string) => {
           setRoadAddress(road);
           setDetailAddress(detail);
+          setPostalCode(code);
         }}
       />
       <Button
@@ -49,7 +67,10 @@ export function EnrollAddress({ onClose }: { onClose: () => void }) {
         color={isFindAddress ? colors.defaultWhite : colors.gray500}
         isFindAddress={isFindAddress}
         onClick={() => {
-          // TODO address post API
+          createAddress(undefined, {
+            onSuccess: () => refetch(),
+          });
+          onClose();
         }}
       >
         배송지 등록하기

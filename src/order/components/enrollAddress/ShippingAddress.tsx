@@ -8,15 +8,17 @@ import { colors } from 'common/constants';
 export function ShippingAddress({
   onChangeAddress,
 }: {
-  onChangeAddress: (road: string, detail: string) => void;
+  onChangeAddress: (road: string, detail: string, code: string) => void;
 }) {
   const open = useDaumPostcodePopup();
   const [roadAddress, setRoadAddress] = useState('');
   const [detailAddress, setDetailAddress] = useState('');
+  const [postalCode, setPostalCode] = useState('');
 
   const handleComplete = (data: Address) => {
     setRoadAddress(data.roadAddress);
-    onChangeAddress(data.roadAddress, detailAddress);
+    setPostalCode(data.zonecode);
+    onChangeAddress(data.roadAddress, detailAddress, postalCode);
   };
 
   return (
@@ -47,7 +49,7 @@ export function ShippingAddress({
         placeholder="상세 주소를 입력해주세요"
         onChange={(e) => {
           setDetailAddress(e.target.value);
-          onChangeAddress(roadAddress, e.target.value);
+          onChangeAddress(roadAddress, e.target.value, postalCode);
         }}
       />
     </Wrapper>
