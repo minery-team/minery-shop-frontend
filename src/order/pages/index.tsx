@@ -10,12 +10,13 @@ import {
 } from 'order/components';
 import { AddressInfo } from 'order/components/AddressInfo';
 import { AppBar } from 'common/components';
-import { useCartList } from 'common/hooks/queries';
+import { useUserQuery, useCartList } from 'common/hooks/queries';
 import { withAuth } from 'common/hocs';
 
 export default withAuth(function OrderPage() {
   const router = useRouter();
 
+  const [userInfo] = useUserQuery(0); // TODO userId 변경
   const [cartList] = useCartList();
 
   return (
@@ -25,10 +26,10 @@ export default withAuth(function OrderPage() {
       </AppBar>
       <WineInfoCard wineList={cartList ?? []} />
       <AddressInfo />
-      <UserInfo />
+      <UserInfo userInfo={userInfo} />
       <PaymentInfo cartList={cartList} />
       <Warning />
-      <PaymentButton />
+      <PaymentButton cartList={cartList} />
     </Wrapper>
   );
 });
