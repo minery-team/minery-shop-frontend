@@ -1,9 +1,37 @@
+import { useMemo } from 'react';
 import { Text, Spacing } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
+import { sumBy } from 'lodash';
 
+import { requestPay } from 'common/utils/requestTossPay';
 import { colors } from 'common/constants';
+import { User, CartItem } from 'common/models';
 
-export function PaymentButton() {
+export function PaymentButton({
+  userInfo,
+  cartList,
+}: {
+  userInfo: User;
+  cartList: CartItem[];
+}) {
+  const totalPrice = useMemo(() => {
+    return sumBy(cartList, (item) => item.amount * item.product.price);
+  }, [cartList]);
+
+  const submit = async () => {
+    const { protocol, host } = window.location;
+
+    await requestPay(
+      `${new Date().getTime()}`,
+      `${cartList[0].product.name} 외 ${cartList.length - 1}개`,
+      `권혁창`,
+      totalPrice,
+      {
+        successUrl: `${protocol}//${host}/complete-order`,
+      }
+    );
+  };
+
   return (
     <Wrapper>
       <Spacing height={12} />
@@ -15,7 +43,7 @@ export function PaymentButton() {
         size="xl"
         weight="medium"
         color={colors.defaultWhite}
-        onClick={() => {}}
+        onClick={submit}
       >
         다음
       </Button>
