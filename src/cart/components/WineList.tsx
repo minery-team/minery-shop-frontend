@@ -1,7 +1,8 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import styled from '@emotion/styled';
 import { Divider, Text } from '@boxfoxs/bds-web';
+import { sumBy } from 'lodash';
 
 import WineListItem from 'cart/components/WineListItem';
 import { CartItem } from 'common/models';
@@ -9,29 +10,59 @@ import { colors } from 'common/constants';
 
 export default function WineList({
   wineList,
-  isItemSelected,
+  priceInfo,
+  setPriceInfo,
 }: {
   wineList: CartItem[];
-  isItemSelected: (bool: boolean) => void;
+  priceInfo: { price: number; originalPrice: number };
+  setPriceInfo: ({
+    price,
+    originalPrice,
+  }: {
+    price: number;
+    originalPrice: number;
+  }) => void;
 }) {
-  const [selectedItems, setSelectedItems] = useState<boolean[]>(
-    (Array(wineList.length) as boolean[]).fill(false)
+  const [selectedItems, setSelectedItems] = useState<number[]>(
+    (Array(wineList.length) as number[]).fill(0)
   );
 
   const isSelectedAll = useMemo(() => {
     const selectedItemLen = selectedItems.filter(
-      (isSelected: boolean) => isSelected
+      (isSelected: number) => isSelected > 0
     ).length;
 
     if (selectedItemLen === wineList.length) return true;
     return false;
   }, [selectedItems]);
 
-  useEffect(() => {
-    if (selectedItems.filter((item) => item === true).length > 0)
-      isItemSelected(true);
-    else isItemSelected(false);
-  }, [selectedItems]);
+  const onSelectItem = (isSelect: number, index: number) => {
+    setSelectedItems((prev: number[]) => {
+      const newList = [...prev];
+      newList[index] = isSelect;
+      return newList;
+    });
+
+    if (isSelect) {
+      const price =
+        priceInfo.price +
+        wineList[index].amount * wineList[index].product.price;
+      const originalPrice =
+        priceInfo.originalPrice +
+        wineList[index].amount * wineList[index].product.originalPrice;
+
+      setPriceInfo({ price, originalPrice });
+    } else {
+      const price =
+        priceInfo.price -
+        wineList[index].amount * wineList[index].product.price;
+      const originalPrice =
+        priceInfo.originalPrice -
+        wineList[index].amount * wineList[index].product.originalPrice;
+
+      setPriceInfo({ price, originalPrice });
+    }
+  };
 
   const renderWineList = () => {
     return wineList.map((item: CartItem, index: number) => {
@@ -40,14 +71,8 @@ export default function WineList({
           key={`${item.id}`}
           item={item}
           index={index}
-          isSelected={selectedItems[index]}
-          setSelectItem={(bool: boolean) => {
-            setSelectedItems((prev: boolean[]) => {
-              const newList = [...prev];
-              newList[index] = bool;
-              return newList;
-            });
-          }}
+          selectedItems={selectedItems}
+          setSelectItem={(nbr: number) => onSelectItem(nbr, index)}
         />
       );
     });
@@ -60,9 +85,22 @@ export default function WineList({
           type="checkbox"
           checked={isSelectedAll}
           onChange={() => {
-            setSelectedItems(
-              (Array(wineList.length) as boolean[]).fill(!isSelectedAll)
-            );
+            if (!isSelectedAll) {
+              setSelectedItems(wineList.map((item) => item.id));
+              const price =
+                sumBy(wineList, (item) => item.amount * item.product.price) ||
+                0;
+              const originalPrice =
+                sumBy(
+                  wineList,
+                  (item) => item.amount * item.product.originalPrice
+                ) || 0;
+
+              setPriceInfo({ price, originalPrice });
+            } else {
+              setSelectedItems((Array(wineList.length) as number[]).fill(0));
+              setPriceInfo({ price: 0, originalPrice: 0 });
+            }
           }}
           style={{ accentColor: colors.primary700Default }}
         />

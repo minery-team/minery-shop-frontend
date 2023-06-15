@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { colors } from 'common/constants';
 import { useCallback } from 'react';
 import { PopUp } from 'common/components';
+import { useToast } from 'common/components/modal/Toast';
 
 export default function DeleteProduct({
   onConfirm,
@@ -38,6 +39,20 @@ export function useDeleteProduct() {
       });
     }).finally(close);
   }, [open, close]);
+}
+
+export function useDeleteProductToast() {
+  const { open } = useToast('delete-product-toast');
+
+  return useCallback(() => {
+    open({
+      children: (
+        <Text size="base" weight="medium" color={colors.defaultWhite}>
+          장바구니에서 삭제되었어요.
+        </Text>
+      ),
+    });
+  }, [open]);
 }
 
 const TextWrapper = styled.div`
