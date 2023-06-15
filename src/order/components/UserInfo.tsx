@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Text, Divider } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import { useUserQuery } from 'common/hooks/queries';
+import { User } from 'common/models/User';
 import { colors } from 'common/constants';
 
-export function UserInfo() {
-  const [userInfo] = useUserQuery(0); // TODO userId 변경
+export function UserInfo({ userInfo }: { userInfo: User }) {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
