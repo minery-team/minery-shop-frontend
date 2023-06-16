@@ -1,4 +1,4 @@
-import { colors } from '@/common/constants';
+import { colors } from 'common/constants';
 import { Spacing, Text } from '@boxfoxs/bds-web';
 import { useMemo } from 'react';
 

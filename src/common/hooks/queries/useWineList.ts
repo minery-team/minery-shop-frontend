@@ -1,5 +1,5 @@
-import { fetchProductList } from '@/common/api/product';
-import { Wine } from '@/common/models/Wine';
+import { fetchProductList } from 'common/api/product';
+import { Wine } from 'common/models/Wine';
 import { Product } from 'models/Product';
 import { UseQueryOptions, useQuery } from 'react-query';
 

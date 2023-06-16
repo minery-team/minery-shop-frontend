@@ -1,11 +1,11 @@
-import { Product } from '@/common/models';
+import { Product } from 'common/models';
 import { use, useMemo, useState } from 'react';
 import {
   DESCRIPTION_BY_WINE_SPECIES,
   WINE_SPECIES_DATA,
   WineSpecies,
-} from '@/common/constants/wineSpecies';
-import { colors } from '@/common/constants';
+} from 'common/constants/wineSpecies';
+import { colors } from 'common/constants';
 import Image from 'next/image';
 import { Spacing, Text } from '@boxfoxs/bds-web';
 import wine_pictogram from '../../../public/assets/wine_pictogram.svg';

@@ -1,4 +1,4 @@
-import { colors } from '@/common/constants';
+import { colors } from 'common/constants';
 import { Flex, inDesktop } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import React, { ComponentProps } from 'react';

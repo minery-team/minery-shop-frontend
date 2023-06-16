@@ -1,5 +1,5 @@
-import { Section } from '@/common/components';
-import { Product } from '@/common/models';
+import { Section } from 'common/components';
+import { Product } from 'common/models';
 import { Spacing, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 

@@ -1,9 +1,9 @@
-import { Section } from '@/common/components';
-import { colors } from '@/common/constants';
+import { Section } from 'common/components';
+import { colors } from 'common/constants';
 import { Spacing, Text } from '@boxfoxs/bds-web';
 import Image from 'next/image';
 import { useState } from 'react';
-import { Product } from '@/common/models';
+import { Product } from 'common/models';
 import star from '../../../public/assets/star.svg';
 import wine_review_image from '../../../public/assets/wine_review_image.png';
 

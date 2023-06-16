@@ -1,20 +1,20 @@
-import { AppBar, Section, SectionDivider, Space } from '@/common/components';
-import { Carousel } from '@/common/components/carousel';
-import { Container } from '@/common/components/layout/Container';
-import { colors } from '@/common/constants';
-import { useProductList } from '@/common/hooks/queries/useWineList';
+import { AppBar, Section, SectionDivider, Space } from 'common/components';
+import { Carousel } from 'common/components/carousel';
+import { Container } from 'common/components/layout/Container';
+import { colors } from 'common/constants';
+import { useProductList } from 'common/hooks/queries/useWineList';
 import {
   FLAG_BY_COUNTRY,
   NAME_BY_WINE_TYPE,
   Product,
   getWineFlagLabel,
-} from '@/common/models';
+} from 'common/models';
 import { Spacing, Text } from '@boxfoxs/bds-web';
 import { Path } from '@boxfoxs/next';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import { TabBar } from '@/common/components/tabbar';
+import { TabBar } from 'common/components/tabbar';
 import { useRef, useState } from 'react';
 import notice from '../../../public/assets/notice.svg';
 import snack_for_wine from '../../../public/assets/snack_for_wine.png';

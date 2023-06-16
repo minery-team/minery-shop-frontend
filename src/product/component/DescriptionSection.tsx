@@ -1,8 +1,8 @@
-import { Product } from '@/common/models';
+import { Product } from 'common/models';
 import Image from 'next/image';
-import { colors } from '@/common/constants';
+import { colors } from 'common/constants';
 import { Spacing, Text } from '@boxfoxs/bds-web';
-import { Section, SectionDivider } from '@/common/components';
+import { Section, SectionDivider } from 'common/components';
 import styled from '@emotion/styled';
 import wine_dictionary from '../../../public/assets/wine_dictionary.png';
 import adult_only from '../../../public/assets/adult_only.svg';
