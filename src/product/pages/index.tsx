@@ -31,14 +31,10 @@ type TabTitle = 'description' | 'review' | 'label';
 const ProductPage = () => {
   const id = Number(Path.get('id') || 5);
   const [products] = useProductList();
-  console.log('products', products);
-  // const product = products?.find((product) => product.id === id);
-  const product: Product = products?.[0];
+  const product = products?.find((product) => product.id === id);
   const containerRef = useRef<HTMLElement>(null);
-  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
   const [tab, setTab] = useState<TabTitle>('description');
   const handleTabClick = (selectedTab: TabTitle) => {
-    console.log('selectedTab', selectedTab);
     const section = document.querySelector(`#${selectedTab}`);
     section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };

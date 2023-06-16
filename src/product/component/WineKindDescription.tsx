@@ -16,7 +16,6 @@ interface Props {
 }
 
 const WineKindDescription = ({ product }: Props) => {
-  console.log('product', product);
   const [rawWineKind] = product.wine.kinds;
   const wineSpecies = useMemo(() => {
     return extractWineSpecies(rawWineKind.name);
