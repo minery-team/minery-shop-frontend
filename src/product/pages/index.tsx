@@ -24,7 +24,7 @@ import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import ReviewSection from '../component/ReviewSection';
 import WineLabelSection from '../component/WineLabelSection';
 
-const HEADER_SIZE = 112;
+const HEADER_SIZE = 79;
 
 type TabTitle = 'description' | 'review' | 'label';
 
@@ -189,6 +189,26 @@ const ProductPage = () => {
       <ReviewSection id="review" product={product} />
       <SectionDivider />
       <WineLabelSection id="label" product={product} />
+      {/* 주문하기 */}
+      <Spacing height={HEADER_SIZE} />
+      <div
+        style={{
+          height: `${HEADER_SIZE}px`,
+          boxSizing: 'border-box',
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          padding: '20px',
+          background: colors.primary700Default,
+          color: 'white',
+          textAlign: 'center',
+        }}
+      >
+        <Text size="xl" weight="semibold" color="white">
+          주문하기
+        </Text>
+      </div>
     </Container>
   );
 };
