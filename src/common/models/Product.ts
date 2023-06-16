@@ -13,6 +13,8 @@ export interface Product {
   images: string[];
   order?: number;
   wine: Wine;
+  labelImages: string[];
+  contentImage: string;
 }
 
 export interface ProductOption {

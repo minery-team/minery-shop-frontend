@@ -1,4 +1,4 @@
-import { AppBar, Section, Space } from '@/common/components';
+import { AppBar, Section, SectionDivider, Space } from '@/common/components';
 import { Carousel } from '@/common/components/carousel';
 import { Container } from '@/common/components/layout/Container';
 import { colors } from '@/common/constants';
@@ -21,6 +21,8 @@ import snack_for_wine from '../../../public/assets/snack_for_wine.png';
 import package_for_wine from '../../../public/assets/package_for_wine.png';
 import DescriptionSection from '../component/DescriptionSection';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
+import ReviewSection from '../component/ReviewSection';
+import WineLabelSection from '../component/WineLabelSection';
 
 const HEADER_SIZE = 112;
 
@@ -29,25 +31,22 @@ type TabTitle = 'description' | 'review' | 'label';
 const ProductPage = () => {
   const id = Number(Path.get('id') || 5);
   const [products] = useProductList();
+  console.log('products', products);
   // const product = products?.find((product) => product.id === id);
   const product: Product = products?.[0];
   const containerRef = useRef<HTMLElement>(null);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
   const [tab, setTab] = useState<TabTitle>('description');
   const handleTabClick = (selectedTab: TabTitle) => {
-    const root = containerRef.current;
-    const target = sectionRefs.current[selectedTab];
-    if (!target || !root) {
-      return;
-    }
-    const rect = target.getBoundingClientRect();
-    containerRef.current?.scrollTo({
-      top: root.scrollTop + rect.top - HEADER_SIZE + 8,
-      behavior: 'smooth',
-    });
+    console.log('selectedTab', selectedTab);
+    const section = document.querySelector(`#${selectedTab}`);
+    section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   if (!product) return <div>해당 상품이 없습니다 :(</div>;
+
+  const imagesForCarousel =
+    product.images.length === 0 ? [product.wine.image] : product.images;
 
   return (
     <Container ref={containerRef}>
@@ -60,7 +59,7 @@ const ProductPage = () => {
           return <CarouselDotsWrapper>{dots}</CarouselDotsWrapper>;
         }}
       >
-        {product.images.map((image) => (
+        {imagesForCarousel.map((image) => (
           <Rectangle key={image} style={{ background: colors.gray200 }}>
             <img src={image} alt="상품 이미지" style={{ width: '100%' }} />
           </Rectangle>
@@ -129,7 +128,7 @@ const ProductPage = () => {
                 borderRadius: '6px',
                 background: colors.gray200,
               }}
-              src={product.image}
+              src={product.wine.image}
             />
             <Spacing height={8} />
             <Text size="base" weight="semibold">
@@ -189,7 +188,11 @@ const ProductPage = () => {
         ]}
         onClick={handleTabClick}
       />
-      <DescriptionSection product={product} />
+      <DescriptionSection id="description" product={product} />
+      <SectionDivider />
+      <ReviewSection id="review" product={product} />
+      <SectionDivider />
+      <WineLabelSection id="label" product={product} />
     </Container>
   );
 };

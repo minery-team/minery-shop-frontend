@@ -3,10 +3,10 @@ import { requester } from '@/common/api/requester';
 import { Country, WineType } from '@/common/models';
 
 export async function fetchProductList() {
-  // const res = await requester.get<Product[]>('/product');
+  const res = await requester.get<Product[]>('/product');
 
-  return [dummyWine, dummyWine, dummyWine];
-  // return res.data;
+  // return [dummyWine, dummyWine, dummyWine];
+  return res.data;
 }
 
 const dummyWine: Product = {

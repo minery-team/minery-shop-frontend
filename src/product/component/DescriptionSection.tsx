@@ -12,13 +12,13 @@ import wine_description from '../../../public/assets/wine_description.png';
 import WineTasteLevel from './WineTasteLevel';
 import WineKindDescription from './WineKindDescription';
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
   product: Product;
 }
 
-const DescriptionSection = ({ product }: Props) => {
+const DescriptionSection = ({ product, ...props }: Props) => {
   return (
-    <div>
+    <div {...props}>
       {/* 성인인증 관련 */}
       <div
         style={{
@@ -103,8 +103,8 @@ const DescriptionSection = ({ product }: Props) => {
           width: '100%',
         }}
       >
-        <Image
-          src={wine_description}
+        <img
+          src={product.contentImage}
           style={{ objectFit: 'contain', width: '100%', height: '100%' }}
         />
       </div>
@@ -138,7 +138,7 @@ const DescriptionSection = ({ product }: Props) => {
               <Text size="base" weight="semibold" color={colors.gray900}>
                 {product.wine.minAlcohol === product.wine.maxAlcohol
                   ? `${product.wine.minAlcohol}%`
-                  : `${product.wine.minAlcohol}% ~ ${product.wine.maxAlcohol}%`}
+                  : `${product.wine.minAlcohol}~${product.wine.maxAlcohol}%`}
               </Text>
             </td>{' '}
           </tr>
@@ -162,7 +162,7 @@ const DescriptionSection = ({ product }: Props) => {
             </td>
             <td>
               <Text size="base" weight="semibold" color={colors.gray900}>
-                {product.wine.style}
+                {product.wine.style ?? '정보 없음'}
               </Text>
             </td>{' '}
           </tr>
@@ -211,8 +211,4 @@ const WineInfoTable = styled.table`
   tr td:last-child {
     width: 70%;
   }
-
-  // tr:not(:last-child) {
-  //   margin-bottom: 12px;
-  // }
 `;
