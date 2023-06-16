@@ -1,17 +1,21 @@
-import { withAuth } from '@/common/hocs';
-import { useUser } from '@/common/hooks';
+import { withAuth } from 'common/hocs';
+import { useUser } from 'common/hooks';
 import { Spacing } from '@boxfoxs/bds-web';
-import Container from '@/common/components/layout/Container';
-import { AppBar } from '@/common/components';
-import Section from '@/common/components/layout/Section';
-import SectionDivider from '@/common/components/layout/SectionDivider';
+import { Container, Section, SectionDivider, AppBar } from 'common/components';
+import { clearAccessToken } from 'common/utils';
+import Router from 'next/router';
 import { Profile, MenuList, OrderDashboard } from '../components';
 
 const MyPage = () => {
-  const [userInfo] = useUser();
+  const [userInfo, reload] = useUser();
+  const logout = () => {
+    clearAccessToken();
+    reload();
+    Router.push('/');
+  };
 
   // TODO: Loading, Error 처리
-  if (!userInfo) return null;
+  if (!userInfo) return <div />;
 
   return (
     <Container>
@@ -33,6 +37,7 @@ const MyPage = () => {
             {
               label: '로그아웃',
               to: '/',
+              onClick: logout,
             },
           ]}
         />

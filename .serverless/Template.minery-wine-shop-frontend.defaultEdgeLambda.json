@@ -1,0 +1,17 @@
+{
+  "name": "minery-wine-shop-frontend-live",
+  "hash": "Xsd7M4UFZv7phmVAuGCxGcRsk1N6R7ulU639MJqdET0=",
+  "description": "Default Lambda@Edge for Next CloudFront distribution",
+  "memory": 512,
+  "timeout": 10,
+  "code": "/Users/boxfox/Desktop/projects/minery-frontend2/.serverless_nextjs/default-lambda",
+  "shims": [],
+  "handler": "index.handler",
+  "runtime": "nodejs14.x",
+  "env": {},
+  "role": {
+    "arn": "arn:aws:iam::917306879000:role/8m1ef18-etyjhsc"
+  },
+  "arn": "arn:aws:lambda:us-east-1:917306879000:function:minery-wine-shop-frontend-live",
+  "region": "us-east-1"
+}

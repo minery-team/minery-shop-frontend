@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { ChevronLeftIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Router from 'next/router';
 import { ComponentProps, ReactNode } from 'react';
-import { colors } from '@/common/constants';
+import { colors } from 'common/constants';
 import { ControlBox } from './ControlBox';
 import { FloatingAppBarContainer } from './FloatingAppBarContainer';
 import { Profile } from './Profile';
@@ -78,14 +78,14 @@ export const AppBar = ({
 };
 
 // TODO: 정확한 Center 정렬로 수정
-AppBar.Title = (props: ComponentProps<typeof Text>) => {
+AppBar.Title = function AppBarTitle(props: ComponentProps<typeof Text>) {
   return (
     <TitleContainer>
       <Text
         style={{
-          fontWeight: 700,
-          fontSize: '18px',
-          lineHeight: '18px',
+          fontWeight: 600,
+          fontSize: '16px',
+          lineHeight: '20.8px',
           textAlign: 'center',
         }}
         {...props}

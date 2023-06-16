@@ -1,7 +1,15 @@
-import { fetchCurrentUser } from "@/common/api/auth";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from 'react-query';
+
+import { fetchCurrentUser } from 'common/api/auth';
 
 export const useUserQuery = (userId: number) => {
-    return fetchCurrentUser();
+  const query = useQuery(['/auth/me'], async () => {
+    try {
+      return await fetchCurrentUser();
+    } catch {
+      return undefined;
+    }
   });
-}
+
+  return [query.data, query.refetch] as const;
+};

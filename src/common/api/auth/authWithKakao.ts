@@ -1,5 +1,5 @@
-import { requester } from '@/common/api/requester';
-import { setAccessToken } from '@/common/utils/access-token';
+import { requester } from 'common/api/requester';
+import { setAccessToken } from 'common/utils/access-token';
 
 export async function authWithKakao(code: string) {
   const res = await requester.post('/auth/kakao', { code });

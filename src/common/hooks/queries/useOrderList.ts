@@ -1,4 +1,4 @@
-import { Order } from '@/common/models';
+import { Order } from 'common/models';
 import { UseQueryOptions, useQuery } from 'react-query';
 import { fetchOrders } from '../../api/order';
 import { OrderStatusForFilter } from '../useOrders';

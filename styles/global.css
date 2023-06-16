@@ -1,5 +1,21 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: black;
   margin: 0;
+}
+
+#__next,
+main {
+  width: 100%;
+  height: 100%;
 }

@@ -32,5 +32,10 @@ module.exports = {
     'react/prop-types': 'off',
     'react/require-default-props': 'off',
     'react/function-component-definition': 'off',
+    'react/jsx-no-useless-fragment': 'off',
+    'no-new': 'off',
+    'no-restricted-exports': 'off',
+    '@typescript-eslint/no-namespace': 'off',
+    'import/export': 'off',
   },
 };

@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { Icon } from '@iconify/react';
-import Link from 'next/link';
 import { memo } from 'react';
 
 const Container = styled.nav`
@@ -8,25 +7,29 @@ const Container = styled.nav`
   flex-direction: column;
 `;
 
-const Menu = styled(Link)`
+const Menu = styled.a`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 0;
+  text-decoration: none;
 `;
 
+export interface MenuItem {
+  label: string;
+  to: string;
+  onClick?: () => void;
+}
+
 interface Props {
-  menus: {
-    label: string;
-    to: string;
-  }[];
+  menus: MenuItem[];
 }
 
 const MenuList = ({ menus }: Props) => {
   return (
     <Container>
-      {menus.map(({ label, to }) => (
-        <Menu aria-label={label} key={label} href={to}>
+      {menus.map(({ label, to, onClick }) => (
+        <Menu aria-label={label} key={label} href={to} onClick={onClick}>
           {label}
           <Icon icon="material-symbols:chevron-right-rounded" width={24} />
         </Menu>
