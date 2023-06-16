@@ -1,10 +1,13 @@
 import { css } from '@emotion/react';
-import { useWineList } from 'common/hooks';
-import { WineCard, WineInfo } from './WineCard';
+import { WineCard } from './WineCard';
 
-export function WineList({ category }: { category: string }) {
-  const { data, isLoading, isError, error } = useWineList({ category });
-
+export function WineList({
+  data,
+  isLoading,
+}: {
+  data: any;
+  isLoading: boolean;
+}) {
   const handleWineDetailClick = () => {
     console.log('상세페이지로 이동');
   };
@@ -32,9 +35,15 @@ export function WineList({ category }: { category: string }) {
         padding: '0 19px',
       })}
     >
-      {data?.map((info: WineInfo) => {
+      {data?.map((item: any, idx: number) => {
         return (
-          <WineCard key={info.id} info={info} onClick={handleWineDetailClick} />
+          <WineCard
+            // eslint-disable-next-line react/no-array-index-key
+            key={item.wine.id + idx}
+            info={item.wine}
+            price={item.price}
+            onClick={handleWineDetailClick}
+          />
         );
       })}
     </section>

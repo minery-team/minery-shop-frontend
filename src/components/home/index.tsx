@@ -1,15 +1,15 @@
 import { Text } from '@boxfoxs/bds-web';
 import { css } from '@emotion/react';
-import { Tag } from '@/components/home/Tag';
+import { Tag } from 'components/home/Tag';
 import Image from 'next/image';
 
-import { colors } from '@/common/constants/colors';
+import { colors } from 'common/constants/colors';
 
 import { useRef, useState } from 'react';
-import { Space } from '@/common/components';
-import { WineList } from '@/components/home/WineList';
+import { Space } from 'common/components';
+import { WineList } from 'components/home/WineList';
 import styled from '@emotion/styled';
-import { Footer } from '@/common/components/footer';
+import { Footer } from 'common/components/footer';
 import logo from '../../../public/assets/text_logo.svg';
 import profile from '../../../public/assets/profile.svg';
 import basket from '../../../public/assets/basket.svg';
@@ -113,7 +113,7 @@ export function Home() {
           justifyContent: 'center',
         })}
       >
-        <Image src={hero} fill alt="" />
+        <Image src={hero} width={375} height={540} alt="" />
         <ScrollMainButton
           type="button"
           onClick={() => {
