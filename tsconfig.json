@@ -24,7 +24,8 @@
       "cart": ["./src/cart/*"],
       "order": ["./src/order/*"],
       "address": ["./src/address/*"],
-      "home": ["./src/home/*"]
+      "home": ["./src/home/*"],
+      "complete-order": ["./src/completeOrder/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
