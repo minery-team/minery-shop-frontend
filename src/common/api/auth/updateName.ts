@@ -1,4 +1,4 @@
-import { requester } from '@/common/api/requester';
+import { requester } from 'common/api/requester';
 
 export async function updateName(name: string) {
   await requester.patch('/user/me/name', { name });

@@ -1,6 +1,6 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from 'react-query';
 
-import { fetchCartList } from '@/common/api/cart';
+import { fetchCartList } from 'common/api/cart';
 
 export const TEST_CART_DATA = [
   {
@@ -8,7 +8,7 @@ export const TEST_CART_DATA = [
     amount: 1,
     product: {
       id: 1,
-      image: '',
+      image: '/images/common/exclamation-mark.png',
       name: 'wine1',
       price: 10000,
     },
@@ -18,7 +18,7 @@ export const TEST_CART_DATA = [
     amount: 3,
     product: {
       id: 2,
-      image: '',
+      image: '/images/common/exclamation-mark.png',
       name: 'wine2',
       price: 20000,
     },
@@ -28,7 +28,7 @@ export const TEST_CART_DATA = [
     amount: 1,
     product: {
       id: 3,
-      image: '',
+      image: '/images/common/exclamation-mark.png',
       name: 'wine3',
       price: 30000,
     },

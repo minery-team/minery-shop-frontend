@@ -1,6 +1,6 @@
-import { Order } from '@/common/models/Order';
-import { requester } from '@/common/api/requester';
-import { Address, OrderStatus, Product } from '@/common/models';
+import { Order } from 'common/models/Order';
+import { requester } from 'common/api/requester';
+import { Address, OrderStatus, Product } from 'common/models';
 
 export async function fetchOrders() {
   // const res = await requester.get<Order[]>('/order');
@@ -19,7 +19,7 @@ const dummyAddress: Address = {
   default: true,
 };
 
-const dummyProduct: Product = {
+const dummyProduct = {
   id: 0,
   name: '샤또 몬텔레나, 나파 밸리 샤도네이 2019 + 아주 맛 좋은 살라미',
   enName: 'Chateau Montelena, Napa Valley Chardonnay',
@@ -30,7 +30,7 @@ const dummyProduct: Product = {
   weight: 750,
   options: [],
   images: [],
-};
+} as unknown as Product;
 
 const dummyOrderList: Order[] = [
   {

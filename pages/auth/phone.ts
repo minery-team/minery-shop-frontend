@@ -1,1 +1,1 @@
-export { default } from '@/auth/pages/InputPhonePage';
+export { default } from 'auth/pages/InputPhonePage';

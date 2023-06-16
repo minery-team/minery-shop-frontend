@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import Image from 'next/image';
 import { Text } from '@boxfoxs/bds-web';
-import { colors } from '@/common/constants';
+import { colors } from 'common/constants';
 import logo from '../../../../public/assets/image_logo.svg';
 import { Space } from '../space';
 

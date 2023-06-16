@@ -1,4 +1,4 @@
-import { setAccessToken } from '@/common/utils';
+import { setAccessToken } from 'common/utils';
 import { requester } from '../requester';
 
 export async function confirmPass(impUid: string) {

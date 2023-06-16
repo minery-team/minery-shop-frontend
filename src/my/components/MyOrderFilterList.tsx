@@ -1,6 +1,6 @@
-import { memo, useCallback, useMemo } from 'react';
+import { OrderStatus } from 'common/models';
 import { useRouter } from 'next/router';
-import { OrderStatusType } from '../types';
+import { memo, useCallback } from 'react';
 
 const MyOrderFilterList = () => {
   const router = useRouter();
@@ -26,8 +26,9 @@ const MyOrderFilterList = () => {
       >
         전체
       </li>
-      {Object.entries(OrderStatusType).map(([key, value], index) => (
+      {Object.entries(OrderStatus).map(([key, value], index) => (
         <li
+          key={key}
           css={{
             fontWeight:
               !!query.status && +query.status === index ? 'bold' : undefined,

@@ -1,87 +1,40 @@
-import { useState, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
-import { Icon } from '@iconify/react';
 
-import { useCartList } from '@/common/hooks/queries';
-import WineInfoCard from '@order/components/WineIinfoCart';
-import UserInfo from '@order/components/UserInfo';
-import PaymentInfo from '@order/components/PaymentInfo';
-import { CommonModal } from '@/components/common/Modal';
-import AddressList from '@order/components/AddressList';
-import { CartItem } from '@/common/models';
+import {
+  WineInfoCard,
+  UserInfo,
+  PaymentInfo,
+  Warning,
+  PaymentButton,
+} from 'order/components';
+import { AddressInfo } from 'order/components/AddressInfo';
+import { AppBar } from 'common/components';
+import { useUserQuery, useCartList } from 'common/hooks/queries';
+import { withAuth } from 'common/hocs';
 
-export default function OrderPage() {
+export default withAuth(function OrderPage() {
   const router = useRouter();
 
+  const [userInfo] = useUserQuery(0); // TODO userId 변경
   const [cartList] = useCartList();
-  const [isAddressModalVisible, setIsAddressModalVisible] = useState(false);
-
-  // TODO 주소 등록 및 추가 시 바뀌는 부분 구현
-  // TODO modal 수정
-
-  const totalPayment = useMemo(() => {
-    if (cartList) {
-      let payment = 0;
-      cartList.map((item: CartItem) => {
-        payment += item.product.price * item.amount;
-      });
-
-      return payment;
-    }
-    return 0;
-  }, []);
 
   return (
-    <div>
-      <TopNavigator>
-        <Wrapper>
-          <Icon
-            icon="material-symbols:chevron-left-rounded"
-            width={30}
-            height={30}
-            onClick={() => router.back()}
-          />
-          <div>주문하기</div>
-        </Wrapper>
-      </TopNavigator>
-      <UserInfo onAddressClick={(v: boolean) => setIsAddressModalVisible(v)} />
+    <Wrapper>
+      <AppBar back>
+        <AppBar.Title>결제하기</AppBar.Title>
+      </AppBar>
       <WineInfoCard wineList={cartList ?? []} />
-      <PaymentInfo totalPayment={totalPayment} />
-      <BottomNavigator
-        onClick={() => {
-          // TODO 토스 페이먼츠 연동
-        }}
-      >
-        주문하러가기
-      </BottomNavigator>
-      <CommonModal
-        children={<AddressList />}
-        isOpen={isAddressModalVisible}
-        onClose={() => setIsAddressModalVisible(false)}
-      />
-    </div>
+      <AddressInfo />
+      <UserInfo userInfo={userInfo} />
+      <PaymentInfo cartList={cartList} />
+      <Warning />
+      <PaymentButton cartList={cartList} />
+    </Wrapper>
   );
-}
-
-const TopNavigator = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100vw;
-  height: 56px;
-`;
+});
 
 const Wrapper = styled.div`
   display: flex;
-  align-items: center;
-`;
-
-const BottomNavigator = styled.div`
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  height: 100px;
-  background-color: green;
+  flex-direction: column;
 `;

@@ -1,4 +1,4 @@
-import { OrderStatus, orderStatusToHumanReadable } from '@/common/models';
+import { OrderStatus, orderStatusToHumanReadable } from 'common/models';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import { memo } from 'react';
@@ -9,7 +9,7 @@ const Container = styled.section`
   gap: 20px;
 `;
 
-const OrderStatusList = styled(Link)`
+const OrderStatusList = styled.div`
   text-decoration: none;
   display: flex;
   flex-direction: row;
@@ -36,16 +36,18 @@ const OrderDashboard = () => {
   return (
     <Container>
       <h3 css={{ margin: 0 }}>주문내역</h3>
-      <OrderStatusList href="/orderList">
-        {Object.keys(OrderStatus).map((status) => (
-          <OrderStatusIndicator key={status}>
-            <h1 css={{ margin: 0 }}>{0}</h1>
-            <span css={{ fontSize: '14px' }}>
-              {orderStatusToHumanReadable(status as unknown as OrderStatus)}
-            </span>
-          </OrderStatusIndicator>
-        ))}
-      </OrderStatusList>
+      <Link href="/orderList">
+        <OrderStatusList>
+          {Object.keys(OrderStatus).map((status) => (
+            <OrderStatusIndicator key={status}>
+              <h1 css={{ margin: 0 }}>{0}</h1>
+              <span css={{ fontSize: '14px' }}>
+                {orderStatusToHumanReadable(status as unknown as OrderStatus)}
+              </span>
+            </OrderStatusIndicator>
+          ))}
+        </OrderStatusList>
+      </Link>
     </Container>
   );
 };
