@@ -1,11 +1,13 @@
 import { Text, Divider } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import { useUserQuery } from 'common/hooks/queries';
+import { useUserQuery, useFetchAddress } from 'common/hooks/queries';
 import { colors } from 'common/constants';
 
 export function ShippingInfo() {
   const [userInfo] = useUserQuery(0);
+  const [addressList] = useFetchAddress();
+  const defaultAddress = addressList?.filter((address) => address.default)[0];
 
   return (
     <Wrapper>
@@ -18,7 +20,7 @@ export function ShippingInfo() {
           받는 분
         </Text>
         <Text size="base" weight="medium" color={colors.gray900}>
-          권혁창
+          {userInfo?.name}
         </Text>
       </TextWrapper>
       <TextWrapper>
@@ -26,7 +28,7 @@ export function ShippingInfo() {
           연락처
         </Text>
         <Text size="base" weight="medium" color={colors.gray900}>
-          010 - 9667 - 5855
+          {userInfo?.phone}
         </Text>
       </TextWrapper>
       <TextWrapper>
@@ -34,7 +36,7 @@ export function ShippingInfo() {
           주소
         </Text>
         <Text size="base" weight="medium" color={colors.gray900}>
-          서울특별시 중구 황학동 855 (베네스트 405호)
+          {`${defaultAddress?.address}(${defaultAddress?.detailAddress})`}
         </Text>
       </TextWrapper>
       <TextWrapper>
