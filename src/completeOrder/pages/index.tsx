@@ -11,8 +11,9 @@ import {
 import { useUserQuery, useOrderList } from 'common/hooks/queries';
 import { AppBar } from 'common/components';
 import { colors } from 'common/constants';
+import { withAuth } from 'common/hocs';
 
-export default function CompleteOrder() {
+export default withAuth(function CompleteOrder() {
   const router = useRouter();
   const { query } = router;
   const [userInfo] = useUserQuery(0); // TODO userId 바꾸기
@@ -45,7 +46,7 @@ export default function CompleteOrder() {
       <Buttons />
     </Wrapper>
   );
-}
+});
 
 const Wrapper = styled.div``;
 
