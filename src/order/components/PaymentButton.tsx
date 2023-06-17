@@ -6,31 +6,49 @@ import { sumBy } from 'lodash';
 import { requestPay } from 'common/utils/requestTossPay';
 import { colors } from 'common/constants';
 import { User, CartItem } from 'common/models';
+import { useCheckSelfReceving } from 'order/components/CheckSeflRecevingPopUp';
+import { useEnrollAddress } from 'order/components/EnrollAddressPopUp';
 
 export function PaymentButton({
   userInfo,
   orderList,
+  isCheckSelfReceving,
+  hasDefaultAddress,
 }: {
   userInfo: User;
   orderList: CartItem[];
+  isCheckSelfReceving: boolean;
+  hasDefaultAddress: boolean;
 }) {
+  const openCheckSelfReceving = useCheckSelfReceving();
+  const openEnrollAddress = useEnrollAddress();
+
   const totalPrice = useMemo(() => {
     return sumBy(orderList, (item) => item.amount * item.product.price);
   }, [orderList]);
 
-  const submit = async () => {
-    const { protocol, host } = window.location;
-    const orderId = new Date().getTime();
+  const isActiveButton = useMemo(() => {
+    if (isCheckSelfReceving && hasDefaultAddress) return true;
+    return false;
+  }, [isCheckSelfReceving, hasDefaultAddress]);
 
-    await requestPay(
-      `${orderId}`,
-      `${orderList[0].product.name} 외 ${orderList.length - 1}개`,
-      `${userInfo.name}`,
-      totalPrice,
-      {
-        successUrl: `${protocol}//${host}/process-payment?orderId=${orderId}`,
-      }
-    );
+  const submit = async () => {
+    if (!hasDefaultAddress) openEnrollAddress();
+    else if (!isCheckSelfReceving) openCheckSelfReceving();
+    else {
+      const { protocol, host } = window.location;
+      const orderId = new Date().getTime();
+
+      await requestPay(
+        `${orderId}`,
+        `${orderList[0].product.name} 외 ${orderList.length - 1}개`,
+        `${userInfo.name}`,
+        totalPrice,
+        {
+          successUrl: `${protocol}//${host}/process-payment?orderId=${orderId}`,
+        }
+      );
+    }
   };
 
   return (
@@ -43,8 +61,9 @@ export function PaymentButton({
       <Button
         size="xl"
         weight="medium"
-        color={colors.defaultWhite}
+        color={isActiveButton ? colors.defaultWhite : colors.gray500}
         onClick={submit}
+        isActive={isActiveButton}
       >
         다음
       </Button>
@@ -56,7 +75,7 @@ const Wrapper = styled.div`
   padding: 0 20px;
 `;
 
-const Button = styled(Text)`
+const Button = styled(Text)<{ isActive: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,5 +83,6 @@ const Button = styled(Text)`
   height: 56px;
   border-radius: 6px;
   margin-bottom: 36px;
-  background-color: ${colors.primary700Default};
+  background-color: ${({ isActive }) =>
+    isActive ? colors.primary700Default : colors.gray200};
 `;

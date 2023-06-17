@@ -18,6 +18,8 @@ import { withAuth } from 'common/hocs';
 export default withAuth(function OrderPage() {
   const [userInfo] = useUserQuery(0); // TODO userId 변경
   const orderList = useRecoilValue(orderItems);
+  const [isCheckSelfReceving, setIsCheckSelfReceving] = useState(false);
+  const [hasDefaultAddress, setHasDefaultAddress] = useState(false);
 
   return (
     <Wrapper>
@@ -25,11 +27,19 @@ export default withAuth(function OrderPage() {
         <AppBar.Title>결제하기</AppBar.Title>
       </AppBar>
       <WineInfoCard orderList={orderList ?? []} />
-      <AddressInfo />
-      <UserInfo userInfo={userInfo} />
+      <AddressInfo setHasDefaultAddress={setHasDefaultAddress} />
+      <UserInfo
+        userInfo={userInfo}
+        setIsCheckSelfReceving={setIsCheckSelfReceving}
+      />
       <PaymentInfo orderList={orderList ?? []} />
       <Warning />
-      <PaymentButton userInfo={userInfo} orderList={orderList ?? []} />
+      <PaymentButton
+        userInfo={userInfo}
+        orderList={orderList ?? []}
+        isCheckSelfReceving={isCheckSelfReceving}
+        hasDefaultAddress={hasDefaultAddress}
+      />
     </Wrapper>
   );
 });
