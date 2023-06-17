@@ -19,11 +19,7 @@ export default function EmptyWineList() {
       <Text size="base" weight="regular" color={colors.gray600}>
         장바구니가 비어있어요
       </Text>
-      <GoShoppingButton
-        onClick={() => {
-          // router.push('/list');
-        }}
-      >
+      <GoShoppingButton onClick={() => router.push('/')}>
         <Text size="base" weight="semibold" color={colors.gray600}>
           쇼핑 계속하기
         </Text>
