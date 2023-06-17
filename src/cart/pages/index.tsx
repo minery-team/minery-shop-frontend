@@ -27,13 +27,13 @@ export default withAuth(function CartPage() {
   }, [priceInfo]);
 
   const handleCTAClick = () => {
-    if (!priceInfo) {
-      return;
-    }
+    if (!priceInfo.price) return;
+
     if (priceInfo.price > 5000000) {
       openMaxPriceGuide();
       return;
     }
+
     openAdultCartGuide();
   };
 

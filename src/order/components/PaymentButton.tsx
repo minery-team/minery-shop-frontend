@@ -9,25 +9,26 @@ import { User, CartItem } from 'common/models';
 
 export function PaymentButton({
   userInfo,
-  cartList,
+  orderList,
 }: {
   userInfo: User;
-  cartList: CartItem[];
+  orderList: CartItem[];
 }) {
   const totalPrice = useMemo(() => {
-    return sumBy(cartList, (item) => item.amount * item.product.price);
-  }, [cartList]);
+    return sumBy(orderList, (item) => item.amount * item.product.price);
+  }, [orderList]);
 
   const submit = async () => {
     const { protocol, host } = window.location;
+    const orderId = new Date().getTime();
 
     await requestPay(
-      `${new Date().getTime()}`,
-      `${cartList[0].product.name} 외 ${cartList.length - 1}개`,
-      `권혁창`,
+      `${orderId}`,
+      `${orderList[0].product.name} 외 ${orderList.length - 1}개`,
+      `${userInfo.name}`,
       totalPrice,
       {
-        successUrl: `${protocol}//${host}/complete-order`,
+        successUrl: `${protocol}//${host}/process-payment?orderId=${orderId}`,
       }
     );
   };
