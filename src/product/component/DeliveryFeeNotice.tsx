@@ -59,10 +59,10 @@ const DeliveryFeeNotice = () => {
           }}
         >
           <Text color={colors.gray700} size="sm" weight="regular">
-            30,000원 이상 주문시 무료배송
+            70,000원 이상 주문시 무료배송
           </Text>
           <Text color={colors.gray700} size="sm" weight="regular">
-            30,000원 미만 주문시 배송비 3,500원
+            70,000원 미만 주문시 배송비 3,500원
           </Text>
           <Text color={colors.gray700} size="sm" weight="regular">
             제주, 도서 지역 시 2,000원 추가
