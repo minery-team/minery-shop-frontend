@@ -62,14 +62,13 @@ export function useControlCart() {
   );
 
   const remove = useCallback(
-    async (id: number | string) => {
-      if (typeof id === 'number') {
-        await deleteFromCart(id);
-        await reload();
-      }
+    async (id: number) => {
       const idx = local.findIndex((i) => i.id === id);
       if (idx >= 0) {
         localControl.remove(idx);
+      } else {
+        await deleteFromCart(id);
+        await reload();
       }
     },
     [value, local]
@@ -84,14 +83,13 @@ export function useControlCart() {
   }, [user]);
 
   const updateAmount = useCallback(
-    async (id: number | string, amount: number) => {
-      if (typeof id === 'number') {
-        await patchAmount(id, amount);
-        await reload();
-      }
+    async (id: number, amount: number) => {
       const idx = local.findIndex((i) => i.id === id);
       if (idx >= 0) {
         localControl.updateItem(idx, { amount });
+      } else {
+        await patchAmount(id, amount);
+        await reload();
       }
     },
     [value, local]

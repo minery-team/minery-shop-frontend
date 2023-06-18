@@ -13,7 +13,6 @@ import { WineType } from 'common/models';
 import { OrderType } from 'common/api/product';
 import { useWineList } from 'common/hooks';
 import { WineList } from '../components/WineList';
-import hero from '../../../public/assets/hero.png';
 import down from '../../../public/assets/down.svg';
 import up from '../../../public/assets/up.svg';
 import { Header } from '../components/Header';
@@ -111,7 +110,11 @@ export default function Home() {
           justifyContent: 'center',
         })}
       >
-        <Image src={hero} alt="" />
+        <img
+          src="/assets/hero.png"
+          alt=""
+          style={{ width: '100%', objectFit: 'cover' }}
+        />
         <ScrollMainButton
           type="button"
           onClick={() => {

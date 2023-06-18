@@ -8,30 +8,36 @@ import { createOrder } from 'common/api/order';
 import { colors } from 'common/constants';
 import { useOrderingItems } from 'common/hooks/useOrderingItems';
 import { withSuspense } from '@boxfoxs/react';
+import { useCallbackOnce } from '@boxfoxs/core-hooks';
 
 export default withSuspense(function ProcessPayment() {
   const router = useRouter();
   const { query } = router;
   const orderList = useOrderingItems({ suspense: true });
 
-  useEffect(() => {
+  const submit = useCallbackOnce(async () => {
     const cost = sumBy(orderList, (item) => item.amount * item.product.price);
     const cartItemIds = orderList.map((item) => item.id);
-    (async () => {
-      try {
-        const order = await createOrder({
-          paymentKey: String(query.paymentKey),
-          orderId: String(query.orderId),
-          cost,
-          cartItemIds,
-          addressId: Number(query.addressId),
-        });
-        router.push(`/complete-order?orderId=${order.id}`);
-      } catch {
-        router.back();
-      }
-    })();
-  }, []);
+    try {
+      const order = await createOrder({
+        paymentKey: String(query.paymentKey),
+        orderId: String(query.orderId),
+        cost,
+        cartItemIds,
+        addressId: Number(query.addressId),
+      });
+      router.push(`/complete-order?orderId=${order.id}`);
+    } catch {
+      router.back();
+    }
+  }, [orderList]);
+
+  useEffect(() => {
+    if (!orderList.length) {
+      return;
+    }
+    submit();
+  }, [submit]);
 
   return (
     <Wrapper>

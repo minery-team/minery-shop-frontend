@@ -17,11 +17,8 @@ import { useCartList } from 'common/hooks/queries';
 import { useProductList } from 'common/hooks/queries/useWineList';
 import { useControlCart } from 'common/hooks/useCart';
 import { NAME_BY_WINE_TYPE, getWineFlagLabel } from 'common/models';
-import Image from 'next/image';
 import Router from 'next/router';
 import { useRef, useState } from 'react';
-import package_for_wine from '../../../public/assets/package_for_wine.png';
-import snack_for_wine from '../../../public/assets/snack_for_wine.png';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import DescriptionSection from '../component/DescriptionSection';
 import ReviewSection from '../component/ReviewSection';
@@ -151,14 +148,14 @@ const ProductPage = () => {
             </Text>
           </div>
           <div>
-            <Image
+            <img
               style={{
                 width: '106px',
                 height: '120px',
                 borderRadius: '6px',
                 background: colors.gray200,
               }}
-              src={snack_for_wine}
+              src="/assets/snack_for_wine.png"
             />
             <Spacing height={8} />
             <Text size="base" weight="semibold">
@@ -170,14 +167,14 @@ const ProductPage = () => {
             </Text>
           </div>
           <div>
-            <Image
+            <img
               style={{
                 width: '106px',
                 height: '120px',
                 borderRadius: '6px',
                 background: colors.gray200,
               }}
-              src={package_for_wine}
+              src="/assets/package_for_wine.png"
             />
             <Spacing height={8} />
             <Text size="base" weight="semibold">

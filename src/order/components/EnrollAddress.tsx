@@ -1,6 +1,5 @@
 import { Divider, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
-import Image from 'next/image';
 import { useMemo, useState } from 'react';
 
 import { createAddress } from 'common/api/address';
@@ -49,13 +48,14 @@ export function EnrollAddress({ onClose }: { onClose: () => void }) {
       <TopNavigator>
         <Dummy />
         <Text>배송지 등록</Text>
-        <Image
-          src="/images/common/close.png"
-          alt="close"
-          width={20}
-          height={20}
-          onClick={onClose}
-        />
+        <button onClick={onClose} type="button">
+          <img
+            src="/images/common/close.png"
+            alt="close"
+            width={20}
+            height={20}
+          />
+        </button>
       </TopNavigator>
       <Divider width="100%" height={1} color={colors.gray100} />
       <UserInfo />

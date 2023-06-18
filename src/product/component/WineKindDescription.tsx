@@ -1,15 +1,15 @@
-import { Product } from 'common/models';
-import { use, useMemo, useState } from 'react';
+import { Spacing, Text } from '@boxfoxs/bds-web';
+import { colors } from 'common/constants';
 import {
   DESCRIPTION_BY_WINE_SPECIES,
   WINE_SPECIES_DATA,
   WineSpecies,
 } from 'common/constants/wineSpecies';
-import { colors } from 'common/constants';
+import { Product } from 'common/models';
 import Image from 'next/image';
-import { Spacing, Text } from '@boxfoxs/bds-web';
-import wine_pictogram from '../../../public/assets/wine_pictogram.svg';
+import { useMemo, useState } from 'react';
 import up_arrow from '../../../public/assets/up_arrow.svg';
+import wine_pictogram from '../../../public/assets/wine_pictogram.svg';
 
 interface Props {
   product: Product;

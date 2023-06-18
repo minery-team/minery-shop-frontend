@@ -70,7 +70,7 @@ export function WineInfoCard({ order }: { order: Order }) {
             <Text size="lg" weight="semibold" color={colors.gray900}>
               {order.items ? order.items.length : 0}개
             </Text>
-            <Image
+            <img
               src={`/images/common/chevron-${isShowList ? 'up' : 'down'}.png`}
               alt="chevron-down"
               width={12}

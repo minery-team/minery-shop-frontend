@@ -1,6 +1,5 @@
 import { Divider, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
-import Image from 'next/image';
 import { useCallback, useState } from 'react';
 
 import { useModal } from 'common/components/modal/Modal';
@@ -50,7 +49,7 @@ export function AddressInfo({ value }: { value?: Address }) {
           >
             {requestText || '배송 요청 사항을 선택해주세요.'}
           </Text>
-          <Image
+          <img
             src="/images/common/chevron-down.png"
             alt="chevron-down"
             width={12}

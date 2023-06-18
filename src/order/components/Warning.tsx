@@ -1,6 +1,5 @@
 import { Divider, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
-import Image from 'next/image';
 import { useState } from 'react';
 
 import { colors } from 'common/constants';
@@ -31,7 +30,7 @@ export function Warning() {
     <Wrapper onClick={() => setIsShowWarning(!isShowWaring)}>
       <WarningNavWrapper>
         <WarningNavTextWrapper>
-          <Image
+          <img
             src="/images/common/exclamation-mark.png"
             alt="chevron-down"
             width={12}
@@ -41,7 +40,7 @@ export function Warning() {
             배달상품 주의사항
           </Text>
         </WarningNavTextWrapper>
-        <Image
+        <img
           src={`/images/common/chevron-${isShowWaring ? 'up' : 'down'}.png`}
           alt="chevron-down"
           width={12}
