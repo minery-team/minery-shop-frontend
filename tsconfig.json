@@ -21,33 +21,16 @@
     "incremental": true,
     "baseUrl": "./src",
     "paths": {
-      "common": [
-        "./src/common/*"
-      ],
-      "my": [
-        "./src/my/*"
-      ],
-      "auth": [
-        "./src/auth/*"
-      ],
-      "orderList": [
-        "./src/orderList/*"
-      ],
-      "cart": [
-        "./src/cart/*"
-      ],
-      "order": [
-        "./src/order/*"
-      ],
-      "address": [
-        "./src/address/*"
-      ],
-      "home": [
-        "./src/home/*"
-      ],
-      "@product/*": [
-        "./src/product/*"
-      ]
+      "common": ["./src/common/*"],
+      "my": ["./src/my/*"],
+      "auth": ["./src/auth/*"],
+      "orderList": ["./src/orderList/*"],
+      "cart": ["./src/cart/*"],
+      "order": ["./src/order/*"],
+      "address": ["./src/address/*"],
+      "home": ["./src/home/*"],
+      "complete-order": ["./src/completeOrder/*"],
+      "product/*": ["./src/product/*"]
     }
   },
   "include": [

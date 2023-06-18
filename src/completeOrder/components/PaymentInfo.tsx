@@ -5,16 +5,19 @@ import styled from '@emotion/styled';
 import { sumBy } from 'lodash';
 
 import { colors } from 'common/constants';
-import { CartItem } from 'common/models';
+import { Order } from 'common/models';
 import { FREE_SHIPPING_PRICE, SHIPPING_PRICE } from 'cart/model/Price';
 
-export function PaymentInfo({ orderList }: { orderList: CartItem[] }) {
+export function PaymentInfo({ orderList }: { orderList: Order }) {
   const totalPrice = useMemo(() => {
-    return sumBy(orderList, (item) => item.amount * item.product.price);
+    return sumBy(orderList.items, (item) => item.amount * item.product.price);
   }, [orderList]);
 
   const originalTotalPrice = useMemo(() => {
-    return sumBy(orderList, (item) => item.amount * item.product.originalPrice);
+    return sumBy(
+      orderList.items,
+      (item) => item.amount * item.product.originalPrice
+    );
   }, [orderList]);
 
   const shippingPrice = useMemo(() => {

@@ -11,6 +11,7 @@ export const TEST_CART_DATA = [
       image: '/images/common/exclamation-mark.png',
       name: 'wine1',
       price: 10000,
+      originalPrice: 20000,
     },
   },
   {
@@ -21,6 +22,7 @@ export const TEST_CART_DATA = [
       image: '/images/common/exclamation-mark.png',
       name: 'wine2',
       price: 20000,
+      originalPrice: 40000,
     },
   },
   {
@@ -31,6 +33,7 @@ export const TEST_CART_DATA = [
       image: '/images/common/exclamation-mark.png',
       name: 'wine3',
       price: 30000,
+      originalPrice: 60000,
     },
   },
 ];

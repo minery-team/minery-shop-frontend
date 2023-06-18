@@ -1,4 +1,5 @@
-import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import styled from '@emotion/styled';
 
 import {
@@ -10,26 +11,25 @@ import {
 } from 'order/components';
 import { AddressInfo } from 'order/components/AddressInfo';
 import { AppBar } from 'common/components';
-import { useUserQuery, useCartList } from 'common/hooks/queries';
+import { useUserQuery } from 'common/hooks/queries';
+import { orderItems } from 'common/recoil/orderItems';
 import { withAuth } from 'common/hocs';
 
 export default withAuth(function OrderPage() {
-  const router = useRouter();
-
   const [userInfo] = useUserQuery(0); // TODO userId 변경
-  const [cartList] = useCartList();
+  const orderList = useRecoilValue(orderItems);
 
   return (
     <Wrapper>
       <AppBar back>
         <AppBar.Title>결제하기</AppBar.Title>
       </AppBar>
-      <WineInfoCard wineList={cartList ?? []} />
+      <WineInfoCard orderList={orderList ?? []} />
       <AddressInfo />
       <UserInfo userInfo={userInfo} />
-      <PaymentInfo cartList={cartList} />
+      <PaymentInfo orderList={orderList ?? []} />
       <Warning />
-      <PaymentButton cartList={cartList} />
+      <PaymentButton userInfo={userInfo} orderList={orderList ?? []} />
     </Wrapper>
   );
 });
