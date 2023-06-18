@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import { colors } from 'common/constants';
 import { Order, OrderItem } from 'common/models';
 
-export function WineInfoCard({ orderList }: { orderList: Order }) {
+export function WineInfoCard({ order }: { order: Order }) {
   const [isShowList, setIsShowList] = useState(false);
 
   const renderWineList = () => {
@@ -16,38 +16,38 @@ export function WineInfoCard({ orderList }: { orderList: Order }) {
         <>
           <Spacing height={16} />
           <Divider width="100%" height={1} color={colors.gray100} />
-          {orderList.items.map((order: OrderItem) => {
+          {order.items.map((item: OrderItem) => {
             return (
-              <CardWrapper key={`${order.id}`}>
+              <CardWrapper key={`${item.id}`}>
                 <Image
-                  src={order.product.image}
-                  alt={order.product.image}
+                  src={item.product.image}
+                  alt={item.product.image}
                   width={70}
                   height={79}
                 />
                 <Image
-                  src={order.product.image}
-                  alt={order.product.image}
+                  src={item.product.image}
+                  alt={item.product.image}
                   width={70}
                   height={79}
                 />
                 <WineInfoWrapper>
                   <Text size="base" weight="semibold" color={colors.gray900}>
-                    {order.product.name}
+                    {item.product.name}
                   </Text>
                   <Text size="sm" weight="regular" color={colors.gray600}>
-                    {order.amount}개
+                    {item.amount}개
                   </Text>
                   <PriceInfoWrapper>
                     <Text size="lg" weight="semibold" color={colors.gray900}>
-                      {commaizeNumber(order.product.price)}원
+                      {commaizeNumber(item.product.price)}원
                     </Text>
                     <OriginPriceText
                       size="base"
                       weight="regular"
                       color={colors.gray500}
                     >
-                      {commaizeNumber(order.product.originalPrice)}원
+                      {commaizeNumber(item.product.originalPrice)}원
                     </OriginPriceText>
                   </PriceInfoWrapper>
                 </WineInfoWrapper>
@@ -68,9 +68,9 @@ export function WineInfoCard({ orderList }: { orderList: Order }) {
           </Text>
           <ListCountText onClick={() => setIsShowList(!isShowList)}>
             <Text size="lg" weight="semibold" color={colors.gray900}>
-              {orderList.items ? orderList.items.length : 0}개
+              {order.items ? order.items.length : 0}개
             </Text>
-            <Image
+            <img
               src={`/images/common/chevron-${isShowList ? 'up' : 'down'}.png`}
               alt="chevron-down"
               width={12}

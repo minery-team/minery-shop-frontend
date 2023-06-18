@@ -1,26 +1,29 @@
-import { useRouter } from 'next/router';
-import { Text, Spacing, Divider } from '@boxfoxs/bds-web';
+import { Divider, Spacing, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
+import { useRouter } from 'next/router';
 
-import {
-  WineInfoCard,
-  PaymentInfo,
-  ShippingInfo,
-  Buttons,
-} from 'completeOrder/components';
-import { useUserQuery, useOrderList } from 'common/hooks/queries';
 import { AppBar } from 'common/components';
 import { colors } from 'common/constants';
 import { withAuth } from 'common/hocs';
+import { useUser } from 'common/hooks';
+import { useOrderList } from 'common/hooks/queries';
+import {
+  Buttons,
+  PaymentInfo,
+  ShippingInfo,
+  WineInfoCard,
+} from 'completeOrder/components';
 
 export default withAuth(function CompleteOrder() {
   const router = useRouter();
   const { query } = router;
-  const [userInfo] = useUserQuery(0); // TODO userId 바꾸기
+  const [userInfo] = useUser(); // TODO userId 바꾸기
   const [myOrderList] = useOrderList('ALL');
-  const orderList = myOrderList?.filter(
-    (item) => String(item.id) === query.orderId
-  );
+  const order = myOrderList?.find((item) => String(item.id) === query.orderId);
+
+  if (!order) {
+    return <></>;
+  }
 
   return (
     <Wrapper>
@@ -36,9 +39,9 @@ export default withAuth(function CompleteOrder() {
         </Text>
       </TitleWrapper>
       <Divider width="100%" height={6} color={colors.gray100} />
-      <WineInfoCard orderList={orderList ?? []} />
+      <WineInfoCard order={order} />
       <Divider width="100%" height={6} color={colors.gray100} />
-      <PaymentInfo orderList={orderList ?? []} />
+      <PaymentInfo order={order} />
       <Divider width="100%" height={6} color={colors.gray100} />
       <ShippingInfo />
       <Divider width="100%" height={1} color={colors.gray100} />

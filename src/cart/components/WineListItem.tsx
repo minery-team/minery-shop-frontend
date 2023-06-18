@@ -3,9 +3,8 @@ import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 
-import { deleteFromCart, updateAmount } from 'common/api/cart';
 import { colors } from 'common/constants';
-import { useCartList } from 'common/hooks/queries/useCartList';
+import { useControlCart } from 'common/hooks/useCart';
 import { CartItem } from 'common/models';
 import { useDeleteProduct, useDeleteProductToast } from './DeleteProduct';
 
@@ -20,29 +19,21 @@ export default function WineListItem({
   selectedItems: number[];
   setSelectItem: (nbr: number) => void;
 }) {
-  const [cartList, refetch] = useCartList();
   const confirmDelete = useDeleteProduct();
   const deleteToast = useDeleteProductToast();
+  const cart = useControlCart();
 
   const plusWine = () => {
-    updateAmount(item.id, item.amount + 1);
-    refetch();
+    cart.updateAmount(item.id, item.amount + 1);
   };
 
   const minusWine = () => {
-    if (item.amount > 1) {
-      updateAmount(item.id, item.amount - 1);
-      refetch();
-    }
+    cart.updateAmount(item.id, item.amount - 1);
   };
 
   const deleteWine = async () => {
     await confirmDelete();
-
-    for (let i = 0; i < selectedItems.length; i += 1) {
-      if (selectedItems[i] > 0) deleteFromCart(selectedItems[i]);
-    }
-    refetch();
+    await cart.remove(item.id);
     deleteToast();
   };
 
@@ -136,7 +127,7 @@ export default function WineListItem({
           style={{ marginLeft: '12px' }}
         />
       </Wrapper>
-      {cartList!.length - 1 !== index && (
+      {cart.value!.length - 1 !== index && (
         <Divider
           width="calc(100% - 40px)"
           color={colors.gray100}

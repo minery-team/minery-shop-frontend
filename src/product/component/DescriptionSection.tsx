@@ -4,10 +4,6 @@ import { colors } from 'common/constants';
 import { Spacing, Text } from '@boxfoxs/bds-web';
 import { Section, SectionDivider } from 'common/components';
 import styled from '@emotion/styled';
-import wine_dictionary from '../../../public/assets/wine_dictionary.png';
-import adult_only from '../../../public/assets/adult_only.svg';
-import snack_example from '../../../public/assets/snack_example.png';
-import wine_description from '../../../public/assets/wine_description.png';
 
 import WineTasteLevel from './WineTasteLevel';
 import WineKindDescription from './WineKindDescription';
@@ -33,7 +29,12 @@ const DescriptionSection = ({ product, ...props }: Props) => {
             gap: '8px',
           }}
         >
-          <Image src={adult_only} width={16} height={16} alt="성인인증" />
+          <Image
+            src="/assets/adult_only.svg"
+            width={16}
+            height={16}
+            alt="성인인증"
+          />
           <Text size="base" weight="semibold">
             주류의 통신판매에 관한 명령 위임 고시
           </Text>
@@ -51,7 +52,7 @@ const DescriptionSection = ({ product, ...props }: Props) => {
         }}
       >
         <Image
-          src={wine_dictionary}
+          src="/assets/wine_dictionary.png"
           style={{ objectFit: 'contain', width: '100%', height: '100%' }}
         />
       </div>
@@ -182,8 +183,8 @@ const DescriptionSection = ({ product, ...props }: Props) => {
           width: '100%',
         }}
       >
-        <Image
-          src={snack_example}
+        <img
+          src="/assets/snack_example.png"
           style={{ objectFit: 'contain', width: '100%', height: '100%' }}
         />
       </div>

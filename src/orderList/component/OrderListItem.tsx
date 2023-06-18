@@ -13,7 +13,9 @@ const OrderListItem = ({ order }: Props) => {
   return (
     <OrderListItemContainer>
       <OrderListItemHeader>
-        <DateIndicator>{dateToYYYYMMDDHHmm(order.time)}</DateIndicator>
+        <DateIndicator>
+          {dateToYYYYMMDDHHmm(new Date(order.time))}
+        </DateIndicator>
         <OrderStatusIndicator
           style={{
             backgroundColor: orderStatusToBackgroundColor(order.status),

@@ -1,15 +1,17 @@
 import { css } from '@emotion/react';
+import Router from 'next/router';
+import { Product } from 'common/models';
 import { WineCard } from './WineCard';
 
 export function WineList({
   data,
   isLoading,
 }: {
-  data: any;
+  data: Product[];
   isLoading: boolean;
 }) {
-  const handleWineDetailClick = () => {
-    console.log('상세페이지로 이동');
+  const handleWineDetailClick = (product: Product) => {
+    Router.push(`/product/${product.id}`);
   };
 
   // FIXME: 스켈레톤 사용하면 좋을듯싶어 임시 대응하였습니다.
@@ -35,14 +37,13 @@ export function WineList({
         padding: '0 19px',
       })}
     >
-      {data?.map((item: any, idx: number) => {
+      {data.map((item: Product, idx: number) => {
         return (
           <WineCard
             // eslint-disable-next-line react/no-array-index-key
             key={item.wine.id + idx}
-            info={item.wine}
-            price={item.price}
-            onClick={handleWineDetailClick}
+            data={item}
+            onClick={() => handleWineDetailClick(item)}
           />
         );
       })}

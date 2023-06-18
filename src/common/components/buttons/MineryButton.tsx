@@ -75,9 +75,8 @@ const StyledButton = styled.button<{
   radius?: CSSProperties['borderRadius'];
 }>`
   ${(p) => (p.loading ? 'opacity: 0.9;' : '')}
-  ${(p) => (p.radius ? `border-radius: ${coerceCssPixelValue(p.radius)};` : '')}
+  ${(p) => `border-radius: ${coerceCssPixelValue(p.radius ?? 0)} !important;`}
   height: ${(p) => (p.height ? `${coerceCssPixelValue(p.height)}` : '58px')};
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;

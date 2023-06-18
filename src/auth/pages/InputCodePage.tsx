@@ -2,7 +2,9 @@ import { Flex, Spacing, Text } from '@boxfoxs/bds-web';
 import { useAsyncCallback, useBooleanState } from '@boxfoxs/core-hooks';
 import { useInputState } from '@boxfoxs/core-hooks-dom';
 import { QS, isClient } from '@boxfoxs/next';
+import { sleep } from '@boxfoxs/utils';
 import { sendSmsCode, validateSmsCode } from 'common/api/auth';
+import { addToCart } from 'common/api/cart';
 import {
   AppBar,
   Container,
@@ -14,6 +16,7 @@ import {
 } from 'common/components';
 import { colors } from 'common/constants';
 import { useCountdown, useUser } from 'common/hooks';
+import { useLocalCart } from 'common/hooks/useCart';
 import Router from 'next/router';
 import { useRef } from 'react';
 import { redirectAfterAuth } from '../utils/redirectAfterAuth';
@@ -24,6 +27,7 @@ export default function InputCodePage() {
   const [code, onCodeChange] = useInputState();
   const [isError, setError, clearError] = useBooleanState();
   const inputRef = useRef<HTMLInputElement>(null);
+  const localCart = useLocalCart();
   const countdown = useCountdown(180);
   const cta = useAsyncCallback(async () => {
     if (!phone) {
@@ -32,6 +36,11 @@ export default function InputCodePage() {
     try {
       await validateSmsCode(phone, code);
       await reloadUser();
+      for (const item of localCart.value) {
+        await addToCart(item);
+      }
+      localCart.clear();
+      await sleep(1000);
       redirectAfterAuth();
     } catch {
       setError();

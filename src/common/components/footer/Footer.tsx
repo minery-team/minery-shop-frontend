@@ -2,7 +2,6 @@ import { css } from '@emotion/react';
 import Image from 'next/image';
 import { Text } from '@boxfoxs/bds-web';
 import { colors } from 'common/constants';
-import logo from '../../../../public/assets/image_logo.svg';
 import { Space } from '../space';
 
 export function Footer() {
@@ -18,7 +17,7 @@ export function Footer() {
           padding: 36px 20px;
         `}
       >
-        <Image src={logo} width={30} height={18} alt="logo" />
+        <Image src="/assets/image_logo.svg" width={30} height={18} alt="logo" />
         <Space bottom="20px" />
         <div
           css={css`
