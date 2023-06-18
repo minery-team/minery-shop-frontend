@@ -1,10 +1,12 @@
 import { useState, useMemo } from 'react';
 import Image from 'next/image';
+import { useSetRecoilState } from 'recoil';
 import styled from '@emotion/styled';
 import { Divider, Text } from '@boxfoxs/bds-web';
 import { sumBy } from 'lodash';
 
 import WineListItem from 'cart/components/WineListItem';
+import { orderItems } from 'common/recoil/orderItems';
 import { CartItem } from 'common/models';
 import { colors } from 'common/constants';
 
@@ -23,6 +25,7 @@ export default function WineList({
     originalPrice: number;
   }) => void;
 }) {
+  const setOrderItemList = useSetRecoilState(orderItems);
   const [selectedItems, setSelectedItems] = useState<number[]>(
     (Array(wineList.length) as number[]).fill(0)
   );
@@ -40,6 +43,10 @@ export default function WineList({
     setSelectedItems((prev: number[]) => {
       const newList = [...prev];
       newList[index] = isSelect;
+
+      const orderList = wineList.filter((_, nbr) => newList[nbr]);
+      setOrderItemList(orderList);
+
       return newList;
     });
 
@@ -64,6 +71,25 @@ export default function WineList({
     }
   };
 
+  const onClickAll = () => {
+    if (!isSelectedAll) {
+      setSelectedItems(wineList.map((item) => item.id));
+      setOrderItemList(wineList);
+
+      const price =
+        sumBy(wineList, (item) => item.amount * item.product.price) || 0;
+      const originalPrice =
+        sumBy(wineList, (item) => item.amount * item.product.originalPrice) ||
+        0;
+
+      setPriceInfo({ price, originalPrice });
+    } else {
+      setSelectedItems((Array(wineList.length) as number[]).fill(0));
+      setOrderItemList([]);
+      setPriceInfo({ price: 0, originalPrice: 0 });
+    }
+  };
+
   const renderWineList = () => {
     return wineList.map((item: CartItem, index: number) => {
       return (
@@ -84,24 +110,7 @@ export default function WineList({
         <input
           type="checkbox"
           checked={isSelectedAll}
-          onChange={() => {
-            if (!isSelectedAll) {
-              setSelectedItems(wineList.map((item) => item.id));
-              const price =
-                sumBy(wineList, (item) => item.amount * item.product.price) ||
-                0;
-              const originalPrice =
-                sumBy(
-                  wineList,
-                  (item) => item.amount * item.product.originalPrice
-                ) || 0;
-
-              setPriceInfo({ price, originalPrice });
-            } else {
-              setSelectedItems((Array(wineList.length) as number[]).fill(0));
-              setPriceInfo({ price: 0, originalPrice: 0 });
-            }
-          }}
+          onChange={onClickAll}
           style={{ accentColor: colors.primary700Default }}
         />
         <Text size="base" weight="regular">
