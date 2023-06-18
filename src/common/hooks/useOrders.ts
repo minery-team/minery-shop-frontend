@@ -1,8 +1,4 @@
-import { useEffect, useState } from 'react';
-import { Order, OrderStatus } from '../models';
-import { useOrderList } from './queries/useOrderList';
-
-export type OrderStatusForFilter = OrderStatus | 'ALL';
+import { OrderStatusForFilter, useOrderList } from './queries';
 
 interface Props {
   status: OrderStatusForFilter;

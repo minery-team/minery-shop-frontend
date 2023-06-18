@@ -1,5 +1,5 @@
-import { Order } from 'common/models/Order';
 import { requester } from 'common/api/requester';
+import { Order } from 'common/models/Order';
 
 export async function createOrder(data: InstantPaymentDTO) {
   const { protocol, host } = window.location;

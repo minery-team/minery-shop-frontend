@@ -165,7 +165,7 @@ export default function Home() {
         })}
       </TagBox>
       <Space bottom="6px" />
-      <WineList data={data} isLoading={isLoading} />
+      <WineList data={data ?? []} isLoading={isLoading} />
       <Space bottom="32px" />
       <div
         css={css`

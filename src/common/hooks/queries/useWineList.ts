@@ -1,9 +1,12 @@
 import { fetchProductList } from 'common/api/product';
-import { Wine } from 'common/models/Wine';
-import { Product } from 'models/Product';
+import { Product } from 'common/models';
 import { UseQueryOptions, useQuery } from 'react-query';
 
-export function useProductList(options?: UseQueryOptions<Wine[]>) {
-  const query = useQuery<Product[]>('product-list', fetchProductList, options);
+export function useProductList(options?: UseQueryOptions<Product[]>) {
+  const query = useQuery<Product[]>(
+    'product-list',
+    () => fetchProductList({}),
+    options
+  );
   return [query.data, query.refetch] as const;
 }
