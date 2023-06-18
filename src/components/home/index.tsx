@@ -113,7 +113,7 @@ export function Home() {
           justifyContent: 'center',
         })}
       >
-        <Image src={hero} fill alt="" />
+        <Image src={hero} width={375} height={540} alt="" />
         <ScrollMainButton
           type="button"
           onClick={() => {
