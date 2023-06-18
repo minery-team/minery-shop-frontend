@@ -5,7 +5,13 @@ import styled from '@emotion/styled';
 import { User } from 'common/models/User';
 import { colors } from 'common/constants';
 
-export function UserInfo({ userInfo }: { userInfo: User }) {
+export function UserInfo({
+  userInfo,
+  setIsCheckSelfReceving,
+}: {
+  userInfo: User;
+  setIsCheckSelfReceving: (bool: boolean) => void;
+}) {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
@@ -17,10 +23,10 @@ export function UserInfo({ userInfo }: { userInfo: User }) {
         <InfoWrapper>
           <UserInfoWrapper>
             <Text size="base" weight="medium" color={colors.gray900}>
-              권혁창
+              {userInfo?.name}
             </Text>
             <Text size="base" weight="medium" color={colors.gray900}>
-              010 - 9667 - 5855
+              {userInfo?.phone}
             </Text>
           </UserInfoWrapper>
           <DirectlyReceving htmlFor="check">
@@ -30,6 +36,7 @@ export function UserInfo({ userInfo }: { userInfo: User }) {
               checked={isChecked}
               onChange={() => {
                 setIsChecked(!isChecked);
+                setIsCheckSelfReceving(!isChecked);
               }}
               style={{ accentColor: colors.primary700Default }}
             />

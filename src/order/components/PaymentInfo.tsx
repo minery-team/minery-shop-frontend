@@ -49,27 +49,6 @@ export function PaymentInfo({ orderList }: { orderList: CartItem[] }) {
           <Text size="base" weight="regular" color={colors.gray900}>
             배송비
           </Text>
-          {FREE_SHIPPING_PRICE - originalTotalPrice > 0 && (
-            <>
-              <Text
-                size="sm"
-                weight="regular"
-                color={colors.primary700Default}
-                style={{ margin: '0 4px 0 8px' }}
-              >
-                {`${commaizeNumber(FREE_SHIPPING_PRICE - originalTotalPrice)}`}
-                원 더 담으면
-              </Text>
-
-              <Text
-                size="base"
-                weight="semibold"
-                color={colors.primary700Default}
-              >
-                무료배송!
-              </Text>
-            </>
-          )}
         </ShipmentTextWrapper>
         <Text size="base" weight="medium" color={colors.gray900}>
           {`+${commaizeNumber(shippingPrice)}원`}
