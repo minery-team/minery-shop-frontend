@@ -70,6 +70,8 @@ const AddressWrapper = styled.div`
 `;
 
 const AddressText = styled.div`
+  display: flex;
+  align-items: center;
   width: calc(100% - 116px);
   height: 54px;
   border: 1px solid ${colors.gray200};

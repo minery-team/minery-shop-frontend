@@ -51,52 +51,61 @@ export function EnrollAddress({
 
   return (
     <Container>
-      <TopNavigator>
-        <Dummy />
-        <Text>배송지 등록</Text>
-        <Image
-          src="/images/common/close.png"
-          alt="close"
-          width={20}
-          height={20}
-          onClick={onClose}
+      <Wrapper>
+        <TopNavigator>
+          <Dummy />
+          <Text>배송지 등록</Text>
+          <Image
+            src="/images/common/close.png"
+            alt="close"
+            width={20}
+            height={20}
+            onClick={onClose}
+          />
+        </TopNavigator>
+        <Divider width="100%" height={1} color={colors.gray100} />
+        <UserInfo />
+        <Divider
+          width="calc(100% - 40px)"
+          height={1}
+          color={colors.gray100}
+          style={{ margin: '0 20px' }}
         />
-      </TopNavigator>
-      <Divider width="100%" height={1} color={colors.gray100} />
-      <UserInfo />
-      <Divider
-        width="calc(100% - 40px)"
-        height={1}
-        color={colors.gray100}
-        style={{ margin: '0 20px' }}
-      />
-      <ShippingAddress
-        onChangeAddress={(road: string, detail: string, code: string) => {
-          setRoadAddress(road);
-          setDetailAddress(detail);
-          setPostalCode(code);
-        }}
-      />
-      <Button
-        size="xl"
-        weight="medium"
-        color={isFindAddress ? colors.defaultWhite : colors.gray500}
-        isFindAddress={isFindAddress}
-        onClick={onClickEnroll}
-      >
-        배송지 등록하기
-      </Button>
+        <ShippingAddress
+          onChangeAddress={(road: string, detail: string, code: string) => {
+            setRoadAddress(road);
+            setDetailAddress(detail);
+            setPostalCode(code);
+          }}
+        />
+        <Button
+          size="xl"
+          weight="medium"
+          color={isFindAddress ? colors.defaultWhite : colors.gray500}
+          isFindAddress={isFindAddress}
+          onClick={onClickEnroll}
+        >
+          배송지 등록하기
+        </Button>
+      </Wrapper>
     </Container>
   );
 }
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: start;
+  justify-content: center;
   width: 100%;
   height: 100%;
   background-color: ${colors.defaultWhite};
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
 `;
 
 const TopNavigator = styled.div`
