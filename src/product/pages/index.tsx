@@ -19,6 +19,7 @@ import { useControlCart } from 'common/hooks/useCart';
 import { NAME_BY_WINE_TYPE, getWineFlagLabel } from 'common/models';
 import Router from 'next/router';
 import { useRef, useState } from 'react';
+import RefundNotice from 'product/component/RefundNotice';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import DescriptionSection from '../component/DescriptionSection';
 import ReviewSection from '../component/ReviewSection';
@@ -208,7 +209,9 @@ const ProductPage = () => {
         onClick={handleTabClick}
       />
       <DescriptionSection id="description" product={product} />
-      <SectionDivider />
+      <Spacing height={20} />
+      <RefundNotice />
+      <Spacing height={20} />
       <ReviewSection id="review" product={product} />
       <SectionDivider />
       <WineLabelSection id="label" product={product} />
