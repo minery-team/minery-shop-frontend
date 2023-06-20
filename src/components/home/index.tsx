@@ -90,8 +90,9 @@ export function Home() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '0 20px',
+          padding: '48px 20px 0',
           height: '56px',
+          width: '335px',
         })}
       >
         <Image src={logo} width={91} height={32} alt="logo" />

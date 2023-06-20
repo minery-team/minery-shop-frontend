@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { UrlLottie } from '@boxfoxs/bds-web';
 import { WineCard } from './WineCard';
 
 export function WineList({
@@ -12,15 +13,20 @@ export function WineList({
     console.log('상세페이지로 이동');
   };
 
-  // FIXME: 스켈레톤 사용하면 좋을듯싶어 임시 대응하였습니다.
   if (isLoading) {
     return (
       <div
         css={css`
-          height: 500px;
+          height: 300px;
+          display: flex;
+          align-items: center;
         `}
       >
-        is loading...
+        <UrlLottie
+          src="https://lottie.host/95d6d68f-6172-4601-bb20-67ebb1ef4357/RVGwMbanZT.json"
+          options={{ loop: true, autoplay: true }}
+          style={{ width: '150px', height: '150px' }}
+        />
       </div>
     );
   }

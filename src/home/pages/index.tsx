@@ -13,9 +13,9 @@ import { WineType } from 'common/models';
 import { OrderType } from 'common/api/product';
 import { useWineList } from 'common/hooks';
 import { WineList } from '../components/WineList';
-import hero from '../../../public/assets/hero.png';
 import down from '../../../public/assets/down.svg';
 import up from '../../../public/assets/up.svg';
+// import hero from '../../../public/assets/hero.mp4';
 import { Header } from '../components/Header';
 
 export type TagInfo = {
@@ -101,34 +101,43 @@ export default function Home() {
 
   return (
     <main>
-      <Header />
-      <section
+      <div
         css={css({
           width: '100%',
-          height: '540px',
           position: 'relative',
-          display: 'flex',
-          justifyContent: 'center',
         })}
       >
-        <Image src={hero} alt="" />
-        <ScrollMainButton
-          type="button"
-          onClick={() => {
-            handleScroll(mainTextRef.current);
-          }}
+        <Header />
+        <section
+          css={css({
+            width: '100%',
+            height: '540px',
+            position: 'relative',
+            display: 'flex',
+            justifyContent: 'center',
+          })}
         >
-          <Image src={down} width={16} height={16} alt="" />
-          <div
-            css={css({
-              paddingLeft: '8px',
-            })}
-          />
-          <Text size="lg" weight="bold" color={colors.defaultWhite}>
-            이달의 추천 와인
-          </Text>
-        </ScrollMainButton>
-      </section>
+          <video autoPlay muted loop playsInline>
+            <source src="/assets/hero.mp4" type="video/mp4" />
+          </video>
+          <ScrollMainButton
+            type="button"
+            onClick={() => {
+              handleScroll(mainTextRef.current);
+            }}
+          >
+            <Image src={down} width={16} height={16} alt="" />
+            <div
+              css={css({
+                paddingLeft: '8px',
+              })}
+            />
+            <Text size="lg" weight="bold" color={colors.defaultWhite}>
+              이달의 추천 와인
+            </Text>
+          </ScrollMainButton>
+        </section>
+      </div>
       <Space bottom="32px" />
       <section
         ref={mainTextRef}
