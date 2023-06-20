@@ -3,15 +3,15 @@ import { Flex, inDesktop } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import React, { ComponentProps } from 'react';
 
-export function TabBar({
+export function TabBar<T extends string = string>({
   data,
   value,
   onClick,
   ...props
 }: {
-  data: { name: string; id: string }[];
+  data: { name: string; id: T }[];
   value: string;
-  onClick: (id: string) => void;
+  onClick: (id: T) => void;
 } & Omit<ComponentProps<typeof Container>, 'onClick'>) {
   return (
     <Container {...props}>

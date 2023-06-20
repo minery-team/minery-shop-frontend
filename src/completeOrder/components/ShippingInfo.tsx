@@ -1,12 +1,12 @@
 import { Text, Divider } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import { useUserQuery, useFetchAddress } from 'common/hooks/queries';
+import { useUserQuery, useAddressList } from 'common/hooks/queries';
 import { colors } from 'common/constants';
 
 export function ShippingInfo() {
   const [userInfo] = useUserQuery(0);
-  const [addressList] = useFetchAddress();
+  const [addressList] = useAddressList();
   const defaultAddress = addressList?.filter((address) => address.default)[0];
 
   return (

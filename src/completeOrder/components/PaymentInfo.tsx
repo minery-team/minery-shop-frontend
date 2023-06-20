@@ -8,17 +8,17 @@ import { colors } from 'common/constants';
 import { Order } from 'common/models';
 import { FREE_SHIPPING_PRICE, SHIPPING_PRICE } from 'cart/model/Price';
 
-export function PaymentInfo({ orderList }: { orderList: Order }) {
+export function PaymentInfo({ order }: { order: Order }) {
   const totalPrice = useMemo(() => {
-    return sumBy(orderList.items, (item) => item.amount * item.product.price);
-  }, [orderList]);
+    return sumBy(order.items, (item) => item.amount * item.product.price);
+  }, [order]);
 
   const originalTotalPrice = useMemo(() => {
     return sumBy(
-      orderList.items,
+      order.items,
       (item) => item.amount * item.product.originalPrice
     );
-  }, [orderList]);
+  }, [order]);
 
   const shippingPrice = useMemo(() => {
     if (FREE_SHIPPING_PRICE - originalTotalPrice > 0) return SHIPPING_PRICE;

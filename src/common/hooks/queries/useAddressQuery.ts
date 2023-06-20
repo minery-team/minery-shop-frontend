@@ -1,21 +1,8 @@
-import { useQuery, useMutation } from 'react-query';
+import { useQuery } from 'react-query';
 
-import { createAddress, fetchAddress } from 'common/api/address';
-import { BaseAddress } from 'common/models';
+import { fetchAddress } from 'common/api/address';
 
-export const useCreateAddress = (address: BaseAddress) => {
-  const query = useMutation(['/create-address'], async () => {
-    try {
-      return await createAddress(address);
-    } catch {
-      return undefined;
-    }
-  });
-
-  return [query.data, query.mutate] as const;
-};
-
-export const useFetchAddress = () => {
+export const useAddressList = () => {
   const query = useQuery(['/fetch-address'], async () => {
     try {
       return await fetchAddress();

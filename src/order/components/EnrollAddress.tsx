@@ -1,50 +1,44 @@
-import { useState, useMemo } from 'react';
-import Image from 'next/image';
-import { Text, Divider } from '@boxfoxs/bds-web';
+import { Divider, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
+import { useMemo, useState } from 'react';
 
-import { UserInfo } from 'order/components/enrollAddress/UserInfo';
-import { ShippingAddress } from 'order/components/enrollAddress/ShippingAddress';
+import { createAddress } from 'common/api/address';
+import { MineryButton } from 'common/components';
+import { colors } from 'common/constants';
+import { useAddressList, useUserQuery } from 'common/hooks/queries';
 import { useFindAddress } from 'order/components/FindAddressPopUp';
 import { useTypeDetailAddress } from 'order/components/TypeDetailAddressPopUp';
-import { useUserQuery, useCreateAddress } from 'common/hooks/queries';
-import { colors } from 'common/constants';
+import { ShippingAddress } from 'order/components/enrollAddress/ShippingAddress';
+import { UserInfo } from 'order/components/enrollAddress/UserInfo';
 
-export function EnrollAddress({
-  onClose,
-  refetch,
-}: {
-  onClose: () => void;
-  refetch: any;
-}) {
+export function EnrollAddress({ onClose }: { onClose: () => void }) {
   const [userInfo] = useUserQuery(0);
   const [roadAddress, setRoadAddress] = useState('');
   const [detailAddress, setDetailAddress] = useState('');
   const [postalCode, setPostalCode] = useState('');
-  const [, createAddress] = useCreateAddress({
-    address: roadAddress,
-    detailAddress,
-    postalCode,
-    phone: userInfo?.phone || '',
-    name: userInfo?.name || '',
-    default: true,
-  });
+  const [, reload] = useAddressList();
 
   const openFindAddress = useFindAddress();
   const openTypeDetailAddress = useTypeDetailAddress();
 
-  const isFindAddress = useMemo(() => {
+  const isValidAddress = useMemo(() => {
     if (roadAddress.length > 0 && detailAddress.length > 0) return true;
     return false;
   }, [roadAddress, detailAddress]);
 
-  const onClickEnroll = () => {
+  const onClickEnroll = async () => {
     if (!roadAddress) openFindAddress();
     else if (!detailAddress) openTypeDetailAddress();
     else {
-      createAddress(undefined, {
-        onSuccess: () => refetch(),
+      await createAddress({
+        address: roadAddress,
+        detailAddress,
+        postalCode,
+        phone: userInfo?.phone || '',
+        name: userInfo?.name || '',
+        default: true,
       });
+      await reload();
       onClose();
     }
   };
@@ -54,13 +48,14 @@ export function EnrollAddress({
       <TopNavigator>
         <Dummy />
         <Text>배송지 등록</Text>
-        <Image
-          src="/images/common/close.png"
-          alt="close"
-          width={20}
-          height={20}
-          onClick={onClose}
-        />
+        <button onClick={onClose} type="button">
+          <img
+            src="/images/common/close.png"
+            alt="close"
+            width={20}
+            height={20}
+          />
+        </button>
       </TopNavigator>
       <Divider width="100%" height={1} color={colors.gray100} />
       <UserInfo />
@@ -77,13 +72,7 @@ export function EnrollAddress({
           setPostalCode(code);
         }}
       />
-      <Button
-        size="xl"
-        weight="medium"
-        color={isFindAddress ? colors.defaultWhite : colors.gray500}
-        isFindAddress={isFindAddress}
-        onClick={onClickEnroll}
-      >
+      <Button disabled={!isValidAddress} onClick={onClickEnroll}>
         배송지 등록하기
       </Button>
     </Container>
@@ -113,7 +102,7 @@ const Dummy = styled.div`
   height: 20px;
 `;
 
-const Button = styled(Text)<{ isFindAddress: boolean }>`
+const Button = styled(MineryButton)`
   position: fixed;
   bottom: 36px;
   display: flex;
@@ -123,7 +112,4 @@ const Button = styled(Text)<{ isFindAddress: boolean }>`
   max-width: 460px;
   height: 58px;
   margin-left: 20px;
-  border-radius: 6px;
-  background-color: ${({ isFindAddress }) =>
-    isFindAddress ? colors.primary700Default : colors.gray200};
 `;

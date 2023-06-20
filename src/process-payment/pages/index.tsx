@@ -1,42 +1,43 @@
+import { Spacing, Text, UrlLottie } from '@boxfoxs/bds-web';
+import styled from '@emotion/styled';
+import { sumBy } from 'lodash';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
-import { Spacing, Text, UrlLottie } from '@boxfoxs/bds-web';
-import { sumBy } from 'lodash';
-import styled from '@emotion/styled';
 
-import { orderItems } from 'common/recoil/orderItems';
-import { useFetchAddress } from 'common/hooks/queries';
 import { createOrder } from 'common/api/order';
 import { colors } from 'common/constants';
-import { TOSS_PAYMENT_KEY } from 'common/constants/toss';
+import { useOrderingItems } from 'common/hooks/useOrderingItems';
+import { withSuspense } from '@boxfoxs/react';
+import { useCallbackOnce } from '@boxfoxs/core-hooks';
 
-export default function ProcessPayment() {
+export default withSuspense(function ProcessPayment() {
   const router = useRouter();
   const { query } = router;
-  const orderList = useRecoilValue(orderItems);
-  const [address] = useFetchAddress();
+  const orderList = useOrderingItems({ suspense: true });
 
-  useEffect(() => {
-    const defaultAddress = address!.filter((item) => item.default)[0];
+  const submit = useCallbackOnce(async () => {
     const cost = sumBy(orderList, (item) => item.amount * item.product.price);
     const cartItemIds = orderList.map((item) => item.id);
-
-    createOrder({
-      paymentKey: TOSS_PAYMENT_KEY,
-      orderId: `${query.orderId}`,
-      cost,
-      cartItemIds,
-      addressId: defaultAddress!.id,
-    })
-      .then(() => {
-        router.push(`/complete-order?orderId=${query.orderId}`);
-      })
-      .catch((err) => {
-        console.log('error occurs when payment : ', err);
-        router.back();
+    try {
+      const order = await createOrder({
+        paymentKey: String(query.paymentKey),
+        orderId: String(query.orderId),
+        cost,
+        cartItemIds,
+        addressId: Number(query.addressId),
       });
-  }, []);
+      router.push(`/complete-order?orderId=${order.id}`);
+    } catch {
+      router.back();
+    }
+  }, [orderList]);
+
+  useEffect(() => {
+    if (!orderList.length) {
+      return;
+    }
+    submit();
+  }, [submit]);
 
   return (
     <Wrapper>
@@ -52,7 +53,7 @@ export default function ProcessPayment() {
       <Spacing height={60} />
     </Wrapper>
   );
-}
+});
 
 const Wrapper = styled.div`
   flex: 1;

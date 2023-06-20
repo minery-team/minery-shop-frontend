@@ -1,43 +1,55 @@
-import { AppBar, Section, SectionDivider, Space } from 'common/components';
-import { Carousel } from 'common/components/carousel';
-import { Container } from 'common/components/layout/Container';
-import { colors } from 'common/constants';
-import { useProductList } from 'common/hooks/queries/useWineList';
-import {
-  FLAG_BY_COUNTRY,
-  NAME_BY_WINE_TYPE,
-  Product,
-  getWineFlagLabel,
-} from 'common/models';
 import { Spacing, Text } from '@boxfoxs/bds-web';
+import { useAsyncCallback } from '@boxfoxs/core-hooks';
 import { Path } from '@boxfoxs/next';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
-import Image from 'next/image';
+import {
+  AppBar,
+  FixedBottomCTA,
+  Section,
+  SectionDivider,
+} from 'common/components';
+import { Carousel } from 'common/components/carousel';
+import { Container } from 'common/components/layout/Container';
 import { TabBar } from 'common/components/tabbar';
+import { colors } from 'common/constants';
+import { useCartList } from 'common/hooks/queries';
+import { useProductList } from 'common/hooks/queries/useWineList';
+import { useControlCart } from 'common/hooks/useCart';
+import { NAME_BY_WINE_TYPE, getWineFlagLabel } from 'common/models';
+import Router from 'next/router';
 import { useRef, useState } from 'react';
-import notice from '../../../public/assets/notice.svg';
-import snack_for_wine from '../../../public/assets/snack_for_wine.png';
-import package_for_wine from '../../../public/assets/package_for_wine.png';
-import DescriptionSection from '../component/DescriptionSection';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
+import DescriptionSection from '../component/DescriptionSection';
 import ReviewSection from '../component/ReviewSection';
 import WineLabelSection from '../component/WineLabelSection';
 
-const HEADER_SIZE = 79;
+type TabType = 'description' | 'review' | 'label';
 
-type TabTitle = 'description' | 'review' | 'label';
+const HEADER_SIZE = 79;
 
 const ProductPage = () => {
   const id = Number(Path.get('id') || 5);
   const [products] = useProductList();
-  const product = products?.find((product) => product.id === id);
-  const containerRef = useRef<HTMLElement>(null);
-  const [tab, setTab] = useState<TabTitle>('description');
-  const handleTabClick = (selectedTab: TabTitle) => {
+  const cart = useControlCart();
+  const product = products?.find((i) => i.id === id);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [tab, setTab] = useState<TabType>('description');
+  const handleTabClick = (selectedTab: string) => {
     const section = document.querySelector(`#${selectedTab}`);
     section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
+  const [, reload] = useCartList();
+
+  const cta = useAsyncCallback(async () => {
+    if (!product) {
+      return;
+    }
+    await cart.add({ productId: product.id, amount: 1, options: [] });
+    await reload();
+    Router.push('/order');
+  });
 
   if (!product) return <div>해당 상품이 없습니다 :(</div>;
 
@@ -136,14 +148,14 @@ const ProductPage = () => {
             </Text>
           </div>
           <div>
-            <Image
+            <img
               style={{
                 width: '106px',
                 height: '120px',
                 borderRadius: '6px',
                 background: colors.gray200,
               }}
-              src={snack_for_wine}
+              src="/assets/snack_for_wine.png"
             />
             <Spacing height={8} />
             <Text size="base" weight="semibold">
@@ -155,14 +167,14 @@ const ProductPage = () => {
             </Text>
           </div>
           <div>
-            <Image
+            <img
               style={{
                 width: '106px',
                 height: '120px',
                 borderRadius: '6px',
                 background: colors.gray200,
               }}
-              src={package_for_wine}
+              src="/assets/package_for_wine.png"
             />
             <Spacing height={8} />
             <Text size="base" weight="semibold">
@@ -191,24 +203,9 @@ const ProductPage = () => {
       <WineLabelSection id="label" product={product} />
       {/* 주문하기 */}
       <Spacing height={HEADER_SIZE} />
-      <div
-        style={{
-          height: `${HEADER_SIZE}px`,
-          boxSizing: 'border-box',
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          padding: '20px',
-          background: colors.primary700Default,
-          color: 'white',
-          textAlign: 'center',
-        }}
-      >
-        <Text size="xl" weight="semibold" color="white">
-          주문하기
-        </Text>
-      </div>
+      <FixedBottomCTA full onClick={cta.callback} loading={cta.isLoading}>
+        주문하기
+      </FixedBottomCTA>
     </Container>
   );
 };

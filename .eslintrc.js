@@ -37,5 +37,7 @@ module.exports = {
     'no-restricted-exports': 'off',
     '@typescript-eslint/no-namespace': 'off',
     'import/export': 'off',
+    'no-restricted-syntax': 'off',
+    '@next/next/no-img-element': 'off',
   },
 };

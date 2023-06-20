@@ -9,7 +9,7 @@ export function Buttons() {
 
   return (
     <Wrapper>
-      <GoOrderList onClick={() => router.push('/order-list')}>
+      <GoOrderList onClick={() => router.push('/order/list')}>
         <Text size="xl" weight="medium" color={colors.gray900}>
           주문 내역 보기
         </Text>
