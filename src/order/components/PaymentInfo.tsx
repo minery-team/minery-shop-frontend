@@ -8,14 +8,14 @@ import { colors } from 'common/constants';
 import { CartItem } from 'common/models';
 import { FREE_SHIPPING_PRICE, SHIPPING_PRICE } from 'cart/model/Price';
 
-export function PaymentInfo({ cartList }: { cartList: CartItem[] }) {
+export function PaymentInfo({ orderList }: { orderList: CartItem[] }) {
   const totalPrice = useMemo(() => {
-    return sumBy(cartList, (item) => item.amount * item.product.price);
-  }, [cartList]);
+    return sumBy(orderList, (item) => item.amount * item.product.price);
+  }, [orderList]);
 
   const originalTotalPrice = useMemo(() => {
-    return sumBy(cartList, (item) => item.amount * item.product.originalPrice);
-  }, [cartList]);
+    return sumBy(orderList, (item) => item.amount * item.product.originalPrice);
+  }, [orderList]);
 
   const shippingPrice = useMemo(() => {
     if (FREE_SHIPPING_PRICE - originalTotalPrice > 0) return SHIPPING_PRICE;
@@ -49,27 +49,6 @@ export function PaymentInfo({ cartList }: { cartList: CartItem[] }) {
           <Text size="base" weight="regular" color={colors.gray900}>
             배송비
           </Text>
-          {FREE_SHIPPING_PRICE - originalTotalPrice > 0 && (
-            <>
-              <Text
-                size="sm"
-                weight="regular"
-                color={colors.primary700Default}
-                style={{ margin: '0 4px 0 8px' }}
-              >
-                {`${commaizeNumber(FREE_SHIPPING_PRICE - originalTotalPrice)}`}
-                원 더 담으면
-              </Text>
-
-              <Text
-                size="base"
-                weight="semibold"
-                color={colors.primary700Default}
-              >
-                무료배송!
-              </Text>
-            </>
-          )}
         </ShipmentTextWrapper>
         <Text size="base" weight="medium" color={colors.gray900}>
           {`+${commaizeNumber(shippingPrice)}원`}

@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { colors } from 'common/constants';
 import { CartItem } from 'common/models';
 
-export function WineInfoCard({ wineList }: { wineList: CartItem[] }) {
+export function WineInfoCard({ orderList }: { orderList: CartItem[] }) {
   const [isShowList, setIsShowList] = useState(false);
 
   const renderWineList = () => {
@@ -16,7 +16,7 @@ export function WineInfoCard({ wineList }: { wineList: CartItem[] }) {
         <>
           <Spacing height={16} />
           <Divider width="100%" height={1} color={colors.gray100} />
-          {wineList.map((item: CartItem, index: number) => {
+          {orderList.map((item: CartItem, index: number) => {
             return (
               <CardWrapper key={`${item.id}_${index}`}>
                 <Image
@@ -68,7 +68,7 @@ export function WineInfoCard({ wineList }: { wineList: CartItem[] }) {
           </Text>
           <ListCountText onClick={() => setIsShowList(!isShowList)}>
             <Text size="lg" weight="semibold" color={colors.gray900}>
-              {wineList.length}개
+              {orderList.length}개
             </Text>
             <Image
               src={`/images/common/chevron-${isShowList ? 'up' : 'down'}.png`}

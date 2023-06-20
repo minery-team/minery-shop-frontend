@@ -9,12 +9,19 @@ import { useModal } from 'common/components/modal/Modal';
 import { useFetchAddress } from 'common/hooks/queries';
 import { colors } from 'common/constants';
 
-export function AddressInfo() {
+export function AddressInfo({
+  setHasDefaultAddress,
+}: {
+  setHasDefaultAddress: (bool: boolean) => void;
+}) {
   const [requestText, setRequestText] = useState('');
   const [addressList, refetch] = useFetchAddress();
 
   const defaultAddress = useMemo(() => {
-    if (addressList) return addressList.filter((address) => address.default)[0];
+    if (addressList) {
+      setHasDefaultAddress(true);
+      return addressList.filter((address) => address.default)[0];
+    }
     return undefined;
   }, [addressList]);
 

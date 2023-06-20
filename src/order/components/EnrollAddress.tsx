@@ -5,6 +5,8 @@ import styled from '@emotion/styled';
 
 import { UserInfo } from 'order/components/enrollAddress/UserInfo';
 import { ShippingAddress } from 'order/components/enrollAddress/ShippingAddress';
+import { useFindAddress } from 'order/components/FindAddressPopUp';
+import { useTypeDetailAddress } from 'order/components/TypeDetailAddressPopUp';
 import { useUserQuery, useCreateAddress } from 'common/hooks/queries';
 import { colors } from 'common/constants';
 
@@ -28,10 +30,24 @@ export function EnrollAddress({
     default: true,
   });
 
+  const openFindAddress = useFindAddress();
+  const openTypeDetailAddress = useTypeDetailAddress();
+
   const isFindAddress = useMemo(() => {
     if (roadAddress.length > 0 && detailAddress.length > 0) return true;
     return false;
   }, [roadAddress, detailAddress]);
+
+  const onClickEnroll = () => {
+    if (!roadAddress) openFindAddress();
+    else if (!detailAddress) openTypeDetailAddress();
+    else {
+      createAddress(undefined, {
+        onSuccess: () => refetch(),
+      });
+      onClose();
+    }
+  };
 
   return (
     <Container>
@@ -66,12 +82,7 @@ export function EnrollAddress({
         weight="medium"
         color={isFindAddress ? colors.defaultWhite : colors.gray500}
         isFindAddress={isFindAddress}
-        onClick={() => {
-          createAddress(undefined, {
-            onSuccess: () => refetch(),
-          });
-          onClose();
-        }}
+        onClick={onClickEnroll}
       >
         배송지 등록하기
       </Button>
