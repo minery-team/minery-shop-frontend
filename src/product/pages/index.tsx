@@ -101,9 +101,11 @@ const ProductPage = () => {
             size="heading4"
             weight="semibold"
           >
-            {/* TODO: 할인율 소숫점 정책 필요 */}
-            {((product.originalPrice - product.price) / product.originalPrice) *
-              100}
+            {Math.ceil(
+              ((product.originalPrice - product.price) /
+                product.originalPrice) *
+                100
+            )}
             %
           </Text>
           <Text size="heading4" weight="semibold">
