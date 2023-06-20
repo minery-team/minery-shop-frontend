@@ -76,7 +76,14 @@ const ProductPage = () => {
 
       <Section>
         {/* 국가 및 와인 타입 */}
-        <div style={{ display: 'flex', gap: '6px', color: colors.gray700 }}>
+        <div
+          style={{
+            display: 'flex',
+            gap: '6px',
+            color: colors.gray700,
+            alignItems: 'center',
+          }}
+        >
           {getWineFlagLabel(product.wine.country) ? (
             <span>{getWineFlagLabel(product.wine.country)}</span>
           ) : null}
