@@ -31,6 +31,7 @@ export function TabBar<T extends string = string>({
 const Container = styled(Flex.CenterVertical)``;
 
 const TabBarButton = styled.button<{ active?: boolean }>`
+  margin: 0;
   background: none;
   border: none;
   font-size: 16px;
