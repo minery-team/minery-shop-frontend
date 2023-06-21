@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import { useSetRecoilState } from 'recoil';
 import styled from '@emotion/styled';
@@ -29,6 +29,33 @@ export default function WineList({
   const [selectedItems, setSelectedItems] = useState<number[]>(
     (Array(wineList.length) as number[]).fill(0)
   );
+  const [isShowPopUp, setIsShowPopUp] = useState(false);
+  const popUpRef = useRef<HTMLDivElement>(null);
+  const isShowRef = useRef<{ isShow: boolean; isClickInfoText: boolean }>({
+    isShow: false,
+    isClickInfoText: false,
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('click', () => {
+        if (isShowRef.current.isShow) {
+          if (isShowRef.current.isClickInfoText) {
+            isShowRef.current.isClickInfoText = false;
+          } else {
+            setIsShowPopUp(false);
+            isShowRef.current.isShow = false;
+          }
+        }
+      });
+
+      return () => {
+        window.removeEventListener('click', () => {});
+      };
+    }
+
+    return undefined;
+  }, []);
 
   const isSelectedAll = useMemo(() => {
     const selectedItemLen = selectedItems.filter(
@@ -119,7 +146,31 @@ export default function WineList({
       </SelectAllWrapper>
       <Divider width="100%" color={colors.gray100} />
       {renderWineList()}
-      <QuestionText>
+      <QuestionText
+        onClick={() => {
+          isShowRef.current = { isShow: true, isClickInfoText: true };
+          setIsShowPopUp(true);
+        }}
+      >
+        <InfoPopUp
+          ref={popUpRef}
+          isShow={isShowPopUp}
+          top={popUpRef.current ? popUpRef.current.offsetHeight : 0}
+        >
+          <PopUpTextWrapper>
+            <Text size="base" weight="medium" color={colors.gray600}>
+              국내 주류법 상 와인은 음식과 함께 세트로만 주문이 가능해요!
+              <span className="highlight"> 마이너리</span>는 합리적인 가격을
+              위해 맛있는 스낵 구성을 함께드려요.
+            </Text>
+          </PopUpTextWrapper>
+          <ReversedTriangle
+            src="/images/common/reversed_triangle.png"
+            alt="reversed_triangle"
+            width={24}
+            height={24}
+          />
+        </InfoPopUp>
         <Image
           src="/images/common/question_gray.png"
           alt="minus"
@@ -146,8 +197,40 @@ const SelectAllWrapper = styled.label`
 `;
 
 const QuestionText = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 4px;
+`;
+
+const InfoPopUp = styled.div<{ isShow: boolean; top: number }>`
+  visibility: ${({ isShow }) => (isShow ? 'visible' : 'hidden')};
+  position: absolute;
+  top: ${({ top }) => `-${top}px`};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+`;
+
+const PopUpTextWrapper = styled.div`
+  display: flex;
+  width: calc(100% - 40px);
+  max-width: 460px;
+  padding: 16px;
+  border-radius: 6px;
+  background-color: ${colors.gray100};
+
+  .highlight {
+    font-weight: 600;
+    color: ${colors.primary700Default};
+  }
+`;
+
+const ReversedTriangle = styled(Image)`
+  position: absolute;
+  top: -18px !important;
+  z-index: 5;
 `;
