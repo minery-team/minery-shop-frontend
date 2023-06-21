@@ -19,6 +19,7 @@ import { useControlCart } from 'common/hooks/useCart';
 import { NAME_BY_WINE_TYPE, getWineFlagLabel } from 'common/models';
 import Router from 'next/router';
 import { useRef, useState } from 'react';
+import RefundNotice from 'product/component/RefundNotice';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import DescriptionSection from '../component/DescriptionSection';
 import ReviewSection from '../component/ReviewSection';
@@ -76,7 +77,14 @@ const ProductPage = () => {
 
       <Section>
         {/* 국가 및 와인 타입 */}
-        <div style={{ display: 'flex', gap: '6px', color: colors.gray700 }}>
+        <div
+          style={{
+            display: 'flex',
+            gap: '6px',
+            color: colors.gray700,
+            alignItems: 'center',
+          }}
+        >
           {getWineFlagLabel(product.wine.country) ? (
             <span>{getWineFlagLabel(product.wine.country)}</span>
           ) : null}
@@ -101,9 +109,11 @@ const ProductPage = () => {
             size="heading4"
             weight="semibold"
           >
-            {/* TODO: 할인율 소숫점 정책 필요 */}
-            {((product.originalPrice - product.price) / product.originalPrice) *
-              100}
+            {Math.ceil(
+              ((product.originalPrice - product.price) /
+                product.originalPrice) *
+                100
+            )}
             %
           </Text>
           <Text size="heading4" weight="semibold">
@@ -127,7 +137,7 @@ const ProductPage = () => {
           상품구성
         </Text>
         <Spacing height={20} />
-        <div style={{ display: 'flex', gap: '16px' }}>
+        <div style={{ display: 'flex', gap: '16px', overflow: 'scroll' }}>
           <div>
             <img
               style={{
@@ -140,11 +150,7 @@ const ProductPage = () => {
             />
             <Spacing height={8} />
             <Text size="base" weight="semibold">
-              마이너리 추천 와인
-            </Text>
-            <Spacing height={4} />
-            <Text size="sm" weight="regular">
-              1병
+              마이너리 추천 와인 1병
             </Text>
           </div>
           <div>
@@ -159,11 +165,7 @@ const ProductPage = () => {
             />
             <Spacing height={8} />
             <Text size="base" weight="semibold">
-              와인과 잘 어울리는 스낵 세트
-            </Text>
-            <Spacing height={4} />
-            <Text size="sm" weight="regular">
-              1개
+              와인과 잘 어울리는 스낵 세트 1개
             </Text>
           </div>
           <div>
@@ -178,15 +180,25 @@ const ProductPage = () => {
             />
             <Spacing height={8} />
             <Text size="base" weight="semibold">
-              집에서 받아보는 안심포장 패키지
-            </Text>
-            <Spacing height={4} />
-            <Text size="sm" weight="regular">
-              1개
+              집에서 받아보는 안심포장 패키지 1개
             </Text>
           </div>
         </div>
+        <Spacing height={20} />
+        <div>
+          <Text size="sm" weight="regular" color={colors.gray500}>
+            * 안주는 와인에 따라 구성이 달라질 수 있습니다.{' '}
+          </Text>
+          <Text size="sm" weight="regular" color={colors.gray500}>
+            * 위 와인 이미지는 임의 빈티지(생산년도)로, 이미지와 다른 빈티지
+            와인이 배송될 수 있습니다.
+          </Text>
+          <Text size="sm" weight="regular" color={colors.gray500}>
+            * 빈티지에 따라 라벨 디자인이 상이할 수 있습니다.
+          </Text>
+        </div>
       </Section>
+      <Spacing height={20} />
       <StyledTabBar
         value={tab}
         data={[
@@ -197,7 +209,9 @@ const ProductPage = () => {
         onClick={handleTabClick}
       />
       <DescriptionSection id="description" product={product} />
-      <SectionDivider />
+      <Spacing height={20} />
+      <RefundNotice />
+      <Spacing height={20} />
       <ReviewSection id="review" product={product} />
       <SectionDivider />
       <WineLabelSection id="label" product={product} />

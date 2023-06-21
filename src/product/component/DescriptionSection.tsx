@@ -51,7 +51,7 @@ const DescriptionSection = ({ product, ...props }: Props) => {
           width: '100%',
         }}
       >
-        <Image
+        <img
           src="/assets/wine_dictionary.png"
           style={{ objectFit: 'contain', width: '100%', height: '100%' }}
         />
