@@ -44,6 +44,7 @@ const ProductPage = () => {
   if (!product) return <div>해당 상품이 없습니다 :(</div>;
 
   return <WineProduct product={product} />;
+
 };
 
 export default ProductPage;
