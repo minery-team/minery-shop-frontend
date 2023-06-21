@@ -5,37 +5,48 @@ import Image from 'next/image';
 
 import { colors } from 'common/constants/colors';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Space } from 'common/components';
 import styled from '@emotion/styled';
 import { Footer } from 'common/components/footer';
+import { WineType } from 'common/models';
+import { OrderType } from 'common/api/product';
+import { useWineList } from 'common/hooks';
 import { WineList } from '../components/WineList';
-import hero from '../../../public/assets/hero.png';
 import down from '../../../public/assets/down.svg';
 import up from '../../../public/assets/up.svg';
+// import hero from '../../../public/assets/hero.mp4';
 import { Header } from '../components/Header';
 
-type TagKey = 'popular' | 'red' | 'white' | 'etc';
-
 export type TagInfo = {
-  key: TagKey;
+  key: WineType;
   text: string;
   spotColor: string;
 };
 
-const tagList: TagInfo[] = [
+const TAG_LIST: TagInfo[] = [
   {
-    key: 'red',
+    key: WineType.RED,
     text: '레드',
     spotColor: ' #A10000',
   },
   {
-    key: 'white',
+    key: WineType.WHITE,
     text: '화이트',
     spotColor: '#F3F0E8',
   },
+  // {
+  //   key: WineType.ROSE,
+  //   text: '로제',
+  //   spotColor: '#F3F0E8',
+  // },
+  // {
+  //   key: WineType.SPARKLING,
+  //   text: '스파클링',
+  //   spotColor: '#F3F0E8',
+  // },
   {
-    key: 'etc',
+    key: WineType.ETC,
     text: '기타',
     spotColor: '#CCCCCC',
   },
@@ -44,27 +55,30 @@ const tagList: TagInfo[] = [
 export default function Home() {
   const mainTextRef = useRef(null);
 
-  const [category, setCategory] = useState<string>('popular');
-  const [switchTag, setSwitchTag] = useState<{
-    key: 'popular' | 'lowest';
+  const [wineType, setWineType] = useState<WineType>(WineType.RED);
+  const [orderType, setOrderType] = useState<{
+    key: OrderType;
     text: string;
   }>({
-    key: 'popular',
+    key: OrderType.POPULAR,
     text: '인기순',
   });
 
-  const handleTagClick = (key: TagKey) => {
-    setCategory(key);
+  const { data, isLoading, refetch } = useWineList({
+    wineType,
+    order: orderType.key,
+  });
+
+  const handleWineTypeClick = (key: WineType) => {
+    setWineType(key);
   };
 
-  const handleTagSwitch = (key: 'popular' | 'lowest') => {
-    if (key === 'popular') {
-      setCategory(key);
-      setSwitchTag({ key: 'lowest', text: '최저가순' });
+  const handleOrderTypeClick = (key: OrderType) => {
+    if (key === OrderType.POPULAR) {
+      setOrderType({ key: OrderType.LOWEST_PRICE, text: '최저가순' });
       return;
     }
-    setCategory(key);
-    setSwitchTag({ key: 'popular', text: '인기순' });
+    setOrderType({ key: OrderType.POPULAR, text: '인기순' });
   };
 
   const handleScroll = (target: any) => {
@@ -81,36 +95,49 @@ export default function Home() {
     target.scrollIntoView({ behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    refetch();
+  }, [wineType, orderType]);
+
   return (
     <main>
-      <Header />
-      <section
+      <div
         css={css({
           width: '100%',
-          height: '540px',
           position: 'relative',
-          display: 'flex',
-          justifyContent: 'center',
         })}
       >
-        <Image src={hero} alt="" />
-        <ScrollMainButton
-          type="button"
-          onClick={() => {
-            handleScroll(mainTextRef.current);
-          }}
+        <Header />
+        <section
+          css={css({
+            width: '100%',
+            height: '540px',
+            position: 'relative',
+            display: 'flex',
+            justifyContent: 'center',
+          })}
         >
-          <Image src={down} width={16} height={16} alt="" />
-          <div
-            css={css({
-              paddingLeft: '8px',
-            })}
-          />
-          <Text size="lg" weight="bold" color={colors.defaultWhite}>
-            이달의 추천 와인
-          </Text>
-        </ScrollMainButton>
-      </section>
+          <video autoPlay muted loop playsInline>
+            <source src="/assets/hero.mp4" type="video/mp4" />
+          </video>
+          <ScrollMainButton
+            type="button"
+            onClick={() => {
+              handleScroll(mainTextRef.current);
+            }}
+          >
+            <Image src={down} width={16} height={16} alt="" />
+            <div
+              css={css({
+                paddingLeft: '8px',
+              })}
+            />
+            <Text size="lg" weight="bold" color={colors.defaultWhite}>
+              이달의 추천 와인
+            </Text>
+          </ScrollMainButton>
+        </section>
+      </div>
       <Space bottom="32px" />
       <section
         ref={mainTextRef}
@@ -129,14 +156,16 @@ export default function Home() {
       <Space bottom="6px" />
       <TagBox>
         <Tag
-          onClick={() => handleTagSwitch(switchTag.key)}
-          text={switchTag.text}
-          key={switchTag.key}
+          onClick={() => {
+            handleOrderTypeClick(orderType.key);
+          }}
+          text={orderType.text}
+          key={orderType.key}
         />
-        {tagList.map((tag: TagInfo) => {
+        {TAG_LIST.map((tag: TagInfo) => {
           return (
             <Tag
-              onClick={() => handleTagClick(tag.key)}
+              onClick={() => handleWineTypeClick(tag.key)}
               text={tag.text}
               spotColor={tag.spotColor}
               key={tag.key}
@@ -145,7 +174,7 @@ export default function Home() {
         })}
       </TagBox>
       <Space bottom="6px" />
-      <WineList category={category} />
+      <WineList data={data ?? []} isLoading={isLoading} />
       <Space bottom="32px" />
       <div
         css={css`

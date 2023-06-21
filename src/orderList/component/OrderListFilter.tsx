@@ -1,7 +1,7 @@
 import { colors } from 'common/constants';
-import { OrderStatusForFilter } from 'common/hooks/useOrders';
 import { OrderStatus, orderStatusToHumanReadable } from 'common/models';
 import styled from '@emotion/styled';
+import { OrderStatusForFilter } from 'common/hooks/queries';
 
 interface Props {
   filterStatus: OrderStatusForFilter;

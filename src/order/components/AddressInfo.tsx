@@ -1,13 +1,12 @@
-import { useState, useCallback, useMemo } from 'react';
+import { Divider, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
-import Image from 'next/image';
-import { Text, Divider } from '@boxfoxs/bds-web';
+import { useCallback, useState } from 'react';
 
-import { DeliveryRequest, EnrollAddress } from 'order/components';
-import SlideUp from 'common/components/modal/SlideUp';
 import { useModal } from 'common/components/modal/Modal';
-import { useFetchAddress } from 'common/hooks/queries';
+import SlideUp from 'common/components/modal/SlideUp';
 import { colors } from 'common/constants';
+import { Address } from 'common/models';
+import { DeliveryRequest, EnrollAddress } from 'order/components';
 
 export function AddressInfo({
   setHasDefaultAddress,
@@ -26,7 +25,7 @@ export function AddressInfo({
   }, [addressList]);
 
   const openDeliveryRequestModal = useDeliveryRequestModal(setRequestText);
-  const openEnrollAddressModal = useEnrollAddress(refetch);
+  const openEnrollAddressModal = useEnrollAddress();
 
   return (
     <>
@@ -39,10 +38,10 @@ export function AddressInfo({
             <Text
               size="base"
               weight="regular"
-              color={defaultAddress ? colors.gray900 : colors.gray600}
+              color={value ? colors.gray900 : colors.gray600}
             >
-              {defaultAddress
-                ? `${defaultAddress.address}(${defaultAddress.detailAddress})`
+              {value
+                ? `${value.address}(${value.detailAddress})`
                 : '배송받을 주소를 등록해주세요.'}
             </Text>
           </DeleveryInfoWrapper>
@@ -50,11 +49,9 @@ export function AddressInfo({
             size="base"
             weight="semibold"
             color={colors.primary700Default}
-            onClick={() => {
-              openEnrollAddressModal();
-            }}
+            onClick={() => openEnrollAddressModal()}
           >
-            {defaultAddress ? '변경하기' : '등록하기'}
+            {value ? '변경하기' : '등록하기'}
           </Text>
         </DeleveryWrapper>
         <DeleveryRequestWrapper onClick={openDeliveryRequestModal}>
@@ -65,7 +62,7 @@ export function AddressInfo({
           >
             {requestText || '배송 요청 사항을 선택해주세요.'}
           </Text>
-          <Image
+          <img
             src="/images/common/chevron-down.png"
             alt="chevron-down"
             width={12}
@@ -78,12 +75,12 @@ export function AddressInfo({
   );
 }
 
-function useEnrollAddress(refetch: any) {
+function useEnrollAddress() {
   const { open, close } = useModal('enroll-address');
 
   return useCallback(() => {
     open({
-      children: <EnrollAddress onClose={close} refetch={refetch} />,
+      children: <EnrollAddress onClose={close} />,
     });
   }, [open]);
 }

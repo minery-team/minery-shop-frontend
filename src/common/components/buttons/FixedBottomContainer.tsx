@@ -1,19 +1,27 @@
 import { colors } from '@boxfoxs/bds-common';
 import { FixedBottomContainer as Container, Flex } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
   background?: boolean;
+  full?: boolean;
+  style?: CSSProperties;
 }
 
-export function FixedBottomContainer({ children, background }: Props) {
+export function FixedBottomContainer({
+  children,
+  background,
+  style,
+  full,
+}: Props) {
   return (
     <Flex.Center>
       <StyledContainer
         background={background ? 'solid' : false}
-        style={{ zIndex: 100 }}
+        style={{ zIndex: 100, ...style }}
+        full={full}
       >
         {children}
       </StyledContainer>
@@ -21,9 +29,14 @@ export function FixedBottomContainer({ children, background }: Props) {
   );
 }
 
-const StyledContainer = styled(Container)<{ background?: 'solid' | boolean }>`
+const StyledContainer = styled(Container)<{
+  background?: 'solid' | boolean;
+  full?: boolean;
+}>`
   background: ${colors.white};
-  padding: 0 20px calc(12px + env(safe-area-inset-bottom));
+  padding: ${(p) =>
+    p.full ? '0px' : ' 0 20px calc(12px + env(safe-area-inset-bottom))'};
+  ${(p) => (p.full ? `& > * { padding-bottom: 0px !important;}` : '')}
   ${(p) =>
     p.background
       ? `filter: drop-shadow(0px 0px 24px rgba(0, 0, 0, 0.08));`

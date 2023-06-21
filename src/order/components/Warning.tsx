@@ -1,6 +1,5 @@
 import { Divider, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
-import Image from 'next/image';
 import { useState } from 'react';
 
 import { colors } from 'common/constants';

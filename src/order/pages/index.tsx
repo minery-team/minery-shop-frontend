@@ -1,44 +1,55 @@
-import { useState } from 'react';
-import { useRecoilValue } from 'recoil';
 import styled from '@emotion/styled';
+import { useState } from 'react';
 
+import { AppBar } from 'common/components';
+import { withAuth } from 'common/hocs';
+import { useUser } from 'common/hooks';
+import { useOrderingItems } from 'common/hooks/useOrderingItems';
 import {
-  WineInfoCard,
-  UserInfo,
-  PaymentInfo,
-  Warning,
   PaymentButton,
+  PaymentInfo,
+  UserInfo,
+  Warning,
+  OrderItemsSection,
 } from 'order/components';
 import { AddressInfo } from 'order/components/AddressInfo';
-import { AppBar } from 'common/components';
-import { useUserQuery } from 'common/hooks/queries';
-import { orderItems } from 'common/recoil/orderItems';
-import { withAuth } from 'common/hocs';
+import { Address } from 'common/models';
+import { useAddressList } from 'common/hooks/queries';
+import { first } from 'lodash';
 
 export default withAuth(function OrderPage() {
-  const [userInfo] = useUserQuery(0); // TODO userId 변경
-  const orderList = useRecoilValue(orderItems);
+  const [user] = useUser(); // TODO userId 변경
+  const orderList = useOrderingItems();
   const [isCheckSelfReceving, setIsCheckSelfReceving] = useState(false);
-  const [hasDefaultAddress, setHasDefaultAddress] = useState(false);
+  const [addressList] = useAddressList();
+  const [selectedAddress] = useState<Address>();
+  const address =
+    selectedAddress ??
+    addressList?.find((a) => a.default) ??
+    first(addressList);
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <Wrapper>
       <AppBar back>
         <AppBar.Title>결제하기</AppBar.Title>
       </AppBar>
-      <WineInfoCard orderList={orderList ?? []} />
-      <AddressInfo setHasDefaultAddress={setHasDefaultAddress} />
+      <OrderItemsSection orderList={orderList ?? []} />
+      <AddressInfo value={address} />
       <UserInfo
-        userInfo={userInfo}
+        userInfo={user}
         setIsCheckSelfReceving={setIsCheckSelfReceving}
       />
       <PaymentInfo orderList={orderList ?? []} />
       <Warning />
       <PaymentButton
-        userInfo={userInfo}
+        userInfo={user}
         orderList={orderList ?? []}
         isCheckSelfReceving={isCheckSelfReceving}
-        hasDefaultAddress={hasDefaultAddress}
+        address={address}
       />
     </Wrapper>
   );

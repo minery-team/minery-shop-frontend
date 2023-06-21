@@ -4,21 +4,21 @@ import styled from '@emotion/styled';
 import { useMemo, useState } from 'react';
 
 import EmptyWineList from 'cart/components/EmptyWineList';
-import WineList from 'cart/components/WineList';
+import { useMaxPriceGuide } from 'cart/components/MaxPricePopUp';
 import PaymentInfo from 'cart/components/PaymentInfo';
-import { AppBar } from 'common/components';
+import WineList from 'cart/components/WineList';
+import { AppBar, FixedBottomCTA } from 'common/components';
 import { colors } from 'common/constants';
 import { withAuth } from 'common/hocs';
-import { useCartList } from 'common/hooks/queries/useCartList';
-import { useMaxPriceGuide } from 'cart/components/MaxPricePopUp';
-import { useAdultCartGuide } from 'cart/components/AdultCertGuidePopUp';
+import { useCart } from 'common/hooks/useCart';
+import Router from 'next/router';
 
 export default withAuth(function CartPage() {
-  const [cartList, refetch] = useCartList();
+  const { value: cartList } = useCart();
   const [priceInfo, setPriceInfo] = useState({ price: 0, originalPrice: 0 });
 
   const openMaxPriceGuide = useMaxPriceGuide();
-  const openAdultCartGuide = useAdultCartGuide();
+  // const openAdultCartGuide = useAdultCartGuide();
 
   const buttonText = useMemo(() => {
     if (priceInfo.price > 0)
@@ -34,7 +34,8 @@ export default withAuth(function CartPage() {
       return;
     }
 
-    openAdultCartGuide();
+    // openAdultCartGuide();
+    Router.push('/order');
   };
 
   return (
@@ -44,7 +45,7 @@ export default withAuth(function CartPage() {
       </AppBar>
       {cartList && cartList.length ? (
         <WineList
-          wineList={cartList as any}
+          wineList={cartList}
           priceInfo={priceInfo}
           setPriceInfo={setPriceInfo}
         />
@@ -61,14 +62,9 @@ export default withAuth(function CartPage() {
           않습니다.
         </Text>
       </WarningText>
-      <OrderButton
-        isItemSelected={priceInfo.price > 0}
-        onClick={handleCTAClick}
-      >
-        <Text size="xl" weight="semibold" color={colors.defaultWhite}>
-          {buttonText}
-        </Text>
-      </OrderButton>
+      <FixedBottomCTA disabled={!priceInfo.price} onClick={handleCTAClick} full>
+        {buttonText}
+      </FixedBottomCTA>
     </Container>
   );
 });
@@ -84,18 +80,4 @@ const Container = styled.div`
 const WarningText = styled.div`
   padding: 20px;
   background-color: ${colors.gray200};
-`;
-
-const OrderButton = styled.div<{ isItemSelected: boolean }>`
-  position: fixed;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 500px;
-  height: 58px;
-  padding: 16px 0;
-  background-color: ${({ isItemSelected }) =>
-    isItemSelected ? colors.primary700Default : colors.gray400};
 `;

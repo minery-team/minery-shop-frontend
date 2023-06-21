@@ -16,7 +16,7 @@ export function withAuth<T extends JSX.IntrinsicAttributes>(
 
     if (user == null) {
       Router.replace(
-        `/auth${QS.create({ redirectUrl: location.href, back: true })}`
+        `/auth${QS.create({ redirectUrl: window.location.href, back: true })}`
       );
       return <></>;
     }

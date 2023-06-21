@@ -14,14 +14,22 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: ./node_modules/@emotion/react/jsx-runtime/dist/emotion-react-jsx-runtime.esm.js
 var emotion_react_jsx_runtime_esm = __webpack_require__(68847);
+// EXTERNAL MODULE: ./node_modules/@boxfoxs/bds-web/dist/index.js
+var dist = __webpack_require__(40756);
+// EXTERNAL MODULE: ./node_modules/@boxfoxs/core-hooks/dist/index.js
+var core_hooks_dist = __webpack_require__(28271);
+// EXTERNAL MODULE: ./node_modules/@boxfoxs/core-hooks-dom/dist/index.js
+var core_hooks_dom_dist = __webpack_require__(25646);
+// EXTERNAL MODULE: ./node_modules/@boxfoxs/next/dist/index.js
+var next_dist = __webpack_require__(23399);
 // EXTERNAL MODULE: ./src/common/api/auth/index.ts + 7 modules
 var auth = __webpack_require__(97173);
-// EXTERNAL MODULE: ./src/common/components/index.ts + 23 modules
-var components = __webpack_require__(38085);
+// EXTERNAL MODULE: ./src/common/components/index.ts + 21 modules
+var components = __webpack_require__(99633);
 // EXTERNAL MODULE: ./src/common/constants/index.ts + 1 modules
 var constants = __webpack_require__(41727);
-// EXTERNAL MODULE: ./src/common/hooks/index.ts + 4 modules
-var hooks = __webpack_require__(16799);
+// EXTERNAL MODULE: ./src/common/hooks/index.ts + 3 modules
+var hooks = __webpack_require__(76642);
 // EXTERNAL MODULE: ./src/common/utils/index.ts + 4 modules
 var utils = __webpack_require__(25616);
 ;// CONCATENATED MODULE: ./src/common/utils/IMP.ts
@@ -50,14 +58,6 @@ var IMP;
     IMP.requestCertification = requestCertification;
 })(IMP || (IMP = {}));
 
-// EXTERNAL MODULE: ./node_modules/@boxfoxs/bds-web/dist/index.js
-var dist = __webpack_require__(40756);
-// EXTERNAL MODULE: ./node_modules/@boxfoxs/core-hooks/dist/index.js
-var core_hooks_dist = __webpack_require__(28271);
-// EXTERNAL MODULE: ./node_modules/@boxfoxs/core-hooks-dom/dist/index.js
-var core_hooks_dom_dist = __webpack_require__(25646);
-// EXTERNAL MODULE: ./node_modules/@boxfoxs/next/dist/index.js
-var next_dist = __webpack_require__(23399);
 // EXTERNAL MODULE: ./node_modules/next/router.js
 var router = __webpack_require__(11163);
 var router_default = /*#__PURE__*/__webpack_require__.n(router);
@@ -126,7 +126,9 @@ function InputPhonePage() {
                         label: "휴대폰 번호",
                         value: (0,utils/* formatPhoneNumber */.un)(phone),
                         onChange: onPhoneChange,
-                        placeholder: "010-0000-0000"
+                        placeholder: "010-0000-0000",
+                        autoFocus: true,
+                        type: "tel"
                     })
                 ]
             }),

@@ -1,3 +1,7 @@
+import { Spacing, Text } from '@boxfoxs/bds-web';
+import { useAsyncCallback } from '@boxfoxs/core-hooks';
+import { useInputState } from '@boxfoxs/core-hooks-dom';
+import { QS } from '@boxfoxs/next';
 import { checkUserExist, confirmPass, sendSmsCode } from 'common/api/auth';
 import {
   AppBar,
@@ -10,10 +14,6 @@ import { colors } from 'common/constants';
 import { useUser } from 'common/hooks';
 import { checkValidPhoneNumber, formatPhoneNumber } from 'common/utils';
 import { IMP } from 'common/utils/IMP';
-import { Spacing, Text } from '@boxfoxs/bds-web';
-import { useAsyncCallback } from '@boxfoxs/core-hooks';
-import { useInputState } from '@boxfoxs/core-hooks-dom';
-import { QS } from '@boxfoxs/next';
 import Router from 'next/router';
 import { redirectAfterAuth } from '../utils/redirectAfterAuth';
 
@@ -55,6 +55,8 @@ export default function InputPhonePage() {
           value={formatPhoneNumber(phone)}
           onChange={onPhoneChange}
           placeholder="010-0000-0000"
+          autoFocus
+          type="tel"
         />
       </Section>
       <FixedBottomCTA

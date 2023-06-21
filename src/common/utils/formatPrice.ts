@@ -1,5 +1,5 @@
 export function formatPrice(price: number) {
-  if (!price) {
+  if (price === undefined) {
     return '';
   }
 

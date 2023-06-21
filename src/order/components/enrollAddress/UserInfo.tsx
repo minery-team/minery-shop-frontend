@@ -1,11 +1,16 @@
 import { Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import { useUserQuery } from 'common/hooks/queries';
 import { colors } from 'common/constants';
+import { useUser } from 'common/hooks';
+import { formatPhoneNumber } from 'common/utils';
 
 export function UserInfo() {
-  const [userInfo] = useUserQuery(0); // TODO userId 변경
+  const [userInfo] = useUser();
+
+  if (!userInfo) {
+    return <></>;
+  }
 
   return (
     <Wrapper>
@@ -14,10 +19,10 @@ export function UserInfo() {
       </Text>
       <UserInfoWrapper>
         <Text size="xl" weight="semibold" color={colors.defaultBlack}>
-          권혁창
+          {userInfo.name}
         </Text>
         <Text size="xl" weight="semibold" color={colors.defaultBlack}>
-          010 - 9667 - 5855
+          {formatPhoneNumber(userInfo.phone)}
         </Text>
       </UserInfoWrapper>
       <Text size="sm" weight="medium" color={colors.primary700Default}>

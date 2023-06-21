@@ -1,7 +1,8 @@
-import { Order } from 'common/models';
+import { Order, OrderStatus } from 'common/models';
 import { UseQueryOptions, useQuery } from 'react-query';
 import { fetchOrders } from '../../api/order';
-import { OrderStatusForFilter } from '../useOrders';
+
+export type OrderStatusForFilter = OrderStatus | 'ALL';
 
 export function useOrderList(
   status: OrderStatusForFilter,
