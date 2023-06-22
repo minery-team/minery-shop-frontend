@@ -1,6 +1,5 @@
 import { Spacing, Text } from '@boxfoxs/bds-web';
 import { useAsyncCallback } from '@boxfoxs/core-hooks';
-import { Path } from '@boxfoxs/next';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 import {
@@ -14,14 +13,13 @@ import { Container } from 'common/components/layout/Container';
 import { TabBar } from 'common/components/tabbar';
 import { colors } from 'common/constants';
 import { useCartList } from 'common/hooks/queries';
-import { useProductList } from 'common/hooks/queries/useWineList';
 import { useControlCart } from 'common/hooks/useCart';
 import { NAME_BY_WINE_TYPE, Product, getWineFlagLabel } from 'common/models';
 import Router from 'next/router';
 import { useRef, useState } from 'react';
-import RefundNotice from '../component/RefundNotice';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import DescriptionSection from '../component/DescriptionSection';
+import RefundNotice from '../component/RefundNotice';
 import ReviewSection from '../component/ReviewSection';
 import WineLabelSection from '../component/WineLabelSection';
 

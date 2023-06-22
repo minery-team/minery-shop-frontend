@@ -6,26 +6,13 @@ import { useModal } from 'common/components/modal/Modal';
 import SlideUp from 'common/components/modal/SlideUp';
 import { colors } from 'common/constants';
 import { Address } from 'common/models';
-import { DeliveryRequest, EnrollAddress } from 'order/components';
+import { DeliveryRequest } from 'order/components';
+import Router from 'next/router';
 
-export function AddressInfo({
-  setHasDefaultAddress,
-}: {
-  setHasDefaultAddress: (bool: boolean) => void;
-}) {
+export function AddressInfo({ value }: { value?: Address }) {
   const [requestText, setRequestText] = useState('');
-  const [addressList, refetch] = useFetchAddress();
-
-  const defaultAddress = useMemo(() => {
-    if (addressList) {
-      setHasDefaultAddress(true);
-      return addressList.filter((address) => address.default)[0];
-    }
-    return undefined;
-  }, [addressList]);
 
   const openDeliveryRequestModal = useDeliveryRequestModal(setRequestText);
-  const openEnrollAddressModal = useEnrollAddress();
 
   return (
     <>
@@ -49,7 +36,7 @@ export function AddressInfo({
             size="base"
             weight="semibold"
             color={colors.primary700Default}
-            onClick={() => openEnrollAddressModal()}
+            onClick={() => Router.push('/address/new-address')}
           >
             {value ? '변경하기' : '등록하기'}
           </Text>
@@ -73,16 +60,6 @@ export function AddressInfo({
       <Divider width="100%" height={6} color={colors.gray100} />
     </>
   );
-}
-
-function useEnrollAddress() {
-  const { open, close } = useModal('enroll-address');
-
-  return useCallback(() => {
-    open({
-      children: <EnrollAddress onClose={close} />,
-    });
-  }, [open]);
 }
 
 function useDeliveryRequestModal(setRequest: (str: string) => void) {

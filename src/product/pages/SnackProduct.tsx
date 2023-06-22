@@ -1,6 +1,5 @@
 import { Spacing, Text } from '@boxfoxs/bds-web';
 import { useAsyncCallback } from '@boxfoxs/core-hooks';
-import { Path } from '@boxfoxs/next';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 import {
@@ -14,24 +13,13 @@ import { Container } from 'common/components/layout/Container';
 import { TabBar } from 'common/components/tabbar';
 import { colors } from 'common/constants';
 import { useCartList } from 'common/hooks/queries';
-import { useProductList } from 'common/hooks/queries/useWineList';
 import { useControlCart } from 'common/hooks/useCart';
-import {
-  NAME_BY_WINE_TYPE,
-  Product,
-  ProductForSnack,
-  getWineFlagLabel,
-} from 'common/models';
+import { ProductForSnack } from 'common/models';
 import Router from 'next/router';
-import { useRef, useState } from 'react';
-import SnackDescription from 'product/component/SnackDescription';
-import RefundNotice from '../component/RefundNotice';
+import { useRef } from 'react';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
-import DescriptionSection from '../component/DescriptionSection';
-import ReviewSection from '../component/ReviewSection';
-import WineLabelSection from '../component/WineLabelSection';
-
-type TabType = 'description' | 'review' | 'label';
+import RefundNotice from '../component/RefundNotice';
+import SnackDescription from '../component/SnackDescription';
 
 const HEADER_SIZE = 79;
 
@@ -42,11 +30,6 @@ interface Props {
 const SnackProduct = ({ product }: Props) => {
   const cart = useControlCart();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [tab, setTab] = useState<TabType>('description');
-  const handleTabClick = (selectedTab: string) => {
-    const section = document.querySelector(`#${selectedTab}`);
-    section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
 
   const [, reload] = useCartList();
 

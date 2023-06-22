@@ -4,7 +4,12 @@ export type WarningTextType = {
   suffixContent?: WarningTextType[];
 };
 
-export const WARNING_TEXT = [
+interface WarningTextItem {
+  category: string;
+  content: { title: string; content?: WarningTextType[]; footer?: string }[];
+}
+
+export const WARNING_TEXT: WarningTextItem[] = [
   {
     category: '이용정책 및 배달상품 주의사항',
     content: [

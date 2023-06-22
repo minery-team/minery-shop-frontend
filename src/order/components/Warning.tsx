@@ -52,7 +52,7 @@ export function Warning() {
           >
             <WarningNavWrapper>
               <WarningNavTextWrapper>
-                <Image
+                <img
                   src="/images/common/exclamation-mark.png"
                   alt="chevron-down"
                   width={12}
@@ -62,7 +62,7 @@ export function Warning() {
                   {item.category}
                 </Text>
               </WarningNavTextWrapper>
-              <Image
+              <img
                 src={`/images/common/chevron-${
                   isShowWaring[index] ? 'up' : 'down'
                 }.png`}
@@ -73,37 +73,31 @@ export function Warning() {
             </WarningNavWrapper>
             <ItemWrapper>
               {isShowWaring[index] &&
-                item.content.map(
-                  (texts: { title: string; content: WarningTextType[] }) => {
-                    return (
-                      <>
-                        <Divider
-                          width="calc(100% - 40px)"
-                          height={1}
-                          color={colors.gray200}
-                          style={{ margin: '-4px 0 0 20px' }}
-                        />
-                        <WarningText>
-                          <Text
-                            size="sm"
-                            weight="regular"
-                            color={colors.gray500}
-                          >
-                            {texts.title}
-                          </Text>
-                          <br />
-                          {texts.content?.map((text) =>
-                            textIndent(
-                              text.prefix,
-                              text.suffix,
-                              text.suffixContent
-                            )
-                          )}
-                        </WarningText>
-                      </>
-                    );
-                  }
-                )}
+                item.content.map((texts) => {
+                  return (
+                    <>
+                      <Divider
+                        width="calc(100% - 40px)"
+                        height={1}
+                        color={colors.gray200}
+                        style={{ margin: '-4px 0 0 20px' }}
+                      />
+                      <WarningText>
+                        <Text size="sm" weight="regular" color={colors.gray500}>
+                          {texts.title}
+                        </Text>
+                        <br />
+                        {texts.content?.map((text) =>
+                          textIndent(
+                            text.prefix,
+                            text.suffix,
+                            text.suffixContent
+                          )
+                        )}
+                      </WarningText>
+                    </>
+                  );
+                })}
             </ItemWrapper>
           </Wrapper>
         );
