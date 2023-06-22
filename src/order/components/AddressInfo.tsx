@@ -8,8 +8,21 @@ import { colors } from 'common/constants';
 import { Address } from 'common/models';
 import { DeliveryRequest, EnrollAddress } from 'order/components';
 
-export function AddressInfo({ value }: { value?: Address }) {
+export function AddressInfo({
+  setHasDefaultAddress,
+}: {
+  setHasDefaultAddress: (bool: boolean) => void;
+}) {
   const [requestText, setRequestText] = useState('');
+  const [addressList, refetch] = useFetchAddress();
+
+  const defaultAddress = useMemo(() => {
+    if (addressList) {
+      setHasDefaultAddress(true);
+      return addressList.filter((address) => address.default)[0];
+    }
+    return undefined;
+  }, [addressList]);
 
   const openDeliveryRequestModal = useDeliveryRequestModal(setRequestText);
   const openEnrollAddressModal = useEnrollAddress();

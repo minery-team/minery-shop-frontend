@@ -81,11 +81,18 @@ export function EnrollAddress({ onClose }: { onClose: () => void }) {
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: start;
+  justify-content: center;
   width: 100%;
   height: 100%;
   background-color: ${colors.defaultWhite};
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
 `;
 
 const TopNavigator = styled.div`

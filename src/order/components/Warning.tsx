@@ -3,12 +3,18 @@ import styled from '@emotion/styled';
 import { useState } from 'react';
 
 import { colors } from 'common/constants';
-import { WARNING_TEXT } from 'order/model/WarningText';
-
+import { WarningTextType, WARNING_TEXT } from 'order/model/WarningText';
+// height 120으로 해놓기
 export function Warning() {
-  const [isShowWaring, setIsShowWarning] = useState(false);
+  const [isShowWaring, setIsShowWarning] = useState(
+    Array(WARNING_TEXT.length).fill(false)
+  );
 
-  const textIndent = (prefixText: string, suffixText: string) => {
+  const textIndent = (
+    prefixText: string,
+    suffixText: string,
+    suffixContent?: WarningTextType[]
+  ) => {
     return (
       <TextIndent>
         <Text
@@ -21,50 +27,88 @@ export function Warning() {
         </Text>
         <Text size="sm" weight="regular" color={colors.gray500}>
           {suffixText}
+          {suffixContent &&
+            suffixContent.map((item) =>
+              textIndent(item.prefix, item.suffix, item.suffixContent)
+            )}
         </Text>
       </TextIndent>
     );
   };
 
   return (
-    <Wrapper onClick={() => setIsShowWarning(!isShowWaring)}>
-      <WarningNavWrapper>
-        <WarningNavTextWrapper>
-          <img
-            src="/images/common/exclamation-mark.png"
-            alt="chevron-down"
-            width={12}
-            height={12}
-          />
-          <Text size="base" weight="medium" color={colors.gray700}>
-            배달상품 주의사항
-          </Text>
-        </WarningNavTextWrapper>
-        <img
-          src={`/images/common/chevron-${isShowWaring ? 'up' : 'down'}.png`}
-          alt="chevron-down"
-          width={12}
-          height={6}
-        />
-      </WarningNavWrapper>
-      {isShowWaring && (
-        <>
-          <Divider
-            width="calc(100% - 40px)"
-            height={1}
-            color={colors.gray200}
-            style={{ margin: '-4px 0 0 20px' }}
-          />
-          <WarningText>
-            <Text size="sm" weight="regular" color={colors.gray500}>
-              (주)마이너리 배달상품 주의사항 동의
-            </Text>
-            <br />
-            {WARNING_TEXT.map((text) => textIndent(text.prefix, text.suffix))}
-          </WarningText>
-        </>
-      )}
-    </Wrapper>
+    <>
+      {WARNING_TEXT.map((item, index) => {
+        return (
+          <Wrapper
+            key={item.category}
+            onClick={() =>
+              setIsShowWarning((prev) => {
+                const tmp = [...prev];
+                tmp[index] = !tmp[index];
+                return tmp;
+              })
+            }
+          >
+            <WarningNavWrapper>
+              <WarningNavTextWrapper>
+                <Image
+                  src="/images/common/exclamation-mark.png"
+                  alt="chevron-down"
+                  width={12}
+                  height={12}
+                />
+                <Text size="base" weight="medium" color={colors.gray700}>
+                  {item.category}
+                </Text>
+              </WarningNavTextWrapper>
+              <Image
+                src={`/images/common/chevron-${
+                  isShowWaring[index] ? 'up' : 'down'
+                }.png`}
+                alt="chevron-down"
+                width={12}
+                height={6}
+              />
+            </WarningNavWrapper>
+            <ItemWrapper>
+              {isShowWaring[index] &&
+                item.content.map(
+                  (texts: { title: string; content: WarningTextType[] }) => {
+                    return (
+                      <>
+                        <Divider
+                          width="calc(100% - 40px)"
+                          height={1}
+                          color={colors.gray200}
+                          style={{ margin: '-4px 0 0 20px' }}
+                        />
+                        <WarningText>
+                          <Text
+                            size="sm"
+                            weight="regular"
+                            color={colors.gray500}
+                          >
+                            {texts.title}
+                          </Text>
+                          <br />
+                          {texts.content?.map((text) =>
+                            textIndent(
+                              text.prefix,
+                              text.suffix,
+                              text.suffixContent
+                            )
+                          )}
+                        </WarningText>
+                      </>
+                    );
+                  }
+                )}
+            </ItemWrapper>
+          </Wrapper>
+        );
+      })}
+    </>
   );
 }
 
@@ -88,10 +132,16 @@ const WarningNavTextWrapper = styled.div`
   gap: 8px;
 `;
 
+const ItemWrapper = styled.div`
+  max-height: 120px;
+  overflow: scroll;
+`;
+
 const WarningText = styled.div`
   padding: 16px 20px 20px 20px;
 `;
 
 const TextIndent = styled.div`
   display: flex;
+  gap: 2px;
 `;
