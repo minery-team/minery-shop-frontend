@@ -3,8 +3,8 @@ import { Text } from '@boxfoxs/bds-web';
 import { Space } from 'common/components';
 
 import Image from 'next/image';
-import swap from '../../../public/assets/swap.svg';
 import { colors } from 'common/constants';
+import swap from '../../../public/assets/swap.svg';
 
 export function Tag({
   text,
@@ -15,7 +15,7 @@ export function Tag({
   text: string;
   onClick: () => void;
   spotColor?: string;
-  isSelected: boolean;
+  isSelected?: boolean;
 }) {
   return (
     <button
