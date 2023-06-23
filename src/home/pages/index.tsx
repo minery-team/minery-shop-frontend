@@ -111,13 +111,20 @@ export default function Home() {
         <section
           css={css({
             width: '100%',
-            height: '540px',
             position: 'relative',
             display: 'flex',
             justifyContent: 'center',
           })}
         >
-          <video autoPlay muted loop playsInline>
+          <video
+            css={css({
+              width: '100%',
+            })}
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
             <source src="/assets/hero.mp4" type="video/mp4" />
           </video>
           <ScrollMainButton
