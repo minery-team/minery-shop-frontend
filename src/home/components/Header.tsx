@@ -33,7 +33,7 @@ const HeaderContaer = styled.nav`
   display: flex;
   align-items: center;
   position: absolute;
-  top: 48px;
+  top: 12px;
   height: 56px;
   z-index: 1;
   width: 335px;
