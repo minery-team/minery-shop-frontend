@@ -4,15 +4,18 @@ import { Space } from 'common/components';
 
 import Image from 'next/image';
 import swap from '../../../public/assets/swap.svg';
+import { colors } from 'common/constants';
 
 export function Tag({
   text,
   onClick,
   spotColor,
+  isSelected,
 }: {
   text: string;
   onClick: () => void;
   spotColor?: string;
+  isSelected: boolean;
 }) {
   return (
     <button
@@ -22,10 +25,13 @@ export function Tag({
         alignItems: 'center',
         justifyContent: 'center',
         height: '32px',
-        backgroundColor: 'transparent',
-        border: '1px solid #F1F1F1',
+        backgroundColor: isSelected ? `${colors.primary100}` : 'transparent',
+        border: isSelected
+          ? `1px solid ${colors.primary400}`
+          : '1px solid #F1F1F1',
         borderRadius: '24px',
         padding: '6px 16px',
+        flex: 'none',
       })}
       onClick={onClick}
     >
