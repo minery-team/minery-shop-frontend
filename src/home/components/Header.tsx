@@ -36,7 +36,7 @@ const HeaderContaer = styled.nav`
   top: 12px;
   height: 56px;
   z-index: 1;
-  width: 335px;
+  width: 85vw;
   background-color: white;
   border-radius: 30px;
   left: 50%;
