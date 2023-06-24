@@ -20,7 +20,7 @@ export function FixedBottomContainer({
     <Flex.Center>
       <StyledContainer
         background={background ? 'solid' : false}
-        style={{ zIndex: 100, ...style }}
+        style={{ zIndex: 3, ...style }}
         full={full}
       >
         {children}

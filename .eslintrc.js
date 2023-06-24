@@ -39,5 +39,6 @@ module.exports = {
     'import/export': 'off',
     'no-restricted-syntax': 'off',
     '@next/next/no-img-element': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
   },
 };
