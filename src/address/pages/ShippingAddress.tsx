@@ -109,4 +109,11 @@ const DetailAddess = styled.input`
   border-radius: 6px;
   padding: 12px 16px;
   outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: ${colors.gray900}
+
+  ::placeholder {
+    color: ${colors.gray400};
+  }
 `;
