@@ -2,12 +2,11 @@ import { Divider, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import { useCallback, useState } from 'react';
 
-import { useModal } from 'common/components/modal/Modal';
-import SlideUp from 'common/components/modal/SlideUp';
+import { useBottomSheet } from 'common/components';
 import { colors } from 'common/constants';
 import { Address } from 'common/models';
-import { DeliveryRequest } from 'order/components';
 import Router from 'next/router';
+import { DeliveryRequest } from 'order/components';
 
 export function AddressInfo({ value }: { value?: Address }) {
   const [requestText, setRequestText] = useState('');
@@ -63,15 +62,11 @@ export function AddressInfo({ value }: { value?: Address }) {
 }
 
 function useDeliveryRequestModal(setRequest: (str: string) => void) {
-  const { open, close } = useModal('delivery-request');
+  const { open, close } = useBottomSheet();
 
   return useCallback(() => {
     open({
-      children: (
-        <SlideUp>
-          <DeliveryRequest setRequest={setRequest} onClose={close} />
-        </SlideUp>
-      ),
+      children: <DeliveryRequest setRequest={setRequest} onClose={close} />,
     });
   }, [open]);
 }
