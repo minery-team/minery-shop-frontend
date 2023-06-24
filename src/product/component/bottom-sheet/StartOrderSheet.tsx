@@ -8,12 +8,12 @@ import {
   useBottomSheet,
 } from 'common/components';
 import { useControlCart } from 'common/hooks/useCart';
-import { Product } from 'common/models';
+import { Product, ProductForSnack } from 'common/models';
 import Router from 'next/router';
 import { useCallback, useState } from 'react';
 import { useFinishAddToCartSheet } from './FinishAddToCardSheet';
 
-export function useStartOrderSheet(product: Product) {
+export function useStartOrderSheet(product: Product | ProductForSnack) {
   const { open } = useBottomSheet();
   const openCartAdded = useFinishAddToCartSheet();
 
@@ -28,7 +28,7 @@ export function StartOrderSheet({
   product,
   onCart,
 }: {
-  product: Product;
+  product: { id: number };
   onCart: () => void;
 }) {
   const [value, setValue] = useState(1);
@@ -47,7 +47,9 @@ export function StartOrderSheet({
   };
 
   const handleOrderClick = async () => {
-    Router.push(`/order${QS.create({ productId: product.id, amount: value })}`);
+    Router.push(
+      `/order${QS.create({ productId: product.id, orderAmount: value })}`
+    );
   };
 
   return (

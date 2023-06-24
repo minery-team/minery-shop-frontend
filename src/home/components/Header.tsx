@@ -1,12 +1,10 @@
+import { Spacing, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
-import Image from 'next/image';
-import { Spacing } from '@boxfoxs/bds-web';
-import { pressableStyle } from 'common/utils/pressableStyle';
-import Link from 'next/link';
 import { colors } from 'common/constants';
+import { pressableStyle } from 'common/utils/pressableStyle';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import React from 'react';
-import { Text } from '@boxfoxs/bds-web';
 import { useRouter } from 'next/router';
 import { useCart } from '../../common/hooks/useCart';
 

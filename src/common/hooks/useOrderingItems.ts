@@ -1,18 +1,18 @@
+import { QS } from '@boxfoxs/next';
 import { CartItem } from 'common/models';
 import { orderItems } from 'common/recoil/orderItems';
+import { useMemo } from 'react';
 import { UseQueryOptions } from 'react-query';
 import { useRecoilValue } from 'recoil';
-import { QS } from '@boxfoxs/next';
-import { useMemo } from 'react';
-import { useCart } from './useCart';
 import { useProductList } from './queries/useWineList';
+import { useCart } from './useCart';
 
 export function useOrderingItems(options?: UseQueryOptions<CartItem[]>) {
   const [products] = useProductList();
   const directOrderItem = useMemo<CartItem | null>(() => {
     const data = {
       id: Number(QS.get('productId')),
-      amount: Number(QS.get('amount')),
+      amount: Number(QS.get('orderAmount')),
     };
     const product = products?.find((p) => p.id === data.id);
     if (!data.id || !data.amount || !product) {

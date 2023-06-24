@@ -7,12 +7,7 @@ import { colors } from 'common/constants';
 import { withAuth } from 'common/hocs';
 import { useUser } from 'common/hooks';
 import { useOrderList } from 'common/hooks/queries';
-import {
-  Buttons,
-  PaymentInfo,
-  ShippingInfo,
-  WineInfoCard,
-} from 'completeOrder/components';
+import { Buttons, PaymentInfo, ShippingInfo } from 'completeOrder/components';
 import { OrderItemsSection } from 'order/components';
 
 export default withAuth(function CompleteOrder() {
