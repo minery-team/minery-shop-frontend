@@ -17,7 +17,7 @@ import { useControlCart } from 'common/hooks/useCart';
 import { NAME_BY_WINE_TYPE, Product, getWineFlagLabel } from 'common/models';
 import Router from 'next/router';
 import { useRef, useState } from 'react';
-import { useStartOrderSheet } from 'product/component/StartOrderSheet';
+import { useStartOrderSheet } from 'product/component/bottom-sheet/StartOrderSheet';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import DescriptionSection from '../component/DescriptionSection';
 import RefundNotice from '../component/RefundNotice';

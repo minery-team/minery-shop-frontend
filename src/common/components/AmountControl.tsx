@@ -1,12 +1,17 @@
 import { Flex, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
+import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
 import { colors } from 'common/constants';
 
 export function AmountControl({ value, onIncrease, onDecrease }: Props) {
   return (
     <CountBox>
       <StyledButton onClick={onDecrease} type="button">
-        <img src="/assets/minus.svg" alt="minus" width={12} height={12} />
+        <MinusIcon
+          width={12}
+          height={12}
+          color={value > 1 ? colors.gray900 : colors.gray400}
+        />
       </StyledButton>
       <Flex.Center style={{ flex: 1 }}>
         <Text size="sm" weight="regular" color={colors.gray900}>
@@ -14,7 +19,7 @@ export function AmountControl({ value, onIncrease, onDecrease }: Props) {
         </Text>
       </Flex.Center>
       <StyledButton onClick={onIncrease} type="button">
-        <img src="/assets/plus.svg" alt="plus" width={12} height={12} />
+        <PlusIcon width={12} height={12} color={colors.gray900} />
       </StyledButton>
     </CountBox>
   );

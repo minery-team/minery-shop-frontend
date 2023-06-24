@@ -13,7 +13,7 @@ import { TabBar } from 'common/components/tabbar';
 import { colors } from 'common/constants';
 import { useCartList } from 'common/hooks/queries';
 import { ProductForSnack } from 'common/models';
-import { useStartOrderSheet } from 'product/component/StartOrderSheet';
+import { useStartOrderSheet } from 'product/component/bottom-sheet/StartOrderSheet';
 import { useRef } from 'react';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import RefundNotice from '../component/RefundNotice';

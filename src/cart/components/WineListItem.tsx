@@ -28,6 +28,9 @@ export default function WineListItem({
   };
 
   const minusWine = () => {
+    if (item.amount === 1) {
+      return;
+    }
     cart.updateAmount(item.id, item.amount - 1);
   };
 
