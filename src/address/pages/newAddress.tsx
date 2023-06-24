@@ -63,7 +63,7 @@ export default function NewAddress() {
           배송지 등록하기
         </Text>
         <button onClick={() => Router.back()} type="button">
-          <img src="/assets/close.svg" width={20} height={20} alt="close" />
+          <img src="/assets/x.svg" width={20} height={20} alt="close" />
         </button>
       </TopNavigator>
       <Divider width="100%" height={1} color={colors.gray100} />

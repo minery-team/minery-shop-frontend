@@ -70,7 +70,7 @@ export default function AddAddress() {
           배송지 변경하기
         </Text>
         <Image
-          src="/assets/close.svg"
+          src="/assets/x.svg"
           width={20}
           height={20}
           alt="close"
