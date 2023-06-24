@@ -11,7 +11,6 @@ import { Carousel } from 'common/components/carousel';
 import { Container } from 'common/components/layout/Container';
 import { TabBar } from 'common/components/tabbar';
 import { colors } from 'common/constants';
-import { useCartList } from 'common/hooks/queries';
 import { ProductForSnack } from 'common/models';
 import { useStartOrderSheet } from 'product/component/bottom-sheet/StartOrderSheet';
 import { useRef } from 'react';
@@ -28,15 +27,13 @@ interface Props {
 const SnackProduct = ({ product }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const [, reload] = useCartList();
-
   const open = useStartOrderSheet(product);
 
   const imagesForCarousel = product.images;
 
   return (
     <Container ref={containerRef}>
-      <AppBar back />
+      <AppBar back floating backgrounded />
       <Carousel
         dots
         dotsClass=""

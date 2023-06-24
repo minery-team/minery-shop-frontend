@@ -1,14 +1,7 @@
 const prettierConfig = require('./.prettierrc.js');
 
 module.exports = {
-  extends: [
-    'airbnb',
-    'airbnb/hooks',
-    'airbnb-typescript',
-    'next/core-web-vitals',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-  ],
+  "extends": "next/core-web-vitals",
   plugins: [
     '@typescript-eslint/eslint-plugin',
     'prettier',
@@ -22,23 +15,9 @@ module.exports = {
     project: ['./tsconfig.json'],
   },
   rules: {
-    'no-console': ['warn', { allow: ['error'] }],
-    '@typescript-eslint/no-use-before-define': 'off',
-    'class-methods-use-this': 'off',
-    'import/prefer-default-export': 'off',
-    'prettier/prettier': ['error', prettierConfig],
-    'react/jsx-props-no-spreading': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off',
-    'react/require-default-props': 'off',
-    'react/function-component-definition': 'off',
-    'react/jsx-no-useless-fragment': 'off',
-    'no-new': 'off',
-    'no-restricted-exports': 'off',
-    '@typescript-eslint/no-namespace': 'off',
-    'import/export': 'off',
-    'no-restricted-syntax': 'off',
-    '@next/next/no-img-element': 'off',
-    '@typescript-eslint/ban-ts-comment': 'off',
+    "react/display-name": "off",
+    "react/jsx-key": "off",
+    "@next/next/no-img-element": "off",
+    "react-hooks/exhaustive-deps": "off"
   },
 };

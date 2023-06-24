@@ -1,5 +1,4 @@
 import { Spacing, Text } from '@boxfoxs/bds-web';
-import { useAsyncCallback } from '@boxfoxs/core-hooks';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 import {
@@ -12,12 +11,9 @@ import { Carousel } from 'common/components/carousel';
 import { Container } from 'common/components/layout/Container';
 import { TabBar } from 'common/components/tabbar';
 import { colors } from 'common/constants';
-import { useCartList } from 'common/hooks/queries';
-import { useControlCart } from 'common/hooks/useCart';
 import { NAME_BY_WINE_TYPE, Product, getWineFlagLabel } from 'common/models';
-import Router from 'next/router';
-import { useRef, useState } from 'react';
 import { useStartOrderSheet } from 'product/component/bottom-sheet/StartOrderSheet';
+import { useRef, useState } from 'react';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import DescriptionSection from '../component/DescriptionSection';
 import RefundNotice from '../component/RefundNotice';
@@ -33,7 +29,6 @@ interface Props {
 }
 
 const WineProduct = ({ product }: Props) => {
-  const cart = useControlCart();
   const containerRef = useRef<HTMLDivElement>(null);
   const [tab, setTab] = useState<TabType>('description');
   const handleTabClick = (selectedTab: string) => {
@@ -48,7 +43,7 @@ const WineProduct = ({ product }: Props) => {
 
   return (
     <Container ref={containerRef}>
-      <AppBar back />
+      <AppBar back floating backgrounded />
       <Carousel
         dots
         dotsClass=""
