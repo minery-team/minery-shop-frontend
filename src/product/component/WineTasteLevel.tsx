@@ -76,13 +76,14 @@ const WineTasteLevel = ({
             justifyContent: 'space-between',
           }}
         >
-          <Text size="sm" weight="regular">
+          <Text size="caption" weight="regular" color={colors.gray600}>
             {lowerDescription}
           </Text>
-          <Text size="sm" weight="regular">
+          <Text size="caption" weight="regular" color={colors.gray600}>
             {upperDescription}
           </Text>
         </div>
+        <Spacing height={6} />
         <div
           style={{
             position: 'relative',
