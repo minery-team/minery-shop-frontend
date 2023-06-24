@@ -81,7 +81,6 @@ export default function WineList({
   }, [selectedItems]);
 
   const onSelectItem = (isSelect: number, index: number) => {
-    console.log('is this works?');
     setSelectedItems((prev: number[]) => {
       const newList = [...prev];
       newList[index] = isSelect;
