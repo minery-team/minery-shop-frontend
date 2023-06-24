@@ -91,7 +91,7 @@ const WineProduct = ({ product }: Props) => {
               {product.name}
             </Text>
             <Text size="base" weight="regular" color={colors.gray600}>
-              {product.enName}
+              {product.wine.enName}
             </Text>
 
             {/* 가격 */}
