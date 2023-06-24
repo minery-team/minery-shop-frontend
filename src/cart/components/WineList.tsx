@@ -182,7 +182,7 @@ export default function WineList({
           />
         </InfoPopUp>
         <img
-          src="/images/common/question_gray.png"
+          src="/assets/question_mark.svg"
           alt="minus"
           width={12}
           height={12}
