@@ -45,7 +45,9 @@ const OrderListItem = ({ order }: Props) => {
           <ProductImage src={item.product.image} alt={item.product.name} />
           <ProductInfoContainer>
             <ProductTitle weight="semibold">{item.product.name}</ProductTitle>
-            <Text color={colors.gray600}>{item.amount}개</Text>
+            <Text size="sm" color={colors.gray600}>
+              {item.amount}개
+            </Text>
             <Text weight="semibold" size="2xl">
               {commaizeNumber(item.product.price)}
             </Text>
