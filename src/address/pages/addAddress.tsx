@@ -67,7 +67,7 @@ export default function AddAddress() {
       <TopNavigator>
         <Dummy />
         <Text size="lg" weight="semibold" color={colors.gray900}>
-          배송지 변경하기
+          배송지 변경
         </Text>
         <Image
           src="/assets/close.svg"
