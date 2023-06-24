@@ -3,6 +3,7 @@ import { Product, ProductOption } from './Product';
 export interface CartItem {
   id: number;
   isLocal?: boolean;
+  isDirect?: boolean;
   amount: number;
   product: Product;
   options: CartItemOption[];

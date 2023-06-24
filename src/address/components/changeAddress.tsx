@@ -27,7 +27,7 @@ export function useAddToast() {
     open({
       children: (
         <AddToastWrapper>
-          <Image
+          <img
             src="/assets/check_mark.svg"
             width={16}
             height={16}

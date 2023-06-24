@@ -64,6 +64,12 @@ export default withAuth(function CartPage() {
             disabled={!priceInfo.price}
             onClick={handleCTAClick}
             full
+            style={{
+              backgroundColor: priceInfo.price
+                ? colors.primary700Default
+                : colors.gray400,
+              color: colors.defaultWhite,
+            }}
           >
             {buttonText}
           </FixedBottomCTA>
@@ -80,7 +86,7 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  padding-bottom: 58px;
+  padding-bottom: 55px;
 `;
 
 const WarningText = styled.div`

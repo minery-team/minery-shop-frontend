@@ -23,7 +23,7 @@ const FAQToggle = ({ question, answer }: Props) => {
         <Text size="lg" weight="semibold" color={colors.gray900}>
           {question}
         </Text>
-        <Image
+        <img
           src={up_arrow}
           width={16}
           height={16}

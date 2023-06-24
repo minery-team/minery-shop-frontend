@@ -1,7 +1,6 @@
 import { Divider, Spacing, Text } from '@boxfoxs/bds-web';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
-import Image from 'next/image';
 
 import { useBooleanState } from '@boxfoxs/core-hooks';
 import { colors } from 'common/constants';
@@ -13,7 +12,7 @@ interface Props {
 }
 
 export function OrderItemsSection({ data, initialVisible = false }: Props) {
-  const [isOpen, toggle] = useBooleanState(initialVisible);
+  const [isOpen, , , toggle] = useBooleanState(initialVisible);
 
   const renderWineList = () => {
     return (

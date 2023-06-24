@@ -14,6 +14,10 @@ export interface InstantPaymentDTO {
   cost: number;
 
   cartItemIds: number[];
+  directItems: {
+    productId: number;
+    amount: number;
+  }[];
   addressId: number;
   url?: string;
 }
