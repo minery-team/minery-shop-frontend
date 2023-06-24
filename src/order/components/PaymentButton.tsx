@@ -10,6 +10,7 @@ import { Address, CartItem, User } from 'common/models';
 import { requestPay } from 'common/utils/requestTossPay';
 import { useCheckSelfReceving } from 'order/components/CheckSeflRecevingPopUp';
 import { useEnrollAddress } from 'order/components/EnrollAddressPopUp';
+import { FREE_SHIPPING_PRICE, SHIPPING_PRICE } from 'cart/model/Price';
 import { QS } from '@boxfoxs/next';
 
 export function PaymentButton({
@@ -27,7 +28,14 @@ export function PaymentButton({
   const openEnrollAddress = useEnrollAddress();
 
   const totalPrice = useMemo(() => {
-    return sumBy(orderList, (item) => item.amount * item.product.price);
+    const price = sumBy(orderList, (item) => item.amount * item.product.price);
+    const originalPrice = sumBy(
+      orderList,
+      (item) => item.amount * item.product.originalPrice
+    );
+
+    if (FREE_SHIPPING_PRICE - originalPrice > 0) return price + SHIPPING_PRICE;
+    return price;
   }, [orderList]);
 
   const submit = async () => {

@@ -7,6 +7,7 @@ import EmptyWineList from 'cart/components/EmptyWineList';
 import { useMaxPriceGuide } from 'cart/components/MaxPricePopUp';
 import PaymentInfo from 'cart/components/PaymentInfo';
 import WineList from 'cart/components/WineList';
+import { FREE_SHIPPING_PRICE, SHIPPING_PRICE } from 'cart/model/Price';
 import { AppBar, FixedBottomCTA } from 'common/components';
 import { colors } from 'common/constants';
 import { withAuth } from 'common/hocs';
@@ -20,9 +21,14 @@ export default withAuth(function CartPage() {
   const openMaxPriceGuide = useMaxPriceGuide();
   // const openAdultCartGuide = useAdultCartGuide();
 
+  const totalPrice = useMemo(() => {
+    if (FREE_SHIPPING_PRICE - priceInfo.originalPrice > 0)
+      return priceInfo.price + SHIPPING_PRICE;
+    return priceInfo.price;
+  }, [priceInfo]);
+
   const buttonText = useMemo(() => {
-    if (priceInfo.price > 0)
-      return `${commaizeNumber(priceInfo.price)}원 주문하기`;
+    if (priceInfo.price > 0) return `${commaizeNumber(totalPrice)}원 주문하기`;
     return '상품을 선택해주세요';
   }, [priceInfo]);
 
