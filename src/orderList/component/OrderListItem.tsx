@@ -13,9 +13,22 @@ const OrderListItem = ({ order }: Props) => {
   return (
     <OrderListItemContainer>
       <OrderListItemHeader>
-        <Text size="base" weight="semibold">
-          {dateToYYYYMMDDHHmm(new Date(order.time))}
-        </Text>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '4px',
+          }}
+        >
+          <Text size="base" weight="semibold">
+            {dateToYYYYMMDDHHmm(new Date(order.time))}
+          </Text>
+          {order.waybillNumber && (
+            <Text size="sm" weight="regular" color={colors.gray600}>
+              운송장번호 {order.waybillNumber}
+            </Text>
+          )}
+        </div>
         <OrderStatusIndicator
           style={{
             backgroundColor: orderStatusToBackgroundColor(order.status),
