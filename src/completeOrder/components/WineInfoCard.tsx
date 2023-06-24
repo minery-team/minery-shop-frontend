@@ -19,13 +19,13 @@ export function WineInfoCard({ order }: { order: Order }) {
           {order.items.map((item: OrderItem) => {
             return (
               <CardWrapper key={`${item.id}`}>
-                <Image
+                <img
                   src={item.product.image}
                   alt={item.product.image}
                   width={70}
                   height={79}
                 />
-                <Image
+                <img
                   src={item.product.image}
                   alt={item.product.image}
                   width={70}

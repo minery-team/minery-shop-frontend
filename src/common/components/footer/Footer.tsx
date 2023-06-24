@@ -18,7 +18,7 @@ export function Footer() {
           padding: 36px 20px;
         `}
       >
-        <Image src="/assets/image_logo.svg" width={30} height={18} alt="logo" />
+        <img src="/assets/image_logo.svg" width={30} height={18} alt="logo" />
         <Space bottom="20px" />
         <div
           css={css`

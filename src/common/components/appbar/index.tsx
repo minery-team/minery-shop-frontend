@@ -1,18 +1,15 @@
 import { Flex, Spacing, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import Router from 'next/router';
-import Image from 'next/image';
-import { ComponentProps, ReactNode } from 'react';
 import { colors } from 'common/constants';
+import Router from 'next/router';
+import { ComponentProps, ReactNode } from 'react';
 import { ControlBox } from './ControlBox';
 import { FloatingAppBarContainer } from './FloatingAppBarContainer';
-import { Profile } from './Profile';
 
 interface Props {
   back?: boolean | 'x';
   logo?: boolean;
-  profile?: boolean;
 
   fixed?: boolean;
   initialHidden?: boolean;
@@ -30,7 +27,6 @@ export const AppBar = ({
   fixed,
   floating,
   elevated,
-  profile,
   backgrounded,
   back,
   logo,
@@ -46,16 +42,11 @@ export const AppBar = ({
           {back === 'x' ? (
             <XMarkIcon width={28} color={colors.gray900} strokeWidth={1.5} />
           ) : (
-            <Image src="/assets/back.svg" width={20} height={20} alt="back" />
+            <img src="/assets/back.svg" width={20} height={20} alt="back" />
           )}
         </ControlBox>
       )}
       <Spacing flex={1} />
-      {profile && (
-        <ControlBox>
-          <Profile />
-        </ControlBox>
-      )}
     </InnerContainer>
   );
 
@@ -101,7 +92,7 @@ const InnerContainer = styled(Flex.CenterVertical)<{
 }>`
   width: 100%;
   max-width: 1400px;
-  padding: 0 12px;
+  padding: 0 10px;
   height: 50px;
   margin: 0 auto;
   position: relative;

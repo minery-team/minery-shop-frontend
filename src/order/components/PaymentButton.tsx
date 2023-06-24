@@ -55,7 +55,7 @@ export function PaymentButton({
         이용약관을 확인하였으며 결제에 동의합니다.
       </Text>
       <Spacing height={100} />
-      <FixedBottomCTA onClick={submit} full>
+      <FixedBottomCTA onClick={submit}>
         {commaizeNumber(totalPrice)}원 결제하기
       </FixedBottomCTA>
     </Wrapper>
@@ -63,5 +63,8 @@ export function PaymentButton({
 }
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0 20px;
 `;

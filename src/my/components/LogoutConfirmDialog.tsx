@@ -11,22 +11,18 @@ export function useLogoutConfirm() {
   const { open, close } = usePopup('logout-confirm');
 
   const [, reload] = useUser();
-  const logout = () => {
-    clearAccessToken();
-    reload();
-    Router.push('/');
-  };
 
-  return useCallback(() => {
-    return new Promise<void>((resolve, reject) => {
+  return useCallback(async () => {
+    await new Promise<void>((resolve, reject) => {
       open({
         children: <LogoutConfirmDialog onConfirm={resolve} onClose={reject} />,
         onClose: reject,
       });
-    })
-      .then(logout)
-      .finally(close);
-  }, [open, close]);
+    }).finally(close);
+    clearAccessToken();
+    reload();
+    Router.push('/');
+  }, [open, close, reload]);
 }
 
 function LogoutConfirmDialog({
