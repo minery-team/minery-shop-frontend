@@ -46,7 +46,7 @@ export const AppBar = ({
           {back === 'x' ? (
             <XMarkIcon width={28} color={colors.gray900} strokeWidth={1.5} />
           ) : (
-            <Image src="/assets/back.svg" width={20} height={20} alt="back" />
+            <img src="/assets/back.svg" width={20} height={20} alt="back" />
           )}
         </ControlBox>
       )}
@@ -101,7 +101,7 @@ const InnerContainer = styled(Flex.CenterVertical)<{
 }>`
   width: 100%;
   max-width: 1400px;
-  padding: 0 12px;
+  padding: 0 10px;
   height: 50px;
   margin: 0 auto;
   position: relative;

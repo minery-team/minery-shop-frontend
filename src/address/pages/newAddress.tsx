@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
 import Router from 'next/router';
+import Image from 'next/image';
 import { useMemo, useState } from 'react';
 
-import { Divider } from '@boxfoxs/bds-web';
+import { Divider, Text } from '@boxfoxs/bds-web';
 import { createAddress } from 'common/api/address';
-import { AppBar, FixedBottomCTA } from 'common/components';
+import { FixedBottomCTA } from 'common/components';
 import { colors } from 'common/constants';
 import { useAddressList, useUserQuery } from 'common/hooks/queries';
 import { useFindAddress } from 'order/components/FindAddressPopUp';
@@ -46,9 +47,19 @@ export default function NewAddress() {
 
   return (
     <Container>
-      <AppBar back>
-        <AppBar.Title>배송지 등록</AppBar.Title>
-      </AppBar>
+      <TopNavigator>
+        <Dummy />
+        <Text size="lg" weight="semibold" color={colors.gray900}>
+          배송지 등록하기
+        </Text>
+        <Image
+          src="/assets/close.svg"
+          width={20}
+          height={20}
+          alt="close"
+          onClick={() => Router.back()}
+        />
+      </TopNavigator>
       <Divider width="100%" height={1} color={colors.gray100} />
       <UserInfo />
       <Divider
@@ -64,7 +75,16 @@ export default function NewAddress() {
           setPostalCode(code);
         }}
       />
-      <FixedBottomCTA disabled={!isValidAddress} onClick={onClickEnroll}>
+      <FixedBottomCTA
+        onClick={onClickEnroll}
+        style={{
+          backgroundColor: isValidAddress
+            ? colors.primary700Default
+            : colors.gray200,
+          border: 'none',
+          color: isValidAddress ? colors.defaultWhite : colors.gray500,
+        }}
+      >
         배송지 등록하기
       </FixedBottomCTA>
     </Container>
@@ -72,3 +92,17 @@ export default function NewAddress() {
 }
 
 const Container = styled.div``;
+
+const TopNavigator = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+`;
+
+const Dummy = styled.div`
+  width: 20px;
+  height: 20px;
+`;

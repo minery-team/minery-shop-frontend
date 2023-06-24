@@ -26,7 +26,7 @@ const WineReview = ({ review, showImages = true }: Props) => {
             gap: '4px',
           }}
         >
-          <Image src={star} width={16} height={16} alt="별" />
+          <img src={star} width={16} height={16} alt="별" />
           <Text color={colors.gray900} size="sm" weight="semibold">
             {review.rating}
           </Text>

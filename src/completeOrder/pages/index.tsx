@@ -13,6 +13,7 @@ import {
   ShippingInfo,
   WineInfoCard,
 } from 'completeOrder/components';
+import { OrderItemsSection } from 'order/components';
 
 export default withAuth(function CompleteOrder() {
   const router = useRouter();
@@ -39,7 +40,7 @@ export default withAuth(function CompleteOrder() {
         </Text>
       </TitleWrapper>
       <Divider width="100%" height={6} color={colors.gray100} />
-      <WineInfoCard order={order} />
+      <OrderItemsSection data={order.items} />
       <Divider width="100%" height={6} color={colors.gray100} />
       <PaymentInfo order={order} />
       <Divider width="100%" height={6} color={colors.gray100} />

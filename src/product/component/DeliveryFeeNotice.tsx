@@ -37,7 +37,7 @@ const DeliveryFeeNotice = () => {
             gap: '8px',
           }}
         >
-          <Image src={notice} width={16} height={16} alt="배송비 안내" />
+          <img src={notice} width={16} height={16} alt="배송비 안내" />
           <Text color={colors.gray700}>70,000원 이상 무료배송</Text>
         </div>
         <Image

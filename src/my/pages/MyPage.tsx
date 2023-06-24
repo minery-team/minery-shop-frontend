@@ -24,11 +24,10 @@ const MyPage = () => {
           menus={[
             {
               label: '문의하기',
-              to: '/',
+              onClick: console.log,
             },
             {
               label: '로그아웃',
-              to: '/',
               onClick: logout,
             },
           ]}

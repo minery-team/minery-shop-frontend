@@ -38,7 +38,7 @@ const RefundNotice = () => {
             gap: '8px',
           }}
         >
-          <Image src={notice} width={16} height={16} alt="교환/환불 안내" />
+          <img src={notice} width={16} height={16} alt="교환/환불 안내" />
           <Text color={colors.gray700}>교환/환불 안내</Text>
         </div>
         <Image

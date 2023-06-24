@@ -133,7 +133,7 @@ export default function Home() {
               handleScroll(mainTextRef.current);
             }}
           >
-            <Image src={down} width={16} height={16} alt="" />
+            <img src={down} width={16} height={16} alt="" />
             <div
               css={css({
                 paddingLeft: '8px',
@@ -196,7 +196,7 @@ export default function Home() {
             handleScroll('top');
           }}
         >
-          <Image src={up} width={16} height={16} alt="" />
+          <img src={up} width={16} height={16} alt="" />
           <Space left="8px" />
           <Text size="lg" weight="medium" color={colors.defaultBlack}>
             맨 위로

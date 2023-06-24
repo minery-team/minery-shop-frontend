@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { colors } from 'common/constants';
 import { WarningTextType, WARNING_TEXT } from 'order/model/WarningText';
-// height 120으로 해놓기
+
 export function Warning() {
   const [isShowWaring, setIsShowWarning] = useState(
     Array(WARNING_TEXT.length).fill(false)
@@ -53,8 +53,8 @@ export function Warning() {
             <WarningNavWrapper>
               <WarningNavTextWrapper>
                 <img
-                  src="/images/common/exclamation-mark.png"
-                  alt="chevron-down"
+                  src="/assets/exclamation_mark.svg"
+                  alt="exclamation-mark"
                   width={12}
                   height={12}
                 />
@@ -63,12 +63,12 @@ export function Warning() {
                 </Text>
               </WarningNavTextWrapper>
               <img
-                src={`/images/common/chevron-${
+                src={`/assets/chevron_${
                   isShowWaring[index] ? 'up' : 'down'
-                }.png`}
-                alt="chevron-down"
-                width={12}
-                height={6}
+                }.svg`}
+                alt="chevron-up-down"
+                width={16}
+                height={16}
               />
             </WarningNavWrapper>
             <ItemWrapper>
