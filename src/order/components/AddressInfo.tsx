@@ -55,8 +55,8 @@ export function AddressInfo({ value }: { value?: Address }) {
           <img
             src="/assets/chevron_down.svg"
             alt="chevron-down"
-            width={16}
-            height={16}
+            width={24}
+            height={24}
           />
         </DeleveryRequestWrapper>
       </Wrapper>

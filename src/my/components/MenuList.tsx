@@ -4,7 +4,6 @@ import { Icon } from '@iconify/react';
 import { colors } from 'common/constants';
 import { memo } from 'react';
 import Image from 'next/image';
-import right_arrow from '../../../public/assets/right_arrow.svg';
 
 export interface MenuItem {
   label: string;
@@ -23,7 +22,7 @@ const MenuList = ({ menus }: Props) => {
           <Text size="lg" weight="semibold" color={colors.gray900}>
             {label}
           </Text>
-          <img src={right_arrow} width={16} height={20} />
+          <img src="/assets/right_arrow.svg" width={24} height={24} />
         </Menu>
       ))}
     </Container>

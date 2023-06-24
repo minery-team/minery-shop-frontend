@@ -75,8 +75,8 @@ export function OrderItemsSection({ data, initialVisible = false }: Props) {
             <img
               src={`/assets/chevron_${isOpen ? 'up' : 'down'}.svg`}
               alt="chevron-up-down"
-              width={16}
-              height={16}
+              width={24}
+              height={24}
             />
           </ListCountText>
         </OrderTextWrapper>
