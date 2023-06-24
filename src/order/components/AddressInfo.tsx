@@ -35,7 +35,11 @@ export function AddressInfo({ value }: { value?: Address }) {
             size="base"
             weight="semibold"
             color={colors.primary700Default}
-            onClick={() => Router.push('/address/new-address')}
+            onClick={() =>
+              Router.push(
+                value ? 'address/add-address' : '/address/new-address'
+              )
+            }
           >
             {value ? '변경하기' : '등록하기'}
           </Text>
