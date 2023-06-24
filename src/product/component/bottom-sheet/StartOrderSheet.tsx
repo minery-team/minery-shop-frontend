@@ -1,4 +1,5 @@
 import { Flex, Spacing } from '@boxfoxs/bds-web';
+import { QS } from '@boxfoxs/next';
 import styled from '@emotion/styled';
 import {
   AmountControl,
@@ -8,34 +9,27 @@ import {
 } from 'common/components';
 import { useControlCart } from 'common/hooks/useCart';
 import { Product } from 'common/models';
+import Router from 'next/router';
 import { useCallback, useState } from 'react';
 import { useFinishAddToCartSheet } from './FinishAddToCardSheet';
 
 export function useStartOrderSheet(product: Product) {
-  const { open, close } = useBottomSheet();
+  const { open } = useBottomSheet();
   const openCartAdded = useFinishAddToCartSheet();
 
   return useCallback(async () => {
     open({
-      children: (
-        <StartOrderSheet
-          onCart={openCartAdded}
-          onClose={close}
-          product={product}
-        />
-      ),
+      children: <StartOrderSheet onCart={openCartAdded} product={product} />,
     });
-  }, [product, open, close, openCartAdded]);
+  }, [product, open, openCartAdded]);
 }
 
 export function StartOrderSheet({
   product,
   onCart,
-  onClose,
 }: {
   product: Product;
   onCart: () => void;
-  onClose: () => void;
 }) {
   const [value, setValue] = useState(1);
   const handleIncease = () => {
@@ -53,8 +47,7 @@ export function StartOrderSheet({
   };
 
   const handleOrderClick = async () => {
-    await cart.add({ productId: product.id, amount: value, options: [] });
-    onClose();
+    Router.push(`/order${QS.create({ productId: product.id, amount: value })}`);
   };
 
   return (
