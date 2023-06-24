@@ -44,11 +44,12 @@ const DeliveryFeeNotice = () => {
           <Text color={colors.gray700}>70,000원 이상 무료배송</Text>
         </div>
         <img
-          src="/assets/up_arrow.svg"
+          src="/assets/chevron_up.svg"
           width={24}
           height={24}
           alt="배송비 안내 자세히 보기"
           style={{
+            color: 'red',
             transform: expanded ? 'rotate(0deg)' : 'rotate(180deg)',
           }}
         />
