@@ -12,11 +12,9 @@ import { colors } from 'common/constants';
 
 export default function WineList({
   wineList,
-  priceInfo,
   setPriceInfo,
 }: {
   wineList: CartItem[];
-  priceInfo: { price: number; originalPrice: number };
   setPriceInfo: ({
     price,
     originalPrice,
@@ -57,6 +55,22 @@ export default function WineList({
     return undefined;
   }, []);
 
+  useEffect(() => {
+    const selectedWineList = wineList.filter(
+      (wine, index) => selectedItems[index] > 0
+    );
+    const price = sumBy(
+      selectedWineList,
+      (wine) => wine.amount * wine.product.price || 0
+    );
+    const originalPrice = sumBy(
+      selectedWineList,
+      (wine) => wine.amount * wine.product.originalPrice || 0
+    );
+
+    setPriceInfo({ price, originalPrice });
+  }, [wineList, selectedItems]);
+
   const isSelectedAll = useMemo(() => {
     const selectedItemLen = selectedItems.filter(
       (isSelected: number) => isSelected > 0
@@ -76,44 +90,15 @@ export default function WineList({
 
       return newList;
     });
-
-    if (isSelect) {
-      const price =
-        priceInfo.price +
-        wineList[index].amount * wineList[index].product.price;
-      const originalPrice =
-        priceInfo.originalPrice +
-        wineList[index].amount * wineList[index].product.originalPrice;
-
-      setPriceInfo({ price, originalPrice });
-    } else {
-      const price =
-        priceInfo.price -
-        wineList[index].amount * wineList[index].product.price;
-      const originalPrice =
-        priceInfo.originalPrice -
-        wineList[index].amount * wineList[index].product.originalPrice;
-
-      setPriceInfo({ price, originalPrice });
-    }
   };
 
   const onClickAll = () => {
     if (!isSelectedAll) {
       setSelectedItems(wineList.map((item) => item.id));
       setOrderItemList(wineList);
-
-      const price =
-        sumBy(wineList, (item) => item.amount * item.product.price) || 0;
-      const originalPrice =
-        sumBy(wineList, (item) => item.amount * item.product.originalPrice) ||
-        0;
-
-      setPriceInfo({ price, originalPrice });
     } else {
       setSelectedItems((Array(wineList.length) as number[]).fill(0));
       setOrderItemList([]);
-      setPriceInfo({ price: 0, originalPrice: 0 });
     }
   };
 

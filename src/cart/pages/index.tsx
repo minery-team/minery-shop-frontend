@@ -25,7 +25,7 @@ export default withAuth(function CartPage() {
     if (FREE_SHIPPING_PRICE - priceInfo.originalPrice > 0)
       return priceInfo.price + SHIPPING_PRICE;
     return priceInfo.price;
-  }, [priceInfo]);
+  }, [cartList, priceInfo]);
 
   const buttonText = useMemo(() => {
     if (priceInfo.price > 0) return `${commaizeNumber(totalPrice)}원 주문하기`;
@@ -51,11 +51,7 @@ export default withAuth(function CartPage() {
       </AppBar>
       {cartList && cartList.length ? (
         <>
-          <WineList
-            wineList={cartList}
-            priceInfo={priceInfo}
-            setPriceInfo={setPriceInfo}
-          />
+          <WineList wineList={cartList} setPriceInfo={setPriceInfo} />
           <Spacing height={20} />
           <Divider width="100%" height="6px" color={colors.gray100} />
           <PaymentInfo priceInfo={priceInfo} />

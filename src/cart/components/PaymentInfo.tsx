@@ -15,7 +15,7 @@ export default function PaymentInfo({
     if (FREE_SHIPPING_PRICE - priceInfo.originalPrice > 0)
       return SHIPPING_PRICE;
     return 0;
-  }, []);
+  }, [priceInfo]);
 
   return (
     <Wrapper>
