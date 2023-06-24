@@ -37,6 +37,11 @@ export default function WineListItem({
     deleteToast();
   };
 
+  const onClickLabel = () => {
+    if (selectedItems[index] > 0) setSelectItem(0);
+    else setSelectItem(item.id);
+  };
+
   return (
     <>
       <Wrapper key={`${item.product.name}_${index}`}>
@@ -45,11 +50,19 @@ export default function WineListItem({
             id={`${index}`}
             type="checkbox"
             checked={selectedItems[index] > 0}
-            onChange={() => {
-              if (selectedItems[index] > 0) setSelectItem(0);
-              else setSelectItem(item.id);
-            }}
-            style={{ accentColor: colors.primary700Default }}
+            onChange={onClickLabel}
+            style={{ display: 'none' }}
+          />
+          <Image
+            src={
+              selectedItems[index] > 0
+                ? '/assets/checkbox_on.svg'
+                : '/assets/checkbox_off.svg'
+            }
+            width={16}
+            height={16}
+            alt="checkbox"
+            onClick={onClickLabel}
           />
           <Spacing width={12} />
           <ItemWrapper>
@@ -80,7 +93,7 @@ export default function WineListItem({
               </WineImageWrapper>
               <div>
                 <CountBox>
-                  <img
+                  <Image
                     src="/assets/minus.svg"
                     alt="minus"
                     width={12}
@@ -90,7 +103,7 @@ export default function WineListItem({
                   <Text size="sm" weight="regular" color={colors.gray900}>
                     {item.amount}
                   </Text>
-                  <img
+                  <Image
                     src="/assets/plus.svg"
                     alt="plus"
                     width={12}
@@ -118,7 +131,7 @@ export default function WineListItem({
             </WineInfoWrapper>
           </ItemWrapper>
         </ContentWrapper>
-        <img
+        <Image
           src="/assets/close_gray.svg"
           alt="close"
           width={16}

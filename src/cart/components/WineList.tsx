@@ -138,7 +138,17 @@ export default function WineList({
           type="checkbox"
           checked={isSelectedAll}
           onChange={onClickAll}
-          style={{ accentColor: colors.primary700Default }}
+          style={{ display: 'none' }}
+        />
+        <Image
+          src={
+            isSelectedAll
+              ? '/assets/checkbox_on.svg'
+              : '/assets/checkbox_off.svg'
+          }
+          width={16}
+          height={16}
+          alt="checkbox"
         />
         <Text size="base" weight="regular">
           전체 선택
