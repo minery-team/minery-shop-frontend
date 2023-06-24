@@ -4,17 +4,20 @@ import Link from 'next/link';
 import { memo } from 'react';
 import { Text } from '@boxfoxs/bds-web';
 import { colors } from 'common/constants';
+import { useOrderList } from 'common/hooks/queries';
 
 const OrderDashboard = () => {
+  const [orders] = useOrderList('ALL');
+
   return (
     <Container>
-      <Link href="/orderList">
+      <Link href="/order/list">
         <OrderStatusList>
           {Object.keys(OrderStatus).map((status) => (
             <OrderStatusIndicator key={status}>
               {/* <h1 css={{ margin: 0 }}>{0}</h1> */}
               <Text size="heading4" weight="semibold" color={colors.gray900}>
-                0
+                {orders?.filter((order) => order.status === status).length ?? 0}
               </Text>
               <Text size="base" weight="regular" color={colors.gray700}>
                 {orderStatusToHumanReadable(status as unknown as OrderStatus)}
