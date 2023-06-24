@@ -70,10 +70,10 @@ export function OrderItemsSection({ orderList }: { orderList: CartItem[] }) {
               {orderList.length}개
             </Text>
             <Image
-              src={`/images/common/chevron-${isOpen ? 'up' : 'down'}.png`}
-              alt="chevron-down"
-              width={12}
-              height={6}
+              src={`/assets/chevron_${isOpen ? 'up' : 'down'}.svg`}
+              alt="chevron-up-down"
+              width={16}
+              height={16}
             />
           </ListCountText>
         </OrderTextWrapper>
@@ -85,7 +85,9 @@ export function OrderItemsSection({ orderList }: { orderList: CartItem[] }) {
   );
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-top: 24px;
+`;
 
 const OrderListWrapper = styled.div`
   display: flex;
