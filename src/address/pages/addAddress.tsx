@@ -69,8 +69,13 @@ export default function AddAddress() {
         <Text size="lg" weight="semibold" color={colors.gray900}>
           배송지 변경
         </Text>
+<<<<<<< HEAD
         <img
           src="/assets/close.svg"
+=======
+        <Image
+          src="/assets/x.svg"
+>>>>>>> main
           width={20}
           height={20}
           alt="close"

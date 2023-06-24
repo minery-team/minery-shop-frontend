@@ -43,12 +43,20 @@ const ReviewDetail = () => {
         >
           {review.images.map((image) => (
             <Rectangle key={image} style={{ background: colors.gray200 }}>
-              <img src={image} alt="상품 이미지" style={{ width: '100%' }} />
+              <img
+                src={image}
+                alt="상품 이미지"
+                style={{ width: '100%', objectFit: 'cover' }}
+              />
             </Rectangle>
           ))}
         </Carousel>
       )}
-      <Section>
+      <Section
+        style={{
+          paddingTop: '0px',
+        }}
+      >
         <WineReview review={review} showImages={false} />
       </Section>
     </Container>

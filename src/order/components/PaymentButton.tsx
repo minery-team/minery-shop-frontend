@@ -10,6 +10,7 @@ import { Address, CartItem, User } from 'common/models';
 import { requestPay } from 'common/utils/requestTossPay';
 import { useCheckSelfReceving } from 'order/components/CheckSeflRecevingPopUp';
 import { useEnrollAddress } from 'order/components/EnrollAddressPopUp';
+import { QS } from '@boxfoxs/next';
 
 export function PaymentButton({
   userInfo,
@@ -35,6 +36,10 @@ export function PaymentButton({
     else {
       const { protocol, host } = window.location;
       const orderId = `minery_${Date.now()}_${orderList.length}`;
+      const params = {
+        ...QS.getData(),
+        addressId: address.id,
+      };
 
       await requestPay(
         `${orderId}`,
@@ -42,7 +47,9 @@ export function PaymentButton({
         `${userInfo.name}`,
         totalPrice,
         {
-          successUrl: `${protocol}//${host}/process-payment?addressId=${address.id}`,
+          successUrl: `${protocol}//${host}/process-payment${QS.create(
+            params
+          )}`,
         }
       );
     }

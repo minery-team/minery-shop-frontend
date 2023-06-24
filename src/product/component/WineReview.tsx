@@ -1,4 +1,4 @@
-import { Text } from '@boxfoxs/bds-web';
+import { Spacing, Text } from '@boxfoxs/bds-web';
 import { Path } from '@boxfoxs/next';
 import styled from '@emotion/styled';
 import { colors } from 'common/constants';
@@ -22,14 +22,24 @@ const WineReview = ({ review, showImages = true }: Props) => {
           style={{
             display: 'flex',
             gap: '4px',
+            alignItems: 'center',
+            alignContent: 'center',
           }}
         >
           <img src="/assets/star.svg" width={16} height={16} alt="별" />
           <Text color={colors.gray900} size="sm" weight="semibold">
             {review.rating}
           </Text>
-          <Text color={colors.gray500} size="sm" weight="semibold">
-            | {review.date}
+          <Spacing
+            height={7}
+            width={1}
+            style={{
+              backgroundColor: colors.gray300,
+              margin: '0 4px',
+            }}
+          />
+          <Text color={colors.gray500} size="sm" weight="regular">
+            {review.date}
           </Text>
         </div>
         <div
