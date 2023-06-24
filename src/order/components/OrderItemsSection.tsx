@@ -105,7 +105,7 @@ const OrderTextWrapper = styled.div`
   align-items: center;
 `;
 
-const ListCountText = styled.div`
+const ListCountText = styled.button`
   display: flex;
   align-items: center;
   gap: 8px;

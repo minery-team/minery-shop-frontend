@@ -94,7 +94,7 @@ export default function InputCodePage() {
           />
           <Spacing width={20} />
           <MineryButton
-            style={{ width: '90px' }}
+            style={{ width: '90px', padding: 0 }}
             height={46}
             type="light"
             textStyle={{ size: 'lg' }}
@@ -109,6 +109,7 @@ export default function InputCodePage() {
         onClick={cta.callback}
         loading={cta.isLoading}
         type="default"
+        background
       >
         확인
       </FixedBottomCTA>
