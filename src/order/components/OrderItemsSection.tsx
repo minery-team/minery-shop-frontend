@@ -13,7 +13,7 @@ interface Props {
 }
 
 export function OrderItemsSection({ data, initialVisible = false }: Props) {
-  const [isOpen, toggle] = useBooleanState(initialVisible);
+  const [isOpen, , , toggle] = useBooleanState(initialVisible);
 
   const renderWineList = () => {
     return (
