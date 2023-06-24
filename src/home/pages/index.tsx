@@ -35,16 +35,16 @@ const TAG_LIST: TagInfo[] = [
     text: '화이트',
     spotColor: '#F3F0E8',
   },
-  // {
-  //   key: WineType.ROSE,
-  //   text: '로제',
-  //   spotColor: '#F3F0E8',
-  // },
-  // {
-  //   key: WineType.SPARKLING,
-  //   text: '스파클링',
-  //   spotColor: '#F3F0E8',
-  // },
+  {
+    key: WineType.ROSE,
+    text: '로제',
+    spotColor: '#F3F0E8',
+  },
+  {
+    key: WineType.SPARKLING,
+    text: '스파클링',
+    spotColor: '#F3F0E8',
+  },
   {
     key: WineType.ETC,
     text: '기타',
@@ -111,13 +111,20 @@ export default function Home() {
         <section
           css={css({
             width: '100%',
-            height: '540px',
             position: 'relative',
             display: 'flex',
             justifyContent: 'center',
           })}
         >
-          <video autoPlay muted loop playsInline>
+          <video
+            css={css({
+              width: '100%',
+            })}
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
             <source src="/assets/hero.mp4" type="video/mp4" />
           </video>
           <ScrollMainButton
@@ -169,6 +176,7 @@ export default function Home() {
               text={tag.text}
               spotColor={tag.spotColor}
               key={tag.key}
+              isSelected={wineType === tag.key}
             />
           );
         })}
@@ -223,6 +231,7 @@ const TagBox = styled.section`
   gap: 6px;
   height: 56px;
   padding: 0 20px;
+  overflow-x: auto;
 `;
 
 const ScrollTopButton = styled.button`

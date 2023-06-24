@@ -33,16 +33,17 @@ const HeaderContaer = styled.nav`
   display: flex;
   align-items: center;
   position: absolute;
-  top: 48px;
+  top: 12px;
   height: 56px;
   z-index: 1;
-  width: 335px;
+  width: 85vw;
   background-color: white;
   border-radius: 30px;
   left: 50%;
   transform: translateX(-50%);
   padding-left: 24px;
   padding-right: 8px;
+  max-width: 450px;
 `;
 
 const StyledImage = styled(Image)`

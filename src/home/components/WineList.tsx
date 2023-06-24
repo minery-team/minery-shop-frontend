@@ -41,6 +41,7 @@ export function WineList({
         gridTemplateRows: 'auto',
         gap: '10px',
         padding: '0 19px',
+        placeItems: 'center',
       })}
     >
       {data.map((item: Product, idx: number) => {

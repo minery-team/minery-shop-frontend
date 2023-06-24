@@ -3,13 +3,13 @@ import { Text, usePopup } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
 import { colors } from 'common/constants';
-import { PopUp } from 'common/components';
+import { ConfirmModal } from 'common/components';
 import { IMP } from 'common/utils/IMP';
 import { useCallback } from 'react';
 
 export function AdultCertGuidePopUp({ onClose }: { onClose: () => void }) {
   return (
-    <PopUp
+    <ConfirmModal
       type="confirm"
       content={
         <TextWrapper>

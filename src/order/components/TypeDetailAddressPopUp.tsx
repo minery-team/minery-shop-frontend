@@ -2,12 +2,12 @@ import { Text, usePopup } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
 import { colors } from 'common/constants';
-import { PopUp } from 'common/components';
+import { ConfirmModal } from 'common/components';
 import { useCallback } from 'react';
 
 export function TypeDetailAddressPopUp({ onClose }: { onClose: () => void }) {
   return (
-    <PopUp
+    <ConfirmModal
       type="confirm"
       content={
         <TextWrapper>

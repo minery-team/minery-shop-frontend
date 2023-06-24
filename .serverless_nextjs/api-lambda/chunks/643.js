@@ -591,11 +591,12 @@ function MText(props) {
 var emotion_styled_esm = __webpack_require__(56361);
 // EXTERNAL MODULE: ./node_modules/@heroicons/react/24/outline/esm/XMarkIcon.js
 var XMarkIcon = __webpack_require__(31415);
-// EXTERNAL MODULE: ./node_modules/@heroicons/react/24/outline/esm/ChevronLeftIcon.js
-var ChevronLeftIcon = __webpack_require__(51446);
 // EXTERNAL MODULE: ./node_modules/next/router.js
 var router = __webpack_require__(11163);
 var router_default = /*#__PURE__*/__webpack_require__.n(router);
+// EXTERNAL MODULE: ./node_modules/next/image.js
+var next_image = __webpack_require__(25675);
+var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
 // EXTERNAL MODULE: ./src/common/constants/index.ts + 1 modules
 var constants = __webpack_require__(41727);
 ;// CONCATENATED MODULE: ./src/common/components/appbar/ControlBox.tsx
@@ -686,6 +687,7 @@ const Profile_Container = emotion_styled_esm/* default.div */.Z.div`
 
 
 
+
 const AppBar = ({ initialHidden , fixed , floating , elevated , profile , backgrounded , back , logo , takeSpace , children  })=>{
     const content = /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(InnerContainer, {
         elevated: elevated,
@@ -701,10 +703,11 @@ const AppBar = ({ initialHidden , fixed , floating , elevated , profile , backgr
                     width: 28,
                     color: constants/* colors.gray900 */.O9.gray900,
                     strokeWidth: 1.5
-                }) : /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(ChevronLeftIcon/* default */.Z, {
-                    height: 22,
-                    color: constants/* colors.gray700 */.O9.gray700,
-                    strokeWidth: 2
+                }) : /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ((image_default()), {
+                    src: "/assets/back.svg",
+                    width: 20,
+                    height: 20,
+                    alt: "back"
                 })
             }),
             /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Spacing */.Ki, {
@@ -2109,7 +2112,7 @@ const trackFbPageView = async ()=>{
 /***/ 97020:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-c67a75d1b6f99dc8.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/AAwGrQ-i_x7nbFICDdCda/_buildManifest.js","static/AAwGrQ-i_x7nbFICDdCda/_ssgManifest.js"],"rootMainFiles":[],"pages":{"/":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/675-20dc8f91278ac505.js","static/chunks/pages/index-5f64564e4b46a13e.js"],"/_app":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/css/68ddee04086c3316.css","static/chunks/pages/_app-6bba818312da80c3.js"],"/_error":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/_error-a4ba2246ff8fb532.js"],"/address/new-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/address/new-address-a2294cec5462dbe2.js"],"/auth":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth-65a9163b2ee78715.js"],"/auth/code":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/code-2e532fd442474812.js"],"/auth/phone":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/phone-c875e981cbfd54a2.js"],"/cart":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/675-20dc8f91278ac505.js","static/chunks/pages/cart-6d33d56abb58f3bc.js"],"/complete-order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/675-20dc8f91278ac505.js","static/chunks/pages/complete-order-d65c08b40bd2cb47.js"],"/my":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/812-1adb4f057c889fbf.js","static/chunks/pages/my-7d7f7528c591009d.js"],"/order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/675-20dc8f91278ac505.js","static/chunks/812-1adb4f057c889fbf.js","static/chunks/pages/order-4a5a42f2c8ab63e4.js"],"/order/list":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/order/list-adfddfb23941a33d.js"],"/process-payment":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/process-payment-a44ac24030940443.js"],"/product/[id]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/675-20dc8f91278ac505.js","static/chunks/444-816b9bffe462baa3.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]-9c870756358f9d9d.js"],"/product/[id]/review/[reviewId]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/675-20dc8f91278ac505.js","static/chunks/444-816b9bffe462baa3.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/review/[reviewId]-b85b46c27ade5466.js"]},"ampFirstPages":[]}');
+module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-c67a75d1b6f99dc8.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/N6E6Jts9sF6FTrXHgMb2Z/_buildManifest.js","static/N6E6Jts9sF6FTrXHgMb2Z/_ssgManifest.js"],"rootMainFiles":[],"pages":{"/":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/index-6ecdf1c8f852c4ee.js"],"/_app":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/css/a346523f0ef3dff2.css","static/chunks/pages/_app-6cb0142da2cd2c49.js"],"/_error":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/_error-a4ba2246ff8fb532.js"],"/address/new-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/address/new-address-73d6429215b4e3fb.js"],"/auth":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth-df9af230fbd4769a.js"],"/auth/code":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/code-40642175657e7a0e.js"],"/auth/phone":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/phone-d63727ace777addc.js"],"/cart":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/cart-3d02829e9f92d934.js"],"/complete-order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/complete-order-369a56c34567b255.js"],"/my":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/812-1adb4f057c889fbf.js","static/chunks/pages/my-0a63b5cada486af4.js"],"/order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/812-1adb4f057c889fbf.js","static/chunks/pages/order-0c4741e99d6dfa30.js"],"/order/list":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/order/list-ed6d497205aa080e.js"],"/process-payment":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/process-payment-a44ac24030940443.js"],"/product/[id]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/444-816b9bffe462baa3.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]-1e2fa666738d0fb0.js"],"/product/[id]/review/[reviewId]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/444-816b9bffe462baa3.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/review/[reviewId]-67b968d430f42b3a.js"]},"ampFirstPages":[]}');
 
 /***/ }),
 
