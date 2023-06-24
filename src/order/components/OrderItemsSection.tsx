@@ -22,18 +22,22 @@ export function OrderItemsSection({ data, initialVisible = false }: Props) {
         {data.map((item: CartItem, index: number) => {
           return (
             <CardWrapper key={item.id}>
-              <img
-                src={item.product.image}
-                alt={`${item.product.id}_${index}`}
-                width={70}
-                height={79}
-              />
-              <img
-                src={item.product.image}
-                alt={`${item.product.id}_${index}`}
-                width={70}
-                height={79}
-              />
+              <ImageWrapper>
+                <img
+                  src={item.product.image}
+                  alt={`${item.product.id}_${index}`}
+                  width={70}
+                  height={79}
+                />
+              </ImageWrapper>
+              <ImageWrapper>
+                <img
+                  src={item.product.image}
+                  alt={`${item.product.id}_${index}`}
+                  width={70}
+                  height={79}
+                />
+              </ImageWrapper>
               <WineInfoWrapper>
                 <Text size="base" weight="semibold" color={colors.gray900}>
                   {item.product.name}
@@ -113,6 +117,11 @@ const ListCountText = styled.div`
 const CardWrapper = styled.div`
   display: flex;
   margin-top: 16px;
+`;
+
+const ImageWrapper = styled.div`
+  width: 70px;
+  height: 79px;
 `;
 
 const WineInfoWrapper = styled.div`
