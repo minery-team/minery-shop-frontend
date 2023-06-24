@@ -10,12 +10,7 @@ export default function EmptyWineList() {
 
   return (
     <NoCartWrapper>
-      <Image
-        src="/images/cart/shopping.png"
-        alt="shopping"
-        width={64}
-        height={64}
-      />
+      <Image src="/assets/shopping.svg" alt="shopping" width={64} height={64} />
       <Text size="base" weight="regular" color={colors.gray600}>
         장바구니가 비어있어요
       </Text>
@@ -34,7 +29,7 @@ const NoCartWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 116px);
   gap: 24px;
 `;
 
