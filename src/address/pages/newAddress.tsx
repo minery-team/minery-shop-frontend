@@ -9,6 +9,7 @@ import { colors } from 'common/constants';
 import { useAddressList, useUserQuery } from 'common/hooks/queries';
 import { useFindAddress } from 'order/components/FindAddressPopUp';
 import { useTypeDetailAddress } from 'order/components/TypeDetailAddressPopUp';
+import { useNewToast } from 'address/components/changeAddress';
 import { ShippingAddress } from './ShippingAddress';
 import { UserInfo } from './UserInfo';
 
@@ -21,11 +22,18 @@ export default function NewAddress() {
 
   const openFindAddress = useFindAddress();
   const openTypeDetailAddress = useTypeDetailAddress();
+  const openNewAddressToast = useNewToast();
 
   const isValidAddress = useMemo(() => {
     if (roadAddress.length > 0 && detailAddress.length > 0) return true;
     return false;
   }, [roadAddress, detailAddress]);
+
+  const routeChangeCompleteHandler = () => {
+    openNewAddressToast();
+
+    Router.events.off('routeChangeComplete', routeChangeCompleteHandler);
+  };
 
   const onClickEnroll = async () => {
     if (!roadAddress) openFindAddress();
@@ -40,6 +48,9 @@ export default function NewAddress() {
         default: true,
       });
       await reload();
+
+      Router.events.on('routeChangeComplete', routeChangeCompleteHandler);
+
       Router.back();
     }
   };
