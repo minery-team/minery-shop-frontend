@@ -56,7 +56,7 @@ export default function WineListItem({
             onChange={onClickLabel}
             style={{ display: 'none' }}
           />
-          <button onClick={onClickLabel} type="button">
+          <button onClick={onClickLabel} type="button" style={{ padding: 0 }}>
             <img
               src={
                 selectedItems[index] > 0
