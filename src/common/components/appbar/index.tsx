@@ -1,7 +1,8 @@
 import { Flex, Spacing, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
-import { ChevronLeftIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 import Router from 'next/router';
+import Image from 'next/image';
 import { ComponentProps, ReactNode } from 'react';
 import { colors } from 'common/constants';
 import { ControlBox } from './ControlBox';
@@ -45,11 +46,7 @@ export const AppBar = ({
           {back === 'x' ? (
             <XMarkIcon width={28} color={colors.gray900} strokeWidth={1.5} />
           ) : (
-            <ChevronLeftIcon
-              height={22}
-              color={colors.gray700}
-              strokeWidth={2}
-            />
+            <Image src="/assets/back.svg" width={20} height={20} alt="back" />
           )}
         </ControlBox>
       )}
