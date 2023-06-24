@@ -25,7 +25,7 @@ export function Footer() {
             display: flex;
           `}
         >
-          <Link href={KAKAO_CHANNEL_LINK}>
+          <Link href="/customer-service">
             <Text size="base" weight="semibold" color="gray900">
               문의하기
             </Text>

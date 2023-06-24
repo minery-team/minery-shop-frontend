@@ -74,8 +74,8 @@ const WineKindDescription = ({ product }: Props) => {
         </div>
         <img
           src="/assets/up_arrow.svg"
-          width={16}
-          height={16}
+          width={24}
+          height={24}
           alt="배송비 안내 자세히 보기"
           style={{
             transform: expanded ? 'rotate(0deg)' : 'rotate(180deg)',

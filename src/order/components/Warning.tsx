@@ -67,8 +67,8 @@ export function Warning() {
                   isShowWaring[index] ? 'up' : 'down'
                 }.svg`}
                 alt="chevron-up-down"
-                width={16}
-                height={16}
+                width={24}
+                height={24}
               />
             </WarningNavWrapper>
             <ItemWrapper>
