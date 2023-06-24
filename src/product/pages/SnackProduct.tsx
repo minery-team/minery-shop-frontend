@@ -15,6 +15,7 @@ import { useCartList } from 'common/hooks/queries';
 import { ProductForSnack } from 'common/models';
 import { useStartOrderSheet } from 'product/component/bottom-sheet/StartOrderSheet';
 import { useRef } from 'react';
+import CartButton from 'home/components/CartButton';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import RefundNotice from '../component/RefundNotice';
 import SnackDescription from '../component/SnackDescription';
@@ -36,7 +37,19 @@ const SnackProduct = ({ product }: Props) => {
 
   return (
     <Container ref={containerRef}>
-      <AppBar back />
+      <AppBar back>
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'row-reverse',
+            alignItems: 'center',
+          }}
+        >
+          <CartButton />
+        </div>
+      </AppBar>
       <Carousel
         dots
         dotsClass=""
@@ -51,7 +64,6 @@ const SnackProduct = ({ product }: Props) => {
           </Rectangle>
         ))}
       </Carousel>
-
       <Section>
         {/* 국가 및 와인 타입 */}
         <div
