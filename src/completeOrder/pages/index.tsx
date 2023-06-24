@@ -2,7 +2,7 @@ import { Divider, Spacing, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 
-import { AppBar } from 'common/components';
+import { AppBar, MText } from 'common/components';
 import { colors } from 'common/constants';
 import { withAuth } from 'common/hocs';
 import { useUser } from 'common/hooks';
@@ -32,9 +32,9 @@ export default withAuth(function CompleteOrder() {
         <AppBar.Title>주문 완료!</AppBar.Title>
       </AppBar>
       <TitleWrapper>
-        <Text size="2xl" weight="semibold" color={colors.gray900}>
+        <MText size="xxl" weight="semibold" color={colors.gray900}>
           {`${userInfo?.name}님의 상품이\n성공적으로 주문되었어요.`}
-        </Text>
+        </MText>
         <Text size="base" weight="regular" color={colors.gray600}>
           곧 배송이 시작될 예정이에요. 조금만 기다려주세요.
         </Text>
