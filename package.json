@@ -15,7 +15,7 @@
     "@boxfoxs/bds-common": "^0.0.18",
     "@boxfoxs/bds-web": "^0.0.89",
     "@boxfoxs/core-hooks": "^1.0.14",
-    "@boxfoxs/core-hooks-dom": "^0.0.24",
+    "@boxfoxs/core-hooks-dom": "^0.0.23",
     "@boxfoxs/logger": "^0.0.22",
     "@boxfoxs/next": "^0.0.12",
     "@boxfoxs/next-seo": "^0.0.14",

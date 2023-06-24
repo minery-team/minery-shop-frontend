@@ -115,16 +115,6 @@ function useControlCart() {
     const [user] = (0,useUser/* useUser */.a)();
     const { value , local , reload  } = useCart();
     const localControl = useLocalCart();
-    const add = (0,react.useCallback)(async (data)=>{
-        if (user) {
-            await (0,cart/* addToCart */.Xq)(data);
-            await reload();
-        } else {
-            localControl.add(data);
-        }
-    }, [
-        user
-    ]);
     const remove = (0,react.useCallback)(async (id)=>{
         const idx = local.findIndex((i)=>i.id === id);
         if (idx >= 0) {
@@ -159,6 +149,27 @@ function useControlCart() {
     }, [
         value,
         local
+    ]);
+    const add = (0,react.useCallback)(async (data)=>{
+        const item = value.find((i)=>{
+            return i.product.id === data.productId && i.options.every((o)=>{
+                var ref;
+                return ((ref = data.options.find((o2)=>o.option.id === o2.optionId)) === null || ref === void 0 ? void 0 : ref.amount) === o.amount;
+            });
+        });
+        if (item) {
+            return updateAmount(item.id, item.amount + data.amount);
+        }
+        if (user) {
+            await (0,cart/* addToCart */.Xq)(data);
+            await reload();
+        } else {
+            localControl.add(data);
+        }
+    }, [
+        user,
+        value,
+        updateAmount
     ]);
     return {
         value,

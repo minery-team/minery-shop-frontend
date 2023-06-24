@@ -93,10 +93,10 @@
     clsx "^1.1.1"
     lodash "^4.17.21"
 
-"@boxfoxs/core-hooks-dom@^0.0.24":
-  version "0.0.24"
-  resolved "https://registry.yarnpkg.com/@boxfoxs/core-hooks-dom/-/core-hooks-dom-0.0.24.tgz#f637de0707e9ef61b804c434f39d2c859270715f"
-  integrity sha512-5OKlIHbtM4Xam6KC3J5hQOzwZnAsK1te74H/uE46jUcA5vdrJw5KEwBqsh0xQgpTpFFIZPwutJ5FxpE3Wc9HqA==
+"@boxfoxs/core-hooks-dom@^0.0.23":
+  version "0.0.23"
+  resolved "https://registry.yarnpkg.com/@boxfoxs/core-hooks-dom/-/core-hooks-dom-0.0.23.tgz#e7beac138c61b00bac07a05a3093040a0b186ae4"
+  integrity sha512-4oDNgBSLFO/HagEP0YSwB9hK1ijfsuYqPrKHycWO7skkIyjgq2skG4SzMqx4pdU3Eee2vu+LoByT1GpdIUPNwQ==
 
 "@boxfoxs/core-hooks@^1.0.14":
   version "1.0.14"

@@ -198,10 +198,10 @@ var utils_dist = __webpack_require__(90665);
 var lodash = __webpack_require__(96486);
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__(67294);
-// EXTERNAL MODULE: ./src/common/components/index.ts + 20 modules
-var components = __webpack_require__(32579);
-// EXTERNAL MODULE: ./src/common/constants/index.ts + 1 modules
-var constants = __webpack_require__(41727);
+// EXTERNAL MODULE: ./src/common/components/index.ts + 22 modules
+var components = __webpack_require__(15575);
+// EXTERNAL MODULE: ./src/common/constants/index.ts + 2 modules
+var constants = __webpack_require__(16439);
 // EXTERNAL MODULE: ./node_modules/@tosspayments/sdk/dist/tosspayments.cjs.js
 var tosspayments_cjs = __webpack_require__(85685);
 ;// CONCATENATED MODULE: ./src/common/constants/toss.ts
@@ -334,7 +334,10 @@ const EnrollAddressPopUp_StyledText = (0,emotion_styled_esm/* default */.Z)(dist
   align-items: center;
 `;
 
+// EXTERNAL MODULE: ./node_modules/@boxfoxs/next/dist/index.js
+var next_dist = __webpack_require__(23399);
 ;// CONCATENATED MODULE: ./src/order/components/PaymentButton.tsx
+
 
 
 
@@ -360,8 +363,12 @@ function PaymentButton({ userInfo , orderList , isCheckSelfReceving , address  }
         else {
             const { protocol , host  } = window.location;
             const orderId = `minery_${Date.now()}_${orderList.length}`;
+            const params = {
+                ...next_dist.QS.getData(),
+                addressId: address.id
+            };
             await requestPay(`${orderId}`, `${orderList[0].product.name} 외 ${orderList.length - 1}개`, `${userInfo.name}`, totalPrice, {
-                successUrl: `${protocol}//${host}/process-payment?addressId=${address.id}`
+                successUrl: `${protocol}//${host}/process-payment${next_dist.QS.create(params)}`
             });
         }
     };
@@ -567,8 +574,14 @@ function UserInfo({ userInfo , setIsCheckSelfReceving  }) {
                                             setIsCheckSelfReceving(!isChecked);
                                         },
                                         style: {
-                                            accentColor: constants/* colors.primary700Default */.O9.primary700Default
+                                            display: "none"
                                         }
+                                    }),
+                                    /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("img", {
+                                        src: isChecked ? "/assets/checkbox_on.svg" : "/assets/checkbox_off.svg",
+                                        width: 16,
+                                        height: 16,
+                                        alt: "checkbox"
                                     }),
                                     /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Text */.xv, {
                                         size: "base",
@@ -822,8 +835,8 @@ function Warning() {
                             /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("img", {
                                 src: `/assets/chevron_${isShowWaring[index] ? "up" : "down"}.svg`,
                                 alt: "chevron-up-down",
-                                width: 16,
-                                height: 16
+                                width: 24,
+                                height: 24
                             })
                         ]
                     }),
@@ -900,7 +913,7 @@ var core_hooks_dist = __webpack_require__(28271);
 
 
 function OrderItemsSection({ data , initialVisible =false  }) {
-    const [isOpen, toggle] = (0,core_hooks_dist.useBooleanState)(initialVisible);
+    const [isOpen, , , toggle] = (0,core_hooks_dist.useBooleanState)(initialVisible);
     const renderWineList = ()=>{
         return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(emotion_react_jsx_runtime_esm/* Fragment */.HY, {
             children: [
@@ -1001,8 +1014,8 @@ function OrderItemsSection({ data , initialVisible =false  }) {
                                     /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("img", {
                                         src: `/assets/chevron_${isOpen ? "up" : "down"}.svg`,
                                         alt: "chevron-up-down",
-                                        width: 16,
-                                        height: 16
+                                        width: 24,
+                                        height: 24
                                     })
                                 ]
                             })
@@ -1035,7 +1048,7 @@ const OrderTextWrapper = emotion_styled_esm/* default.div */.Z.div`
   justify-content: space-between;
   align-items: center;
 `;
-const ListCountText = emotion_styled_esm/* default.div */.Z.div`
+const ListCountText = emotion_styled_esm/* default.button */.Z.button`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1075,13 +1088,14 @@ const DELIVERY_REQUEST_TEXT = [
 
 
 
+
 function DeliveryRequest({ onClose , setRequest  }) {
     const { 0: selectedRequest , 1: setSelectedRequest  } = (0,react.useState)(-1);
     const { 0: writtenText , 1: setWrittenText  } = (0,react.useState)("");
-    return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(DeliveryRequest_Wrapper, {
+    return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(Container, {
         children: [
-            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Text */.xv, {
-                size: "2xl",
+            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(components/* MText */.HP, {
+                size: "xxl",
                 weight: "semibold",
                 color: constants/* colors.gray900 */.O9.gray900,
                 children: "배송 시 요청사항"
@@ -1102,7 +1116,7 @@ function DeliveryRequest({ onClose , setRequest  }) {
                                 className: "inner_round"
                             })
                         }),
-                        /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Text */.xv, {
+                        /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(components/* MText */.HP, {
                             size: "lg",
                             weight: "medium",
                             color: constants/* colors.gray900 */.O9.gray900,
@@ -1111,14 +1125,12 @@ function DeliveryRequest({ onClose , setRequest  }) {
                     ]
                 }, text);
             }),
-            selectedRequest === 3 && /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(RequestTextWrapper, {
-                children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(RequestText, {
-                    placeholder: "요청사항을 입력해주세요. (25자 이내)",
-                    maxLength: 25,
-                    onChange: (e)=>{
-                        setWrittenText(e.target.value);
-                    }
-                })
+            selectedRequest === 3 && /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(RequestTextInput, {
+                placeholder: "요청사항을 입력해주세요. (25자 이내)",
+                maxLength: 25,
+                onChange: (e)=>{
+                    setWrittenText(e.target.value);
+                }
             }),
             /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Spacing */.Ki, {
                 height: 24
@@ -1137,9 +1149,10 @@ function DeliveryRequest({ onClose , setRequest  }) {
         ]
     });
 }
-const DeliveryRequest_Wrapper = emotion_styled_esm/* default.div */.Z.div``;
-const RequestWrapper = emotion_styled_esm/* default.div */.Z.div`
-  display: flex;
+const Container = emotion_styled_esm/* default.div */.Z.div`
+  padding: 24px 20px;
+`;
+const RequestWrapper = (0,emotion_styled_esm/* default */.Z)(dist/* Flex.CenterVertical */.kC.CenterVertical)`
   padding: 11px 0 11px 4px;
   gap: 6px;
 `;
@@ -1149,29 +1162,37 @@ const Round = emotion_styled_esm/* default.div */.Z.div`
   align-items: center;
   width: 20px;
   height: 20px;
-  border: 2px solid
+  border: 1.5px solid
     ${({ isSelected  })=>isSelected ? constants/* colors.primary700Default */.O9.primary700Default : constants/* colors.gray400 */.O9.gray400};
   border-radius: 20px;
 
   .inner_round {
-    width: 12px;
-    height: 12px;
-    border-radius: 12px;
+    width: 11px;
+    height: 11px;
+    border-radius: 11px;
     background-color: ${({ isSelected  })=>isSelected ? constants/* colors.primary700Default */.O9.primary700Default : undefined};
   }
 `;
-const RequestTextWrapper = emotion_styled_esm/* default.div */.Z.div`
-  height: 44px;
+function RequestTextInput(props) {
+    const textStyle = (0,dist/* useTextStyle */.T)({
+        size: "base"
+    });
+    return /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(StyledRequestTextInput, {
+        ...props,
+        style: textStyle
+    });
+}
+const StyledRequestTextInput = emotion_styled_esm/* default.input */.Z.input`
+  &::placeholder {
+    color: ${constants/* colors.gray400 */.O9.gray400};
+  }
+  color: ${constants/* colors.gray900 */.O9.gray900};
   padding: 12px 16px;
   border: 1px solid ${constants/* colors.gray200 */.O9.gray200};
   border-radius: 6px;
-`;
-const RequestText = emotion_styled_esm/* default.input */.Z.input`
   width: 100%;
-  border: none;
-  outline: none;
 `;
-const Button = (0,emotion_styled_esm/* default */.Z)(dist/* Text */.xv)`
+const Button = (0,emotion_styled_esm/* default */.Z)(components/* MText */.HP)`
   display: flex;
   justify-content: center;
   align-items: center;
