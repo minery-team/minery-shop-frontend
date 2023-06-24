@@ -16,6 +16,7 @@ interface Props {
   floating?: boolean;
   backgrounded?: boolean;
   elevated?: boolean;
+  right?: ReactNode;
 
   takeSpace?: boolean;
 
@@ -32,6 +33,7 @@ export const AppBar = ({
   logo,
   takeSpace,
   children,
+  right,
 }: Props) => {
   const content = (
     <InnerContainer elevated={elevated} backgrounded={backgrounded}>
@@ -47,6 +49,7 @@ export const AppBar = ({
         </ControlBox>
       )}
       <Spacing flex={1} />
+      {right}
     </InnerContainer>
   );
 
