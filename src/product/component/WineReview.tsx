@@ -3,68 +3,76 @@ import { Path } from '@boxfoxs/next';
 import styled from '@emotion/styled';
 import { colors } from 'common/constants';
 import { Review } from 'common/models/Review';
-import Link from 'next/link';
+import { useDetailedReview } from 'product/component/DetailedReview';
 
 interface Props {
   review: Review;
   showImages?: boolean;
+  isModal?: boolean;
 }
 
-const WineReview = ({ review, showImages = true }: Props) => {
+const WineReview = ({ review, showImages = true, isModal = false }: Props) => {
   const productId = Number(Path.get('id'));
+  const openDetailedReview = useDetailedReview(
+    isModal ? 0 : productId,
+    isModal ? 0 : review.id
+  );
+
   return (
-    <Link href={`/product/${productId}/review/${review.id}`}>
-      <ReviewContainer>
-        <Text color={colors.gray900} size="base" weight="semibold">
-          {review.name}
+    <ReviewContainer
+      onClick={() => {
+        if (!isModal) openDetailedReview();
+      }}
+    >
+      <Text color={colors.gray900} size="base" weight="semibold">
+        {review.name}
+      </Text>
+      <div
+        style={{
+          display: 'flex',
+          gap: '4px',
+          alignItems: 'center',
+          alignContent: 'center',
+        }}
+      >
+        <img src="/assets/star.svg" width={16} height={16} alt="별" />
+        <Text color={colors.gray900} size="sm" weight="semibold">
+          {review.rating}
         </Text>
-        <div
+        <Spacing
+          height={7}
+          width={1}
           style={{
-            display: 'flex',
-            gap: '4px',
-            alignItems: 'center',
-            alignContent: 'center',
+            backgroundColor: colors.gray300,
+            margin: '0 4px',
           }}
-        >
-          <img src="/assets/star.svg" width={16} height={16} alt="별" />
-          <Text color={colors.gray900} size="sm" weight="semibold">
-            {review.rating}
-          </Text>
-          <Spacing
-            height={7}
-            width={1}
-            style={{
-              backgroundColor: colors.gray300,
-              margin: '0 4px',
-            }}
-          />
-          <Text color={colors.gray500} size="sm" weight="regular">
-            {review.date}
-          </Text>
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            gap: '12px',
-          }}
-        >
-          {showImages &&
-            review.images?.map((image) => (
-              <img
-                style={{
-                  width: '74px',
-                  height: '74px',
-                  borderRadius: '6px',
-                }}
-                key={image}
-                src={image}
-                alt="와인 리뷰 이미지"
-              />
-            ))}
-        </div>
-        <Text>{review.content}</Text>
-      </ReviewContainer>
-    </Link>
+        />
+        <Text color={colors.gray500} size="sm" weight="regular">
+          {review.date}
+        </Text>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          gap: '12px',
+        }}
+      >
+        {showImages &&
+          review.images?.map((image) => (
+            <img
+              style={{
+                width: '74px',
+                height: '74px',
+                borderRadius: '6px',
+              }}
+              key={image}
+              src={image}
+              alt="와인 리뷰 이미지"
+            />
+          ))}
+      </div>
+      <Text>{review.content}</Text>
+    </ReviewContainer>
   );
 };
 
