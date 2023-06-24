@@ -24,7 +24,7 @@ const MyPage = () => {
           menus={[
             {
               label: '문의하기',
-              to: '/',
+              to: '/customer-service',
             },
             {
               label: '로그아웃',
