@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import { Text, Divider } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
@@ -38,7 +39,17 @@ export function UserInfo({
                 setIsChecked(!isChecked);
                 setIsCheckSelfReceving(!isChecked);
               }}
-              style={{ accentColor: colors.primary700Default }}
+              style={{ display: 'none' }}
+            />
+            <Image
+              src={
+                isChecked
+                  ? '/assets/checkbox_on.svg'
+                  : '/assets/checkbox_off.svg'
+              }
+              width={16}
+              height={16}
+              alt="checkbox"
             />
             <Text size="base" weight="medium" color={colors.gray900}>
               본인이 수령해요
