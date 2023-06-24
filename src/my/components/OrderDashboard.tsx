@@ -2,6 +2,32 @@ import { OrderStatus, orderStatusToHumanReadable } from 'common/models';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import { memo } from 'react';
+import { Text } from '@boxfoxs/bds-web';
+import { colors } from 'common/constants';
+
+const OrderDashboard = () => {
+  return (
+    <Container>
+      <Link href="/orderList">
+        <OrderStatusList>
+          {Object.keys(OrderStatus).map((status) => (
+            <OrderStatusIndicator key={status}>
+              {/* <h1 css={{ margin: 0 }}>{0}</h1> */}
+              <Text size="heading4" weight="semibold" color={colors.gray900}>
+                0
+              </Text>
+              <Text size="base" weight="regular" color={colors.gray700}>
+                {orderStatusToHumanReadable(status as unknown as OrderStatus)}
+              </Text>
+            </OrderStatusIndicator>
+          ))}
+        </OrderStatusList>
+      </Link>
+    </Container>
+  );
+};
+
+export default memo(OrderDashboard);
 
 const Container = styled.section`
   display: flex;
@@ -24,32 +50,23 @@ const OrderStatusIndicator = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 2px;
   align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 4px;
-  color: black;
+  position: relative;
+
+  &:not(:last-of-type)::after {
+    content: '';
+    height: 12px;
+    width: 1px;
+
+    position: absolute;
+    right: 0;
+    top: 50%; // If you want to set a smaller height and center it, change this value
+    transform: translateY(-50%);
+
+    background-color: ${colors.gray300};
+  }
 `;
-
-const OrderDashboard = () => {
-  return (
-    <Container>
-      <h3 css={{ margin: 0 }}>주문내역</h3>
-      <Link href="/orderList">
-        <OrderStatusList>
-          {Object.keys(OrderStatus).map((status) => (
-            <OrderStatusIndicator key={status}>
-              <h1 css={{ margin: 0 }}>{0}</h1>
-              <span css={{ fontSize: '14px' }}>
-                {orderStatusToHumanReadable(status as unknown as OrderStatus)}
-              </span>
-            </OrderStatusIndicator>
-          ))}
-        </OrderStatusList>
-      </Link>
-    </Container>
-  );
-};
-
-export default memo(OrderDashboard);

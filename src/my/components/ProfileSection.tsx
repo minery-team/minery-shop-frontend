@@ -1,5 +1,7 @@
+import { Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import { Section } from 'common/components';
+import { colors } from 'common/constants';
 import { useUser } from 'common/hooks';
 import { formatPhoneNumber } from 'common/utils';
 import { memo } from 'react';
@@ -9,8 +11,14 @@ const ProfileSection = () => {
   return (
     <Section>
       <Container>
-        <h2 css={{ margin: 0 }}>{user?.name}</h2>
-        <span>{`휴대폰 번호 ${formatPhoneNumber(user?.phone ?? '')}`}</span>
+        <Text size="xxl" weight="semibold" color={colors.gray900}>
+          회원님, 반가워요!
+        </Text>
+        <Text
+          size="base"
+          weight="regular"
+          color={colors.gray600}
+        >{`휴대폰 번호 ${formatPhoneNumber(user?.phone ?? '')}`}</Text>
       </Container>
     </Section>
   );
