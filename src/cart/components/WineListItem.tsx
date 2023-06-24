@@ -107,7 +107,7 @@ export default function WineListItem({
                   color={colors.gray500}
                   style={{ textDecoration: 'line-through', marginTop: '12px' }}
                 >
-                  {commaizeNumber(item.product.price)}원
+                  {commaizeNumber(item.product.originalPrice)}원
                 </Text>
                 <Text
                   size="lg"
