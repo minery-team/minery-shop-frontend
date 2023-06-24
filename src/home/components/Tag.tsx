@@ -2,9 +2,7 @@ import { css } from '@emotion/react';
 import { Text } from '@boxfoxs/bds-web';
 import { Space } from 'common/components';
 
-import Image from 'next/image';
 import { colors } from 'common/constants';
-import swap from '../../../public/assets/swap.svg';
 
 export function Tag({
   text,
@@ -36,7 +34,12 @@ export function Tag({
       onClick={onClick}
     >
       {spotColor === undefined ? (
-        <img src={swap} width={16} height={16} alt="swap another category" />
+        <img
+          src="/assets/swap.svg"
+          width={16}
+          height={16}
+          alt="swap another category"
+        />
       ) : (
         <div
           css={css`

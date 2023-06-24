@@ -1,11 +1,9 @@
 import { Text } from '@boxfoxs/bds-web';
+import { Path } from '@boxfoxs/next';
+import styled from '@emotion/styled';
 import { colors } from 'common/constants';
 import { Review } from 'common/models/Review';
-import Image from 'next/image';
-import { Path } from '@boxfoxs/next';
 import Link from 'next/link';
-import styled from '@emotion/styled';
-import star from '../../../public/assets/star.svg';
 
 interface Props {
   review: Review;
@@ -26,7 +24,7 @@ const WineReview = ({ review, showImages = true }: Props) => {
             gap: '4px',
           }}
         >
-          <img src={star} width={16} height={16} alt="별" />
+          <img src="/assets/star.svg" width={16} height={16} alt="별" />
           <Text color={colors.gray900} size="sm" weight="semibold">
             {review.rating}
           </Text>

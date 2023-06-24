@@ -8,8 +8,6 @@ import {
 import { Product } from 'common/models';
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
-import up_arrow from '../../../public/assets/up_arrow.svg';
-import wine_pictogram from '../../../public/assets/wine_pictogram.svg';
 
 interface Props {
   product: Product;
@@ -59,8 +57,8 @@ const WineKindDescription = ({ product }: Props) => {
             gap: '12px',
           }}
         >
-          <Image
-            src={wine_pictogram}
+          <img
+            src="/assets/wine_pictogram.svg"
             width={48}
             height={48}
             alt="와인 픽토그램"
@@ -74,8 +72,8 @@ const WineKindDescription = ({ product }: Props) => {
             </Text>
           </div>
         </div>
-        <Image
-          src={up_arrow}
+        <img
+          src="/assets/up_arrow.svg"
           width={16}
           height={16}
           alt="배송비 안내 자세히 보기"

@@ -30,7 +30,7 @@ const DescriptionSection = ({ product, ...props }: Props) => {
             gap: '8px',
           }}
         >
-          <Image
+          <img
             src="/assets/adult_only.svg"
             width={16}
             height={16}

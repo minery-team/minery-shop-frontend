@@ -23,13 +23,13 @@ export function OrderItemsSection({ data, initialVisible = false }: Props) {
         {data.map((item: CartItem, index: number) => {
           return (
             <CardWrapper key={item.id}>
-              <Image
+              <img
                 src={item.product.image}
                 alt={`${item.product.id}_${index}`}
                 width={70}
                 height={79}
               />
-              <Image
+              <img
                 src={item.product.image}
                 alt={`${item.product.id}_${index}`}
                 width={70}

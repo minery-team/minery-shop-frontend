@@ -13,9 +13,7 @@ import { WineType } from 'common/models';
 import { OrderType } from 'common/api/product';
 import { useWineList } from 'common/hooks';
 import { WineList } from '../components/WineList';
-import down from '../../../public/assets/down.svg';
-import up from '../../../public/assets/up.svg';
-// import hero from '../../../public/assets/hero.mp4';
+
 import { Header } from '../components/Header';
 
 export type TagInfo = {
@@ -133,7 +131,7 @@ export default function Home() {
               handleScroll(mainTextRef.current);
             }}
           >
-            <img src={down} width={16} height={16} alt="" />
+            <img src="/assets/down.svg" width={16} height={16} alt="" />
             <div
               css={css({
                 paddingLeft: '8px',
@@ -196,7 +194,7 @@ export default function Home() {
             handleScroll('top');
           }}
         >
-          <img src={up} width={16} height={16} alt="" />
+          <img src="/assets/up.svg" width={16} height={16} alt="" />
           <Space left="8px" />
           <Text size="lg" weight="medium" color={colors.defaultBlack}>
             맨 위로
