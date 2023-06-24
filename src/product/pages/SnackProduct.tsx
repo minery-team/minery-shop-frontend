@@ -3,6 +3,7 @@ import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 import {
   AppBar,
+  CartButton,
   FixedBottomCTA,
   Section,
   SectionDivider,
@@ -32,8 +33,8 @@ const SnackProduct = ({ product }: Props) => {
   const imagesForCarousel = product.images;
 
   return (
-    <Container ref={containerRef}>
-      <AppBar back floating backgrounded />
+    <StyledContainer ref={containerRef}>
+      <AppBar back floating backgrounded right={<CartButton />} />
       <Carousel
         dots
         dotsClass=""
@@ -48,7 +49,6 @@ const SnackProduct = ({ product }: Props) => {
           </Rectangle>
         ))}
       </Carousel>
-
       <Section>
         {/* 국가 및 와인 타입 */}
         <div
@@ -113,11 +113,17 @@ const SnackProduct = ({ product }: Props) => {
       <FixedBottomCTA full onClick={open}>
         주문하기
       </FixedBottomCTA>
-    </Container>
+    </StyledContainer>
   );
 };
 
 export default SnackProduct;
+
+const StyledContainer = styled(Container)`
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+`;
 
 const CarouselDotsWrapper = styled.ul`
   position: absolute;

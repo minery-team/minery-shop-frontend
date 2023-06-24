@@ -6,6 +6,7 @@ import Router from 'next/router';
 import { ComponentProps, ReactNode } from 'react';
 import { ControlBox } from './ControlBox';
 import { FloatingAppBarContainer } from './FloatingAppBarContainer';
+export * from './CartButton';
 
 interface Props {
   back?: boolean | 'x';
