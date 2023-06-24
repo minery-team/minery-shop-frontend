@@ -41,7 +41,6 @@ const OrderStatusList = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
   background: #f1f1f1;
   border-radius: 16px;
 `;
