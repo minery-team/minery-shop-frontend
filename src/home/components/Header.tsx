@@ -6,14 +6,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { useRouter } from 'next/router';
+import { useScrollIsOnTop } from 'common/hooks';
 import { useCart } from '../../common/hooks/useCart';
 
 export function Header() {
+  const { isOnTop } = useScrollIsOnTop(10);
   const { value } = useCart();
   const router = useRouter();
 
   return (
-    <HeaderContaer>
+    <HeaderContaer full={!isOnTop}>
       <img src="/assets/text_logo.svg" width={91} height={32} alt="logo" />
       <Spacing flex={1} />
       <Box>
@@ -44,21 +46,23 @@ export function Header() {
   );
 }
 
-const HeaderContaer = styled.nav`
+const HeaderContaer = styled.nav<{ full?: boolean }>`
   display: flex;
   align-items: center;
-  position: absolute;
-  top: 12px;
+
   height: 56px;
-  z-index: 1;
-  width: 85vw;
-  background-color: white;
-  border-radius: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-left: 24px;
-  padding-right: 8px;
-  max-width: 450px;
+  padding: 0 24px;
+  background: white;
+  position: fixed;
+  top: 0px;
+  z-index: 2;
+
+  max-width: ${(p) => (p.full ? '500px' : 'calc(500px - 40px)')};
+  width: ${(p) => (p.full ? '100%' : 'calc(100% - 40px)')};
+  transform: translate(${(p) => (p.full ? '0, 0' : '20px, 20px')});
+  border-radius: ${(p) => (p.full ? '0px' : '54px')};
+  transition: all 300ms;
+  filter: drop-shadow(0px 0px 24px rgba(0, 0, 0, 0.05));
 `;
 
 const StyledImage = styled(Image)`
