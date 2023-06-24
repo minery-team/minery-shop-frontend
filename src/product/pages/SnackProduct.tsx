@@ -3,6 +3,7 @@ import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 import {
   AppBar,
+  CartButton,
   FixedBottomCTA,
   Section,
   SectionDivider,
@@ -11,11 +12,9 @@ import { Carousel } from 'common/components/carousel';
 import { Container } from 'common/components/layout/Container';
 import { TabBar } from 'common/components/tabbar';
 import { colors } from 'common/constants';
-import { useCartList } from 'common/hooks/queries';
 import { ProductForSnack } from 'common/models';
 import { useStartOrderSheet } from 'product/component/bottom-sheet/StartOrderSheet';
 import { useRef } from 'react';
-import CartButton from 'home/components/CartButton';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import RefundNotice from '../component/RefundNotice';
 import SnackDescription from '../component/SnackDescription';
@@ -29,27 +28,13 @@ interface Props {
 const SnackProduct = ({ product }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const [, reload] = useCartList();
-
   const open = useStartOrderSheet(product);
 
   const imagesForCarousel = product.images;
 
   return (
-    <Container ref={containerRef}>
-      <AppBar back>
-        <div
-          style={{
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'row-reverse',
-            alignItems: 'center',
-          }}
-        >
-          <CartButton />
-        </div>
-      </AppBar>
+    <StyledContainer ref={containerRef}>
+      <AppBar back floating backgrounded right={<CartButton />} />
       <Carousel
         dots
         dotsClass=""
@@ -128,11 +113,17 @@ const SnackProduct = ({ product }: Props) => {
       <FixedBottomCTA full onClick={open}>
         주문하기
       </FixedBottomCTA>
-    </Container>
+    </StyledContainer>
   );
 };
 
 export default SnackProduct;
+
+const StyledContainer = styled(Container)`
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+`;
 
 const CarouselDotsWrapper = styled.ul`
   position: absolute;

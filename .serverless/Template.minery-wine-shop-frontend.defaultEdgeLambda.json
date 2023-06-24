@@ -1,6 +1,6 @@
 {
   "name": "minery-wine-shop-frontend-live",
-  "hash": "HJZrygvmUmu2pGyfRtWRshezeG+nJwV5RKXyrBEqeJI=",
+  "hash": "ir0+4UnL5hlfsX8WWxHR9EOKXXaH53qp1BhrGg+NuR4=",
   "description": "Default Lambda@Edge for Next CloudFront distribution",
   "memory": 512,
   "timeout": 10,

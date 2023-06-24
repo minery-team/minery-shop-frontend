@@ -928,17 +928,21 @@ function OrderItemsSection({ data , initialVisible =false  }) {
                 data.map((item, index)=>{
                     return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(CardWrapper, {
                         children: [
-                            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("img", {
-                                src: item.product.image,
-                                alt: `${item.product.id}_${index}`,
-                                width: 70,
-                                height: 79
+                            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(ImageWrapper, {
+                                children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("img", {
+                                    src: item.product.image,
+                                    alt: `${item.product.id}_${index}`,
+                                    width: 70,
+                                    height: 79
+                                })
                             }),
-                            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("img", {
-                                src: item.product.image,
-                                alt: `${item.product.id}_${index}`,
-                                width: 70,
-                                height: 79
+                            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(ImageWrapper, {
+                                children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("img", {
+                                    src: item.product.image,
+                                    alt: `${item.product.id}_${index}`,
+                                    width: 70,
+                                    height: 79
+                                })
                             }),
                             /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(WineInfoWrapper, {
                                 children: [
@@ -1056,6 +1060,10 @@ const ListCountText = emotion_styled_esm/* default.button */.Z.button`
 const CardWrapper = emotion_styled_esm/* default.div */.Z.div`
   display: flex;
   margin-top: 16px;
+`;
+const ImageWrapper = emotion_styled_esm/* default.div */.Z.div`
+  width: 70px;
+  height: 79px;
 `;
 const WineInfoWrapper = emotion_styled_esm/* default.div */.Z.div`
   display: flex;
