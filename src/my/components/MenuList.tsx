@@ -1,19 +1,10 @@
+import { Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import { Icon } from '@iconify/react';
+import { colors } from 'common/constants';
 import { memo } from 'react';
-
-const Container = styled.nav`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Menu = styled.a`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 0;
-  text-decoration: none;
-`;
+import Image from 'next/image';
+import right_arrow from '../../../public/assets/right_arrow.svg';
 
 export interface MenuItem {
   label: string;
@@ -29,8 +20,10 @@ const MenuList = ({ menus }: Props) => {
     <Container>
       {menus.map(({ label, onClick }) => (
         <Menu aria-label={label} key={label} onClick={onClick}>
-          {label}
-          <Icon icon="material-symbols:chevron-right-rounded" width={24} />
+          <Text size="lg" weight="semibold" color={colors.gray900}>
+            {label}
+          </Text>
+          <Image src={right_arrow} width={16} height={20} />
         </Menu>
       ))}
     </Container>
@@ -38,3 +31,20 @@ const MenuList = ({ menus }: Props) => {
 };
 
 export default memo(MenuList);
+
+const Container = styled.nav`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Menu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  text-decoration: none;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid ${colors.gray100};
+  }
+`;

@@ -2,6 +2,7 @@ import { Spacing } from '@boxfoxs/bds-web';
 import { AppBar, Container, Section, SectionDivider } from 'common/components';
 import { withAuth } from 'common/hocs';
 import Router from 'next/router';
+import { colors } from 'common/constants';
 import {
   MenuList,
   OrderDashboard,
@@ -18,9 +19,14 @@ const MyPage = () => {
       <ProfileSection />
       <SectionDivider />
       <Section>
-        <Spacing height={16} />
         <OrderDashboard />
-        <Spacing height={16} />
+        <Spacing height={24} />
+        <Spacing
+          height={1}
+          style={{
+            background: colors.gray100,
+          }}
+        />
         <MenuList
           menus={[
             {

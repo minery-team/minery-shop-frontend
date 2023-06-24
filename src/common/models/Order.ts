@@ -16,4 +16,5 @@ export interface Order {
   address: Address;
   status: OrderStatus;
   items: OrderItem[];
+  waybillNumber?: string;
 }

@@ -2,6 +2,7 @@ import { colors } from 'common/constants';
 import { OrderStatus, orderStatusToHumanReadable } from 'common/models';
 import styled from '@emotion/styled';
 import { OrderStatusForFilter } from 'common/hooks/queries';
+import { Text } from '@boxfoxs/bds-web';
 
 interface Props {
   filterStatus: OrderStatusForFilter;
@@ -59,4 +60,9 @@ const FilterListItem = styled.div<{ selected: boolean }>`
   &:not(:last-of-type) {
     margin-right: 12px;
   }
+
+  font-size: 14px;
+  font-family: Pretendard;
+  font-weight: 500;
+  line-height: 140%;
 `;
