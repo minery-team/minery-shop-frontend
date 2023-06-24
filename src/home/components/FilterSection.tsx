@@ -7,7 +7,7 @@ import { TAG_LIST } from '../constants/TAG_LIST';
 
 export interface Filter {
   orderType: OrderType;
-  wineType: WineType;
+  wineType: WineType | undefined;
 }
 
 interface Props {
@@ -19,6 +19,11 @@ export function FilterSection({ value, onChange }: Props) {
   const { orderType, wineType } = value;
 
   const handleWineTypeClick = (key: WineType) => {
+    if (key === wineType) {
+      onChange({ ...value, wineType: undefined });
+      return;
+    }
+
     onChange({ ...value, wineType: key });
   };
 

@@ -12,7 +12,7 @@ import { Filter, FilterSection } from '../components/FilterSection';
 import { Header } from '../components/Header';
 import { HeroSection } from '../components/HeroSection';
 
-const defaultFilter = { orderType: OrderType.POPULAR, wineType: WineType.RED };
+const defaultFilter = { orderType: OrderType.POPULAR, wineType: undefined };
 
 export default function Home() {
   const [filter, setFilter] = useState<Filter>(defaultFilter);
