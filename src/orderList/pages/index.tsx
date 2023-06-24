@@ -13,8 +13,8 @@ const OrderListPage = () => {
     status: filterStatus,
   });
   return (
-    <Container>
-      <AppBar floating back>
+    <Container style={{ background: colors.gray100 }}>
+      <AppBar back backgrounded>
         <AppBar.Title>주문내역</AppBar.Title>
       </AppBar>
       <OrderListFilter
@@ -33,6 +33,5 @@ const OrderListPage = () => {
 export default OrderListPage;
 
 const OrderListContainer = styled.div`
-  background-color: ${colors.gray100};
   padding: 20px;
 `;

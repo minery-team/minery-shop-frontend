@@ -36,7 +36,7 @@ const OrderDashboard = () => {
   return (
     <Container>
       <h3 css={{ margin: 0 }}>주문내역</h3>
-      <Link href="/orderList">
+      <Link href="/order/list">
         <OrderStatusList>
           {Object.keys(OrderStatus).map((status) => (
             <OrderStatusIndicator key={status}>
