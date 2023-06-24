@@ -6,7 +6,7 @@ export function useWineList({
   wineType,
   order,
 }: {
-  wineType: WineType;
+  wineType?: WineType;
   order: OrderType;
 }) {
   return useQuery(['/products'], () => fetchProductList({ wineType, order }));

@@ -51,7 +51,7 @@ const TAG_LIST: TagInfo[] = [
 ];
 
 export default function Home() {
-  const [wineType, setWineType] = useState<WineType>(WineType.RED);
+  const [wineType, setWineType] = useState<WineType | undefined>();
   const [orderType, setOrderType] = useState<{
     key: OrderType;
     text: string;
@@ -66,6 +66,10 @@ export default function Home() {
   });
 
   const handleWineTypeClick = (key: WineType) => {
+    if (wineType === key) {
+      setWineType(undefined);
+      return;
+    }
     setWineType(key);
   };
 
