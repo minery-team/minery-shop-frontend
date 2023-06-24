@@ -10,7 +10,7 @@ export default function EmptyWineList() {
 
   return (
     <NoCartWrapper>
-      <Image src="/assets/shopping.svg" alt="shopping" width={64} height={64} />
+      <img src="/assets/shopping.svg" alt="shopping" width={64} height={64} />
       <Text size="base" weight="regular" color={colors.gray600}>
         장바구니가 비어있어요
       </Text>

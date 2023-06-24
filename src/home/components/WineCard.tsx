@@ -28,7 +28,7 @@ export function WineCard({
         height: '298px',
       })}
     >
-      <Image width={158} height={180} src={data.image} alt="wine image" />
+      <img width={158} height={180} src={data.image} alt="wine" />
       <Space bottom="12px" />
       <div
         css={css`
@@ -64,7 +64,7 @@ export function WineCard({
           alignItems: 'center',
         })}
       >
-        <Image src={ratingStar} width={12} height={12} alt=" " />
+        <img src={ratingStar} width={12} height={12} alt=" " />
         <Space right="2px" />
         <Text size="caption" weight="regular" color={`${colors.gray800}`}>
           {Number.isInteger(data.wine.rate)

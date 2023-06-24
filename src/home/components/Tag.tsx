@@ -36,7 +36,7 @@ export function Tag({
       onClick={onClick}
     >
       {spotColor === undefined ? (
-        <Image src={swap} width={16} height={16} alt="swap another category" />
+        <img src={swap} width={16} height={16} alt="swap another category" />
       ) : (
         <div
           css={css`

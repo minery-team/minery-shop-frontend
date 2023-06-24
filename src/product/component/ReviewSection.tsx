@@ -41,11 +41,11 @@ const ReviewSection = (props: Props) => {
             4.9
           </Text>
           <div>
-            <Image src={star} width={16} height={16} alt="별" />
-            <Image src={star} width={16} height={16} alt="별" />
-            <Image src={star} width={16} height={16} alt="별" />
-            <Image src={star} width={16} height={16} alt="별" />
-            <Image src={star} width={16} height={16} alt="별" />
+            <img src={star} width={16} height={16} alt="별" />
+            <img src={star} width={16} height={16} alt="별" />
+            <img src={star} width={16} height={16} alt="별" />
+            <img src={star} width={16} height={16} alt="별" />
+            <img src={star} width={16} height={16} alt="별" />
           </div>
         </div>
         <Spacing height={6} />
