@@ -69,6 +69,7 @@ export default function WineList({
     );
 
     setPriceInfo({ price, originalPrice });
+    setOrderItemList(selectedWineList);
   }, [wineList, selectedItems]);
 
   const isSelectedAll = useMemo(() => {
@@ -84,22 +85,13 @@ export default function WineList({
     setSelectedItems((prev: number[]) => {
       const newList = [...prev];
       newList[index] = isSelect;
-
-      const orderList = wineList.filter((_, nbr) => newList[nbr]);
-      setOrderItemList(orderList);
-
       return newList;
     });
   };
 
   const onClickAll = () => {
-    if (!isSelectedAll) {
-      setSelectedItems(wineList.map((item) => item.id));
-      setOrderItemList(wineList);
-    } else {
-      setSelectedItems((Array(wineList.length) as number[]).fill(0));
-      setOrderItemList([]);
-    }
+    if (!isSelectedAll) setSelectedItems(wineList.map((item) => item.id));
+    else setSelectedItems((Array(wineList.length) as number[]).fill(0));
   };
 
   const renderWineList = () => {
