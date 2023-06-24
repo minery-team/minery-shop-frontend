@@ -5,6 +5,7 @@ import { Product } from 'common/models';
 import { dummyReviews } from 'common/models/Review';
 import { useState } from 'react';
 
+import Link from 'next/link';
 import WineReview from './WineReview';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -12,9 +13,13 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 // TODO: 리뷰 전달 받은 뒤, constant 처리
-const ReviewSection = (props: Props) => {
+const ReviewSection = ({ product, ...props }: Props) => {
   const [expanded, setExpanded] = useState(false);
   const displayableReviews = expanded ? dummyReviews : dummyReviews.slice(0, 3);
+  const reviewsForPreview = dummyReviews
+    .filter((review) => review.images?.length > 0)
+    .slice(0, 4);
+
   return (
     <Section {...props}>
       <Text size="xl" weight="semibold">
@@ -78,30 +83,22 @@ const ReviewSection = (props: Props) => {
           gap: '12px',
         }}
       >
-        <img
-          src="/assets/wine_review_image.png"
-          width={74}
-          height={74}
-          alt="와인 리뷰 이미지"
-        />
-        <img
-          src="/assets/wine_review_image.png"
-          width={74}
-          height={74}
-          alt="와인 리뷰 이미지"
-        />
-        <img
-          src="/assets/wine_review_image.png"
-          width={74}
-          height={74}
-          alt="와인 리뷰 이미지"
-        />
-        <img
-          src="/assets/wine_review_image.png"
-          width={74}
-          height={74}
-          alt="와인 리뷰 이미지"
-        />
+        {reviewsForPreview.map((review) => (
+          <Link
+            key={review.id}
+            href={`/product/${product.id}/review/${review.id}`}
+          >
+            <img
+              src={review.images![0]}
+              width={74}
+              height={74}
+              style={{
+                borderRadius: '6px',
+              }}
+              alt="와인 리뷰 이미지"
+            />
+          </Link>
+        ))}
       </div>
 
       <Spacing
