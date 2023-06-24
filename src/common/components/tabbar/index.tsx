@@ -38,10 +38,11 @@ const TabBarButton = styled.button<{ active?: boolean }>`
   line-height: 19px;
   font-weight: ${(p) => (p.active ? '700' : '400')};
   padding: 10px 0;
+  padding-bottom: ${(p) => (p.active ? '10px' : '11px')};
   flex: 1;
-  color: ${(p) => (p.active ? colors.gray900 : colors.gray300)};
+  color: ${(p) => (p.active ? colors.gray900 : colors.gray500)};
   border-bottom: ${(p) =>
-    p.active ? `2px solid ${colors.gray900}` : `1px solid ${colors.gray900}`};
+    p.active ? `2px solid ${colors.gray900}` : `1px solid ${colors.gray300}`};
   ${(p) => (p.active ? '' : pressableStyle.opacity())}
 `;
 
