@@ -1,28 +1,20 @@
-import { withAuth } from 'common/hocs';
-import { useUser } from 'common/hooks';
 import { Spacing } from '@boxfoxs/bds-web';
-import { Container, Section, SectionDivider, AppBar } from 'common/components';
-import { clearAccessToken } from 'common/utils';
-import Router from 'next/router';
-import { Profile, MenuList, OrderDashboard } from '../components';
+import { AppBar, Container, Section, SectionDivider } from 'common/components';
+import { withAuth } from 'common/hocs';
+import {
+  MenuList,
+  OrderDashboard,
+  ProfileSection,
+  useLogoutConfirm,
+} from '../components';
 
 const MyPage = () => {
-  const [userInfo, reload] = useUser();
-  const logout = () => {
-    clearAccessToken();
-    reload();
-    Router.push('/');
-  };
-
-  // TODO: Loading, Error 처리
-  if (!userInfo) return <div />;
+  const logout = useLogoutConfirm();
 
   return (
     <Container>
       <AppBar back />
-      <Section>
-        <Profile name={userInfo.name} phoneNumber={userInfo.phone} />
-      </Section>
+      <ProfileSection />
       <SectionDivider />
       <Section>
         <Spacing height={16} />
