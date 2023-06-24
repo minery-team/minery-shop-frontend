@@ -26,33 +26,31 @@ const TAG_LIST: TagInfo[] = [
   {
     key: WineType.RED,
     text: '레드',
-    spotColor: ' #A10000',
+    spotColor: `${colors.primary700Default}`,
   },
   {
     key: WineType.WHITE,
     text: '화이트',
-    spotColor: '#F3F0E8',
+    spotColor: `${colors.subIvory100}`,
   },
   {
     key: WineType.ROSE,
     text: '로제',
-    spotColor: '#F3F0E8',
+    spotColor: `${colors.primary300}`,
   },
   {
     key: WineType.SPARKLING,
     text: '스파클링',
-    spotColor: '#F3F0E8',
+    spotColor: `${colors.subBlue100}`,
   },
   {
     key: WineType.ETC,
     text: '기타',
-    spotColor: '#CCCCCC',
+    spotColor: `${colors.gray400}`,
   },
 ];
 
 export default function Home() {
-  const mainTextRef = useRef(null);
-
   const [wineType, setWineType] = useState<WineType>(WineType.RED);
   const [orderType, setOrderType] = useState<{
     key: OrderType;
@@ -125,27 +123,10 @@ export default function Home() {
           >
             <source src="/assets/hero.mp4" type="video/mp4" />
           </video>
-          <ScrollMainButton
-            type="button"
-            onClick={() => {
-              handleScroll(mainTextRef.current);
-            }}
-          >
-            <img src="/assets/down.svg" width={16} height={16} alt="" />
-            <div
-              css={css({
-                paddingLeft: '8px',
-              })}
-            />
-            <Text size="lg" weight="bold" color={colors.defaultWhite}>
-              이달의 추천 와인
-            </Text>
-          </ScrollMainButton>
         </section>
       </div>
       <Space bottom="32px" />
       <section
-        ref={mainTextRef}
         css={css({
           padding: '0 20px',
           height: '62px',
@@ -206,22 +187,6 @@ export default function Home() {
     </main>
   );
 }
-
-const ScrollMainButton = styled.button`
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 177px;
-  height: 46px;
-  border: 1px solid #ffffff;
-  border-radius: 30px;
-  background-color: transparent;
-  color: white;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-`;
 
 const TagBox = styled.section`
   display: flex;
