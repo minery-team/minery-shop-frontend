@@ -1,6 +1,7 @@
 import { Spacing } from '@boxfoxs/bds-web';
 import { AppBar, Container, Section, SectionDivider } from 'common/components';
 import { withAuth } from 'common/hocs';
+import Router from 'next/router';
 import {
   MenuList,
   OrderDashboard,
@@ -24,7 +25,7 @@ const MyPage = () => {
           menus={[
             {
               label: '문의하기',
-              onClick: console.log,
+              onClick: () => Router.push('/customer-service'),
             },
             {
               label: '로그아웃',
