@@ -1,28 +1,21 @@
-import { withAuth } from 'common/hocs';
-import { useUser } from 'common/hooks';
 import { Spacing } from '@boxfoxs/bds-web';
-import { Container, Section, SectionDivider, AppBar } from 'common/components';
-import { clearAccessToken } from 'common/utils';
+import { AppBar, Container, Section, SectionDivider } from 'common/components';
+import { withAuth } from 'common/hocs';
 import Router from 'next/router';
-import { Profile, MenuList, OrderDashboard } from '../components';
+import {
+  MenuList,
+  OrderDashboard,
+  ProfileSection,
+  useLogoutConfirm,
+} from '../components';
 
 const MyPage = () => {
-  const [userInfo, reload] = useUser();
-  const logout = () => {
-    clearAccessToken();
-    reload();
-    Router.push('/');
-  };
-
-  // TODO: Loading, Error 처리
-  if (!userInfo) return <div />;
+  const logout = useLogoutConfirm();
 
   return (
     <Container>
       <AppBar back />
-      <Section>
-        <Profile name={userInfo.name} phoneNumber={userInfo.phone} />
-      </Section>
+      <ProfileSection />
       <SectionDivider />
       <Section>
         <Spacing height={16} />
@@ -32,11 +25,10 @@ const MyPage = () => {
           menus={[
             {
               label: '문의하기',
-              to: '/',
+              onClick: () => Router.push('/customer-service'),
             },
             {
               label: '로그아웃',
-              to: '/',
               onClick: logout,
             },
           ]}

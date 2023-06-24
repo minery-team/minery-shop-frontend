@@ -2,29 +2,34 @@ import { Divider, Spacing, Text } from '@boxfoxs/bds-web';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import { useState } from 'react';
 
+import { useBooleanState } from '@boxfoxs/core-hooks';
 import { colors } from 'common/constants';
-import { CartItem } from 'common/models';
+import { CartItem, OrderItem } from 'common/models';
 
-export function OrderItemsSection({ orderList }: { orderList: CartItem[] }) {
-  const [isOpen, setIsShowList] = useState(false);
+interface Props {
+  data: (CartItem | OrderItem)[];
+  initialVisible?: boolean;
+}
+
+export function OrderItemsSection({ data, initialVisible = false }: Props) {
+  const [isOpen, toggle] = useBooleanState(initialVisible);
 
   const renderWineList = () => {
     return (
       <>
         <Spacing height={16} />
         <Divider width="100%" height={1} color={colors.gray100} />
-        {orderList.map((item: CartItem, index: number) => {
+        {data.map((item: CartItem, index: number) => {
           return (
             <CardWrapper key={item.id}>
-              <Image
+              <img
                 src={item.product.image}
                 alt={`${item.product.id}_${index}`}
                 width={70}
                 height={79}
               />
-              <Image
+              <img
                 src={item.product.image}
                 alt={`${item.product.id}_${index}`}
                 width={70}
@@ -55,7 +60,6 @@ export function OrderItemsSection({ orderList }: { orderList: CartItem[] }) {
         })}
       </>
     );
-    return undefined;
   };
 
   return (
@@ -65,15 +69,15 @@ export function OrderItemsSection({ orderList }: { orderList: CartItem[] }) {
           <Text size="lg" weight="semibold" color={colors.gray900}>
             주문상품
           </Text>
-          <ListCountText onClick={() => setIsShowList(!isOpen)}>
+          <ListCountText onClick={toggle}>
             <Text size="lg" weight="semibold" color={colors.gray900}>
-              {orderList.length}개
+              {data.length}개
             </Text>
-            <Image
-              src={`/images/common/chevron-${isOpen ? 'up' : 'down'}.png`}
-              alt="chevron-down"
-              width={12}
-              height={6}
+            <img
+              src={`/assets/chevron_${isOpen ? 'up' : 'down'}.svg`}
+              alt="chevron-up-down"
+              width={16}
+              height={16}
             />
           </ListCountText>
         </OrderTextWrapper>
@@ -85,7 +89,9 @@ export function OrderItemsSection({ orderList }: { orderList: CartItem[] }) {
   );
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-top: 24px;
+`;
 
 const OrderListWrapper = styled.div`
   display: flex;

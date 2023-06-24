@@ -50,10 +50,10 @@ export function AddressInfo({ value }: { value?: Address }) {
             {requestText || '배송 요청 사항을 선택해주세요.'}
           </Text>
           <img
-            src="/images/common/chevron-down.png"
+            src="/assets/chevron_down.svg"
             alt="chevron-down"
-            width={12}
-            height={6}
+            width={16}
+            height={16}
           />
         </DeleveryRequestWrapper>
       </Wrapper>

@@ -37,7 +37,7 @@ export default withAuth(function OrderPage() {
       <AppBar back>
         <AppBar.Title>결제하기</AppBar.Title>
       </AppBar>
-      <OrderItemsSection orderList={orderList ?? []} />
+      <OrderItemsSection data={orderList ?? []} />
       <AddressInfo value={address} />
       <UserInfo
         userInfo={user}

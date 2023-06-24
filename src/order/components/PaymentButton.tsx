@@ -1,4 +1,5 @@
 import { Spacing, Text } from '@boxfoxs/bds-web';
+import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 import { sumBy } from 'lodash';
 import { useMemo } from 'react';
@@ -28,11 +29,6 @@ export function PaymentButton({
     return sumBy(orderList, (item) => item.amount * item.product.price);
   }, [orderList]);
 
-  const isEnabled = useMemo(() => {
-    if (isCheckSelfReceving && !!address) return true;
-    return false;
-  }, [isCheckSelfReceving, address]);
-
   const submit = async () => {
     if (!address) openEnrollAddress();
     else if (!isCheckSelfReceving) openCheckSelfReceving();
@@ -59,13 +55,16 @@ export function PaymentButton({
         이용약관을 확인하였으며 결제에 동의합니다.
       </Text>
       <Spacing height={100} />
-      <FixedBottomCTA onClick={submit} disabled={!isEnabled} full>
-        다음
+      <FixedBottomCTA onClick={submit}>
+        {commaizeNumber(totalPrice)}원 결제하기
       </FixedBottomCTA>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0 20px;
 `;

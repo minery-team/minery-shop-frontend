@@ -62,7 +62,7 @@ export default function WineListItem({
             <WineInfoWrapper>
               <WineImageWrapper>
                 <WineImageBox>
-                  <Image
+                  <img
                     src={item.product.image}
                     alt={`${item.id}`}
                     width={70}
@@ -70,7 +70,7 @@ export default function WineListItem({
                   />
                 </WineImageBox>
                 <WineImageBox>
-                  <Image
+                  <img
                     src={item.product.image}
                     alt={`${item.id}`}
                     width={70}
@@ -80,8 +80,8 @@ export default function WineListItem({
               </WineImageWrapper>
               <div>
                 <CountBox>
-                  <Image
-                    src="/images/common/minus_gray.png"
+                  <img
+                    src="/assets/minus.svg"
                     alt="minus"
                     width={12}
                     height={12}
@@ -90,8 +90,8 @@ export default function WineListItem({
                   <Text size="sm" weight="regular" color={colors.gray900}>
                     {item.amount}
                   </Text>
-                  <Image
-                    src="/images/common/plus.png"
+                  <img
+                    src="/assets/plus.svg"
                     alt="plus"
                     width={12}
                     height={12}
@@ -118,8 +118,8 @@ export default function WineListItem({
             </WineInfoWrapper>
           </ItemWrapper>
         </ContentWrapper>
-        <Image
-          src="/images/common/close.png"
+        <img
+          src="/assets/close_gray.svg"
           alt="close"
           width={16}
           height={16}

@@ -1,13 +1,13 @@
 import { Text, usePopup } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
-import { PopUp } from 'common/components';
+import { ConfirmModal } from 'common/components';
 import { colors } from 'common/constants';
 import { useCallback } from 'react';
 
 export function MaxPricePopUp({ onClose }: { onClose: () => void }) {
   return (
-    <PopUp
+    <ConfirmModal
       type="confirm"
       content={
         <TextWrapper>

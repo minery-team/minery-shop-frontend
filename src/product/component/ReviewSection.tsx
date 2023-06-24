@@ -1,12 +1,10 @@
+import { Spacing, Text } from '@boxfoxs/bds-web';
 import { Section } from 'common/components';
 import { colors } from 'common/constants';
-import { Spacing, Text } from '@boxfoxs/bds-web';
-import Image from 'next/image';
-import { useState } from 'react';
 import { Product } from 'common/models';
 import { dummyReviews } from 'common/models/Review';
-import star from '../../../public/assets/star.svg';
-import wine_review_image from '../../../public/assets/wine_review_image.png';
+import { useState } from 'react';
+
 import WineReview from './WineReview';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -41,11 +39,11 @@ const ReviewSection = (props: Props) => {
             4.9
           </Text>
           <div>
-            <Image src={star} width={16} height={16} alt="별" />
-            <Image src={star} width={16} height={16} alt="별" />
-            <Image src={star} width={16} height={16} alt="별" />
-            <Image src={star} width={16} height={16} alt="별" />
-            <Image src={star} width={16} height={16} alt="별" />
+            <img src="/assets/star.svg" width={16} height={16} alt="별" />
+            <img src="/assets/star.svg" width={16} height={16} alt="별" />
+            <img src="/assets/star.svg" width={16} height={16} alt="별" />
+            <img src="/assets/star.svg" width={16} height={16} alt="별" />
+            <img src="/assets/star.svg" width={16} height={16} alt="별" />
           </div>
         </div>
         <Spacing height={6} />
@@ -76,26 +74,26 @@ const ReviewSection = (props: Props) => {
           gap: '12px',
         }}
       >
-        <Image
-          src={wine_review_image}
+        <img
+          src="/assets/wine_review_image.png"
           width={74}
           height={74}
           alt="와인 리뷰 이미지"
         />
-        <Image
-          src={wine_review_image}
+        <img
+          src="/assets/wine_review_image.png"
           width={74}
           height={74}
           alt="와인 리뷰 이미지"
         />
-        <Image
-          src={wine_review_image}
+        <img
+          src="/assets/wine_review_image.png"
           width={74}
           height={74}
           alt="와인 리뷰 이미지"
         />
-        <Image
-          src={wine_review_image}
+        <img
+          src="/assets/wine_review_image.png"
           width={74}
           height={74}
           alt="와인 리뷰 이미지"

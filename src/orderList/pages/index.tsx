@@ -14,7 +14,7 @@ const OrderListPage = () => {
   });
   return (
     <Container>
-      <AppBar back>
+      <AppBar floating back>
         <AppBar.Title>주문내역</AppBar.Title>
       </AppBar>
       <OrderListFilter

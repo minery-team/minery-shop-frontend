@@ -1,9 +1,7 @@
-import { colors } from 'common/constants';
 import { Text } from '@boxfoxs/bds-web';
+import { colors } from 'common/constants';
 import Image from 'next/image';
-import { useCallback, useState } from 'react';
-import notice from '../../../public/assets/notice.svg';
-import up_arrow from '../../../public/assets/up_arrow.svg';
+import { useState } from 'react';
 
 const DeliveryFeeNotice = () => {
   const [expanded, setExpanded] = useState(false);
@@ -37,11 +35,16 @@ const DeliveryFeeNotice = () => {
             gap: '8px',
           }}
         >
-          <Image src={notice} width={16} height={16} alt="배송비 안내" />
+          <img
+            src="/assets/notice.svg"
+            width={16}
+            height={16}
+            alt="배송비 안내"
+          />
           <Text color={colors.gray700}>70,000원 이상 무료배송</Text>
         </div>
-        <Image
-          src={up_arrow}
+        <img
+          src="/assets/up_arrow.svg"
           width={16}
           height={16}
           alt="배송비 안내 자세히 보기"

@@ -7,7 +7,7 @@ import Link from 'next/link';
 export function Header() {
   return (
     <HeaderContaer>
-      <Image src="/assets/text_logo.svg" width={91} height={32} alt="logo" />
+      <img src="/assets/text_logo.svg" width={91} height={32} alt="logo" />
       <Spacing flex={1} />
       <Link passHref href="/cart">
         <StyledImage
@@ -43,6 +43,7 @@ const HeaderContaer = styled.nav`
   transform: translateX(-50%);
   padding-left: 24px;
   padding-right: 8px;
+  max-width: 450px;
 `;
 
 const StyledImage = styled(Image)`

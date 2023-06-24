@@ -17,7 +17,6 @@ const Menu = styled.a`
 
 export interface MenuItem {
   label: string;
-  to: string;
   onClick?: () => void;
 }
 
@@ -28,8 +27,8 @@ interface Props {
 const MenuList = ({ menus }: Props) => {
   return (
     <Container>
-      {menus.map(({ label, to, onClick }) => (
-        <Menu aria-label={label} key={label} href={to} onClick={onClick}>
+      {menus.map(({ label, onClick }) => (
+        <Menu aria-label={label} key={label} onClick={onClick}>
           {label}
           <Icon icon="material-symbols:chevron-right-rounded" width={24} />
         </Menu>
