@@ -23,7 +23,7 @@ const MenuList = ({ menus }: Props) => {
           <Text size="lg" weight="semibold" color={colors.gray900}>
             {label}
           </Text>
-          <Image src={right_arrow} width={16} height={20} />
+          <img src={right_arrow} width={16} height={20} />
         </Menu>
       ))}
     </Container>

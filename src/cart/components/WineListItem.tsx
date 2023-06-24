@@ -1,11 +1,11 @@
 import { Divider, Spacing, Text } from '@boxfoxs/bds-web';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
-import Image from 'next/image';
 
 import { colors } from 'common/constants';
 import { useControlCart } from 'common/hooks/useCart';
 import { CartItem } from 'common/models';
+import { AmountControl } from '../../common/components/AmountControl';
 import { useDeleteProduct, useDeleteProductToast } from './DeleteProduct';
 
 export default function WineListItem({
@@ -53,17 +53,18 @@ export default function WineListItem({
             onChange={onClickLabel}
             style={{ display: 'none' }}
           />
-          <Image
-            src={
-              selectedItems[index] > 0
-                ? '/assets/checkbox_on.svg'
-                : '/assets/checkbox_off.svg'
-            }
-            width={16}
-            height={16}
-            alt="checkbox"
-            onClick={onClickLabel}
-          />
+          <button onClick={onClickLabel} type="button">
+            <img
+              src={
+                selectedItems[index] > 0
+                  ? '/assets/checkbox_on.svg'
+                  : '/assets/checkbox_off.svg'
+              }
+              width={16}
+              height={16}
+              alt="checkbox"
+            />
+          </button>
           <Spacing width={12} />
           <ItemWrapper>
             <label htmlFor={`${index}`}>
@@ -92,25 +93,11 @@ export default function WineListItem({
                 </WineImageBox>
               </WineImageWrapper>
               <div>
-                <CountBox>
-                  <Image
-                    src="/assets/minus.svg"
-                    alt="minus"
-                    width={12}
-                    height={12}
-                    onClick={minusWine}
-                  />
-                  <Text size="sm" weight="regular" color={colors.gray900}>
-                    {item.amount}
-                  </Text>
-                  <Image
-                    src="/assets/plus.svg"
-                    alt="plus"
-                    width={12}
-                    height={12}
-                    onClick={plusWine}
-                  />
-                </CountBox>
+                <AmountControl
+                  onIncrease={plusWine}
+                  onDecrease={minusWine}
+                  value={item.amount}
+                />
                 <Text
                   size="sm"
                   weight="regular"
@@ -131,14 +118,15 @@ export default function WineListItem({
             </WineInfoWrapper>
           </ItemWrapper>
         </ContentWrapper>
-        <Image
-          src="/assets/close_gray.svg"
-          alt="close"
-          width={16}
-          height={16}
-          onClick={deleteWine}
-          style={{ marginLeft: '12px' }}
-        />
+        <button onClick={deleteWine} type="button">
+          <img
+            src="/assets/close_gray.svg"
+            alt="close"
+            width={16}
+            height={16}
+            style={{ marginLeft: '12px' }}
+          />
+        </button>
       </Wrapper>
       {cart.value!.length - 1 !== index && (
         <Divider
@@ -181,15 +169,4 @@ const WineImageBox = styled.div`
   height: 79px;
   border: 1px solid ${colors.gray300};
   border-radius: 6px;
-`;
-
-const CountBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 62px;
-  height: 25px;
-  border: 1px solid ${colors.gray300};
-  border-radius: 4px;
-  padding: 6.5px 4px;
 `;

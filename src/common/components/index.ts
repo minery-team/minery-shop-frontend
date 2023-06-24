@@ -6,3 +6,4 @@ export * from './layout';
 export * from './logging';
 export * from './modal';
 export * from './space';
+export * from './AmountControl';

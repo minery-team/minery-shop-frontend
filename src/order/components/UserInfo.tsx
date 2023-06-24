@@ -41,7 +41,7 @@ export function UserInfo({
               }}
               style={{ display: 'none' }}
             />
-            <Image
+            <img
               src={
                 isChecked
                   ? '/assets/checkbox_on.svg'

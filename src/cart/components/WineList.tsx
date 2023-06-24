@@ -140,7 +140,7 @@ export default function WineList({
           onChange={onClickAll}
           style={{ display: 'none' }}
         />
-        <Image
+        <img
           src={
             isSelectedAll
               ? '/assets/checkbox_on.svg'

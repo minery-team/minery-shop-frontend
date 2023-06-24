@@ -1,5 +1,4 @@
 import { Spacing, Text } from '@boxfoxs/bds-web';
-import { useAsyncCallback } from '@boxfoxs/core-hooks';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 import {
@@ -13,9 +12,8 @@ import { Container } from 'common/components/layout/Container';
 import { TabBar } from 'common/components/tabbar';
 import { colors } from 'common/constants';
 import { useCartList } from 'common/hooks/queries';
-import { useControlCart } from 'common/hooks/useCart';
 import { ProductForSnack } from 'common/models';
-import Router from 'next/router';
+import { useStartOrderSheet } from 'product/component/StartOrderSheet';
 import { useRef } from 'react';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import RefundNotice from '../component/RefundNotice';
@@ -28,19 +26,11 @@ interface Props {
 }
 
 const SnackProduct = ({ product }: Props) => {
-  const cart = useControlCart();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [, reload] = useCartList();
 
-  const cta = useAsyncCallback(async () => {
-    if (!product) {
-      return;
-    }
-    await cart.add({ productId: product.id, amount: 1, options: [] });
-    await reload();
-    Router.push('/order');
-  });
+  const open = useStartOrderSheet(product);
 
   const imagesForCarousel = product.images;
 
@@ -123,7 +113,7 @@ const SnackProduct = ({ product }: Props) => {
       <Spacing height={20} />
       {/* 주문하기 */}
       <Spacing height={HEADER_SIZE} />
-      <FixedBottomCTA full onClick={cta.callback} loading={cta.isLoading}>
+      <FixedBottomCTA full onClick={open}>
         주문하기
       </FixedBottomCTA>
     </Container>

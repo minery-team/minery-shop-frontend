@@ -17,6 +17,7 @@ import { useControlCart } from 'common/hooks/useCart';
 import { NAME_BY_WINE_TYPE, Product, getWineFlagLabel } from 'common/models';
 import Router from 'next/router';
 import { useRef, useState } from 'react';
+import { useStartOrderSheet } from 'product/component/StartOrderSheet';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import DescriptionSection from '../component/DescriptionSection';
 import RefundNotice from '../component/RefundNotice';
@@ -40,16 +41,7 @@ const WineProduct = ({ product }: Props) => {
     section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const [, reload] = useCartList();
-
-  const cta = useAsyncCallback(async () => {
-    if (!product) {
-      return;
-    }
-    await cart.add({ productId: product.id, amount: 1, options: [] });
-    await reload();
-    Router.push('/order');
-  });
+  const open = useStartOrderSheet(product);
 
   const imagesForCarousel =
     product.images.length === 0 ? [product.wine.image] : product.images;
@@ -214,7 +206,7 @@ const WineProduct = ({ product }: Props) => {
       <WineLabelSection id="label" product={product} />
       {/* 주문하기 */}
       <Spacing height={HEADER_SIZE} />
-      <FixedBottomCTA full onClick={cta.callback} loading={cta.isLoading}>
+      <FixedBottomCTA full onClick={open}>
         주문하기
       </FixedBottomCTA>
     </Container>
