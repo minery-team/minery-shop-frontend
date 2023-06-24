@@ -6,14 +6,26 @@ import styled from '@emotion/styled';
 import { colors } from 'common/constants';
 
 export function ShippingAddress({
+  defaultAddress,
   onChangeAddress,
 }: {
+  defaultAddress?: {
+    road: string;
+    detail: string;
+    code: string;
+  };
   onChangeAddress: (road: string, detail: string, code: string) => void;
 }) {
   const open = useDaumPostcodePopup();
-  const [roadAddress, setRoadAddress] = useState('');
-  const [detailAddress, setDetailAddress] = useState('');
-  const [postalCode, setPostalCode] = useState('');
+  const [roadAddress, setRoadAddress] = useState(
+    defaultAddress ? defaultAddress.road : ''
+  );
+  const [detailAddress, setDetailAddress] = useState(
+    defaultAddress ? defaultAddress.detail : ''
+  );
+  const [postalCode, setPostalCode] = useState(
+    defaultAddress ? defaultAddress.code : ''
+  );
 
   const handleComplete = (data: Address) => {
     setRoadAddress(data.roadAddress);
@@ -47,6 +59,7 @@ export function ShippingAddress({
       </AddressWrapper>
       <DetailAddess
         placeholder="상세 주소를 입력해주세요"
+        value={detailAddress}
         onChange={(e) => {
           setDetailAddress(e.target.value);
           onChangeAddress(roadAddress, e.target.value, postalCode);
