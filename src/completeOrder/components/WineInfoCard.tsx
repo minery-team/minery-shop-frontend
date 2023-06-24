@@ -73,8 +73,8 @@ export function WineInfoCard({ order }: { order: Order }) {
             <img
               src={`/images/common/chevron-${isShowList ? 'up' : 'down'}.png`}
               alt="chevron-down"
-              width={12}
-              height={6}
+              width={24}
+              height={24}
             />
           </ListCountText>
         </OrderTextWrapper>

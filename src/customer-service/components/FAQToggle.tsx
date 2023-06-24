@@ -2,8 +2,6 @@ import { Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import { colors } from 'common/constants';
 import { useState } from 'react';
-import Image from 'next/image';
-import up_arrow from '../../../public/assets/up_arrow.svg';
 
 interface Props {
   question: string;
@@ -24,9 +22,9 @@ const FAQToggle = ({ question, answer }: Props) => {
           {question}
         </Text>
         <img
-          src={up_arrow}
-          width={16}
-          height={16}
+          src="/assets/up_arrow.svg"
+          width={24}
+          height={24}
           alt="답변 자세히 보기"
           style={{
             transform: expanded ? 'rotate(0deg)' : 'rotate(180deg)',
