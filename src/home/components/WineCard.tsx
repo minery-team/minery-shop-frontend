@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Space } from 'common/components';
 import { NAME_BY_WINE_TYPE, Product, Wine, WineType } from 'common/models';
 import { formatPrice } from 'common/utils';
+import { colors } from 'common/constants';
 import ratingStar from '../../../public/assets/rating_star.svg';
 
 // price만 별도로 사용
@@ -29,15 +30,29 @@ export function WineCard({
     >
       <Image width={158} height={180} src={data.image} alt="wine image" />
       <Space bottom="12px" />
-      <Text size="sm" weight="medium" color="gray700">
-        {data.wine.country} | {NAME_BY_WINE_TYPE[data.wine.type as WineType]}
-      </Text>
+      <div
+        css={css`
+          display: flex;
+        `}
+      >
+        <Text size="sm" weight="medium" color={`${colors.gray700}`}>
+          {data.wine.country}
+        </Text>
+        <Space right="5px" />
+        <Text size="sm" weight="medium" color={`${colors.gray300}`}>
+          |
+        </Text>
+        <Space right="5px" />
+        <Text size="sm" weight="medium" color={`${colors.gray700}`}>
+          {NAME_BY_WINE_TYPE[data.wine.type as WineType]}
+        </Text>
+      </div>
       <Space bottom="8px" />
-      <Text size="base" weight="semibold" color="gray900">
+      <Text size="base" weight="semibold" color={`${colors.gray900}`}>
         {data.wine.name}
       </Text>
       <Space bottom="8px" />
-      <Text size="lg" weight="semibold" color="gray900">
+      <Text size="lg" weight="semibold" color={`${colors.gray900}`}>
         {formatPrice(data.price)}원
       </Text>
       <Space bottom="4px" />
@@ -51,13 +66,13 @@ export function WineCard({
       >
         <Image src={ratingStar} width={12} height={12} alt=" " />
         <Space right="2px" />
-        <Text size="caption" weight="regular" color="gray800">
+        <Text size="caption" weight="regular" color={`${colors.gray800}`}>
           {Number.isInteger(data.wine.rate)
             ? `${data.wine.rate}.0`
             : data.wine.rate}
         </Text>
         <Space right="2px" />
-        <Text size="caption" weight="regular" color="gray500">
+        <Text size="caption" weight="regular" color={`${colors.gray500}`}>
           ({data.wine.viewCount})
         </Text>
       </div>
