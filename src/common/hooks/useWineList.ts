@@ -9,5 +9,7 @@ export function useWineList({
   wineType: WineType;
   order: OrderType;
 }) {
-  return useQuery(['/products'], () => fetchProductList({ wineType, order }));
+  return useQuery(['/products', wineType, order], () =>
+    fetchProductList({ wineType, order })
+  );
 }
