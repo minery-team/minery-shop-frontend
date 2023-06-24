@@ -1,17 +1,16 @@
 import styled from '@emotion/styled';
-import Router from 'next/router';
-import Image from 'next/image';
-import { useMemo, useState } from 'react';
 import { first } from 'lodash';
+import Router from 'next/router';
+import { useMemo, useState } from 'react';
 
 import { Divider, Text } from '@boxfoxs/bds-web';
+import { useAddToast } from 'address/components/changeAddress';
 import { createAddress } from 'common/api/address';
 import { FixedBottomCTA } from 'common/components';
 import { colors } from 'common/constants';
 import { useAddressList, useUserQuery } from 'common/hooks/queries';
 import { useFindAddress } from 'order/components/FindAddressPopUp';
 import { useTypeDetailAddress } from 'order/components/TypeDetailAddressPopUp';
-import { useAddToast } from 'address/components/changeAddress';
 import { ShippingAddress } from './ShippingAddress';
 import { UserInfo } from './UserInfo';
 
@@ -69,13 +68,8 @@ export default function AddAddress() {
         <Text size="lg" weight="semibold" color={colors.gray900}>
           배송지 변경
         </Text>
-<<<<<<< HEAD
         <img
-          src="/assets/close.svg"
-=======
-        <Image
           src="/assets/x.svg"
->>>>>>> main
           width={20}
           height={20}
           alt="close"
