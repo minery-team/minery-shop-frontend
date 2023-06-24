@@ -1,7 +1,6 @@
 import { Divider, Spacing, Text } from '@boxfoxs/bds-web';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
-import Image from 'next/image';
 
 import { useBooleanState } from '@boxfoxs/core-hooks';
 import { colors } from 'common/constants';

@@ -17,13 +17,19 @@ export default withSuspense(function ProcessPayment() {
 
   const submit = useCallbackOnce(async () => {
     const cost = sumBy(orderList, (item) => item.amount * item.product.price);
-    const cartItemIds = orderList.map((item) => item.id);
+    const directItems = orderList
+      .filter((item) => item.isDirect)
+      .map((i) => ({ productId: i.product.id, amount: i.amount }));
+    const cartItemIds = orderList
+      .filter((item) => !item.isDirect)
+      .map((item) => item.id);
     try {
       const order = await createOrder({
         paymentKey: String(query.paymentKey),
         orderId: String(query.orderId),
         cost,
         cartItemIds,
+        directItems,
         addressId: Number(query.addressId),
       });
       router.push(`/complete-order?orderId=${order.id}`);

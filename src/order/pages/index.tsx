@@ -4,22 +4,22 @@ import { useState } from 'react';
 import { AppBar } from 'common/components';
 import { withAuth } from 'common/hocs';
 import { useUser } from 'common/hooks';
+import { useAddressList } from 'common/hooks/queries';
 import { useOrderingItems } from 'common/hooks/useOrderingItems';
+import { Address } from 'common/models';
+import { first } from 'lodash';
 import {
+  OrderItemsSection,
   PaymentButton,
   PaymentInfo,
   UserInfo,
   Warning,
-  OrderItemsSection,
 } from 'order/components';
 import { AddressInfo } from 'order/components/AddressInfo';
-import { Address } from 'common/models';
-import { useAddressList } from 'common/hooks/queries';
-import { first } from 'lodash';
 
 export default withAuth(function OrderPage() {
   const [user] = useUser(); // TODO userId 변경
-  const orderList = useOrderingItems();
+  const cartList = useOrderingItems();
   const [isCheckSelfReceving, setIsCheckSelfReceving] = useState(false);
   const [addressList] = useAddressList();
   const [selectedAddress] = useState<Address>();
@@ -37,17 +37,17 @@ export default withAuth(function OrderPage() {
       <AppBar back>
         <AppBar.Title>결제하기</AppBar.Title>
       </AppBar>
-      <OrderItemsSection data={orderList ?? []} />
+      <OrderItemsSection data={cartList ?? []} />
       <AddressInfo value={address} />
       <UserInfo
         userInfo={user}
         setIsCheckSelfReceving={setIsCheckSelfReceving}
       />
-      <PaymentInfo orderList={orderList ?? []} />
+      <PaymentInfo orderList={cartList ?? []} />
       <Warning />
       <PaymentButton
         userInfo={user}
-        orderList={orderList ?? []}
+        orderList={cartList ?? []}
         isCheckSelfReceving={isCheckSelfReceving}
         address={address}
       />

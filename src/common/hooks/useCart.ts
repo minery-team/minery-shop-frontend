@@ -49,18 +49,6 @@ export function useControlCart() {
   const { value, local, reload } = useCart();
   const localControl = useLocalCart();
 
-  const add = useCallback(
-    async (data: CartCreateItem) => {
-      if (user) {
-        await addToCart(data);
-        await reload();
-      } else {
-        localControl.add(data);
-      }
-    },
-    [user]
-  );
-
   const remove = useCallback(
     async (id: number) => {
       const idx = local.findIndex((i) => i.id === id);
@@ -93,6 +81,30 @@ export function useControlCart() {
       }
     },
     [value, local]
+  );
+
+  const add = useCallback(
+    async (data: CartCreateItem) => {
+      const item = value.find(
+        (i) =>
+          i.product.id === data.productId &&
+          i.options.every(
+            (o) =>
+              data.options.find((o2) => o.option.id === o2.optionId)?.amount ===
+              o.amount
+          )
+      );
+      if (item) {
+        return updateAmount(item.id, item.amount + data.amount);
+      }
+      if (user) {
+        await addToCart(data);
+        await reload();
+      } else {
+        localControl.add(data);
+      }
+    },
+    [user, value, updateAmount]
   );
 
   return { value, local, reload, add, remove, clear, updateAmount } as const;
