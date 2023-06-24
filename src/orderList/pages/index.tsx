@@ -9,17 +9,27 @@ import OrderListItem from '../component/OrderListItem';
 const OrderListPage = () => {
   const [filterStatus, setFilterStatus] = useState<OrderStatusForFilter>('ALL');
   const [orders] = useOrderList('ALL');
+  const filteredOrders = orders?.filter(
+    (order) => filterStatus === 'ALL' || order.status === filterStatus
+  );
+
   return (
-    <Container>
-      <AppBar back>
-        <AppBar.Title>주문내역</AppBar.Title>
-      </AppBar>
-      <OrderListFilter
-        filterStatus={filterStatus}
-        onFilterChange={setFilterStatus}
-      />
+    <Container
+      style={{
+        backgroundColor: colors.gray100,
+      }}
+    >
+      <HeaderContainer>
+        <AppBar back>
+          <AppBar.Title>주문내역</AppBar.Title>
+        </AppBar>
+        <OrderListFilter
+          filterStatus={filterStatus}
+          onFilterChange={setFilterStatus}
+        />
+      </HeaderContainer>
       <OrderListContainer>
-        {orders?.map((order) => (
+        {filteredOrders?.map((order) => (
           <OrderListItem order={order} key={order.id} />
         ))}
       </OrderListContainer>
@@ -32,4 +42,8 @@ export default OrderListPage;
 const OrderListContainer = styled.div`
   background-color: ${colors.gray100};
   padding: 20px;
+`;
+
+const HeaderContainer = styled.div`
+  background-color: white;
 `;

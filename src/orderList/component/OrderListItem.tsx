@@ -13,9 +13,9 @@ const OrderListItem = ({ order }: Props) => {
   return (
     <OrderListItemContainer>
       <OrderListItemHeader>
-        <DateIndicator>
+        <Text size="base" weight="semibold">
           {dateToYYYYMMDDHHmm(new Date(order.time))}
-        </DateIndicator>
+        </Text>
         <OrderStatusIndicator
           style={{
             backgroundColor: orderStatusToBackgroundColor(order.status),
@@ -58,12 +58,7 @@ const OrderListItemHeader = styled.div`
   align-items: center;
 `;
 
-const DateIndicator = styled.span`
-  font-weight: 600;
-`;
-
 const OrderStatusIndicator = styled.div`
-  height: 17px;
   border-radius: 6px;
   padding: 4px 8px;
 `;
@@ -74,8 +69,7 @@ const OrderProductListItem = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  padding: 16px 0;
-  height: 73px;
+  padding: 20px 0;
 
   &:not(:last-of-type) {
     padding-bottom: 20px;
@@ -84,8 +78,8 @@ const OrderProductListItem = styled.div`
 `;
 
 const ProductImage = styled.img`
-  // width: 63px;
-  height: 100%;
+  width: 63px;
+  height: 73px;
 `;
 
 const ProductInfoContainer = styled.div`
@@ -95,6 +89,7 @@ const ProductInfoContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  gap: 8px;
 `;
 
 const ProductTitle = styled(Text)`
