@@ -55,7 +55,7 @@ export function Footer() {
           `}
         >
           <Text size="sm" weight="regular" color={colors.gray600}>
-            {`대표 : \n사업자등록번호 :\n고객센터 : 서울특별시 건대...?\n\nⓒ 2023 Minery. All rights reserved.`}
+            {`이메일 : minery.app@gmail.com\n사업자등록번호 : 359-87-02819\n경기 성남시 분당구 동판교로 122 204동 2502호\n\nⓒ 2023 Minery. All rights reserved.`}
           </Text>
         </div>
       </div>
