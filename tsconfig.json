@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -21,47 +17,19 @@
     "incremental": true,
     "baseUrl": "./src",
     "paths": {
-      "common": [
-        "./src/common/*"
-      ],
-      "my": [
-        "./src/my/*"
-      ],
-      "auth": [
-        "./src/auth/*"
-      ],
-      "orderList": [
-        "./src/orderList/*"
-      ],
-      "cart": [
-        "./src/cart/*"
-      ],
-      "order": [
-        "./src/order/*"
-      ],
-      "address": [
-        "./src/address/*"
-      ],
-      "home": [
-        "./src/home/*"
-      ],
-      "complete-order": [
-        "./src/completeOrder/*"
-      ],
-      "product/*": [
-        "./src/product/*"
-      ],
-      "customer-service/*": [
-        "./src/customer-service/*"
-      ]
+      "common": ["./src/common/*"],
+      "my": ["./src/my/*"],
+      "auth": ["./src/auth/*"],
+      "orderList": ["./src/orderList/*"],
+      "cart": ["./src/cart/*"],
+      "order": ["./src/order/*"],
+      "address": ["./src/address/*"],
+      "home": ["./src/home/*"],
+      "complete-order": ["./src/completeOrder/*"],
+      "productsss": ["./src/product/*"],
+      "customer-service": ["./src/customer-service/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
