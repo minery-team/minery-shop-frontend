@@ -19,7 +19,6 @@ const MyPage = () => {
       <ProfileSection />
       <SectionDivider />
       <Section>
-        <Spacing height={24} />
         <OrderDashboard />
         <Spacing height={24} />
         <Spacing
