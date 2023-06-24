@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import Router from 'next/router';
-import Image from 'next/image';
 import { useMemo, useState } from 'react';
 
 import { Divider, Text } from '@boxfoxs/bds-web';

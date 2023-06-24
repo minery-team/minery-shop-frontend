@@ -198,12 +198,12 @@ var utils_dist = __webpack_require__(90665);
 var lodash = __webpack_require__(96486);
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__(67294);
-// EXTERNAL MODULE: ./src/common/components/index.ts + 21 modules
-var components = __webpack_require__(46998);
+// EXTERNAL MODULE: ./src/common/components/index.ts + 20 modules
+var components = __webpack_require__(32579);
 // EXTERNAL MODULE: ./src/common/constants/index.ts + 1 modules
 var constants = __webpack_require__(41727);
 // EXTERNAL MODULE: ./node_modules/@tosspayments/sdk/dist/tosspayments.cjs.js
-var tosspayments_cjs = __webpack_require__(85685);
+var tosspayments_cjs = __webpack_require__(64023);
 ;// CONCATENATED MODULE: ./src/common/constants/toss.ts
 const TOSS_PAYMENT_KEY = "test_ck_7XZYkKL4MrjJ5xRaPgAr0zJwlEWR";
 
@@ -890,13 +890,9 @@ const TextIndent = emotion_styled_esm/* default.div */.Z.div`
   gap: 2px;
 `;
 
-// EXTERNAL MODULE: ./node_modules/next/image.js
-var next_image = __webpack_require__(25675);
-var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
 // EXTERNAL MODULE: ./node_modules/@boxfoxs/core-hooks/dist/index.js
 var core_hooks_dist = __webpack_require__(28271);
 ;// CONCATENATED MODULE: ./src/order/components/OrderItemsSection.tsx
-
 
 
 
@@ -919,13 +915,13 @@ function OrderItemsSection({ data , initialVisible =false  }) {
                 data.map((item, index)=>{
                     return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(CardWrapper, {
                         children: [
-                            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ((image_default()), {
+                            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("img", {
                                 src: item.product.image,
                                 alt: `${item.product.id}_${index}`,
                                 width: 70,
                                 height: 79
                             }),
-                            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ((image_default()), {
+                            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("img", {
                                 src: item.product.image,
                                 alt: `${item.product.id}_${index}`,
                                 width: 70,

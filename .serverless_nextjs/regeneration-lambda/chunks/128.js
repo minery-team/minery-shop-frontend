@@ -3,16 +3,6 @@ exports.id = 128;
 exports.ids = [128];
 exports.modules = {
 
-/***/ 72482:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/star.f4fb86ae.svg","height":17,"width":16});
-
-/***/ }),
-
 /***/ 85718:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -174,16 +164,14 @@ const dummyReviews = [
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(68847);
+/* harmony import */ var _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(68847);
 /* harmony import */ var _boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(40756);
-/* harmony import */ var common_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(41727);
-/* harmony import */ var _boxfoxs_next__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23399);
-/* harmony import */ var _boxfoxs_next__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_boxfoxs_next__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(41664);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(56361);
-/* harmony import */ var _public_assets_star_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(72482);
-
+/* harmony import */ var _boxfoxs_next__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(23399);
+/* harmony import */ var _boxfoxs_next__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_boxfoxs_next__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(56361);
+/* harmony import */ var common_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(41727);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(41664);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
@@ -192,37 +180,37 @@ const dummyReviews = [
 
 const WineReview = ({ review , showImages =true  })=>{
     var ref;
-    const productId = Number(_boxfoxs_next__WEBPACK_IMPORTED_MODULE_2__.Path.get("id"));
-    return /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsx */ .tZ((next_link__WEBPACK_IMPORTED_MODULE_3___default()), {
+    const productId = Number(_boxfoxs_next__WEBPACK_IMPORTED_MODULE_1__.Path.get("id"));
+    return /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsx */ .tZ((next_link__WEBPACK_IMPORTED_MODULE_4___default()), {
         href: `/product/${productId}/review/${review.id}`,
-        children: /*#__PURE__*/ (0,_emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsxs */ .BX)(ReviewContainer, {
+        children: /*#__PURE__*/ (0,_emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsxs */ .BX)(ReviewContainer, {
             children: [
-                /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsx */ .tZ(_boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__/* .Text */ .xv, {
-                    color: common_constants__WEBPACK_IMPORTED_MODULE_1__/* .colors.gray900 */ .O9.gray900,
+                /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsx */ .tZ(_boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__/* .Text */ .xv, {
+                    color: common_constants__WEBPACK_IMPORTED_MODULE_3__/* .colors.gray900 */ .O9.gray900,
                     size: "base",
                     weight: "semibold",
                     children: review.name
                 }),
-                /*#__PURE__*/ (0,_emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsxs */ .BX)("div", {
+                /*#__PURE__*/ (0,_emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsxs */ .BX)("div", {
                     style: {
                         display: "flex",
                         gap: "4px"
                     },
                     children: [
-                        /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsx */ .tZ("img", {
-                            src: _public_assets_star_svg__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z,
+                        /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsx */ .tZ("img", {
+                            src: "/assets/star.svg",
                             width: 16,
                             height: 16,
                             alt: "별"
                         }),
-                        /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsx */ .tZ(_boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__/* .Text */ .xv, {
-                            color: common_constants__WEBPACK_IMPORTED_MODULE_1__/* .colors.gray900 */ .O9.gray900,
+                        /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsx */ .tZ(_boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__/* .Text */ .xv, {
+                            color: common_constants__WEBPACK_IMPORTED_MODULE_3__/* .colors.gray900 */ .O9.gray900,
                             size: "sm",
                             weight: "semibold",
                             children: review.rating
                         }),
-                        /*#__PURE__*/ (0,_emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsxs */ .BX)(_boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__/* .Text */ .xv, {
-                            color: common_constants__WEBPACK_IMPORTED_MODULE_1__/* .colors.gray500 */ .O9.gray500,
+                        /*#__PURE__*/ (0,_emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsxs */ .BX)(_boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__/* .Text */ .xv, {
+                            color: common_constants__WEBPACK_IMPORTED_MODULE_3__/* .colors.gray500 */ .O9.gray500,
                             size: "sm",
                             weight: "semibold",
                             children: [
@@ -232,12 +220,12 @@ const WineReview = ({ review , showImages =true  })=>{
                         })
                     ]
                 }),
-                /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsx */ .tZ("div", {
+                /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsx */ .tZ("div", {
                     style: {
                         display: "flex",
                         gap: "12px"
                     },
-                    children: showImages && ((ref = review.images) === null || ref === void 0 ? void 0 : ref.map((image)=>/*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsx */ .tZ("img", {
+                    children: showImages && ((ref = review.images) === null || ref === void 0 ? void 0 : ref.map((image)=>/*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsx */ .tZ("img", {
                             style: {
                                 width: "74px",
                                 height: "74px",
@@ -247,7 +235,7 @@ const WineReview = ({ review , showImages =true  })=>{
                             alt: "와인 리뷰 이미지"
                         }, image)))
                 }),
-                /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsx */ .tZ(_boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__/* .Text */ .xv, {
+                /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsx */ .tZ(_boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__/* .Text */ .xv, {
                     children: review.content
                 })
             ]
@@ -255,14 +243,14 @@ const WineReview = ({ review , showImages =true  })=>{
     });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WineReview);
-const ReviewContainer = _emotion_styled__WEBPACK_IMPORTED_MODULE_4__/* ["default"].div */ .Z.div`
+const ReviewContainer = _emotion_styled__WEBPACK_IMPORTED_MODULE_2__/* ["default"].div */ .Z.div`
   display: flex;
   flex-direction: column;
   gap: 7px;
   padding: 20px 0;
 
   &:not(:last-of-type) {
-    border-bottom: 1px solid ${common_constants__WEBPACK_IMPORTED_MODULE_1__/* .colors.gray100 */ .O9.gray100};
+    border-bottom: 1px solid ${common_constants__WEBPACK_IMPORTED_MODULE_3__/* .colors.gray100 */ .O9.gray100};
   }
 `;
 
