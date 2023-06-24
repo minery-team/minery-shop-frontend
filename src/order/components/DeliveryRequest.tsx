@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { Text, Spacing } from '@boxfoxs/bds-web';
+import { ComponentProps, useState } from 'react';
+import { Spacing, Flex, useTextStyle } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
 import { DELIVERY_REQUEST_TEXT } from 'order/model/DeliveryRequestText';
 import { colors } from 'common/constants';
+import { MText } from 'common/components';
 
 export function DeliveryRequest({
   onClose,
@@ -16,10 +17,10 @@ export function DeliveryRequest({
   const [writtenText, setWrittenText] = useState('');
 
   return (
-    <Wrapper>
-      <Text size="2xl" weight="semibold" color={colors.gray900}>
+    <Container>
+      <MText size="xxl" weight="semibold" color={colors.gray900}>
         배송 시 요청사항
-      </Text>
+      </MText>
       <Spacing height={4} />
       {DELIVERY_REQUEST_TEXT.map((text: string, index: number) => {
         return (
@@ -34,22 +35,20 @@ export function DeliveryRequest({
             <Round isSelected={selectedRequest === index}>
               <div className="inner_round" />
             </Round>
-            <Text size="lg" weight="medium" color={colors.gray900}>
+            <MText size="lg" weight="medium" color={colors.gray900}>
               {text}
-            </Text>
+            </MText>
           </RequestWrapper>
         );
       })}
       {selectedRequest === 3 && (
-        <RequestTextWrapper>
-          <RequestText
-            placeholder="요청사항을 입력해주세요. (25자 이내)"
-            maxLength={25}
-            onChange={(e) => {
-              setWrittenText(e.target.value);
-            }}
-          />
-        </RequestTextWrapper>
+        <RequestTextInput
+          placeholder="요청사항을 입력해주세요. (25자 이내)"
+          maxLength={25}
+          onChange={(e) => {
+            setWrittenText(e.target.value);
+          }}
+        />
       )}
       <Spacing height={24} />
       <Button
@@ -66,14 +65,15 @@ export function DeliveryRequest({
       >
         다음
       </Button>
-    </Wrapper>
+    </Container>
   );
 }
 
-const Wrapper = styled.div``;
+const Container = styled.div`
+  padding: 24px 20px;
+`;
 
-const RequestWrapper = styled.div`
-  display: flex;
+const RequestWrapper = styled(Flex.CenterVertical)`
   padding: 11px 0 11px 4px;
   gap: 6px;
 `;
@@ -84,34 +84,37 @@ const Round = styled.div<{ isSelected: boolean }>`
   align-items: center;
   width: 20px;
   height: 20px;
-  border: 2px solid
+  border: 1.5px solid
     ${({ isSelected }) =>
       isSelected ? colors.primary700Default : colors.gray400};
   border-radius: 20px;
 
   .inner_round {
-    width: 12px;
-    height: 12px;
-    border-radius: 12px;
+    width: 11px;
+    height: 11px;
+    border-radius: 11px;
     background-color: ${({ isSelected }) =>
       isSelected ? colors.primary700Default : undefined};
   }
 `;
 
-const RequestTextWrapper = styled.div`
-  height: 44px;
+function RequestTextInput(props: ComponentProps<'input'>) {
+  const textStyle = useTextStyle({ size: 'base' });
+  return <StyledRequestTextInput {...props} style={textStyle} />;
+}
+
+const StyledRequestTextInput = styled.input`
+  &::placeholder {
+    color: ${colors.gray400};
+  }
+  color: ${colors.gray900};
   padding: 12px 16px;
   border: 1px solid ${colors.gray200};
   border-radius: 6px;
-`;
-
-const RequestText = styled.input`
   width: 100%;
-  border: none;
-  outline: none;
 `;
 
-const Button = styled(Text)`
+const Button = styled(MText)`
   display: flex;
   justify-content: center;
   align-items: center;

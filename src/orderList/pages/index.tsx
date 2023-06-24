@@ -14,20 +14,14 @@ const OrderListPage = () => {
   );
 
   return (
-    <Container
-      style={{
-        backgroundColor: colors.gray100,
-      }}
-    >
-      <HeaderContainer>
-        <AppBar back>
-          <AppBar.Title>주문내역</AppBar.Title>
-        </AppBar>
-        <OrderListFilter
-          filterStatus={filterStatus}
-          onFilterChange={setFilterStatus}
-        />
-      </HeaderContainer>
+    <Container style={{ background: colors.gray100 }}>
+      <AppBar back backgrounded>
+        <AppBar.Title>주문내역</AppBar.Title>
+      </AppBar>
+      <OrderListFilter
+        filterStatus={filterStatus}
+        onFilterChange={setFilterStatus}
+      />
       <OrderListContainer>
         {filteredOrders?.map((order) => (
           <OrderListItem order={order} key={order.id} />
@@ -40,7 +34,6 @@ const OrderListPage = () => {
 export default OrderListPage;
 
 const OrderListContainer = styled.div`
-  background-color: ${colors.gray100};
   padding: 20px;
 `;
 

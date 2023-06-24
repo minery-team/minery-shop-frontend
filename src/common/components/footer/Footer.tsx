@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import Image from 'next/image';
 import { Text } from '@boxfoxs/bds-web';
 import { colors } from 'common/constants';
+import Link from 'next/link';
 import { Space } from '../space';
 
 export function Footer() {
@@ -24,9 +25,11 @@ export function Footer() {
             display: flex;
           `}
         >
-          <Text size="base" weight="semibold" color="gray900">
-            문의하기
-          </Text>
+          <Link href="/customer-service">
+            <Text size="base" weight="semibold" color="gray900">
+              문의하기
+            </Text>
+          </Link>
           {/* FIXME: seperator 임시로 대응 */}
           <Space left="5px" />
           |

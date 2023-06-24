@@ -1,10 +1,8 @@
-import { colors } from 'common/constants';
 import { Text } from '@boxfoxs/bds-web';
-import Image from 'next/image';
-import { useCallback, useState } from 'react';
 import styled from '@emotion/styled';
-import notice from '../../../public/assets/notice.svg';
-import up_arrow from '../../../public/assets/up_arrow.svg';
+import { colors } from 'common/constants';
+import Image from 'next/image';
+import { useState } from 'react';
 
 const RefundNotice = () => {
   const [expanded, setExpanded] = useState(false);
@@ -38,11 +36,16 @@ const RefundNotice = () => {
             gap: '8px',
           }}
         >
-          <img src={notice} width={16} height={16} alt="교환/환불 안내" />
+          <img
+            src="/assets/notice.svg"
+            width={16}
+            height={16}
+            alt="교환/환불 안내"
+          />
           <Text color={colors.gray700}>교환/환불 안내</Text>
         </div>
-        <Image
-          src={up_arrow}
+        <img
+          src="/assets/up_arrow.svg"
           width={16}
           height={16}
           alt="배송비 안내 자세히 보기"

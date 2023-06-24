@@ -43,6 +43,7 @@ const OrderListFilterContainer = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+  background: white;
 `;
 
 const FilterListItem = styled.div<{ selected: boolean }>`
