@@ -38,7 +38,11 @@ const ReviewSection = (props: Props) => {
           <Text size="heading4" weight="semibold">
             4.9
           </Text>
-          <div>
+          <div
+            style={{
+              display: 'flex',
+            }}
+          >
             <img src="/assets/star.svg" width={16} height={16} alt="별" />
             <img src="/assets/star.svg" width={16} height={16} alt="별" />
             <img src="/assets/star.svg" width={16} height={16} alt="별" />
