@@ -1,6 +1,6 @@
 import { Flex, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
-import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
+import { MinusIcon, PlusIcon } from '@heroicons/react/24/solid';
 import { colors } from 'common/constants';
 
 export function AmountControl({ value, onIncrease, onDecrease }: Props) {

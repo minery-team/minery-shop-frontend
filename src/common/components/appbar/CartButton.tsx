@@ -5,11 +5,11 @@ import { useRouter } from 'next/router';
 import { useCart } from '../../hooks/useCart';
 import { StyledImage } from '../../../home/components/Header';
 
-export function CartButton() {
+export function CartButton({ onClick }: { onClick?: () => void }) {
   const { value } = useCart();
   const router = useRouter();
   return (
-    <Box>
+    <Box onClick={onClick}>
       <StyledImage
         src="/assets/basket.svg"
         width={40}

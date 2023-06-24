@@ -90,8 +90,8 @@ function IamportProvider({ children , key  }) {
 var react_channel_plugin_lib = __webpack_require__(50814);
 // EXTERNAL MODULE: ./node_modules/recoil/cjs/index.js
 var cjs = __webpack_require__(94715);
-// EXTERNAL MODULE: ./src/common/components/index.ts + 22 modules
-var components = __webpack_require__(15575);
+// EXTERNAL MODULE: ./src/common/components/index.ts + 27 modules
+var components = __webpack_require__(94312);
 // EXTERNAL MODULE: ./node_modules/react-spring-bottom-sheet/dist/style.css
 var style = __webpack_require__(57830);
 // EXTERNAL MODULE: ./node_modules/@boxfoxs/next-seo/dist/index.js
@@ -100,7 +100,10 @@ var next_seo_dist = __webpack_require__(89108);
 var emotion_styled_esm = __webpack_require__(56361);
 // EXTERNAL MODULE: ./src/common/constants/index.ts + 2 modules
 var constants = __webpack_require__(16439);
+// EXTERNAL MODULE: ./src/common/hooks/index.ts + 7 modules
+var hooks = __webpack_require__(61441);
 ;// CONCATENATED MODULE: ./pages/_app.tsx
+
 
 
 
@@ -117,12 +120,14 @@ var constants = __webpack_require__(16439);
 
 const queryClient = new lib.QueryClient();
 function App({ Component , pageProps  }) {
+    (0,hooks/* useMaintainScrollGlobal */.H5)();
     return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(react.StrictMode, {
         children: [
             /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(next_seo_dist.SEOHeader, {
                 url: "https://app.minery.co.kr",
                 title: "마이너리 | 집앞까지 배달되는 수백가지 와인",
-                description: "마시고 싶었던 와인, 찾으러 다니기 불편하셨죠? 집 앞까지 배달되는 와인 샵 마이너리를 만나보세요"
+                description: "마시고 싶었던 와인, 찾으러 다니기 불편하셨죠? 집 앞까지 배달되는 와인 샵 마이너리를 만나보세요",
+                thumbnail: "/images/img_thumbnail.jpg"
             }),
             /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(FontProvider, {
                 children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(cjs/* RecoilRoot */.Wh, {
@@ -565,8 +570,8 @@ requester.interceptors.request.use(interceptAuthToken);
 /* harmony import */ var _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(68847);
 /* harmony import */ var _boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(40756);
 /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(56361);
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(64033);
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(78680);
+/* harmony import */ var _heroicons_react_24_solid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(14348);
+/* harmony import */ var _heroicons_react_24_solid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(88005);
 /* harmony import */ var common_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16439);
 
 
@@ -579,7 +584,7 @@ function AmountControl({ value , onIncrease , onDecrease  }) {
             /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__/* .jsx */ .tZ(StyledButton, {
                 onClick: onDecrease,
                 type: "button",
-                children: /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__/* .jsx */ .tZ(_heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
+                children: /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__/* .jsx */ .tZ(_heroicons_react_24_solid__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
                     width: 12,
                     height: 12,
                     color: value > 1 ? common_constants__WEBPACK_IMPORTED_MODULE_2__/* .colors.gray900 */ .O9.gray900 : common_constants__WEBPACK_IMPORTED_MODULE_2__/* .colors.gray400 */ .O9.gray400
@@ -599,7 +604,7 @@ function AmountControl({ value , onIncrease , onDecrease  }) {
             /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__/* .jsx */ .tZ(StyledButton, {
                 onClick: onIncrease,
                 type: "button",
-                children: /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__/* .jsx */ .tZ(_heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
+                children: /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__/* .jsx */ .tZ(_heroicons_react_24_solid__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
                     width: 12,
                     height: 12,
                     color: common_constants__WEBPACK_IMPORTED_MODULE_2__/* .colors.gray900 */ .O9.gray900
@@ -624,7 +629,72 @@ const StyledButton = _emotion_styled__WEBPACK_IMPORTED_MODULE_1__/* ["default"].
 
 /***/ }),
 
-/***/ 15575:
+/***/ 76660:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "W": () => (/* binding */ CartButton)
+/* harmony export */ });
+/* harmony import */ var _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(68847);
+/* harmony import */ var _boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(40756);
+/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(56361);
+/* harmony import */ var common_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16439);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(11163);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _hooks_useCart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(24328);
+/* harmony import */ var _home_components_Header__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(57172);
+
+
+
+
+
+
+
+function CartButton({ onClick  }) {
+    const { value  } = (0,_hooks_useCart__WEBPACK_IMPORTED_MODULE_4__/* .useCart */ .jD)();
+    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_3__.useRouter)();
+    return /*#__PURE__*/ (0,_emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsxs */ .BX)(Box, {
+        onClick: onClick,
+        children: [
+            /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsx */ .tZ(_home_components_Header__WEBPACK_IMPORTED_MODULE_5__/* .StyledImage */ .Y, {
+                src: "/assets/basket.svg",
+                width: 40,
+                height: 40,
+                alt: "basket",
+                onClick: ()=>router.push("/cart")
+            }),
+            value.length > 0 && /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsx */ .tZ(CartCount, {
+                children: /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__/* .jsx */ .tZ(_boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__/* .Text */ .xv, {
+                    size: "caption",
+                    weight: "regluar",
+                    color: common_constants__WEBPACK_IMPORTED_MODULE_2__/* .colors.defaultWhite */ .O9.defaultWhite,
+                    children: value.length
+                })
+            })
+        ]
+    });
+}
+const Box = _emotion_styled__WEBPACK_IMPORTED_MODULE_1__/* ["default"].div */ .Z.div`
+  position: relative;
+  width: 40px;
+  height: 40px;
+`;
+const CartCount = _emotion_styled__WEBPACK_IMPORTED_MODULE_1__/* ["default"].div */ .Z.div`
+  background-color: ${common_constants__WEBPACK_IMPORTED_MODULE_2__/* .colors.primary700Default */ .O9.primary700Default};
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  padding-top: 1px;
+`;
+
+
+/***/ }),
+
+/***/ 94312:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -632,6 +702,7 @@ const StyledButton = _emotion_styled__WEBPACK_IMPORTED_MODULE_1__/* ["default"].
 __webpack_require__.d(__webpack_exports__, {
   "g8": () => (/* reexport */ AmountControl/* AmountControl */.g),
   "xG": () => (/* reexport */ AppBar),
+  "WE": () => (/* reexport */ CartButton/* CartButton */.W),
   "sm": () => (/* reexport */ ConfirmModal),
   "W2": () => (/* reexport */ layout_Container/* Container */.W),
   "Hp": () => (/* reexport */ FixedBottomCTA),
@@ -639,13 +710,14 @@ __webpack_require__.d(__webpack_exports__, {
   "N9": () => (/* reexport */ LoggerRoot),
   "HP": () => (/* reexport */ MText),
   "Cn": () => (/* reexport */ MineryButton),
+  "T0": () => (/* reexport */ NotifyVisible_NotifyVisible),
   "$0": () => (/* reexport */ Section),
   "dv": () => (/* reexport */ SectionDivider),
   "T": () => (/* reexport */ space/* Space */.T),
   "aN": () => (/* reexport */ useBottomSheet)
 });
 
-// UNUSED EXPORTS: CommonModal, ContentCard, FixedBottomContainer, IconButton, LoggingRead, useModal
+// UNUSED EXPORTS: CommonModal, ContentCard, FadeByScrollAnimation, FixedBottomContainer, IconButton, LoggingRead, TypingAnimation, VisibleByScroll, useModal
 
 // EXTERNAL MODULE: ./node_modules/@emotion/react/jsx-runtime/dist/emotion-react-jsx-runtime.esm.js
 var emotion_react_jsx_runtime_esm = __webpack_require__(68847);
@@ -725,6 +797,8 @@ const Container = (0,emotion_styled_esm/* default */.Z)(esm.animated.div)`
   overflow: hidden;
 `;
 
+// EXTERNAL MODULE: ./src/common/components/appbar/CartButton.tsx
+var CartButton = __webpack_require__(76660);
 ;// CONCATENATED MODULE: ./src/common/components/appbar/index.tsx
 
 
@@ -734,7 +808,8 @@ const Container = (0,emotion_styled_esm/* default */.Z)(esm.animated.div)`
 
 
 
-const AppBar = ({ initialHidden , fixed , floating , elevated , backgrounded , back , logo , takeSpace , children  })=>{
+
+const AppBar = ({ initialHidden , fixed , floating , elevated , backgrounded , back , logo , takeSpace , children , right  })=>{
     const content = /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(InnerContainer, {
         elevated: elevated,
         backgrounded: backgrounded,
@@ -758,7 +833,8 @@ const AppBar = ({ initialHidden , fixed , floating , elevated , backgrounded , b
             }),
             /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Spacing */.Ki, {
                 flex: 1
-            })
+            }),
+            right
         ]
     });
     if (!floating) {
@@ -1198,8 +1274,8 @@ LoggingRead.Parent = function Parent({ children  }) {
 };
 const ParentContext = /*#__PURE__*/ (0,react.createContext)(null);
 
-// EXTERNAL MODULE: ./src/common/hooks/index.ts + 6 modules
-var hooks = __webpack_require__(25767);
+// EXTERNAL MODULE: ./src/common/hooks/index.ts + 7 modules
+var hooks = __webpack_require__(61441);
 // EXTERNAL MODULE: ./src/common/utils/index.ts + 4 modules
 var utils = __webpack_require__(25616);
 // EXTERNAL MODULE: ./src/common/utils/trackFbPageView.ts + 1 modules
@@ -1446,7 +1522,186 @@ const WrappedBottomSheet = /*#__PURE__*/ react.forwardRef(function WrappedBottom
 var space = __webpack_require__(83133);
 // EXTERNAL MODULE: ./src/common/components/AmountControl.tsx
 var AmountControl = __webpack_require__(75275);
+;// CONCATENATED MODULE: ./src/common/components/animation/NotifyVisible.tsx
+
+
+
+
+const NotifyVisible_NotifyVisible = Object.assign(/*#__PURE__*/ react.forwardRef(function NotifyVisible({ offset =0 , onVisible , ...props }, forwardedRef) {
+    const ref = (0,react.useRef)(null);
+    const prevVisible = (0,react.useRef)(false);
+    const update = (0,react.useCallback)(()=>{
+        var ref1;
+        const rect = (ref1 = ref.current) === null || ref1 === void 0 ? void 0 : ref1.getBoundingClientRect();
+        if (!rect) {
+            return;
+        }
+        const topOffset = typeof offset === "number" ? offset : offset.top ?? 0;
+        const bottomOffset = typeof offset === "number" ? offset : offset.bottom ?? 0;
+        const state = rect.top <= topOffset && rect.bottom > bottomOffset;
+        if (state !== prevVisible.current) {
+            prevVisible.current = state;
+            onVisible === null || onVisible === void 0 ? void 0 : onVisible(state);
+        }
+    }, []);
+    const parentContainer = (0,react.useContext)(NotifyVisible_ParentContext);
+    const target = parentContainer ?? ((0,next_dist.isClient)() ? window : null);
+    (0,react.useEffect)(()=>{
+        if (!target) {
+            return;
+        }
+        target.addEventListener("scroll", update);
+        return ()=>{
+            target.removeEventListener("scroll", update);
+        };
+    }, [
+        target
+    ]);
+    const combinedRef = (0,core_hooks_dist.useCombinedRefs)(forwardedRef, ref, update);
+    return /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("div", {
+        ...props,
+        ref: combinedRef
+    });
+}), {
+    Parent
+});
+function Parent({ children  }) {
+    const { 0: parent , 1: setParent  } = (0,react.useState)(null);
+    return /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(NotifyVisible_ParentContext.Provider, {
+        value: parent,
+        children: children(setParent)
+    });
+}
+const NotifyVisible_ParentContext = /*#__PURE__*/ (0,react.createContext)(null);
+
+;// CONCATENATED MODULE: ./src/common/components/animation/VisibleByScroll.tsx
+
+
+
+function VisibleByScroll_VisibleByScroll({ children , offset =0.7  }) {
+    const { 0: visible , 1: setVisible  } = useState(false);
+    return /*#__PURE__*/ _jsx(NotifyVisible, {
+        onVisible: setVisible,
+        offset: offset,
+        children: children(visible)
+    });
+}
+
+;// CONCATENATED MODULE: ./src/common/components/animation/FadeByScrollAnimation.tsx
+
+
+
+function FadeByScrollAnimation(props) {
+    return /*#__PURE__*/ _jsx(VisibleByScroll, {
+        offset: 0.6,
+        children: (isVisible)=>/*#__PURE__*/ _jsx(FadeAnimation, {
+                visible: isVisible,
+                ...props
+            })
+    });
+}
+function FadeAnimation({ visible , children , delay  }) {
+    const spring1 = useSpring({
+        from: {
+            transform: "translateY(10%)"
+        },
+        to: {
+            transform: `translateY(${visible ? "0%" : "10%"})`
+        },
+        delay,
+        config: {
+            tension: 150,
+            friction: 26,
+            precision: 0.01,
+            duration: 700
+        }
+    });
+    const spring2 = useSpring({
+        from: {
+            opacity: 0
+        },
+        to: {
+            opacity: visible !== false ? 1 : 0
+        },
+        delay,
+        config: {
+            tension: 150,
+            friction: 26,
+            precision: 0.01,
+            duration: 1300
+        }
+    });
+    return /*#__PURE__*/ _jsx(animated.div, {
+        style: {
+            ...spring1,
+            ...spring2
+        },
+        children: children
+    });
+}
+
+// EXTERNAL MODULE: ./node_modules/lodash/lodash.js
+var lodash = __webpack_require__(96486);
+;// CONCATENATED MODULE: ./src/common/components/animation/TypingAnimation.tsx
+
+
+
+
+
+function TypingAnimation({ children , speed =100 , onFinish , ...rest }) {
+    const { 0: items , 1: setItems  } = useState([]);
+    const data = useMemo(()=>convert(children), [
+        children
+    ]);
+    const preservedCallback = useCallbackRef(onFinish ?? console.log);
+    useEffect(()=>{
+        if (items.length === data.length) {
+            return;
+        }
+        let idx = 0;
+        const interval = setInterval(()=>{
+            const item = data[idx++];
+            setItems((items)=>[
+                    ...items,
+                    item
+                ]);
+            if (idx === data.length) {
+                clearInterval(interval);
+                preservedCallback();
+            }
+        }, speed);
+        return ()=>clearInterval(interval);
+    }, [
+        speed
+    ]);
+    return /*#__PURE__*/ _jsx(Text, {
+        ...rest,
+        children: items
+    });
+}
+function convert(items) {
+    const convertItem = (item)=>{
+        if (typeof item === "string") {
+            return item.split("");
+        }
+        if (Array.isArray(item)) {
+            return flatMap(item.map(convertItem));
+        }
+        return [
+            item
+        ];
+    };
+    return flatMap(convertItem(items));
+}
+
+;// CONCATENATED MODULE: ./src/common/components/animation/index.ts
+
+
+
+
+
 ;// CONCATENATED MODULE: ./src/common/components/index.ts
+
 
 
 
@@ -1647,13 +1902,15 @@ const textSizes = {
 
 /***/ }),
 
-/***/ 25767:
+/***/ 61441:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   "au": () => (/* reexport */ useCountdown),
+  "dH": () => (/* reexport */ useMaintainScroll),
+  "H5": () => (/* reexport */ useMaintainScrollGlobal),
   "Sm": () => (/* reexport */ useScrollIsOnTop),
   "Xs": () => (/* reexport */ useSessionStorage),
   "aF": () => (/* reexport */ useUser/* useUser */.a),
@@ -1770,7 +2027,66 @@ function useScrollIsOnTop(offset = 0) {
     };
 }
 
+// EXTERNAL MODULE: ./node_modules/@boxfoxs/core-hooks/dist/index.js
+var core_hooks_dist = __webpack_require__(28271);
+// EXTERNAL MODULE: ./node_modules/next/router.js
+var next_router = __webpack_require__(11163);
+;// CONCATENATED MODULE: ./src/common/hooks/dom/useMaintainScroll.ts
+
+
+
+
+function useMaintainScroll(key) {
+    const target = (0,react.useRef)();
+    const router = (0,next_router.useRouter)();
+    (0,react.useEffect)(()=>{
+        const pos = sessionStorage.getItem(`@scroll-position/${key}/${history.state.key}`);
+        console.log(pos, "asd");
+        if (pos) {
+            var ref;
+            (ref = target.current) === null || ref === void 0 ? void 0 : ref.scrollTo(0, Number(pos));
+        }
+    }, [
+        router.route,
+        key
+    ]);
+    const save = (0,core_hooks_dist.useDebounce)((key, y)=>{
+        sessionStorage.setItem(`@scroll-position/${key}`, String(y));
+    }, 100);
+    const setTarget = (0,dist.useOnScroll)((e)=>{
+        const y = e.target.scrollTop;
+        save(`${key}/${history.state.key}`, y);
+    });
+    return (0,core_hooks_dist.useCombinedRefs)(target, setTarget);
+}
+function useMaintainScrollGlobal() {
+    const router = (0,next_router.useRouter)();
+    (0,react.useEffect)(()=>{
+        const pos = sessionStorage.getItem(`@scroll-position/${history.state.key}`);
+        if (pos) {
+            window.scrollTo(0, Number(pos));
+        }
+    }, [
+        router.route
+    ]);
+    const save = (0,core_hooks_dist.useDebounce)((key, y)=>{
+        sessionStorage.setItem(`@scroll-position/${key}`, String(y));
+    }, 100);
+    (0,react.useEffect)(()=>{
+        const handler = ()=>{
+            const y = window.scrollY;
+            const key = history.state.key;
+            save(key, y);
+        };
+        window.addEventListener("scroll", handler);
+        return ()=>{
+            window.removeEventListener("scroll", handler);
+        };
+    }, []);
+}
+
 ;// CONCATENATED MODULE: ./src/common/hooks/dom/index.ts
+
 
 
 ;// CONCATENATED MODULE: ./src/common/hooks/index.ts
@@ -1881,6 +2197,220 @@ const useAddressList = ()=>{
 
 
 
+
+
+/***/ }),
+
+/***/ 35982:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "u": () => (/* binding */ useProductList)
+/* harmony export */ });
+/* harmony import */ var common_api_product__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4026);
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(23724);
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function useProductList(options) {
+    const query = (0,react_query__WEBPACK_IMPORTED_MODULE_1__.useQuery)("product-list", ()=>(0,common_api_product__WEBPACK_IMPORTED_MODULE_0__/* .fetchProductList */ .y)({}), options);
+    return [
+        query.data,
+        query.refetch
+    ];
+}
+
+
+/***/ }),
+
+/***/ 24328:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "jD": () => (/* binding */ useCart),
+  "l8": () => (/* binding */ useControlCart),
+  "XZ": () => (/* binding */ useLocalCart)
+});
+
+// EXTERNAL MODULE: ./src/common/api/cart/index.ts + 6 modules
+var cart = __webpack_require__(21708);
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(67294);
+// EXTERNAL MODULE: ./node_modules/recoil/cjs/index.js
+var cjs = __webpack_require__(94715);
+// EXTERNAL MODULE: ./node_modules/recoil-persist/dist/index.js
+var dist = __webpack_require__(6983);
+;// CONCATENATED MODULE: ./src/common/recoil/cartState.ts
+
+
+const sessionStorage =  false ? 0 : undefined;
+const { persistAtom  } = (0,dist/* recoilPersist */.J)({
+    storage: sessionStorage
+});
+const localCartState = (0,cjs/* atom */.cn)({
+    key: "local-cart",
+    default: [],
+    effects_UNSTABLE: [
+        persistAtom
+    ]
+});
+
+// EXTERNAL MODULE: ./src/common/hooks/queries/index.ts + 4 modules
+var queries = __webpack_require__(74653);
+// EXTERNAL MODULE: ./src/common/hooks/queries/useWineList.ts
+var useWineList = __webpack_require__(35982);
+// EXTERNAL MODULE: ./src/common/hooks/useUser.ts
+var useUser = __webpack_require__(26808);
+;// CONCATENATED MODULE: ./src/common/hooks/useCart.ts
+
+
+
+
+
+
+
+function useCart(options) {
+    const [list, reload] = (0,queries/* useCartList */.VI)(options);
+    const { value  } = useLocalCart();
+    const [products] = (0,useWineList/* useProductList */.u)();
+    const localList = (0,react.useMemo)(()=>{
+        if (products == null) {
+            return [];
+        }
+        return value.map((item)=>{
+            const product = products.find((p)=>p.id === item.productId);
+            return {
+                id: Date.now(),
+                product,
+                amount: item.amount,
+                options: item.options.map((o)=>({
+                        id: o.optionId,
+                        option: product.options.find((o2)=>o2.id === o.optionId),
+                        amount: o.amount
+                    }))
+            };
+        });
+    }, [
+        value,
+        products
+    ]);
+    const combined = (0,react.useMemo)(()=>[
+            ...localList,
+            ...list ?? []
+        ], [
+        localList,
+        list
+    ]);
+    return {
+        value: combined,
+        local: localList,
+        reload
+    };
+}
+function useControlCart() {
+    const [user] = (0,useUser/* useUser */.a)();
+    const { value , local , reload  } = useCart();
+    const localControl = useLocalCart();
+    const remove = (0,react.useCallback)(async (id)=>{
+        const idx = local.findIndex((i)=>i.id === id);
+        if (idx >= 0) {
+            localControl.remove(idx);
+        } else {
+            await (0,cart/* deleteFromCart */.EI)(id);
+            await reload();
+        }
+    }, [
+        value,
+        local
+    ]);
+    const clear = (0,react.useCallback)(async ()=>{
+        if (user) {
+            await (0,cart/* clearCart */.LL)();
+            await reload();
+        }
+        localControl.clear();
+    }, [
+        user
+    ]);
+    const updateAmount = (0,react.useCallback)(async (id, amount)=>{
+        const idx = local.findIndex((i)=>i.id === id);
+        if (idx >= 0) {
+            localControl.updateItem(idx, {
+                amount
+            });
+        } else {
+            await (0,cart/* updateAmount */.oZ)(id, amount);
+            await reload();
+        }
+    }, [
+        value,
+        local
+    ]);
+    const add = (0,react.useCallback)(async (data)=>{
+        const item = value.find((i)=>{
+            return i.product.id === data.productId && i.options.every((o)=>{
+                var ref;
+                return ((ref = data.options.find((o2)=>o.option.id === o2.optionId)) === null || ref === void 0 ? void 0 : ref.amount) === o.amount;
+            });
+        });
+        if (item) {
+            return updateAmount(item.id, item.amount + data.amount);
+        }
+        if (user) {
+            await (0,cart/* addToCart */.Xq)(data);
+            await reload();
+        } else {
+            localControl.add(data);
+        }
+    }, [
+        user,
+        value,
+        updateAmount
+    ]);
+    return {
+        value,
+        local,
+        reload,
+        add,
+        remove,
+        clear,
+        updateAmount
+    };
+}
+function useLocalCart() {
+    const [list, update] = (0,cjs/* useRecoilState */.FV)(localCartState);
+    const add = (0,react.useCallback)((data)=>{
+        update((prev)=>[
+                ...prev,
+                data
+            ]);
+    }, []);
+    const clear = (0,react.useCallback)(()=>update([]), []);
+    const remove = (0,react.useCallback)((targetIdx)=>{
+        update((prev)=>prev.filter((_, idx)=>idx !== targetIdx));
+    }, []);
+    const updateItem = (0,react.useCallback)((idx, updates)=>{
+        update((prev)=>{
+            const newList = [
+                ...prev
+            ];
+            newList[idx] = {
+                ...prev[idx],
+                ...updates
+            };
+            return newList;
+        });
+    }, []);
+    return {
+        add,
+        clear,
+        remove,
+        value: list ?? [],
+        updateItem
+    };
+}
 
 
 /***/ }),
@@ -2162,10 +2692,148 @@ const trackFbPageView = async ()=>{
 
 /***/ }),
 
+/***/ 57172:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "h": () => (/* binding */ Header),
+  "Y": () => (/* binding */ StyledImage)
+});
+
+// EXTERNAL MODULE: ./node_modules/@emotion/react/jsx-runtime/dist/emotion-react-jsx-runtime.esm.js
+var emotion_react_jsx_runtime_esm = __webpack_require__(68847);
+// EXTERNAL MODULE: ./node_modules/@boxfoxs/bds-web/dist/index.js
+var dist = __webpack_require__(40756);
+// EXTERNAL MODULE: ./node_modules/@emotion/styled/dist/emotion-styled.esm.js
+var emotion_styled_esm = __webpack_require__(56361);
+// EXTERNAL MODULE: ./node_modules/@boxfoxs/bds-common/dist/index.js
+var bds_common_dist = __webpack_require__(5547);
+;// CONCATENATED MODULE: ./src/common/utils/pressableStyle.ts
+
+
+const pressableStyle = {
+    background: (background = bds_common_dist.colors.gray[100])=>`
+    transition: background 250ms;
+    &:active {
+      background: ${background};
+    }
+    ${(0,dist/* inDesktop */.Qx)(`
+      &:focus {
+        background: ${background};
+      }
+    `)}
+  `,
+    opacity: (opacity = 0.7)=>`
+    transition: opacity 200ms;
+    &:active {
+      opacity: ${opacity};
+    }
+    ${(0,dist/* inDesktop */.Qx)(`
+      &:focus {
+        opacity: ${opacity};
+      }
+    `)}
+  `,
+    scale: (scale = 0.97)=>`
+    transition: transform 150ms;
+    &:active {
+      transform: scale(${scale});
+    }
+    ${(0,dist/* inDesktop */.Qx)(`
+      &:focus {
+        transform: scale(${scale});
+      }
+    `)}
+  `
+};
+
+// EXTERNAL MODULE: ./node_modules/next/image.js
+var next_image = __webpack_require__(25675);
+var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(41664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
+// EXTERNAL MODULE: ./src/common/hooks/index.ts + 7 modules
+var hooks = __webpack_require__(61441);
+// EXTERNAL MODULE: ./src/common/components/appbar/CartButton.tsx
+var CartButton = __webpack_require__(76660);
+// EXTERNAL MODULE: ./node_modules/@boxfoxs/logger/dist/index.js
+var logger_dist = __webpack_require__(255);
+;// CONCATENATED MODULE: ./src/home/components/Header.tsx
+
+
+
+
+
+
+
+
+
+function Header() {
+    const { isOnTop  } = (0,hooks/* useScrollIsOnTop */.Sm)(10);
+    return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(HeaderContaer, {
+        full: !isOnTop,
+        children: [
+            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("img", {
+                src: "/assets/text_logo.svg",
+                width: 91,
+                height: 32,
+                alt: "logo"
+            }),
+            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Spacing */.Ki, {
+                flex: 1
+            }),
+            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(logger_dist.LoggingClick, {
+                name: "Tap - Cart in Home Header",
+                children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(CartButton/* CartButton */.W, {})
+            }),
+            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(logger_dist.LoggingClick, {
+                name: "Tap - My in Home Header",
+                children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ((link_default()), {
+                    passHref: true,
+                    href: "/my",
+                    children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(StyledImage, {
+                        src: "/assets/profile.svg",
+                        width: 40,
+                        height: 40,
+                        alt: "profile"
+                    })
+                })
+            })
+        ]
+    });
+}
+const HeaderContaer = emotion_styled_esm/* default.nav */.Z.nav`
+  display: flex;
+  align-items: center;
+
+  height: 56px;
+  padding: 0 24px;
+  background: white;
+  position: fixed;
+  top: 0px;
+  z-index: 2;
+
+  max-width: ${(p)=>p.full ? "500px" : "calc(500px - 40px)"};
+  width: ${(p)=>p.full ? "100%" : "calc(100% - 40px)"};
+  transform: translate(${(p)=>p.full ? "0, 0" : "20px, 20px"});
+  border-radius: ${(p)=>p.full ? "0px" : "54px"};
+  transition: all 300ms;
+  filter: drop-shadow(0px 0px 24px rgba(0, 0, 0, 0.05));
+`;
+const StyledImage = (0,emotion_styled_esm/* default */.Z)((image_default()))`
+  ${pressableStyle.opacity()}
+`;
+
+
+/***/ }),
+
 /***/ 97020:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-c67a75d1b6f99dc8.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/cnS06uHxNPk0So-sY12ZB/_buildManifest.js","static/cnS06uHxNPk0So-sY12ZB/_ssgManifest.js"],"rootMainFiles":[],"pages":{"/":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/664-fe1f0ac1dd157bd4.js","static/chunks/655-07c8be0733bb5343.js","static/chunks/pages/index-84675e964fee65d0.js"],"/_app":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/css/fbfd38571c447199.css","static/chunks/pages/_app-06e7352832692b72.js"],"/_error":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/_error-a4ba2246ff8fb532.js"],"/address/add-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-6e27184e2d5ae971.js","static/chunks/pages/address/add-address-f05c6f0c2a3ca5e1.js"],"/address/new-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-6e27184e2d5ae971.js","static/chunks/pages/address/new-address-49a62c7508dd1b7e.js"],"/auth":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth-1d06d381013db881.js"],"/auth/code":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/code-f6eba7ce9f6b366a.js"],"/auth/phone":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/phone-6c1842aae5db9891.js"],"/cart":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/655-07c8be0733bb5343.js","static/chunks/pages/cart-953112778faf27b2.js"],"/complete-order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/499-b6b75deb1aecb732.js","static/chunks/421-938b2989c808f3ff.js","static/chunks/pages/complete-order-977183a9bf26e33d.js"],"/customer-service":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/664-fe1f0ac1dd157bd4.js","static/chunks/pages/customer-service-0763277f89d3218d.js"],"/my":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/664-fe1f0ac1dd157bd4.js","static/chunks/pages/my-8a35ee3301b59e31.js"],"/order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/499-b6b75deb1aecb732.js","static/chunks/421-938b2989c808f3ff.js","static/chunks/pages/order-3a689e71555425c2.js"],"/order/list":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/order/list-46d553d42c0c180d.js"],"/process-payment":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/process-payment-e65589994db91d56.js"],"/product/[id]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/664-fe1f0ac1dd157bd4.js","static/chunks/842-94820a0fc076d09a.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]-0f4fc2aa59c432b2.js"],"/product/[id]/review/[reviewId]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/664-fe1f0ac1dd157bd4.js","static/chunks/842-94820a0fc076d09a.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/review/[reviewId]-5b41d605e5f31333.js"]},"ampFirstPages":[]}');
+module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-c67a75d1b6f99dc8.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/OZFxJPgCb6ClklByI8XR4/_buildManifest.js","static/OZFxJPgCb6ClklByI8XR4/_ssgManifest.js"],"rootMainFiles":[],"pages":{"/":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/index-2ecc4cc5aead5aa4.js"],"/_app":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/css/725018c0f7133c1b.css","static/chunks/pages/_app-c59f131e0a51bf66.js"],"/_error":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/_error-a4ba2246ff8fb532.js"],"/address/add-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-ec44cd90cb021402.js","static/chunks/pages/address/add-address-90765eb5e533598a.js"],"/address/new-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-ec44cd90cb021402.js","static/chunks/pages/address/new-address-e6f86e3be7d3f025.js"],"/auth":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth-39ebc0c52ac4db7d.js"],"/auth/code":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/code-37e14e96d689e049.js"],"/auth/phone":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/phone-c958bf299ed35472.js"],"/cart":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/cart-3522715c7749f67e.js"],"/complete-order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/637-2e4b974c62f890e6.js","static/chunks/421-50c3b886178867ff.js","static/chunks/pages/complete-order-c2b927a2a7765c9d.js"],"/customer-service":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/customer-service-1fbc5719e4077f49.js"],"/my":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/my-5ba5ec5d4e56573a.js"],"/order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/637-2e4b974c62f890e6.js","static/chunks/421-50c3b886178867ff.js","static/chunks/pages/order-09a8e6b4e778b087.js"],"/order/list":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/order/list-925ff7035e1b8820.js"],"/process-payment":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/process-payment-51bd7f46e2303176.js"],"/product/[id]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]-eda0025bacc67d62.js"],"/product/[id]/label":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/label-c146654fa0d73180.js"],"/product/[id]/review/[reviewId]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/review/[reviewId]-9f02e6fe2be5ca42.js"]},"ampFirstPages":[]}');
 
 /***/ }),
 

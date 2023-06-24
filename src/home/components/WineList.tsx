@@ -3,6 +3,7 @@ import Router from 'next/router';
 import { Product } from 'common/models';
 import { UrlLottie } from '@boxfoxs/bds-web';
 import { WineCard } from './WineCard';
+import { LoggingClick } from '@boxfoxs/logger';
 
 export function WineList({
   data,
@@ -46,12 +47,17 @@ export function WineList({
     >
       {data.map((item: Product, idx: number) => {
         return (
-          <WineCard
-            // eslint-disable-next-line react/no-array-index-key
-            key={item.wine.id + idx}
-            data={item}
-            onClick={() => handleWineDetailClick(item)}
-          />
+          <LoggingClick
+            name="Tap - Product in Home"
+            params={{ product: item.id }}
+          >
+            <WineCard
+              // eslint-disable-next-line react/no-array-index-key
+              key={item.wine.id + idx}
+              data={item}
+              onClick={() => handleWineDetailClick(item)}
+            />
+          </LoggingClick>
         );
       })}
     </section>

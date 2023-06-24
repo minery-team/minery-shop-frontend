@@ -17,7 +17,7 @@ const ReviewSection = ({ product, ...props }: Props) => {
   const [expanded, setExpanded] = useState(false);
   const displayableReviews = expanded ? dummyReviews : dummyReviews.slice(0, 3);
   const reviewsForPreview = dummyReviews
-    .filter((review) => review.images?.length > 0)
+    .filter((review) => !review.images?.length)
     .slice(0, 4);
 
   return (

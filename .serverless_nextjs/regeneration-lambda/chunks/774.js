@@ -198,8 +198,8 @@ var utils_dist = __webpack_require__(90665);
 var lodash = __webpack_require__(96486);
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__(67294);
-// EXTERNAL MODULE: ./src/common/components/index.ts + 22 modules
-var components = __webpack_require__(15575);
+// EXTERNAL MODULE: ./src/common/components/index.ts + 27 modules
+var components = __webpack_require__(94312);
 // EXTERNAL MODULE: ./src/common/constants/index.ts + 2 modules
 var constants = __webpack_require__(16439);
 // EXTERNAL MODULE: ./node_modules/@tosspayments/sdk/dist/tosspayments.cjs.js
@@ -334,9 +334,12 @@ const EnrollAddressPopUp_StyledText = (0,emotion_styled_esm/* default */.Z)(dist
   align-items: center;
 `;
 
+// EXTERNAL MODULE: ./src/cart/model/Price.ts
+var Price = __webpack_require__(96369);
 // EXTERNAL MODULE: ./node_modules/@boxfoxs/next/dist/index.js
 var next_dist = __webpack_require__(23399);
 ;// CONCATENATED MODULE: ./src/order/components/PaymentButton.tsx
+
 
 
 
@@ -353,7 +356,10 @@ function PaymentButton({ userInfo , orderList , isCheckSelfReceving , address  }
     const openCheckSelfReceving = useCheckSelfReceving();
     const openEnrollAddress = useEnrollAddress();
     const totalPrice = (0,react.useMemo)(()=>{
-        return (0,lodash.sumBy)(orderList, (item)=>item.amount * item.product.price);
+        const price = (0,lodash.sumBy)(orderList, (item)=>item.amount * item.product.price);
+        const originalPrice = (0,lodash.sumBy)(orderList, (item)=>item.amount * item.product.originalPrice);
+        if (Price/* FREE_SHIPPING_PRICE */.M - originalPrice > 0) return price + Price/* SHIPPING_PRICE */.$;
+        return price;
     }, [
         orderList
     ]);
@@ -403,8 +409,6 @@ const PaymentButton_Wrapper = emotion_styled_esm/* default.div */.Z.div`
   padding: 0 20px;
 `;
 
-// EXTERNAL MODULE: ./src/cart/model/Price.ts
-var Price = __webpack_require__(96369);
 ;// CONCATENATED MODULE: ./src/order/components/PaymentInfo.tsx
 
 

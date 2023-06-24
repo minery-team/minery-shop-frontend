@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import { useScrollIsOnTop } from 'common/hooks';
 import { CartButton } from '../../common/components/appbar/CartButton';
+import { LoggingClick } from '@boxfoxs/logger';
 
 export function Header() {
   const { isOnTop } = useScrollIsOnTop(10);
@@ -14,15 +15,19 @@ export function Header() {
     <HeaderContaer full={!isOnTop}>
       <img src="/assets/text_logo.svg" width={91} height={32} alt="logo" />
       <Spacing flex={1} />
-      <CartButton />
-      <Link passHref href="/my">
-        <StyledImage
-          src="/assets/profile.svg"
-          width={40}
-          height={40}
-          alt="profile"
-        />
-      </Link>
+      <LoggingClick name="Tap - Cart in Home Header">
+        <CartButton />
+      </LoggingClick>
+      <LoggingClick name="Tap - My in Home Header">
+        <Link passHref href="/my">
+          <StyledImage
+            src="/assets/profile.svg"
+            width={40}
+            height={40}
+            alt="profile"
+          />
+        </Link>
+      </LoggingClick>
     </HeaderContaer>
   );
 }

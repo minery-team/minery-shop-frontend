@@ -1,1 +1,2 @@
-export * from "./useScrollIsOnTop";
+export * from './useScrollIsOnTop';
+export * from './useMaintainScroll';

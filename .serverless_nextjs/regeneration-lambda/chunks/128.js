@@ -47,7 +47,10 @@ const dummyReview0 = {
   말하지만 일반적으로 신선한 천연 과일인 순수한 포도만을 원료로 발효시켜
   만든 포도주를 의미넓은 의미에서의 와인은 과실을 발효시켜 만든 알코올
   함유 음료를 말하지만 일반적으로 신선한 천연 과일인 순수한 포도만을
-  원료로 발효시켜 만든 포도주를 의미`
+  원료로 발효시켜 만든 포도주를 의미`,
+    images: [
+        "https://m.soollove.com/web/product/extra/big/202108/3651ff8abe41047b8628707f66127441.jpg", 
+    ]
 };
 const dummyReview00 = {
     id: 2,
@@ -66,7 +69,9 @@ const dummyReview1 = {
     rating: 4.2,
     date: "23/02/18",
     content: "과일 향이 가득하면서도 섬세한 산도가 인상적인 와인",
-    images: []
+    images: [
+        "https://cdn.imweb.me/upload/S2017101359e025984d346/671b7600c2bf9.jpg", 
+    ]
 };
 const dummyReview2 = {
     id: 4,
@@ -74,7 +79,9 @@ const dummyReview2 = {
     rating: 3.6,
     date: "23/02/26",
     content: "화려한 색감과 잘 조화된 산미가 마음에 드네요",
-    images: []
+    images: [
+        "https://www.shinsegaegroupnewsroom.com/wp-content/uploads/2019/12/1-14.png", 
+    ]
 };
 const dummyReview3 = {
     id: 5,
