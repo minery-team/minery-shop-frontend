@@ -3,3 +3,4 @@ export * from './useStorage';
 export * from './useOrders';
 export * from './useWineList';
 export * from './useCountdown';
+export * from './dom';

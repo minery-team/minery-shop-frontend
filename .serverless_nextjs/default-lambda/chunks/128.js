@@ -169,7 +169,7 @@ const dummyReviews = [
 /* harmony import */ var _boxfoxs_next__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(23399);
 /* harmony import */ var _boxfoxs_next__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_boxfoxs_next__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(56361);
-/* harmony import */ var common_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(41727);
+/* harmony import */ var common_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(16439);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(41664);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -194,7 +194,9 @@ const WineReview = ({ review , showImages =true  })=>{
                 /*#__PURE__*/ (0,_emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsxs */ .BX)("div", {
                     style: {
                         display: "flex",
-                        gap: "4px"
+                        gap: "4px",
+                        alignItems: "center",
+                        alignContent: "center"
                     },
                     children: [
                         /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsx */ .tZ("img", {
@@ -209,14 +211,19 @@ const WineReview = ({ review , showImages =true  })=>{
                             weight: "semibold",
                             children: review.rating
                         }),
-                        /*#__PURE__*/ (0,_emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsxs */ .BX)(_boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__/* .Text */ .xv, {
+                        /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsx */ .tZ(_boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__/* .Spacing */ .Ki, {
+                            height: 7,
+                            width: 1,
+                            style: {
+                                backgroundColor: common_constants__WEBPACK_IMPORTED_MODULE_3__/* .colors.gray300 */ .O9.gray300,
+                                margin: "0 4px"
+                            }
+                        }),
+                        /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsx */ .tZ(_boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__/* .Text */ .xv, {
                             color: common_constants__WEBPACK_IMPORTED_MODULE_3__/* .colors.gray500 */ .O9.gray500,
                             size: "sm",
-                            weight: "semibold",
-                            children: [
-                                "| ",
-                                review.date
-                            ]
+                            weight: "regular",
+                            children: review.date
                         })
                     ]
                 }),
