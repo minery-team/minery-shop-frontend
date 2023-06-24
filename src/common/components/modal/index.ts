@@ -1,3 +1,3 @@
 export * from './Modal';
-export * from './PopUp';
+export * from './ConfirmModal';
 export * from './SlideUp';

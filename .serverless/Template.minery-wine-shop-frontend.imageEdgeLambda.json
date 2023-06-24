@@ -1,5 +1,5 @@
 {
-  "name": "hbwxwej-8y7b05s",
+  "name": "r4gl8uc-3t4udy",
   "hash": "g2ztMrVuCIGRhgJUD3PR/w18LjAYJo7r5ncxkDYV344=",
   "description": "Image Lambda@Edge for Next CloudFront distribution",
   "memory": 512,
@@ -12,6 +12,6 @@
   "role": {
     "arn": "arn:aws:iam::917306879000:role/8m1ef18-etyjhsc"
   },
-  "arn": "arn:aws:lambda:us-east-1:917306879000:function:hbwxwej-8y7b05s",
+  "arn": "arn:aws:lambda:us-east-1:917306879000:function:r4gl8uc-3t4udy",
   "region": "us-east-1"
 }

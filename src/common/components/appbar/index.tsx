@@ -102,7 +102,7 @@ const InnerContainer = styled(Flex.CenterVertical)<{
   width: 100%;
   max-width: 1400px;
   padding: 0 12px;
-  height: 58px;
+  height: 50px;
   margin: 0 auto;
   position: relative;
   z-index: 1;

@@ -43,6 +43,7 @@ const HeaderContaer = styled.nav`
   transform: translateX(-50%);
   padding-left: 24px;
   padding-right: 8px;
+  max-width: 450px;
 `;
 
 const StyledImage = styled(Image)`

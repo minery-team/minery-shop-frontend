@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import { colors } from 'common/constants';
 import { useCallback } from 'react';
-import { PopUp } from 'common/components';
+import { ConfirmModal } from 'common/components';
 import { useToast } from 'common/components/modal/Toast';
 
 export default function DeleteProduct({
@@ -14,7 +14,7 @@ export default function DeleteProduct({
   onClose: () => void;
 }) {
   return (
-    <PopUp
+    <ConfirmModal
       type="select"
       content={
         <TextWrapper>
