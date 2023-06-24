@@ -25,7 +25,7 @@ export function Footer() {
             display: flex;
           `}
         >
-          <Link href="/customer-service">
+          <Link href="http://pf.kakao.com/_SrDYxj">
             <Text size="base" weight="semibold" color="gray900">
               문의하기
             </Text>
@@ -34,15 +34,19 @@ export function Footer() {
           <Space left="5px" />
           |
           <Space right="5px" />
-          <Text size="base" weight="semibold" color="gray900">
-            이용약관
-          </Text>
+          <Link href="https://ilovewine.notion.site/92e5ba41d6b848b582e88c76bdef83c9?pvs=4">
+            <Text size="base" weight="semibold" color="gray900">
+              이용약관
+            </Text>
+          </Link>
           <Space left="5px" />
           |
           <Space right="5px" />
-          <Text size="base" weight="semibold" color="gray900">
-            개인정보처리방침
-          </Text>
+          <Link href="https://ilovewine.notion.site/43d45441abbb4be3837887f606cbb0d7?pvs=4">
+            <Text size="base" weight="semibold" color="gray900">
+              개인정보처리방침
+            </Text>
+          </Link>
         </div>
         <Space bottom="20px" />
         <div

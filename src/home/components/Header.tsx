@@ -3,20 +3,37 @@ import Image from 'next/image';
 import { Spacing } from '@boxfoxs/bds-web';
 import { pressableStyle } from 'common/utils/pressableStyle';
 import Link from 'next/link';
+import { colors } from 'common/constants';
+
+import React from 'react';
+import { Text } from '@boxfoxs/bds-web';
+import { useRouter } from 'next/router';
+import { useCart } from '../../common/hooks/useCart';
 
 export function Header() {
+  const { value } = useCart();
+  const router = useRouter();
+
   return (
     <HeaderContaer>
       <img src="/assets/text_logo.svg" width={91} height={32} alt="logo" />
       <Spacing flex={1} />
-      <Link passHref href="/cart">
+      <Box>
         <StyledImage
           src="/assets/basket.svg"
           width={40}
           height={40}
           alt="basket"
+          onClick={() => router.push('/cart')}
         />
-      </Link>
+        {value.length > 0 && (
+          <CartCount>
+            <Text size="caption" weight="regluar" color={colors.defaultWhite}>
+              {value.length}
+            </Text>
+          </CartCount>
+        )}
+      </Box>
       <Link passHref href="/my">
         <StyledImage
           src="/assets/profile.svg"
@@ -48,4 +65,22 @@ const HeaderContaer = styled.nav`
 
 const StyledImage = styled(Image)`
   ${pressableStyle.opacity()}
+`;
+
+const Box = styled.div`
+  position: relative;
+  width: 40px;
+  height: 40px;
+`;
+
+const CartCount = styled.div`
+  background-color: ${colors.primary700Default};
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  padding-top: 1px;
 `;
