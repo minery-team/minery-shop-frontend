@@ -2,6 +2,7 @@ import { Section } from 'common/components';
 import { Product } from 'common/models';
 import { Spacing, Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
+import Link from 'next/link';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   product: Product;
@@ -16,13 +17,15 @@ const WineLabelSection = ({ product, ...props }: Props) => {
       <Spacing height={12} />
       <LabelContainer>
         {product.labelImages.map((image) => (
-          <img
-            style={{
-              width: '100%',
-            }}
-            src={image}
-            alt="와인 라벨 이미지"
-          />
+          <Link href={`/product/${product.id}/label`}>
+            <img
+              style={{
+                width: '100%',
+              }}
+              src={image}
+              alt="와인 라벨 이미지"
+            />
+          </Link>
         ))}
       </LabelContainer>
     </Section>
