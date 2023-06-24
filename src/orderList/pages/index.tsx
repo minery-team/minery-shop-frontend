@@ -3,6 +3,7 @@ import { AppBar, Container } from 'common/components';
 import { colors } from 'common/constants';
 import { OrderStatusForFilter, useOrderList } from 'common/hooks/queries';
 import { useState } from 'react';
+import { Flex, Spacing, Text } from '@boxfoxs/bds-web';
 import OrderListFilter from '../component/OrderListFilter';
 import OrderListItem from '../component/OrderListItem';
 
@@ -23,9 +24,13 @@ const OrderListPage = () => {
         onFilterChange={setFilterStatus}
       />
       <OrderListContainer>
-        {filteredOrders?.map((order) => (
-          <OrderListItem order={order} key={order.id} />
-        ))}
+        {filteredOrders?.length ? (
+          filteredOrders.map((order) => (
+            <OrderListItem order={order} key={order.id} />
+          ))
+        ) : (
+          <EmptyBox />
+        )}
       </OrderListContainer>
     </Container>
   );
@@ -37,6 +42,27 @@ const OrderListContainer = styled.div`
   padding: 20px;
 `;
 
-const HeaderContainer = styled.div`
-  background-color: white;
+function EmptyBox() {
+  return (
+    <EmptyContainer>
+      <EmptyImage
+        src="/assets/img_information_circle_gray300.png"
+        alt="empty"
+      />
+      <Spacing height={24} />
+      <Text size="lg" color={colors.gray600}>
+        아직 주문내역이 없어요
+      </Text>
+    </EmptyContainer>
+  );
+}
+
+const EmptyContainer = styled(Flex.Center)`
+  height: 80vh;
+  flex-direction: column;
+`;
+
+const EmptyImage = styled.img`
+  width: 64px;
+  height: 64px;
 `;

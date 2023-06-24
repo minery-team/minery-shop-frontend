@@ -38,7 +38,7 @@ const OrderListFilterContainer = styled.div`
   width: 100%;
   overflow: scroll;
   box-sizing: border-box;
-  padding: 18px 21px;
+  padding: 12px 21px;
   white-space: nowrap;
   &::-webkit-scrollbar {
     display: none;
