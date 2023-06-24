@@ -4,10 +4,8 @@ import { Container, Section } from 'common/components';
 import { Carousel } from 'common/components/carousel';
 import { colors } from 'common/constants';
 import { dummyReviews } from 'common/models/Review';
-import Image from 'next/image';
 import Router from 'next/router';
 import WineReview from '../component/WineReview';
-import x from '../../../public/assets/x.svg';
 
 const ReviewDetail = () => {
   const id = Number(Path.get('reviewId') || 5);
@@ -26,9 +24,9 @@ const ReviewDetail = () => {
         }}
       >
         {/* back시, 이전 상품 페이지의 스크롤 복원하도록 수정 필요 */}
-        <Image
+        <img
           onClick={() => Router.back()}
-          src={x}
+          src="/assets/x.svg"
           width={20}
           height={20}
           alt="닫기"

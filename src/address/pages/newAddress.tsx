@@ -52,13 +52,9 @@ export default function NewAddress() {
         <Text size="lg" weight="semibold" color={colors.gray900}>
           배송지 등록하기
         </Text>
-        <Image
-          src="/assets/close.svg"
-          width={20}
-          height={20}
-          alt="close"
-          onClick={() => Router.back()}
-        />
+        <button onClick={() => Router.back()} type="button">
+          <img src="/assets/close.svg" width={20} height={20} alt="close" />
+        </button>
       </TopNavigator>
       <Divider width="100%" height={1} color={colors.gray100} />
       <UserInfo />

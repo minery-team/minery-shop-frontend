@@ -171,7 +171,7 @@ export default function WineList({
             height={24}
           />
         </InfoPopUp>
-        <Image
+        <img
           src="/images/common/question_gray.png"
           alt="minus"
           width={12}
