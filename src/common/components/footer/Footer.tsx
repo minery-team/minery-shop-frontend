@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import Image from 'next/image';
 import { Text } from '@boxfoxs/bds-web';
-import { colors } from 'common/constants';
+import { KAKAO_CHANNEL_LINK, colors } from 'common/constants';
 import Link from 'next/link';
 import { Space } from '../space';
 
@@ -25,7 +25,7 @@ export function Footer() {
             display: flex;
           `}
         >
-          <Link href="http://pf.kakao.com/_SrDYxj">
+          <Link href={KAKAO_CHANNEL_LINK}>
             <Text size="base" weight="semibold" color="gray900">
               문의하기
             </Text>
