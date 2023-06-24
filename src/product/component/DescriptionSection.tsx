@@ -53,7 +53,7 @@ const DescriptionSection = ({ product, ...props }: Props) => {
         }}
       >
         <img
-          src="/assets/wine_dictionary.png"
+          src="/assets/wine_page_header_image.png"
           style={{ objectFit: 'contain', width: '100%', height: '100%' }}
         />
       </div>
