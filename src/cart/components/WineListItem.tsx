@@ -81,7 +81,7 @@ export default function WineListItem({
               <div>
                 <CountBox>
                   <Image
-                    src="/images/common/minus_gray.png"
+                    src="/assets/minus.svg"
                     alt="minus"
                     width={12}
                     height={12}
@@ -91,7 +91,7 @@ export default function WineListItem({
                     {item.amount}
                   </Text>
                   <Image
-                    src="/images/common/plus.png"
+                    src="/assets/plus.svg"
                     alt="plus"
                     width={12}
                     height={12}
@@ -119,7 +119,7 @@ export default function WineListItem({
           </ItemWrapper>
         </ContentWrapper>
         <Image
-          src="/images/common/close.png"
+          src="/assets/close_gray.svg"
           alt="close"
           width={16}
           height={16}
