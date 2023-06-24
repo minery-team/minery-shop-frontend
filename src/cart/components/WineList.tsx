@@ -158,8 +158,10 @@ export default function WineList({
       {renderWineList()}
       <QuestionText
         onClick={() => {
-          isShowRef.current = { isShow: true, isClickInfoText: true };
-          setIsShowPopUp(true);
+          if (!isShowRef.current.isShow) {
+            isShowRef.current = { isShow: true, isClickInfoText: true };
+            setIsShowPopUp(true);
+          }
         }}
       >
         <InfoPopUp
@@ -175,7 +177,7 @@ export default function WineList({
             </Text>
           </PopUpTextWrapper>
           <ReversedTriangle
-            src="/images/common/reversed_triangle.png"
+            src="/assets/reversed_triangle.svg"
             alt="reversed_triangle"
             width={24}
             height={24}
@@ -195,7 +197,10 @@ export default function WineList({
   );
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const SelectAllWrapper = styled.label`
   display: flex;
