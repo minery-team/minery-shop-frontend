@@ -65,10 +65,10 @@ export function Warning() {
               <img
                 src={`/assets/chevron_${
                   isShowWaring[index] ? 'up' : 'down'
-                }.svg`}
+                }_gray.svg`}
                 alt="chevron-up-down"
-                width={24}
-                height={24}
+                width={16}
+                height={16}
               />
             </WarningNavWrapper>
             <ItemWrapper>

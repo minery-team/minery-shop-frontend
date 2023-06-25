@@ -22,7 +22,7 @@ const FAQToggle = ({ question, answer }: Props) => {
           {question}
         </Text>
         <img
-          src="/assets/chevron_up.svg"
+          src="/assets/chevron_up_gray.svg"
           width={24}
           height={24}
           alt="답변 자세히 보기"
