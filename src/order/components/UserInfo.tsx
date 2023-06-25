@@ -16,56 +16,51 @@ export function UserInfo({
   const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <>
-      <Wrapper>
-        <Text size="lg" weight="semibold" color={colors.gray900}>
-          구매자 정보
-        </Text>
-        <InfoWrapper>
-          <UserInfoWrapper>
-            <Text size="base" weight="medium" color={colors.gray900}>
-              {userInfo?.name}
-            </Text>
-            <Text size="base" weight="medium" color={colors.gray900}>
-              {userInfo?.phone}
-            </Text>
-          </UserInfoWrapper>
-          <DirectlyReceving htmlFor="check">
-            <input
-              id="check"
-              type="checkbox"
-              checked={isChecked}
-              onChange={() => {
-                setIsChecked(!isChecked);
-                setIsCheckSelfReceving(!isChecked);
-              }}
-              style={{ display: 'none' }}
-            />
-            <img
-              src={
-                isChecked
-                  ? '/assets/checkbox_on.svg'
-                  : '/assets/checkbox_off.svg'
-              }
-              width={16}
-              height={16}
-              alt="checkbox"
-            />
-            <Text size="base" weight="medium" color={colors.gray900}>
-              본인이 수령해요
-            </Text>
-          </DirectlyReceving>
-        </InfoWrapper>
-      </Wrapper>
-      <Divider width="100%" height={6} color={colors.gray100} />
-    </>
+    <Wrapper>
+      <Text size="lg" weight="semibold" color={colors.gray900}>
+        구매자 정보
+      </Text>
+      <InfoWrapper>
+        <UserInfoWrapper>
+          <Text size="base" weight="medium" color={colors.gray900}>
+            {userInfo?.name}
+          </Text>
+          <Text size="base" weight="medium" color={colors.gray900}>
+            {userInfo?.phone}
+          </Text>
+        </UserInfoWrapper>
+        <DirectlyReceving htmlFor="check">
+          <input
+            id="check"
+            type="checkbox"
+            checked={isChecked}
+            onChange={() => {
+              setIsChecked(!isChecked);
+              setIsCheckSelfReceving(!isChecked);
+            }}
+            style={{ display: 'none' }}
+          />
+          <img
+            src={
+              isChecked ? '/assets/checkbox_on.svg' : '/assets/checkbox_off.svg'
+            }
+            width={16}
+            height={16}
+            alt="checkbox"
+          />
+          <Text size="base" weight="medium" color={colors.gray900}>
+            본인이 수령해요
+          </Text>
+        </DirectlyReceving>
+      </InfoWrapper>
+    </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 24px 20px;
+  padding: 0 20px;
 `;
 
 const InfoWrapper = styled.div`

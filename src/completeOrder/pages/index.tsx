@@ -34,13 +34,13 @@ export default withAuth(function CompleteOrder() {
           곧 배송이 시작될 예정이에요. 조금만 기다려주세요.
         </Text>
       </TitleWrapper>
-      <Divider width="100%" height={6} color={colors.gray100} />
+      <StyledDivider width="100%" height={6} color={colors.gray100} />
       <OrderItemsSection data={order.items} />
-      <Divider width="100%" height={6} color={colors.gray100} />
+      <StyledDivider width="100%" height={6} color={colors.gray100} />
       <PaymentInfo order={order} />
-      <Divider width="100%" height={6} color={colors.gray100} />
+      <StyledDivider width="100%" height={6} color={colors.gray100} />
       <ShippingInfo />
-      <Divider width="100%" height={1} color={colors.gray100} />
+      <StyledDivider width="100%" height={6} color={colors.gray100} />
       <Spacing height={98} />
       <Buttons />
     </Wrapper>
@@ -55,4 +55,8 @@ const TitleWrapper = styled.div`
   white-space: pre-wrap;
   padding: 20px;
   gap: 6px;
+`;
+
+const StyledDivider = styled(Divider)`
+  margin: 20px 0;
 `;
