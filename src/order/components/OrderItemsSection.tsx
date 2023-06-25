@@ -86,20 +86,17 @@ export function OrderItemsSection({ data, initialVisible = false }: Props) {
         </OrderTextWrapper>
         {isOpen && renderWineList()}
       </OrderListWrapper>
-      <Spacing height={18} />
-      <Divider width="100%" height={6} color={colors.gray100} />
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  margin-top: 24px;
+  padding: 0 20px;
 `;
 
 const OrderListWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 20px;
 `;
 
 const OrderTextWrapper = styled.div`

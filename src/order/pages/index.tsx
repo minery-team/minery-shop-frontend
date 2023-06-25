@@ -1,7 +1,9 @@
+import { Divider } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import { useState } from 'react';
 
 import { AppBar } from 'common/components';
+import { colors } from 'common/constants';
 import { withAuth } from 'common/hocs';
 import { useUser } from 'common/hooks';
 import { useAddressList } from 'common/hooks/queries';
@@ -37,12 +39,16 @@ export default withAuth(function OrderPage() {
       <AppBar back>
         <AppBar.Title>결제하기</AppBar.Title>
       </AppBar>
+      <StyledDivider width="100%" height={6} color={colors.gray100} />
       <OrderItemsSection data={cartList ?? []} />
+      <StyledDivider width="100%" height={6} color={colors.gray100} />
       <AddressInfo value={address} />
+      <StyledDivider width="100%" height={6} color={colors.gray100} />
       <UserInfo
         userInfo={user}
         setIsCheckSelfReceving={setIsCheckSelfReceving}
       />
+      <StyledDivider width="100%" height={6} color={colors.gray100} />
       <PaymentInfo orderList={cartList ?? []} />
       <Warning />
       <PaymentButton
@@ -58,4 +64,8 @@ export default withAuth(function OrderPage() {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const StyledDivider = styled(Divider)`
+  margin: 24px 0;
 `;

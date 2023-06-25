@@ -69,7 +69,7 @@ export function PaymentInfo({ orderList }: { orderList: CartItem[] }) {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 0 20px 24px 20px;
   gap: 16px;
 `;
 
