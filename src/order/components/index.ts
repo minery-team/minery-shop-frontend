@@ -1,4 +1,3 @@
-export * from './AddressList';
 export * from './PaymentButton';
 export * from './PaymentInfo';
 export * from './UserInfo';

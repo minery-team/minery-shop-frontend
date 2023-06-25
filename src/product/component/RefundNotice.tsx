@@ -45,7 +45,7 @@ const RefundNotice = () => {
           <Text color={colors.gray700}>교환/환불 안내</Text>
         </div>
         <img
-          src="/assets/chevron_up.svg"
+          src="/assets/chevron_up_gray.svg"
           width={24}
           height={24}
           alt="배송비 안내 자세히 보기"
