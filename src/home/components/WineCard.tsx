@@ -23,7 +23,7 @@ export function WineCard({
         display: 'flex',
         flexDirection: 'column',
         width: '158px',
-        height: '298px',
+        height: '315px',
       })}
     >
       <img width={158} height={180} src={data.image} alt="wine" />
@@ -50,6 +50,14 @@ export function WineCard({
         {data.wine.name}
       </Text>
       <Space bottom="8px" />
+      <Text
+        size="sm"
+        weight="regular"
+        color={`${colors.gray500}`}
+        style={{ textDecoration: 'line-through' }}
+      >
+        {formatPrice(data.originalPrice)}원
+      </Text>
       <Text size="lg" weight="semibold" color={`${colors.gray900}`}>
         {formatPrice(data.price)}원
       </Text>
