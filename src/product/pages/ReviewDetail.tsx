@@ -3,13 +3,13 @@ import styled from '@emotion/styled';
 import { Container, Section } from 'common/components';
 import { Carousel } from 'common/components/carousel';
 import { colors } from 'common/constants';
-import { dummyReviews } from 'common/models/Review';
 import Router from 'next/router';
 import WineReview from '../component/WineReview';
+import { WineReviews } from 'common/constants/wine-review';
 
 const ReviewDetail = () => {
-  const id = Number(Path.get('reviewId') || 5);
-  const review = dummyReviews.find((i) => i.id === id);
+  const reviewId = Number(Path.get('reviewId') || 5);
+  const review = Object.values(WineReviews).flat().find((review) => review.id === reviewId);
 
   if (!review) return <div>해당 리뷰가 없습니다 :(</div>;
 

@@ -45,19 +45,20 @@ export class ReviewGenerator {
     }
   }
 
+  private static wineReviewImageDirectory = 'wine-review-images';
   private getWineReviewImagePath(reviewIndex: number, wineName: string, wineIndex: number) {
     const wineReviewImageDirectory = `${this.imageDirectoryAbsolutePath}/${twoDigitNumberString(wineIndex)}. ${wineName}`;
-    const reviewImageFileWithoutExtension = `${twoDigitNumberString(wineIndex)}_리뷰${reviewIndex}`;
+    const reviewImageFileWithoutExtension = `${wineIndex}_리뷰${reviewIndex}`;
 
     // 인코딩 이슈인듯..
-    const reviewImageFileWithoutExtension2 = `${twoDigitNumberString(wineIndex)}_리뷰${reviewIndex}`;
+    const reviewImageFileWithoutExtension2 = `${wineIndex}_리뷰${reviewIndex}`;
 
     const candidateFiles = getFileList(wineReviewImageDirectory);
     const reviewImageFile = candidateFiles.find((file) => file.startsWith(reviewImageFileWithoutExtension) 
     || file.startsWith(reviewImageFileWithoutExtension2));
  
     if(reviewImageFile){
-      return `/${twoDigitNumberString(wineIndex)}. ${wineName}/${reviewImageFile}`
+      return `/${ReviewGenerator.wineReviewImageDirectory}/${twoDigitNumberString(wineIndex)}. ${wineName}/${reviewImageFile}`
     }
   }
 
