@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import WineReview from 'product/component/WineReview';
 import { useModal, Section } from 'common/components';
 import { Carousel } from 'common/components/carousel';
-import { dummyReviews } from 'common/models/Review';
 import { colors } from 'common/constants';
+import { WineReviews } from 'common/constants/wine-review';
 
 export const ReviewDetail = ({
   reviewId,
@@ -14,7 +14,8 @@ export const ReviewDetail = ({
   reviewId: number;
   onClose: () => void;
 }) => {
-  const review = dummyReviews.find((i) => i.id === reviewId);
+
+  const review = Object.values(WineReviews).flat().find((review) => review.id === reviewId);
 
   if (!review) return <div>{'해당 리뷰가 없습니다 :('}</div>;
   return (

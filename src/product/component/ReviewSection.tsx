@@ -2,11 +2,12 @@ import { Spacing, Text } from '@boxfoxs/bds-web';
 import { Section } from 'common/components';
 import { colors } from 'common/constants';
 import { Product } from 'common/models';
-import { dummyReviews } from 'common/models/Review';
+import { Review } from 'common/models/Review';
 import { useState } from 'react';
 
 import Link from 'next/link';
 import WineReview from './WineReview';
+import { WineReviews } from 'common/constants/wine-review';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   product: Product;
@@ -15,11 +16,13 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 // TODO: 리뷰 전달 받은 뒤, constant 처리
 const ReviewSection = ({ product, ...props }: Props) => {
   const [expanded, setExpanded] = useState(false);
-  const displayableReviews = expanded ? dummyReviews : dummyReviews.slice(0, 3);
-  const reviewsForPreview = dummyReviews
-    .filter((review) => !review.images?.length)
-    .slice(0, 4);
+  // TODO: DB에 와인데이터 들어가면, fallback 처리 제거
+  const reviews: Review[] = WineReviews[product.name] || WineReviews['브레드 & 버터, 피노누아']
 
+  const displayableReviews = expanded ? reviews : reviews.slice(0, 3);
+  const reviewsForPreview = reviews
+    .filter((review) => review.images !== undefined)
+    .slice(0, 4);
   return (
     <Section {...props}>
       <Text size="xl" weight="semibold">
@@ -111,7 +114,7 @@ const ReviewSection = ({ product, ...props }: Props) => {
       {displayableReviews.map((review) => (
         <WineReview key={review.name} review={review} />
       ))}
-      {dummyReviews.length > 3 && !expanded && (
+      {reviews.length > 3 && !expanded && (
         <div
           style={{
             display: 'flex',
