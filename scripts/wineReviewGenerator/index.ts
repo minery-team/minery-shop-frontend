@@ -1,4 +1,4 @@
-import { ReviewGenerator } from "./ReviewGenerator"
+import { ReviewGenerator } from "./reviewGenerator"
 import { writeJSONToFile } from "./util";
 
 // use this https://www.convertcsv.com/csv-to-json.htm

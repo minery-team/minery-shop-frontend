@@ -1,4 +1,5 @@
 import { Text } from '@boxfoxs/bds-web';
+import { commaizeNumber } from '@boxfoxs/utils';
 import { css } from '@emotion/react';
 
 import { Space } from 'common/components';
@@ -50,16 +51,18 @@ export function WineCard({
         {data.wine.name}
       </Text>
       <Space bottom="8px" />
-      <Text
-        size="sm"
-        weight="regular"
-        color={`${colors.gray500}`}
-        style={{ textDecoration: 'line-through' }}
-      >
-        {formatPrice(data.originalPrice)}원
-      </Text>
+      {data.originalPrice && (
+        <Text
+          size="sm"
+          weight="regular"
+          color={`${colors.gray500}`}
+          style={{ textDecoration: 'line-through' }}
+        >
+          {commaizeNumber(data.originalPrice)}원
+        </Text>
+      )}
       <Text size="lg" weight="semibold" color={`${colors.gray900}`}>
-        {formatPrice(data.price)}원
+        {commaizeNumber(data.price)}원
       </Text>
       <Space bottom="4px" />
       <div

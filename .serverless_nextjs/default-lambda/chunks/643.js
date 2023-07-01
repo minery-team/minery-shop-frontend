@@ -353,8 +353,8 @@ async function checkUserExist(phone) {
     return res.data.exists;
 }
 
-// EXTERNAL MODULE: ./src/common/utils/index.ts + 4 modules
-var utils = __webpack_require__(25616);
+// EXTERNAL MODULE: ./src/common/utils/index.ts + 3 modules
+var utils = __webpack_require__(73373);
 ;// CONCATENATED MODULE: ./src/common/api/auth/confirmPass.ts
 
 
@@ -534,8 +534,8 @@ __webpack_require__.d(__webpack_exports__, {
 var axios = __webpack_require__(45306);
 // EXTERNAL MODULE: ./node_modules/axios/index.js
 var node_modules_axios = __webpack_require__(29204);
-// EXTERNAL MODULE: ./src/common/utils/index.ts + 4 modules
-var utils = __webpack_require__(25616);
+// EXTERNAL MODULE: ./src/common/utils/index.ts + 3 modules
+var utils = __webpack_require__(73373);
 ;// CONCATENATED MODULE: ./src/common/api/interceptAuthToken.ts
 
 
@@ -1277,8 +1277,8 @@ const ParentContext = /*#__PURE__*/ (0,react.createContext)(null);
 
 // EXTERNAL MODULE: ./src/common/hooks/index.ts + 7 modules
 var hooks = __webpack_require__(61441);
-// EXTERNAL MODULE: ./src/common/utils/index.ts + 4 modules
-var utils = __webpack_require__(25616);
+// EXTERNAL MODULE: ./src/common/utils/index.ts + 3 modules
+var utils = __webpack_require__(73373);
 // EXTERNAL MODULE: ./src/common/utils/trackFbPageView.ts + 1 modules
 var trackFbPageView = __webpack_require__(79920);
 // EXTERNAL MODULE: ./node_modules/@boxfoxs/next/dist/index.js
@@ -2542,7 +2542,7 @@ function setAccessToken(accessToken) {
 
 /***/ }),
 
-/***/ 25616:
+/***/ 73373:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -2551,13 +2551,12 @@ __webpack_require__.d(__webpack_exports__, {
   "gb": () => (/* reexport */ checkValidPhoneNumber),
   "$9": () => (/* reexport */ access_token/* clearAccessToken */.$9),
   "un": () => (/* reexport */ formatPhoneNumber),
-  "T4": () => (/* reexport */ formatPrice),
   "hP": () => (/* reexport */ access_token/* getAccessToken */.hP),
   "kg": () => (/* reexport */ logger),
   "M8": () => (/* reexport */ access_token/* setAccessToken */.M8)
 });
 
-// UNUSED EXPORTS: ACCESS_TOKEN_KEY, FORMATTED_PHONE_NUMBER_REGEX, PHONE_NUMBER_REGEX, createWebAmplitudeLogger, formatTimeLeft, generateSessionStorage, generateStorage, safeLocalStorage, safeSessionStorage, trackFbPageView
+// UNUSED EXPORTS: ACCESS_TOKEN_KEY, FORMATTED_PHONE_NUMBER_REGEX, PHONE_NUMBER_REGEX, createWebAmplitudeLogger, formatPrice, formatTimeLeft, generateSessionStorage, generateStorage, safeLocalStorage, safeSessionStorage, trackFbPageView
 
 // EXTERNAL MODULE: ./src/common/utils/access-token.ts
 var access_token = __webpack_require__(33499);
@@ -2608,15 +2607,6 @@ function formatPhoneNumber(rawPhoneNumber) {
         phoneNumber.substr(areaCodeEndIndex, centerLength),
         phoneNumber.substr(areaCodeEndIndex + centerLength, 4), 
     ].filter((i)=>i.length > 0).join("-");
-}
-
-;// CONCATENATED MODULE: ./src/common/utils/formatPrice.ts
-function formatPrice(price) {
-    if (price === undefined) {
-        return "";
-    }
-    // FIXME: 나라별로 대응가능하도록 변경해야함
-    return price.toLocaleString("ko-KR");
 }
 
 ;// CONCATENATED MODULE: ./src/common/utils/phoneUtil.ts
@@ -2834,7 +2824,7 @@ const StyledImage = (0,emotion_styled_esm/* default */.Z)((image_default()))`
 /***/ 97020:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-c67a75d1b6f99dc8.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/l4sHcKd5TOHjw_sJONc5h/_buildManifest.js","static/l4sHcKd5TOHjw_sJONc5h/_ssgManifest.js"],"rootMainFiles":[],"pages":{"/":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/index-1c1c97b03f0b00bd.js"],"/_app":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/css/725018c0f7133c1b.css","static/chunks/pages/_app-23b84d9bceba576f.js"],"/_error":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/_error-a4ba2246ff8fb532.js"],"/address/add-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-ec44cd90cb021402.js","static/chunks/pages/address/add-address-90765eb5e533598a.js"],"/address/new-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-ec44cd90cb021402.js","static/chunks/pages/address/new-address-e6f86e3be7d3f025.js"],"/auth":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth-39ebc0c52ac4db7d.js"],"/auth/code":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/code-37e14e96d689e049.js"],"/auth/phone":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/phone-c958bf299ed35472.js"],"/cart":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/cart-895dcd3808ab1f56.js"],"/complete-order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/797-3d966deb149fe8e9.js","static/chunks/pages/complete-order-0e2d60b8ee857754.js"],"/customer-service":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/customer-service-200a36f2c50b1fb0.js"],"/my":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/my-5ba5ec5d4e56573a.js"],"/order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/797-3d966deb149fe8e9.js","static/chunks/pages/order-8e029d6d9c913d46.js"],"/order/list":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/order/list-925ff7035e1b8820.js"],"/process-payment":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/process-payment-51bd7f46e2303176.js"],"/product/[id]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]-2c42e989691835d8.js"],"/product/[id]/label":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/label-c146654fa0d73180.js"],"/product/[id]/review/[reviewId]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/review/[reviewId]-806ef43e1b389a3b.js"]},"ampFirstPages":[]}');
+module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-c67a75d1b6f99dc8.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/VbGxOILpXBXIS-lHhxOwM/_buildManifest.js","static/VbGxOILpXBXIS-lHhxOwM/_ssgManifest.js"],"rootMainFiles":[],"pages":{"/":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/index-531908584aef576e.js"],"/_app":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/css/725018c0f7133c1b.css","static/chunks/pages/_app-0c22c02f6bc5b937.js"],"/_error":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/_error-a4ba2246ff8fb532.js"],"/address/add-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-ec8cfd74416fdfdb.js","static/chunks/pages/address/add-address-90765eb5e533598a.js"],"/address/new-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-ec8cfd74416fdfdb.js","static/chunks/pages/address/new-address-e6f86e3be7d3f025.js"],"/auth":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth-1f4c3da0818d35bc.js"],"/auth/code":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/code-37e14e96d689e049.js"],"/auth/phone":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/phone-9a89e287ad6c5d57.js"],"/cart":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/cart-895dcd3808ab1f56.js"],"/complete-order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/797-3d966deb149fe8e9.js","static/chunks/pages/complete-order-0e2d60b8ee857754.js"],"/customer-service":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/customer-service-200a36f2c50b1fb0.js"],"/my":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/my-d10c549aa1d22dfa.js"],"/order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/797-3d966deb149fe8e9.js","static/chunks/pages/order-8e029d6d9c913d46.js"],"/order/list":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/order/list-925ff7035e1b8820.js"],"/process-payment":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/process-payment-51bd7f46e2303176.js"],"/product/[id]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-f1721ad2c69fbe54.js","static/chunks/926-cffc8e54beeecc97.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]-c2aa9516855e81eb.js"],"/product/[id]/label":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-f1721ad2c69fbe54.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/label-72bbc137151266d1.js"],"/product/[id]/review/[reviewId]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-f1721ad2c69fbe54.js","static/chunks/926-cffc8e54beeecc97.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/review/[reviewId]-4cc828a8834e1b98.js"]},"ampFirstPages":[]}');
 
 /***/ }),
 
