@@ -69,7 +69,7 @@ const WineProduct = ({ product }: Props) => {
               el && ref(el);
             }}
           >
-            <AppBar back floating backgrounded right={<CartButton />} />
+            <AppBar back fixed floating backgrounded right={<CartButton />} />
             <Carousel
               dots
               dotsClass=""

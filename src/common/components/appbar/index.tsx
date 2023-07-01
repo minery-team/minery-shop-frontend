@@ -95,7 +95,7 @@ const InnerContainer = styled(Flex.CenterVertical)<{
   elevated?: boolean;
 }>`
   width: 100%;
-  max-width: 1400px;
+  max-width: 500px;
   padding: 0 10px;
   height: 50px;
   margin: 0 auto;

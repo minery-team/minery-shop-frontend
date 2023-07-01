@@ -1,6 +1,6 @@
 {
-  "name": "de9xr5k-pl0sdt",
-  "hash": "suhJUU0/NF/fb6aisppzieyDOhxLmdpYfQSS+CzKX7s=",
+  "name": "mrt91da-d6twwy9",
+  "hash": "bzGGBUnaUJSAjt+6xDHjAyVyayWk0ll3Fq19Zcg8bmI=",
   "description": "API Lambda@Edge for Next CloudFront distribution",
   "memory": 512,
   "timeout": 10,
@@ -12,6 +12,6 @@
   "role": {
     "arn": "arn:aws:iam::917306879000:role/8m1ef18-etyjhsc"
   },
-  "arn": "arn:aws:lambda:us-east-1:917306879000:function:de9xr5k-pl0sdt",
+  "arn": "arn:aws:lambda:us-east-1:917306879000:function:mrt91da-d6twwy9",
   "region": "us-east-1"
 }
