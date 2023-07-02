@@ -172,13 +172,15 @@ const WineProduct = ({ product }: Props) => {
               </Text>
               <Spacing height={20} />
               <div style={{ display: 'flex', gap: '16px', overflow: 'scroll' }}>
-                <div>
+                <div style={{
+                  width: '106px',
+                }}>
                   <img
                     style={{
                       width: '106px',
                       height: '120px',
                       borderRadius: '6px',
-                      background: colors.gray200,
+                      objectFit: 'contain',
                     }}
                     src={product.wine.image}
                   />
@@ -187,13 +189,16 @@ const WineProduct = ({ product }: Props) => {
                     마이너리 추천 와인 1병
                   </Text>
                 </div>
-                <div>
+                <div style={{
+                  width: '106px',
+                }}>
                   <img
                     style={{
                       width: '106px',
                       height: '120px',
                       borderRadius: '6px',
                       background: colors.gray200,
+                      objectFit: 'contain',
                     }}
                     src="/assets/snack_for_wine.png"
                   />
@@ -202,13 +207,16 @@ const WineProduct = ({ product }: Props) => {
                     와인과 잘 어울리는 스낵 세트 1개
                   </Text>
                 </div>
-                <div>
+                <div style={{
+                  width: '106px',
+                }}>
                   <img
                     style={{
                       width: '106px',
                       height: '120px',
                       borderRadius: '6px',
                       background: colors.gray200,
+                      objectFit: 'contain',
                     }}
                     src="/assets/package_for_wine.png"
                   />
