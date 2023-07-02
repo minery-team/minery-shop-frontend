@@ -72,25 +72,25 @@ const DescriptionSection = ({ product, ...props }: Props) => {
         >
           <WineTasteLevel
             tasteType="당도"
-            tasteLevel={5}
+            tasteLevel={product.wine.sweetness}
             lowerDescription="드라이한"
             upperDescription="달콤한"
           />
           <WineTasteLevel
             tasteType="산도"
-            tasteLevel={3}
+            tasteLevel={product.wine.acidity}
             lowerDescription="산미없는"
             upperDescription="새콤한"
-          />{' '}
+          />
           <WineTasteLevel
             tasteType="바디감"
-            tasteLevel={1}
+            tasteLevel={product.wine.body}
             lowerDescription="가벼운"
             upperDescription="묵직한"
-          />{' '}
+          />
           <WineTasteLevel
             tasteType="탄닌"
-            tasteLevel={2}
+            tasteLevel={product.wine.tannins}
             lowerDescription="부드러운"
             upperDescription="떪은"
           />
