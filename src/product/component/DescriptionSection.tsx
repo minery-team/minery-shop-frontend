@@ -98,7 +98,7 @@ const DescriptionSection = ({ product, ...props }: Props) => {
       </Section>
       <Spacing height={9} />
       <SectionDivider />
-      <Spacing height={9} />
+      <Spacing height={30} />
       <div
         style={{
           position: 'relative',
@@ -110,6 +110,7 @@ const DescriptionSection = ({ product, ...props }: Props) => {
           style={{ objectFit: 'contain', width: '100%', height: '100%' }}
         />
       </div>
+      <Spacing height={30} />
       <SectionDivider />
       <Spacing height={9} />
       <Section>
