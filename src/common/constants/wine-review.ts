@@ -1127,7 +1127,7 @@ export const WineReviews: Record<string, Review[]> = {
       ],
     },
   ],
-  '미스터 블랙스 리틀북 쉬라즈 2018': [
+  '미스터 블랙스 리틀북 쉬라즈': [
     {
       id: 138,
       name: '최민호',

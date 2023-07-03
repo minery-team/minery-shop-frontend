@@ -4,7 +4,9 @@ import { css } from '@emotion/react';
 
 import { Space } from 'common/components';
 import { colors } from 'common/constants';
+import { WineReviews } from 'common/constants/wine-review';
 import { NAME_BY_WINE_TYPE, Product, WineType } from 'common/models';
+import { Review } from 'common/models/Review';
 import { formatPrice } from 'common/utils';
 
 // price만 별도로 사용
@@ -15,6 +17,13 @@ export function WineCard({
   data: Product;
   onClick: () => void;
 }) {
+  const reviews: Review[] = WineReviews[data.name];
+  const averageRating =
+    reviews
+      ? (reviews.reduce((acc, cur) => acc + cur.rating, 0) / reviews.length).toFixed(1)
+      : 4.2;
+  const reviewCount = reviews ? reviews.length : 29;
+
   return (
     // FIXME: eslint 에러제거 필요
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
@@ -76,13 +85,17 @@ export function WineCard({
         <img src="/assets/rating_star.svg" width={12} height={12} alt=" " />
         <Space right="2px" />
         <Text size="caption" weight="regular" color={`${colors.gray800}`}>
-          {Number.isInteger(data.wine.rate)
+          {averageRating}
+          {/* TODO: 리뷰기능 정식 출시 되면, 리뷰 wine.rate사용하도록 변경 */}
+          {/* {Number.isInteger(data.wine.rate)
             ? `${data.wine.rate}.0`
-            : data.wine.rate}
+            : data.wine.rate} */}
         </Text>
         <Space right="2px" />
         <Text size="caption" weight="regular" color={`${colors.gray500}`}>
-          ({data.wine.viewCount})
+          {/* TODO: 리뷰기능 정식 출시 되면, 리뷰 wine.viewCount 변경 */}
+          {/* ({data.wine.viewCount}) */}
+          ({reviewCount})
         </Text>
       </div>
     </article>

@@ -23,6 +23,9 @@ const ReviewSection = ({ product, ...props }: Props) => {
   const reviewsForPreview = reviews
     .filter((review) => review.images !== undefined)
     .slice(0, 4);
+  const averageRating =
+    (reviews.reduce((acc, cur) => acc + cur.rating, 0) / reviews.length).toFixed(1);
+
   return (
     <Section {...props}>
       <Text size="xl" weight="semibold">
@@ -44,7 +47,7 @@ const ReviewSection = ({ product, ...props }: Props) => {
           }}
         >
           <Text size="heading4" weight="semibold">
-            4.9
+            {averageRating}
           </Text>
           <div
             style={{
