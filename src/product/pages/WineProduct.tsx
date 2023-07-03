@@ -127,29 +127,33 @@ const WineProduct = ({ product }: Props) => {
               <div
                 style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}
               >
-                <Text
-                  color={colors.primary700Default}
-                  size="heading4"
-                  weight="semibold"
-                >
-                  {Math.ceil(
-                    ((product.originalPrice - product.price) /
-                      product.originalPrice) *
-                      100
-                  )}
-                  %
-                </Text>
+                {product.originalPrice && (
+                  <Text
+                    color={colors.primary700Default}
+                    size="heading4"
+                    weight="semibold"
+                  >
+                    {Math.ceil(
+                      ((product.originalPrice - product.price) /
+                        product.originalPrice) *
+                        100
+                    )}
+                    %
+                  </Text>
+                )}
                 <Text size="heading4" weight="semibold">
                   {commaizeNumber(product.price)}원
                 </Text>
-                <Text
-                  style={{
-                    textDecoration: 'line-through',
-                  }}
-                  color={colors.gray500}
-                >
-                  {commaizeNumber(product.originalPrice)}원
-                </Text>
+                {product.originalPrice && (
+                  <Text
+                    style={{
+                      textDecoration: 'line-through',
+                    }}
+                    color={colors.gray500}
+                  >
+                    {commaizeNumber(product.originalPrice)}원
+                  </Text>
+                )}
               </div>
             </Section>
             {/* 배송비 */}

@@ -54,7 +54,7 @@ const WineReviews = {
             date: "2023-6-28",
             content: "저희 집이 지방이라...다른 서비스들은 서울만 되서 못썼는데ㅠㅠ 마이너리는 배송이라서 넘 좋아요ㅠㅜ 번창하세요!!!!",
             images: [
-                "/wine-review-images/01. 브레드 & 버터, 피노누아/1_리뷰2.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/01. 브레드 & 버터, 피노누아/1_리뷰2.jpeg", 
             ]
         },
         {
@@ -64,7 +64,7 @@ const WineReviews = {
             date: "2025-6-9",
             content: "역시나 맛있네요 제 최애입니당",
             images: [
-                "/wine-review-images/01. 브레드 & 버터, 피노누아/1_리뷰3.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/01. 브레드 & 버터, 피노누아/1_리뷰3.jpeg", 
             ]
         },
         {
@@ -95,7 +95,7 @@ const WineReviews = {
             date: "2025-7-25",
             content: "한병 사자마자 아쉬워서 추가주문 하려는데 바로 품절이네요ㅠㅠ 재고 늘려주세요",
             images: [
-                "/wine-review-images/01. 브레드 & 버터, 피노누아/1_리뷰7.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/01. 브레드 & 버터, 피노누아/1_리뷰7.jpeg", 
             ]
         },
         {
@@ -119,7 +119,7 @@ const WineReviews = {
             date: "2024-7-18",
             content: "무난해서 실패없는 와인입니다. 집들이용을 딱 좋아요",
             images: [
-                "/wine-review-images/01. 브레드 & 버터, 피노누아/1_리뷰10.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/01. 브레드 & 버터, 피노누아/1_리뷰10.jpeg", 
             ]
         },
         {
@@ -187,7 +187,7 @@ const WineReviews = {
             date: "2024-9-6",
             content: "약간 버터리하고 화이트 치고 묵직하네요 뽕따 후 바로 마셔야 젤 좋아요",
             images: [
-                "/wine-review-images/02. 브레드 & 버터, 샤도네이/2_리뷰1.jpg"
+                "https://static.minery.co.kr/market/images/wine/review/02. 브레드 & 버터, 샤도네이/2_리뷰1.jpg", 
             ]
         },
         {
@@ -211,7 +211,7 @@ const WineReviews = {
             date: "2023-2-26",
             content: "마이너리는 처음인데 안전하게 잘 받았어요^^",
             images: [
-                "/wine-review-images/02. 브레드 & 버터, 샤도네이/2_리뷰4.jpg"
+                "https://static.minery.co.kr/market/images/wine/review/02. 브레드 & 버터, 샤도네이/2_리뷰4.jpg", 
             ]
         },
         {
@@ -235,7 +235,7 @@ const WineReviews = {
             date: "2023-2-3",
             content: "좋아요~",
             images: [
-                "/wine-review-images/02. 브레드 & 버터, 샤도네이/2_리뷰7.jpg"
+                "https://static.minery.co.kr/market/images/wine/review/02. 브레드 & 버터, 샤도네이/2_리뷰7.jpg", 
             ]
         },
         {
@@ -289,7 +289,7 @@ const WineReviews = {
             date: "2023-8-15",
             content: "확실히 집중되고 진한 맛이 느껴져요. 초콜릿 그리고 살짝 박하 맛이 너무 좋아요. 탄닌도 부드럽고, 와인 자체가 균형잡혀서 상큼하게 느껴져요.",
             images: [
-                "/wine-review-images/03. 텍스트북, 나파 카베르네 소비뇽/3_리뷰2.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/03. 텍스트북, 나파 카베르네 소비뇽/3_리뷰2.jpeg", 
             ]
         },
         {
@@ -299,7 +299,7 @@ const WineReviews = {
             date: "2023-5-20",
             content: "산도도 딱 좋아서 시원하면서도 활기찬 맛을 느낄 수 있어요. 편안하게 한 잔 마실 수 있는 와인이에요. \uD83D\uDE0A",
             images: [
-                "/wine-review-images/03. 텍스트북, 나파 카베르네 소비뇽/3_리뷰3.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/03. 텍스트북, 나파 카베르네 소비뇽/3_리뷰3.jpeg", 
             ]
         },
         {
@@ -337,7 +337,7 @@ const WineReviews = {
             date: "2024-4-19",
             content: "균형이 정말 좋은 와인이에요. 풍부한 과일 향과 오크 향이 완벽하게 어울려서 정말 균형 잡힌 와인!\uD83C\uDF77✨",
             images: [
-                "/wine-review-images/03. 텍스트북, 나파 카베르네 소비뇽/3_리뷰8.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/03. 텍스트북, 나파 카베르네 소비뇽/3_리뷰8.jpeg", 
             ]
         },
         {
@@ -368,7 +368,7 @@ const WineReviews = {
             date: "2023-2-22",
             content: "깊은 맛과 풍부한 향! 부드러운 탄닌과 상큼한 과일 향이 조화롭게 어울려서 정말 균형 잡힌 와인을 즐길 수 있어요. ",
             images: [
-                "/wine-review-images/03. 텍스트북, 나파 카베르네 소비뇽/3_리뷰12.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/03. 텍스트북, 나파 카베르네 소비뇽/3_리뷰12.jpeg", 
             ]
         },
         {
@@ -401,7 +401,7 @@ const WineReviews = {
             date: "2023-10-18",
             content: "풍부한 과일 향과 균형 잡힌 맛을 가지고 있어요! 향긋합니닷!!!!",
             images: [
-                "/wine-review-images/04. 투핸즈, 엔젤스 쉐어 쉬라즈/4_리뷰1.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/04. 투핸즈, 엔젤스 쉐어 쉬라즈/4_리뷰1.jpeg", 
             ]
         },
         {
@@ -411,7 +411,7 @@ const WineReviews = {
             date: "2025-2-25",
             content: "부드러운 탄닌과 산도가 조화가 끝내줘용 제 최애 와인입니닷 >_<",
             images: [
-                "/wine-review-images/04. 투핸즈, 엔젤스 쉐어 쉬라즈/4_리뷰2.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/04. 투핸즈, 엔젤스 쉐어 쉬라즈/4_리뷰2.jpeg", 
             ]
         },
         {
@@ -428,7 +428,7 @@ const WineReviews = {
             date: "2024-1-21",
             content: "적절한 숙성을 거쳐 부드러운 탄닌과 균형 잡힌 산도가 느껴져요",
             images: [
-                "/wine-review-images/04. 투핸즈, 엔젤스 쉐어 쉬라즈/4_리뷰4.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/04. 투핸즈, 엔젤스 쉐어 쉬라즈/4_리뷰4.jpeg", 
             ]
         },
         {
@@ -524,7 +524,7 @@ const WineReviews = {
             date: "2024-5-25",
             content: "역시 투핸즈!! 풍부한 과일 향과 균형 잡힌 맛이 항상 실망시키지 않네요",
             images: [
-                "/wine-review-images/05. 투핸즈, 섹시 비스트/5_리뷰5.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/05. 투핸즈, 섹시 비스트/5_리뷰5.jpeg", 
             ]
         },
         {
@@ -534,7 +534,7 @@ const WineReviews = {
             date: "2025-9-11",
             content: "누가 그러더라구요... 무슨 와인이 맛있는지 모르겠다면.. 그림이 그려지 와인을 사라고...ㅋㅋ",
             images: [
-                "/wine-review-images/05. 투핸즈, 섹시 비스트/5_리뷰6.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/05. 투핸즈, 섹시 비스트/5_리뷰6.jpeg", 
             ]
         },
         {
@@ -609,7 +609,7 @@ const WineReviews = {
             date: "2024-10-7",
             content: "뉴질랜드 소블이 다 좋긴한데 클라우디는 솔직히 클래식이라 항상 만족합니다",
             images: [
-                "/wine-review-images/06. 클라우디 베이, 소비뇽 블랑/6_리뷰2.jpg", 
+                "https://static.minery.co.kr/market/images/wine/review/06. 클라우디 베이, 소비뇽 블랑/6_리뷰2.jpg", 
             ]
         },
         {
@@ -654,7 +654,7 @@ const WineReviews = {
             date: "2023-6-4",
             content: "여기가 유독 싸네요 감사합니다",
             images: [
-                "/wine-review-images/06. 클라우디 베이, 소비뇽 블랑/6_리뷰8.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/06. 클라우디 베이, 소비뇽 블랑/6_리뷰8.jpeg", 
             ]
         },
         {
@@ -664,7 +664,7 @@ const WineReviews = {
             date: "2024-12-3",
             content: "잘마실게요\uD83D\uDE0D",
             images: [
-                "/wine-review-images/06. 클라우디 베이, 소비뇽 블랑/6_리뷰9.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/06. 클라우디 베이, 소비뇽 블랑/6_리뷰9.jpeg", 
             ]
         },
         {
@@ -716,7 +716,7 @@ const WineReviews = {
             date: "2025-12-1",
             content: "알던맛이라 더 맛있다. 오이스터베이보단 클라우디베이",
             images: [
-                "/wine-review-images/06. 클라우디 베이, 소비뇽 블랑/6_리뷰16.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/06. 클라우디 베이, 소비뇽 블랑/6_리뷰16.jpeg", 
             ]
         },
         {
@@ -756,7 +756,7 @@ const WineReviews = {
             date: "2025-10-22",
             content: "거의 이거랑 몇개 좋아하는거만 먹는데 여기에서 다 팔아서 너무 좋아요! :)",
             images: [
-                "/wine-review-images/07. 섹슈얼 초콜릿/7_리뷰3.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/07. 섹슈얼 초콜릿/7_리뷰3.jpeg", 
             ]
         },
         {
@@ -787,7 +787,7 @@ const WineReviews = {
             date: "2023-8-24",
             content: "세번째 구매입니다~ 제 최애 와인이에요ㅎㅎㅎ 제발 많이 팔아주세요!!!!",
             images: [
-                "/wine-review-images/07. 섹슈얼 초콜릿/7_리뷰7.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/07. 섹슈얼 초콜릿/7_리뷰7.jpeg", 
             ]
         },
         {
@@ -811,7 +811,7 @@ const WineReviews = {
             date: "2025-9-14",
             content: "당도도 적당하고 목넘김도 부드러운와인! 근데 농밀한 느낌은 좀 부족해요 그래도 와린이나 선물용으론 좋을것같아요",
             images: [
-                "/wine-review-images/07. 섹슈얼 초콜릿/7_리뷰10.jpg"
+                "https://static.minery.co.kr/market/images/wine/review/07. 섹슈얼 초콜릿/7_리뷰10.jpg", 
             ]
         },
         {
@@ -821,7 +821,7 @@ const WineReviews = {
             date: "2024-1-14",
             content: "사가고 여친한테 칭찬받음 ㅎㅎㅎㅎ",
             images: [
-                "/wine-review-images/07. 섹슈얼 초콜릿/7_리뷰11.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/07. 섹슈얼 초콜릿/7_리뷰11.jpeg", 
             ]
         },
         {
@@ -847,7 +847,7 @@ const WineReviews = {
             date: "2025-1-19",
             content: "탄닌이 부드럽고 조화로운 특징을 지닌 와인입니다. 추천합니다~",
             images: [
-                "/wine-review-images/08. 몰리두커, 더 복서/8_리뷰2.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/08. 몰리두커, 더 복서/8_리뷰2.jpeg", 
             ]
         },
         {
@@ -864,7 +864,7 @@ const WineReviews = {
             date: "2023-3-17",
             content: "오스트리아의 와인이래요! 신기방기 칠레나 프랑스 와인만 먹었는데..! 오스트리아도 잘하네요~ㅋㅋㅋ",
             images: [
-                "/wine-review-images/08. 몰리두커, 더 복서/8_리뷰4.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/08. 몰리두커, 더 복서/8_리뷰4.jpeg", 
             ]
         },
         {
@@ -881,7 +881,7 @@ const WineReviews = {
             date: "2024-8-8",
             content: "맨날 1,2만원 와인만 먹다가 이 와인이 유명하대서 먹어봤어요! 역시..! 비싸서 그런가 훨씬 맛있네요",
             images: [
-                "/wine-review-images/08. 몰리두커, 더 복서/8_리뷰6.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/08. 몰리두커, 더 복서/8_리뷰6.jpeg", 
             ]
         },
         {
@@ -905,7 +905,7 @@ const WineReviews = {
             date: "2024-4-8",
             content: "알음알음 유명한 와인! 우리동네에서 못구했는데, 배송받아서 넘 좋아용",
             images: [
-                "/wine-review-images/08. 몰리두커, 더 복서/8_리뷰9.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/08. 몰리두커, 더 복서/8_리뷰9.jpeg", 
             ]
         },
         {
@@ -952,7 +952,7 @@ const WineReviews = {
             date: "2023-7-1",
             content: "맛있어서 계속 생각나는 맛...! 드리아하고 묵직~한 맛 좋아하시는 분들은 꼭 드셔보세요",
             images: [
-                "/wine-review-images/09. 몰리두커, 블루아이드보이/9_리뷰2.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/09. 몰리두커, 블루아이드보이/9_리뷰2.jpeg", 
             ]
         },
         {
@@ -962,7 +962,7 @@ const WineReviews = {
             date: "2024-1-25",
             content: "더복서 먹다가 이게 더 윗단계라해서 사먹어봄. 가격은 윗단계 맞는듯ㅋ 근데...! 너무 맛있음!!!! 나 이제 더복서 안먹고 이거 먹을거임",
             images: [
-                "/wine-review-images/09. 몰리두커, 블루아이드보이/9_리뷰3.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/09. 몰리두커, 블루아이드보이/9_리뷰3.jpeg", 
             ]
         },
         {
@@ -993,7 +993,7 @@ const WineReviews = {
             date: "2025-2-14",
             content: "하도 추천글이 많아서, 주문해봤어요ㅋㅋㅋ 왜 추천하는지 알겠네요 맛있습니다 굿!",
             images: [
-                "/wine-review-images/09. 몰리두커, 블루아이드보이/9_리뷰7.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/09. 몰리두커, 블루아이드보이/9_리뷰7.jpeg", 
             ]
         },
         {
@@ -1047,7 +1047,7 @@ const WineReviews = {
             date: "2025-2-1",
             content: "배송은 주말껴서 그런지 한 사오일 걸린거 같아요. 조금 떠 빨랐으면 좋겠긴한데ㅎㅎㅎ 그래도 집까지 오니까 좋네요! 맛은 언제나 최고!",
             images: [
-                "/wine-review-images/10. 오이스터 베이 소비뇽 블랑/10_리뷰3.jpg", 
+                "https://static.minery.co.kr/market/images/wine/review/10. 오이스터 베이 소비뇽 블랑/10_리뷰3.jpg", 
             ]
         },
         {
@@ -1064,7 +1064,7 @@ const WineReviews = {
             date: "2024-10-20",
             content: "크림치즈랑 과일이랑 혼자 한병 다먹었어요 \uD83E\uDD0D 또 시킬게요ㅎㅎ",
             images: [
-                "/wine-review-images/10. 오이스터 베이 소비뇽 블랑/10_리뷰5.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/10. 오이스터 베이 소비뇽 블랑/10_리뷰5.jpeg", 
             ]
         },
         {
@@ -1116,7 +1116,7 @@ const WineReviews = {
             date: "2024-4-17",
             content: "오이스터베이는 진리죵 항상 만족합니다. 이번에도 여러병 쟁여둬서 좋아여",
             images: [
-                "/wine-review-images/10. 오이스터 베이 소비뇽 블랑/10_리뷰12.png", 
+                "https://static.minery.co.kr/market/images/wine/review/10. 오이스터 베이 소비뇽 블랑/10_리뷰12.png", 
             ]
         }, 
     ],
@@ -1135,7 +1135,7 @@ const WineReviews = {
             date: "2023-10-11",
             content: "고기랑 먹으니까 좋아요",
             images: [
-                "/wine-review-images/11. 미스터 블랙스 리틀북 쉬라즈 2018/11_리뷰2.png", 
+                "https://static.minery.co.kr/market/images/wine/review/11. 미스터 블랙스 리틀북 쉬라즈 20. 카멜 로드 몬테레이 피노 누아/11_리뷰2.png", 
             ]
         },
         {
@@ -1166,7 +1166,7 @@ const WineReviews = {
             date: "2024-10-3",
             content: "세시간정도 두고 먹었습니다. 맛있네요. 또 주문할 생각 있습니다.",
             images: [
-                "/wine-review-images/11. 미스터 블랙스 리틀북 쉬라즈 2018/11_리뷰6.png", 
+                "https://static.minery.co.kr/market/images/wine/review/11. 미스터 블랙스 리틀북 쉬라즈 20. 카멜 로드 몬테레이 피노 누아/11_리뷰6.png", 
             ]
         },
         {
@@ -1183,7 +1183,7 @@ const WineReviews = {
             date: "2025-7-16",
             content: "탄닌이 강하고 알콜향이 좀 센편 같아요ㅜ 제 취향은 아니지만 새로운 경험이었습니다",
             images: [
-                "/wine-review-images/11. 미스터 블랙스 리틀북 쉬라즈 2018/11_리뷰8.jpg", 
+                "https://static.minery.co.kr/market/images/wine/review/11. 미스터 블랙스 리틀북 쉬라즈 20. 카멜 로드 몬테레이 피노 누아/11_리뷰8.jpg", 
             ]
         }, 
     ],
@@ -1230,7 +1230,7 @@ const WineReviews = {
             date: "2024-12-9",
             content: "와이프가 좋아했던 와인. \n여자친구랑 마시면 아마 칭찬 받으실겁니다.",
             images: [
-                "/wine-review-images/12. 푸나무, 소비뇽 블랑/12_리뷰6.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/12. 푸나무, 소비뇽 블랑/12_리뷰6.jpeg", 
             ]
         },
         {
@@ -1254,7 +1254,7 @@ const WineReviews = {
             date: "2023-7-24",
             content: "맛도 애플사이다랑 비슷한데 당분은 거의 제외시키고 새콤함만 남겨놓은 느낌. 텁텁함은 없어졌다",
             images: [
-                "/wine-review-images/12. 푸나무, 소비뇽 블랑/12_리뷰9.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/12. 푸나무, 소비뇽 블랑/12_리뷰9.jpeg", 
             ]
         },
         {
@@ -1278,7 +1278,7 @@ const WineReviews = {
             date: "2025-9-25",
             content: "맛이나 향이 튀지 않고 균형이 좋음. \n확튀는 맛이 없는데 다채롭지 않으면 심심한데 적절하게 산미를 가지고있음",
             images: [
-                "/wine-review-images/12. 푸나무, 소비뇽 블랑/12_리뷰12.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/12. 푸나무, 소비뇽 블랑/12_리뷰12.jpeg", 
             ]
         },
         {
@@ -1346,7 +1346,7 @@ const WineReviews = {
             date: "2023-9-28",
             content: "이스까이 너무너무너무너무너무 유명하죠...!!!! 항상 먹고싶지만 비싸서 가끔먹는 와인이에용ㅠㅠ",
             images: [
-                "/wine-review-images/13. 트라피체 이스까이 말벡 까베르네 프랑/13_리뷰1.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/13. 트라피체 이스까이 말벡 까베르네 프랑/13_리뷰1.jpeg", 
             ]
         },
         {
@@ -1363,7 +1363,7 @@ const WineReviews = {
             date: "2025-12-18",
             content: "아아 이스까이는 말해뭐해 와인이쥬 종종 먹는데 먹을때마다 감탄합니다..",
             images: [
-                "/wine-review-images/13. 트라피체 이스까이 말벡 까베르네 프랑/13_리뷰3.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/13. 트라피체 이스까이 말벡 까베르네 프랑/13_리뷰3.jpeg", 
             ]
         },
         {
@@ -1387,7 +1387,7 @@ const WineReviews = {
             date: "2024-4-6",
             content: "유명해서 언젠가 꼭! 먹어보고 싶었는데.,.! 특별한 날이라 나를위해 주문했습니다!! 맛있네요!!",
             images: [
-                "/wine-review-images/13. 트라피체 이스까이 말벡 까베르네 프랑/13_리뷰6.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/13. 트라피체 이스까이 말벡 까베르네 프랑/13_리뷰6.jpeg", 
             ]
         },
         {
@@ -1476,7 +1476,7 @@ const WineReviews = {
             date: "2023-7-8",
             content: "레이디 가가 팬이라서 믿고 시켜봤는데 존맛탱 ",
             images: [
-                "/wine-review-images/14. 캔달 잭슨 빈트너스 리저브 샤르도네/14_리뷰3.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/14. 캔달 잭슨 빈트너스 리저브 샤르도네/14_리뷰3.jpeg", 
             ]
         },
         {
@@ -1507,7 +1507,7 @@ const WineReviews = {
             date: "2024-10-2",
             content: "캔달 잭슨 와인은 어딜가든 한번씩 찾게 된다. \n맛있는 샤르도네!",
             images: [
-                "/wine-review-images/14. 캔달 잭슨 빈트너스 리저브 샤르도네/14_리뷰7.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/14. 캔달 잭슨 빈트너스 리저브 샤르도네/14_리뷰7.jpeg", 
             ]
         },
         {
@@ -1524,7 +1524,7 @@ const WineReviews = {
             date: "2023-4-24",
             content: "글이 재미있어서 구매해봤어요. 잘 마실게요!",
             images: [
-                "/wine-review-images/14. 캔달 잭슨 빈트너스 리저브 샤르도네/14_리뷰9.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/14. 캔달 잭슨 빈트너스 리저브 샤르도네/14_리뷰9.jpeg", 
             ]
         },
         {
@@ -1613,7 +1613,7 @@ const WineReviews = {
             date: "2025-8-21",
             content: "복잡한 향과 맛을 가진 와인으로, 저는 특히 바닐라와 향신료가 좋았음",
             images: [
-                "/wine-review-images/15. 롱반 메를로/15_리뷰6.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/15. 롱반 메를로/15_리뷰6.jpeg", 
             ]
         },
         {
@@ -1651,7 +1651,7 @@ const WineReviews = {
             date: "2025-6-7",
             content: "향이 좋아 개인적으로 자주 찾아 마시는 와인",
             images: [
-                "/wine-review-images/15. 롱반 메를로/15_리뷰11.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/15. 롱반 메를로/15_리뷰11.jpeg", 
             ]
         },
         {
@@ -1675,7 +1675,7 @@ const WineReviews = {
             date: "2023-4-22",
             content: "내취향은 아니었는데, 배송 빨라서 좋았음. ",
             images: [
-                "/wine-review-images/15. 롱반 메를로/15_리뷰14.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/15. 롱반 메를로/15_리뷰14.jpeg", 
             ]
         },
         {
@@ -1743,7 +1743,7 @@ const WineReviews = {
             date: "2024-3-10",
             content: "롱반은 사랑입죠",
             images: [
-                "/wine-review-images/16. 롱반 피노누아/16_리뷰8.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/16. 롱반 피노누아/16_리뷰8.jpeg", 
             ]
         },
         {
@@ -1767,7 +1767,7 @@ const WineReviews = {
             date: "2025-3-7",
             content: "초코우유와 딸기를 같이 먹는듯한 느낌의 피노누아였습니다. 스위트 와인이 아님에도 입에서는 꽤 달달한 편",
             images: [
-                "/wine-review-images/16. 롱반 피노누아/16_리뷰11.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/16. 롱반 피노누아/16_리뷰11.jpeg", 
             ]
         },
         {
@@ -1791,7 +1791,7 @@ const WineReviews = {
             date: "2023-7-13",
             content: "롱반은 제품마다 좀 평가가 갈리는것 같다 나는 개인적으로 메를로가 더 취향",
             images: [
-                "/wine-review-images/16. 롱반 피노누아/16_리뷰14.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/16. 롱반 피노누아/16_리뷰14.jpeg", 
             ]
         }, 
     ],
@@ -1810,7 +1810,7 @@ const WineReviews = {
             date: "2025-3-12",
             content: "코르크를 따 서 바로 첫 잔을 마셨을 때는 높은 알콜 도수가 살짝 느껴져서, 와인 디캔터에 담아서 1시간 조금 넘게 두었더니 향과 풍미도 훨씬 다채로워지고, 맛도 한결 부드러워짐 디켄딩 추천",
             images: [
-                "/wine-review-images/17. 토마시, 아마로네 델라 발폴리첼라 클라시코/17_리뷰2.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/17. 토마시, 아마로네 델라 발폴리첼라 클라시코/17_리뷰2.jpeg", 
             ]
         },
         {
@@ -1869,7 +1869,7 @@ const WineReviews = {
             date: "2023-10-28",
             content: "바디감은 미디엄 바디와 풀 바디 중간 정도로 너무 무겁지 않고, 타닌도 강하지 않았습니다. ",
             images: [
-                "/wine-review-images/17. 토마시, 아마로네 델라 발폴리첼라 클라시코/17_리뷰10.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/17. 토마시, 아마로네 델라 발폴리첼라 클라시코/17_리뷰10.jpeg", 
             ]
         },
         {
@@ -1886,7 +1886,7 @@ const WineReviews = {
             date: "2023-5-7",
             content: "시간이 지날수록 부드럽게 살짝 단 맛이 나기 시작. 부드럽지만 쌉싸름한 피니시가 기억에 남음. .",
             images: [
-                "/wine-review-images/17. 토마시, 아마로네 델라 발폴리첼라 클라시코/17_리뷰12.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/17. 토마시, 아마로네 델라 발폴리첼라 클라시코/17_리뷰12.jpeg", 
             ]
         },
         {
@@ -1926,7 +1926,7 @@ const WineReviews = {
             date: "2023-6-10",
             content: "장점: 샤또 딸보 마셔봤다고 자랑 가능\n",
             images: [
-                "/wine-review-images/18. 샤또 딸보/18_리뷰2.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/18. 샤또 딸보/18_리뷰2.jpeg", 
             ]
         },
         {
@@ -1936,7 +1936,7 @@ const WineReviews = {
             date: "2025-12-15",
             content: "그랑 크뤼 클라세 등급의 와인을 먹어보고싶었는데, 잘 구매했습니다. ",
             images: [
-                "/wine-review-images/18. 샤또 딸보/18_리뷰3.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/18. 샤또 딸보/18_리뷰3.jpeg", 
             ]
         },
         {
@@ -1960,7 +1960,7 @@ const WineReviews = {
             date: "2025-8-20",
             content: "존맛탱 샤또딸보",
             images: [
-                "/wine-review-images/18. 샤또 딸보/18_리뷰6.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/18. 샤또 딸보/18_리뷰6.jpeg", 
             ]
         },
         {
@@ -2114,7 +2114,7 @@ const WineReviews = {
             date: "2025-7-18",
             content: "비밀이야 유튜브에도 나와서 구매해봤는데 맛있었어요! \n뭔가 고기랑 정말 잘 어울렸고, 그냥 다른 안주들이랑 먹기에도 괜찮더라구요",
             images: [
-                "/wine-review-images/20. 카멜 로드 몬테레이 피노 누아/20_리뷰5.jpg", 
+                "https://static.minery.co.kr/market/images/wine/review/20. 카멜 로드 몬테레이 피노 누아/20_리뷰5.jpg", 
             ]
         },
         {
@@ -2182,7 +2182,7 @@ const WineReviews = {
             date: "2023-10-24",
             content: "가격대비 괜찮넹.",
             images: [
-                "/wine-review-images/21. 트라피체, 브로켈 말벡/21_리뷰4.jpg"
+                "https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰4.jpg", 
             ]
         },
         {
@@ -2199,7 +2199,7 @@ const WineReviews = {
             date: "2023-10-4",
             content: "첫잔은 좀 떫어요. 10분정도 뒤에 마시는거 추천",
             images: [
-                "/wine-review-images/21. 트라피체, 브로켈 말벡/21_리뷰6.jpg"
+                "https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰6.jpg", 
             ]
         },
         {
@@ -2230,7 +2230,7 @@ const WineReviews = {
             date: "2025-4-14",
             content: "인기가 많아서 잘 찾기 힘들었는데 편하고 좋네요~",
             images: [
-                "/wine-review-images/21. 트라피체, 브로켈 말벡/21_리뷰10.JPG"
+                "https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰10.JPG", 
             ]
         },
         {
@@ -2277,7 +2277,7 @@ const WineReviews = {
             date: "2024-9-15",
             content: "너무 자주 보이는 흔한 와인이지만, 항상 평타이상 치는 와인",
             images: [
-                "/wine-review-images/22. 몬테스 알파 카베르네 소비뇽/22_리뷰1.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/22. 몬테스 알파 카베르네 소비뇽/22_리뷰1.jpeg", 
             ]
         },
         {
@@ -2315,7 +2315,7 @@ const WineReviews = {
             date: "2025-10-6",
             content: "너무 유명한 와인! 와인 좋아한다는 사람중에 이거 안먹어본 사람 없음",
             images: [
-                "/wine-review-images/22. 몬테스 알파 카베르네 소비뇽/22_리뷰6.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/22. 몬테스 알파 카베르네 소비뇽/22_리뷰6.jpeg", 
             ]
         },
         {
@@ -2339,7 +2339,7 @@ const WineReviews = {
             date: "2023-8-13",
             content: "항상 먹어도 맛있어요~",
             images: [
-                "/wine-review-images/22. 몬테스 알파 카베르네 소비뇽/22_리뷰9.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/22. 몬테스 알파 카베르네 소비뇽/22_리뷰9.jpeg", 
             ]
         },
         {
@@ -2472,7 +2472,7 @@ const WineReviews = {
             date: "2023-8-5",
             content: "가성비 최고 레드ㅠ 이만한게 없네요",
             images: [
-                "/wine-review-images/24. 피치니 메모로 로쏘 레드/24_리뷰2.png"
+                "https://static.minery.co.kr/market/images/wine/review/24. 피치니 메모로 로쏘 레드/24_리뷰2.png", 
             ]
         },
         {
@@ -2503,7 +2503,7 @@ const WineReviews = {
             date: "2025-12-2",
             content: "가성비가 너무 좋고 집까지 배송도 되니까 진짜 안살수가 없어요(텅장ㅠㅠ)",
             images: [
-                "/wine-review-images/24. 피치니 메모로 로쏘 레드/24_리뷰6.png"
+                "https://static.minery.co.kr/market/images/wine/review/24. 피치니 메모로 로쏘 레드/24_리뷰6.png", 
             ]
         },
         {
@@ -2513,7 +2513,7 @@ const WineReviews = {
             date: "2024-12-6",
             content: "배송도 빠르거 포장상태도 꼼꼼하고, 카드나 같이오는 과자도 너무 ㅁ맘에드네요",
             images: [
-                "/wine-review-images/24. 피치니 메모로 로쏘 레드/24_리뷰7.png"
+                "https://static.minery.co.kr/market/images/wine/review/24. 피치니 메모로 로쏘 레드/24_리뷰7.png", 
             ]
         }, 
     ],
@@ -2546,7 +2546,7 @@ const WineReviews = {
             date: "2025-9-5",
             content: "와인 초심자에게도 추천하는 와인! 가격도 나쁘지 않고, 맛은 더 나쁘지 않음~",
             images: [
-                "/wine-review-images/25. 헨켈 트로켄/25_리뷰4.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/25. 헨켈 트로켄/25_리뷰4.jpeg", 
             ]
         },
         {
@@ -2563,7 +2563,7 @@ const WineReviews = {
             date: "2025-8-24",
             content: "가성비 좋네요~ 나쁘지 않아요",
             images: [
-                "/wine-review-images/25. 헨켈 트로켄/25_리뷰6.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/25. 헨켈 트로켄/25_리뷰6.jpeg", 
             ]
         },
         {
@@ -2573,7 +2573,7 @@ const WineReviews = {
             date: "2024-6-14",
             content: "맛있어용~! 와린이 입맛에 굿~ㅋㅋ",
             images: [
-                "/wine-review-images/25. 헨켈 트로켄/25_리뷰7.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/25. 헨켈 트로켄/25_리뷰7.jpeg", 
             ]
         },
         {
@@ -2606,7 +2606,7 @@ const WineReviews = {
             date: "2024-4-13",
             content: "흔하지 않은데, 무난한 맛이라~ 친구들올때 사면 좋아용~!",
             images: [
-                "/wine-review-images/26. 핀카 로스 알히베스 셀렉투스/26_리뷰2.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/26. 핀카 로스 알히베스 셀렉투스/26_리뷰2.jpeg", 
             ]
         },
         {
@@ -2616,7 +2616,7 @@ const WineReviews = {
             date: "2023-4-13",
             content: "풍부한 풍미와 균형 잡힌 맛!",
             images: [
-                "/wine-review-images/26. 핀카 로스 알히베스 셀렉투스/26_리뷰3.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/26. 핀카 로스 알히베스 셀렉투스/26_리뷰3.jpeg", 
             ]
         },
         {
@@ -2668,7 +2668,7 @@ const WineReviews = {
             date: "2023-5-18",
             content: "저번에 먹어본 와인~! 맛있어서 또시킴~",
             images: [
-                "/wine-review-images/26. 핀카 로스 알히베스 셀렉투스/26_리뷰10.jpeg", 
+                "https://static.minery.co.kr/market/images/wine/review/26. 핀카 로스 알히베스 셀렉투스/26_리뷰10.jpeg", 
             ]
         },
         {
@@ -2715,7 +2715,7 @@ const WineReviews = {
             date: "2024-11-11",
             content: "대체로 부드러워서 선호해요. 여기가 거의 최저가라 싸게 산것 같아 기분 좋네요",
             images: [
-                "/wine-review-images/27. 마쩨이 필리프 2019/27_리뷰4.png"
+                "https://static.minery.co.kr/market/images/wine/review/27. 마쩨이 필리프 2019/27_리뷰4.png", 
             ]
         },
         {
@@ -2732,7 +2732,7 @@ const WineReviews = {
             date: "2024-5-6",
             content: "바디감도 좋고 밸런스 좋은 와인",
             images: [
-                "/wine-review-images/27. 마쩨이 필리프 2019/27_리뷰6.jpg"
+                "https://static.minery.co.kr/market/images/wine/review/27. 마쩨이 필리프 2019/27_리뷰6.jpg", 
             ]
         },
         {
@@ -2742,7 +2742,7 @@ const WineReviews = {
             date: "2025-8-17",
             content: "싸게 잘샀네요ㅎㅎ",
             images: [
-                "/wine-review-images/27. 마쩨이 필리프 2019/27_리뷰7.jpg"
+                "https://static.minery.co.kr/market/images/wine/review/27. 마쩨이 필리프 2019/27_리뷰7.jpg", 
             ]
         },
         {
@@ -2789,7 +2789,7 @@ const WineReviews = {
             date: "2024-5-4",
             content: "너무 예뻐서 사봤어요ㅋㅋ 맛도 괜찮은게 파티용으로 또 살거같아요",
             images: [
-                "/wine-review-images/28. 크로닉 셀라 핑크 페달스 로제/28_리뷰1.jpg", 
+                "https://static.minery.co.kr/market/images/wine/review/28. 크로닉 셀라 핑크 페달스 로제/28_리뷰1.jpg", 
             ]
         },
         {
@@ -2813,7 +2813,7 @@ const WineReviews = {
             date: "2024-11-15",
             content: "크로닉셀라는 데드너츠로 알게됐는데 이런와인도 파는지 이번에 첨알았어요!!~ㅎㅎㅎ 먹어보니 맛있네요ㅎㅎ",
             images: [
-                "/wine-review-images/28. 크로닉 셀라 핑크 페달스 로제/28_리뷰4.jpg", 
+                "https://static.minery.co.kr/market/images/wine/review/28. 크로닉 셀라 핑크 페달스 로제/28_리뷰4.jpg", 
             ]
         },
         {
@@ -2837,7 +2837,7 @@ const WineReviews = {
             date: "2024-10-18",
             content: "해골이 너무 개성있네용 조아용^^",
             images: [
-                "/wine-review-images/28. 크로닉 셀라 핑크 페달스 로제/28_리뷰7.jpg", 
+                "https://static.minery.co.kr/market/images/wine/review/28. 크로닉 셀라 핑크 페달스 로제/28_리뷰7.jpg", 
             ]
         }, 
     ],
@@ -2849,7 +2849,7 @@ const WineReviews = {
             date: "2024-12-22",
             content: "무난무난~",
             images: [
-                "/wine-review-images/29. 간치아 모스카토 다스티/29_리뷰1.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/29. 간치아 모스카토 다스티/29_리뷰1.jpeg", 
             ]
         },
         {
@@ -2859,7 +2859,7 @@ const WineReviews = {
             date: "2023-2-2",
             content: "\b가성비 괜찮아요",
             images: [
-                "/wine-review-images/29. 간치아 모스카토 다스티/29_리뷰2.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/29. 간치아 모스카토 다스티/29_리뷰2.jpeg", 
             ]
         },
         {
@@ -2890,7 +2890,7 @@ const WineReviews = {
             date: "2025-5-24",
             content: "제 최애 와인 마이너리에서도 팔아서 넘 좋습니당ㅎㅎ 계속 팔아주세요",
             images: [
-                "/wine-review-images/29. 간치아 모스카토 다스티/29_리뷰6.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/29. 간치아 모스카토 다스티/29_리뷰6.jpeg", 
             ]
         },
         {
@@ -2907,7 +2907,7 @@ const WineReviews = {
             date: "2024-2-20",
             content: "이만한게 없음!! 딱 캠핑용",
             images: [
-                "/wine-review-images/29. 간치아 모스카토 다스티/29_리뷰8.jpeg"
+                "https://static.minery.co.kr/market/images/wine/review/29. 간치아 모스카토 다스티/29_리뷰8.jpeg", 
             ]
         },
         {
@@ -2989,7 +2989,7 @@ const WineReviews = {
             date: "2023-7-19",
             content: "마시기 편해서 술술 들어가지만 도수가 일반 와인보다 세기 때문에 언젠가 취해있음",
             images: [
-                "/wine-review-images/30. 샌드맨 파인 루비 포트/30_리뷰10.jpg"
+                "https://static.minery.co.kr/market/images/wine/review/30. 샌드맨 파인 루비 포트/30_리뷰10.jpg", 
             ]
         },
         {
@@ -3020,7 +3020,7 @@ const WineReviews = {
             date: "2024-10-16",
             content: "포트와인이라면 다들 아실만한 샌드맨! 다른 와인도 먹고싶네요",
             images: [
-                "/wine-review-images/30. 샌드맨 파인 루비 포트/30_리뷰14.jpg"
+                "https://static.minery.co.kr/market/images/wine/review/30. 샌드맨 파인 루비 포트/30_리뷰14.jpg", 
             ]
         },
         {
