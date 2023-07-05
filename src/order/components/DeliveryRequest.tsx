@@ -1,10 +1,10 @@
-import { ComponentProps, useState } from 'react';
+import { ComponentProps, useState, useMemo } from 'react';
 import { Spacing, Flex, useTextStyle } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
 import { DELIVERY_REQUEST_TEXT } from 'order/model/DeliveryRequestText';
 import { colors } from 'common/constants';
-import { MText } from 'common/components';
+import { MineryButton, MText } from 'common/components';
 
 export function DeliveryRequest({
   onClose,
@@ -15,6 +15,13 @@ export function DeliveryRequest({
 }) {
   const [selectedRequest, setSelectedRequest] = useState(-1);
   const [writtenText, setWrittenText] = useState('');
+  const isActive = useMemo(() => {
+    if (selectedRequest !== -1 && selectedRequest !== 3) return true;
+    else {
+      if (writtenText.length > 0) return true;
+      return false;
+    }
+  }, [selectedRequest, writtenText]);
 
   return (
     <Container>
@@ -52,9 +59,7 @@ export function DeliveryRequest({
       )}
       <Spacing height={24} />
       <Button
-        size="xl"
-        weight="medium"
-        color={colors.defaultWhite}
+        isActive={isActive}
         onClick={() => {
           if (selectedRequest !== 3)
             setRequest(DELIVERY_REQUEST_TEXT[selectedRequest]);
@@ -63,7 +68,13 @@ export function DeliveryRequest({
           onClose();
         }}
       >
-        다음
+        <MText
+          size="xl"
+          weight="medium"
+          color={isActive ? colors.defaultWhite : colors.gray500}
+        >
+          다음
+        </MText>
       </Button>
     </Container>
   );
@@ -84,15 +95,15 @@ const Round = styled.div<{ isSelected: boolean }>`
   align-items: center;
   width: 20px;
   height: 20px;
-  border: 1.5px solid
+  border: 2px solid
     ${({ isSelected }) =>
       isSelected ? colors.primary700Default : colors.gray400};
   border-radius: 20px;
 
   .inner_round {
-    width: 11px;
-    height: 11px;
-    border-radius: 11px;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
     background-color: ${({ isSelected }) =>
       isSelected ? colors.primary700Default : undefined};
   }
@@ -114,12 +125,12 @@ const StyledRequestTextInput = styled.input`
   width: 100%;
 `;
 
-const Button = styled(MText)`
+const Button = styled(MineryButton)<{ isActive: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 58px;
+  border: none;
   border-radius: 6px;
-  background-color: ${colors.primary700Default};
+  background-color: ${({ isActive }) =>
+    isActive ? colors.primary700Default : colors.gray200};
 `;
