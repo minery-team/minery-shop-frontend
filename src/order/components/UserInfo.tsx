@@ -13,7 +13,7 @@ export function UserInfo({
   userInfo: User;
   setIsCheckSelfReceving: (bool: boolean) => void;
 }) {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(true);
 
   return (
     <Wrapper>
