@@ -49,13 +49,15 @@ export function OrderItemsSection({ data, initialVisible = false }: Props) {
                   <Text size="lg" weight="semibold" color={colors.gray900}>
                     {commaizeNumber(item.product.price)}원
                   </Text>
-                  <OriginPriceText
-                    size="base"
-                    weight="regular"
-                    color={colors.gray500}
-                  >
-                    {commaizeNumber(item.product.originalPrice)}원
-                  </OriginPriceText>
+                  {item.product.originalPrice && (
+                    <OriginPriceText
+                      size="base"
+                      weight="regular"
+                      color={colors.gray500}
+                    >
+                      {commaizeNumber(item.product.originalPrice)}원
+                    </OriginPriceText>
+                  )}
                 </PriceInfoWrapper>
               </WineInfoWrapper>
             </CardWrapper>

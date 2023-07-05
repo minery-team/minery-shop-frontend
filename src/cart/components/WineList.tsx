@@ -65,7 +65,9 @@ export default function WineList({
     );
     const originalPrice = sumBy(
       selectedWineList,
-      (wine) => wine.amount * wine.product.originalPrice || 0
+      (wine) =>
+        wine.amount * wine.product.originalPrice ||
+        wine.amount * wine.product.price
     );
 
     setPriceInfo({ price, originalPrice });

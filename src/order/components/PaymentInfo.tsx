@@ -14,7 +14,12 @@ export function PaymentInfo({ orderList }: { orderList: CartItem[] }) {
   }, [orderList]);
 
   const originalTotalPrice = useMemo(() => {
-    return sumBy(orderList, (item) => item.amount * item.product.originalPrice);
+    return sumBy(
+      orderList,
+      (item) =>
+        item.amount * item.product.originalPrice ||
+        item.amount * item.product.price
+    );
   }, [orderList]);
 
   const shippingPrice = useMemo(() => {

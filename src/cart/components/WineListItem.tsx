@@ -101,14 +101,20 @@ export default function WineListItem({
                   onDecrease={minusWine}
                   value={item.amount}
                 />
-                <Text
-                  size="sm"
-                  weight="regular"
-                  color={colors.gray500}
-                  style={{ textDecoration: 'line-through', marginTop: '12px' }}
-                >
-                  {commaizeNumber(item.product.originalPrice)}원
-                </Text>
+                <Spacing height={8} />
+                {item.product.originalPrice && (
+                  <Text
+                    size="sm"
+                    weight="regular"
+                    color={colors.gray500}
+                    style={{
+                      textDecoration: 'line-through',
+                      marginTop: '4px',
+                    }}
+                  >
+                    {commaizeNumber(item.product.originalPrice)}원
+                  </Text>
+                )}
                 <Text
                   size="lg"
                   weight="semibold"
