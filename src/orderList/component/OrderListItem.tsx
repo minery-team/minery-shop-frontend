@@ -4,6 +4,7 @@ import { Order, OrderStatus, orderStatusToHumanReadable } from 'common/models';
 import { Spacing, Text } from '@boxfoxs/bds-web';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
+import Link from 'next/link';
 
 interface Props {
   order: Order;
@@ -41,7 +42,8 @@ const OrderListItem = ({ order }: Props) => {
       </OrderListItemHeader>
       <Spacing height={20} />
       {order.items.map((item) => (
-        <OrderProductListItem key={item.id}>
+        <Link href={`/product/${item.product.id}`}  key={item.id}>
+        <OrderProductListItem>
           <ProductImage src={item.product.image} alt={item.product.name} />
           <ProductInfoContainer>
             <ProductTitle weight="semibold">{item.product.name}</ProductTitle>
@@ -53,6 +55,8 @@ const OrderListItem = ({ order }: Props) => {
             </Text>
           </ProductInfoContainer>
         </OrderProductListItem>
+        </Link>
+
       ))}
     </OrderListItemContainer>
   );
