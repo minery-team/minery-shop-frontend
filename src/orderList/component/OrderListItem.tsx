@@ -49,7 +49,7 @@ const OrderListItem = ({ order }: Props) => {
               {item.amount}개
             </Text>
             <Text weight="semibold" size="2xl">
-              {commaizeNumber(item.product.price)}
+              {commaizeNumber(item.product.price * item.amount)}원
             </Text>
           </ProductInfoContainer>
         </OrderProductListItem>
