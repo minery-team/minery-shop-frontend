@@ -245,7 +245,6 @@ const WineProduct = ({ product }: Props) => {
               data={[
                 { name: '상품 소개', id: 'description' },
                 { name: '리뷰', id: 'review' },
-                { name: '라벨 상세', id: 'label' },
               ]}
               onClick={handleTabClick}
             />
@@ -263,14 +262,6 @@ const WineProduct = ({ product }: Props) => {
             >
               <Spacing height={20} />
               <ReviewSection id="review" product={product} />
-            </NotifyVisible>
-            <SectionDivider />
-            <NotifyVisible
-              offset={200}
-              onVisible={(state) => state && setTab('label')}
-            >
-              <WineLabelSection id="label" product={product} />
-              <Spacing height={150} />
             </NotifyVisible>
             {/* 주문하기 */}
             <Spacing height={HEADER_SIZE} />
