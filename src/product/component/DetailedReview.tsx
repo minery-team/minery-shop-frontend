@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import styled from '@emotion/styled';
 
 import WineReview from 'product/component/WineReview';
-import { useModal, Section } from 'common/components';
+import { useModal, Section, Container } from 'common/components';
 import { Carousel } from 'common/components/carousel';
 import { colors } from 'common/constants';
 import { WineReviews } from 'common/constants/wine-review';
@@ -19,47 +19,49 @@ export const ReviewDetail = ({
 
   if (!review) return <div>{'해당 리뷰가 없습니다 :('}</div>;
   return (
-    <Wrapper>
-      <div
-        style={{
-          height: '50px',
-          display: 'flex',
-          flexDirection: 'row-reverse',
-          padding: '15px',
-        }}
-      >
-        <button onClick={onClose}>
-          <img src="/assets/x.svg" width={20} height={20} alt="닫기" />
-        </button>
-      </div>
-      {review.images && review.images.length > 0 && (
-        <Carousel
-          dots
-          dotsClass=""
-          // eslint-disable-next-line react/no-unstable-nested-components
-          appendDots={(dots) => {
-            return <CarouselDotsWrapper>{dots}</CarouselDotsWrapper>;
+    <BackgroundContainer>
+      <SizedWrapper>
+        <div
+          style={{
+            height: '50px',
+            display: 'flex',
+            flexDirection: 'row-reverse',
+            padding: '15px',
           }}
         >
-          {review.images.map((image) => (
-            <Rectangle key={image} style={{ background: colors.gray200 }}>
-              <img
-                src={image}
-                alt="상품 이미지"
-                style={{ width: '100%', objectFit: 'cover' }}
-              />
-            </Rectangle>
-          ))}
-        </Carousel>
-      )}
-      <Section
-        style={{
-          paddingTop: '0px',
-        }}
-      >
-        <WineReview review={review} showImages={false} isModal />
-      </Section>
-    </Wrapper>
+          <button onClick={onClose}>
+            <img src="/assets/x.svg" width={20} height={20} alt="닫기" />
+          </button>
+        </div>
+        {review.images && review.images.length > 0 && (
+          <Carousel
+            dots
+            dotsClass=""
+            // eslint-disable-next-line react/no-unstable-nested-components
+            appendDots={(dots) => {
+              return <CarouselDotsWrapper>{dots}</CarouselDotsWrapper>;
+            }}
+          >
+            {review.images.map((image) => (
+              <Rectangle key={image} style={{ background: colors.gray200 }}>
+                <img
+                  src={image}
+                  alt="상품 이미지"
+                  style={{ width: '100%', objectFit: 'cover' }}
+                />
+              </Rectangle>
+            ))}
+          </Carousel>
+        )}
+        <Section
+          style={{
+            paddingTop: '0px',
+          }}
+        >
+          <WineReview review={review} showImages={false} isModal />
+        </Section>
+      </SizedWrapper>
+    </BackgroundContainer>
   );
 };
 
@@ -73,8 +75,16 @@ export const useDetailedReview = (productId: number, reviewId: number) => {
   }, [open, close]);
 };
 
-const Wrapper = styled.div`
+const BackgroundContainer = styled.div`
   width: 100%;
+  height: 100%;
+  background-color: ${colors.defaultWhite};
+  display: flex;
+  justify-content: center;
+`
+
+const SizedWrapper = styled.div`
+  width: 500px;
   height: 100%;
   background-color: ${colors.defaultWhite};
 `;
