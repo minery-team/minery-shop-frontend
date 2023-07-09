@@ -26,7 +26,7 @@ export class ReviewGenerator {
   private parseAndAddWine(parsedCsvRow: string[], wineIndex: number) {
     const wineName = parsedCsvRow[0];
     const rawReviews = parsedCsvRow.slice(1).filter((rawReview) => rawReview.length > 0);
-    const parsedReviews = rawReviews.map((rawReview, reviewIndex) => this.parseReview(rawReview, reviewIndex+1, wineName, wineIndex+1));
+    const parsedReviews = rawReviews.map((rawReview, reviewIndex) => this.parseReview(rawReview, reviewIndex + 1, wineName, wineIndex + 1));
     this.wineReviewMap.set(wineName, parsedReviews);
   }
 
@@ -54,10 +54,10 @@ export class ReviewGenerator {
     const reviewImageFileWithoutExtension2 = `${wineIndex}_리뷰${reviewIndex}`;
 
     const candidateFiles = getFileList(wineReviewImageDirectory);
-    const reviewImageFile = candidateFiles.find((file) => file.startsWith(reviewImageFileWithoutExtension) 
-    || file.startsWith(reviewImageFileWithoutExtension2));
- 
-    if(reviewImageFile){
+    const reviewImageFile = candidateFiles.find((file) => file.startsWith(reviewImageFileWithoutExtension)
+      || file.startsWith(reviewImageFileWithoutExtension2));
+
+    if (reviewImageFile) {
       return `/${ReviewGenerator.wineReviewImageDirectory}/${twoDigitNumberString(wineIndex)}. ${wineName}/${reviewImageFile}`
     }
   }
@@ -75,11 +75,22 @@ export class ReviewGenerator {
     return Math.floor(Math.random() * (ReviewGenerator.maxRating - ReviewGenerator.minRating)) + ReviewGenerator.minRating;
   }
 
-  // get random date string as YY-MM-DD and over 2023-01-01
   private getRandomDate() {
-    const randomYear = Math.floor(Math.random() * 3) + 2023;
-    const randomMonth = Math.floor(Math.random() * 12) + 1;
-    const randomDay = Math.floor(Math.random() * 28) + 1;
-    return `${randomYear}-${randomMonth}-${randomDay}`;
+
+    const start = new Date(2023, 0, 21).getTime(); // month is 0-indexed
+    const end = new Date(2023, 6, 9).getTime();
+
+    // Get a random time between start and end
+    const randomTime = start + Math.random() * (end - start);
+
+    // Convert the random time back to a Date
+    const randomDate = new Date(randomTime);
+
+    // Format the date as YYYY-MM-DD
+    const year = randomDate.getFullYear();
+    const month = (randomDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = randomDate.getDate().toString().padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
   }
 }
