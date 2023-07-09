@@ -175,9 +175,9 @@ const WineProduct = ({ product }: Props) => {
                       width: '106px',
                       height: '120px',
                       borderRadius: '6px',
-                      objectFit: 'contain',
+                      objectFit: 'cover',
                     }}
-                    src={product.wine.image}
+                    src={product.image}
                   />
                   <Spacing height={8} />
                   <Text size="base" weight="semibold">
