@@ -18,6 +18,8 @@ const WineReview = ({ review, showImages = true, isModal = false }: Props) => {
     isModal ? 0 : review.id
   );
 
+  const hiddenName = hideName(review.name)
+
   return (
     <ReviewContainer
       onClick={() => {
@@ -25,7 +27,7 @@ const WineReview = ({ review, showImages = true, isModal = false }: Props) => {
       }}
     >
       <Text color={colors.gray900} size="base" weight="semibold">
-        {review.name}
+        {hiddenName}
       </Text>
       <div
         style={{
@@ -88,3 +90,15 @@ const ReviewContainer = styled.div`
     border-bottom: 1px solid ${colors.gray100};
   }
 `;
+
+function hideName(name: string): string {
+  const nameArray = [...name];
+  if (nameArray.length > 2) {
+      for (let i = 1; i < nameArray.length - 1; i++) {
+          nameArray[i] = '*';
+      }
+  } else if (nameArray.length === 2) {
+      nameArray[nameArray.length - 1] = '*';
+  }
+  return nameArray.join('');
+}
