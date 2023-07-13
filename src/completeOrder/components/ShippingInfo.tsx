@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import { useUserQuery, useAddressList } from 'common/hooks/queries';
 import { colors } from 'common/constants';
+import { formatPhoneNumber } from 'common/utils';
 
 export function ShippingInfo() {
   const [userInfo] = useUserQuery(0);
@@ -28,7 +29,7 @@ export function ShippingInfo() {
           연락처
         </Text>
         <Text size="base" weight="medium" color={colors.gray900}>
-          {userInfo?.phone}
+          {formatPhoneNumber(userInfo?.phone ?? '')}
         </Text>
       </TextWrapper>
       <TextWrapper>

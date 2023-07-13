@@ -59,7 +59,7 @@ export function PaymentInfo({ order }: { order: Order }) {
       </TextWrapper>
       <TextWrapper>
         <Text size="lg" weight="semibold" color={colors.gray900}>
-          결제 예정금액
+          총 결제금액
         </Text>
         <Text size="xl" weight="semibold" color={colors.gray900}>
           {`${commaizeNumber(totalPrice + shippingPrice)}원`}
