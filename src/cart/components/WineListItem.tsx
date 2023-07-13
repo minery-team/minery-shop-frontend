@@ -35,9 +35,10 @@ export default function WineListItem({
   };
 
   const deleteWine = async () => {
-    await confirmDelete();
-    await cart.remove(item.id);
-    deleteToast();
+    await confirmDelete().then(async () => {
+      deleteToast();
+      await cart.remove(item.id);
+    });
   };
 
   const onClickLabel = () => {
