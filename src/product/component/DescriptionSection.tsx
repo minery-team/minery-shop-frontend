@@ -98,6 +98,19 @@ const DescriptionSection = ({ product, ...props }: Props) => {
       </Section>
       <Spacing height={9} />
       <SectionDivider />
+      <Spacing height={20} />
+      <Section>
+        <Text size="xl" weight="semibold" color={colors.gray900}>
+          이런 음식과 잘 어울려요
+        </Text>
+        <Spacing height={12} />
+        <Text color={colors.gray900}>
+          {product.foodDescription}과 잘 어울려요.
+        </Text>
+        <Spacing height={20} />
+
+      </Section>
+      <SectionDivider />
       <Spacing height={30} />
       <div
         style={{

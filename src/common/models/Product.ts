@@ -15,6 +15,7 @@ export interface Product {
   wine: Wine;
   labelImages: string[];
   contentImage: string;
+  foodDescription: string;
 }
 
 export interface ProductOption {
