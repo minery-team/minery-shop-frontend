@@ -3,10 +3,12 @@ import styled from '@emotion/styled';
 import { sumBy } from 'lodash';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
 
 import { createOrder } from 'common/api/order';
 import { colors } from 'common/constants';
 import { useOrderingItems } from 'common/hooks/useOrderingItems';
+import { deliveryMessageState } from 'order/recoil/delivery';
 import { withSuspense } from '@boxfoxs/react';
 import { useCallbackOnce } from '@boxfoxs/core-hooks';
 
@@ -14,6 +16,7 @@ export default withSuspense(function ProcessPayment() {
   const router = useRouter();
   const { query } = router;
   const orderList = useOrderingItems({ suspense: true });
+  const deliveryMessage = useRecoilValue(deliveryMessageState);
 
   const submit = useCallbackOnce(async () => {
     const cost = Number(query.amount);
@@ -31,6 +34,7 @@ export default withSuspense(function ProcessPayment() {
         cartItemIds,
         directItems,
         addressId: Number(query.addressId),
+        deliveryMessage,
       });
       router.push(`/complete-order?orderId=${order.id}`);
     } catch {
