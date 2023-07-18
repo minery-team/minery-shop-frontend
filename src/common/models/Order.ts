@@ -17,4 +17,5 @@ export interface Order {
   status: OrderStatus;
   items: OrderItem[];
   waybillNumber?: string;
+  deliveryMessage: string | null;
 }
