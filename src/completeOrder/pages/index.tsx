@@ -39,7 +39,7 @@ export default withAuth(function CompleteOrder() {
       <StyledDivider width="100%" height={6} color={colors.gray100} />
       <PaymentInfo order={order} />
       <StyledDivider width="100%" height={6} color={colors.gray100} />
-      <ShippingInfo />
+      <ShippingInfo deliveryMessage={order.deliveryMessage} />
       <StyledDivider width="100%" height={6} color={colors.gray100} />
       <Spacing height={98} />
       <Buttons />
