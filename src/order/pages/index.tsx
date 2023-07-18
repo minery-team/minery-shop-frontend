@@ -29,6 +29,7 @@ export default withAuth(function OrderPage() {
     selectedAddress ??
     addressList?.find((a) => a.default) ??
     first(addressList);
+  const [deliveryMessage, setDeliveryMessage] = useState('');
 
   if (!user) {
     return null;
@@ -42,7 +43,7 @@ export default withAuth(function OrderPage() {
       <StyledDivider width="100%" height={6} color={colors.gray100} />
       <OrderItemsSection data={cartList ?? []} />
       <StyledDivider width="100%" height={6} color={colors.gray100} />
-      <AddressInfo value={address} />
+      <AddressInfo value={address} setDeliveryMessage={setDeliveryMessage} />
       <StyledDivider width="100%" height={6} color={colors.gray100} />
       <UserInfo
         userInfo={user}
@@ -56,6 +57,7 @@ export default withAuth(function OrderPage() {
         orderList={cartList ?? []}
         isCheckSelfReceving={isCheckSelfReceving}
         address={address}
+        deliveryMessage={deliveryMessage}
       />
     </Wrapper>
   );
