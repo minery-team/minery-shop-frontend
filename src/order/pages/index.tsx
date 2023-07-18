@@ -21,9 +21,9 @@ import { AddressInfo } from 'order/components/AddressInfo';
 
 export default withAuth(function OrderPage() {
   const [user] = useUser(); // TODO userId 변경
-  const cartList = useOrderingItems();
+  const [addressList] = useAddressList({ suspense: true });
+  const cartList = useOrderingItems({ suspense: true });
   const [isCheckSelfReceving, setIsCheckSelfReceving] = useState(true);
-  const [addressList] = useAddressList();
   const [selectedAddress] = useState<Address>();
   const address =
     selectedAddress ??

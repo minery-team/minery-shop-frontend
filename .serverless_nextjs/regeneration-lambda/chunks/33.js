@@ -105,7 +105,7 @@ var constants = __webpack_require__(16439);
 // EXTERNAL MODULE: ./node_modules/@tosspayments/sdk/dist/tosspayments.cjs.js
 var tosspayments_cjs = __webpack_require__(85685);
 ;// CONCATENATED MODULE: ./src/common/constants/toss.ts
-const TOSS_PAYMENT_KEY = "test_ck_7XZYkKL4MrjJ5xRaPgAr0zJwlEWR";
+const TOSS_PAYMENT_KEY = "live_ck_7DLJOpm5QrlJ6EBGWzN3PNdxbWnY";
 
 ;// CONCATENATED MODULE: ./src/common/utils/requestTossPay.ts
 
@@ -325,7 +325,7 @@ function PaymentInfo({ orderList  }) {
         orderList
     ]);
     const originalTotalPrice = (0,react.useMemo)(()=>{
-        return (0,lodash.sumBy)(orderList, (item)=>item.amount * item.product.originalPrice);
+        return (0,lodash.sumBy)(orderList, (item)=>item.amount * item.product.originalPrice || item.amount * item.product.price);
     }, [
         orderList
     ]);
@@ -437,7 +437,7 @@ const ShipmentTextWrapper = emotion_styled_esm/* default.div */.Z.div`
 
 
 function UserInfo({ userInfo , setIsCheckSelfReceving  }) {
-    const { 0: isChecked , 1: setIsChecked  } = (0,react.useState)(false);
+    const { 0: isChecked , 1: setIsChecked  } = (0,react.useState)(true);
     return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(UserInfo_Wrapper, {
         children: [
             /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Text */.xv, {
@@ -867,7 +867,7 @@ function OrderItemsSection({ data , initialVisible =false  }) {
                                                     "원"
                                                 ]
                                             }),
-                                            /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(OriginPriceText, {
+                                            item.product.originalPrice && /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(OriginPriceText, {
                                                 size: "base",
                                                 weight: "regular",
                                                 color: constants/* colors.gray500 */.O9.gray500,
@@ -984,6 +984,16 @@ const DELIVERY_REQUEST_TEXT = [
 function DeliveryRequest({ onClose , setRequest  }) {
     const { 0: selectedRequest , 1: setSelectedRequest  } = (0,react.useState)(-1);
     const { 0: writtenText , 1: setWrittenText  } = (0,react.useState)("");
+    const isActive = (0,react.useMemo)(()=>{
+        if (selectedRequest !== -1 && selectedRequest !== 3) return true;
+        else {
+            if (writtenText.length > 0) return true;
+            return false;
+        }
+    }, [
+        selectedRequest,
+        writtenText
+    ]);
     return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(Container, {
         children: [
             /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(components/* MText */.HP, {
@@ -1028,15 +1038,18 @@ function DeliveryRequest({ onClose , setRequest  }) {
                 height: 24
             }),
             /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(Button, {
-                size: "xl",
-                weight: "medium",
-                color: constants/* colors.defaultWhite */.O9.defaultWhite,
+                isActive: isActive,
                 onClick: ()=>{
                     if (selectedRequest !== 3) setRequest(DELIVERY_REQUEST_TEXT[selectedRequest]);
                     else setRequest(writtenText);
                     onClose();
                 },
-                children: "다음"
+                children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(components/* MText */.HP, {
+                    size: "xl",
+                    weight: "medium",
+                    color: isActive ? constants/* colors.defaultWhite */.O9.defaultWhite : constants/* colors.gray500 */.O9.gray500,
+                    children: "다음"
+                })
             })
         ]
     });
@@ -1054,14 +1067,14 @@ const Round = emotion_styled_esm/* default.div */.Z.div`
   align-items: center;
   width: 20px;
   height: 20px;
-  border: 1.5px solid
+  border: 2px solid
     ${({ isSelected  })=>isSelected ? constants/* colors.primary700Default */.O9.primary700Default : constants/* colors.gray400 */.O9.gray400};
   border-radius: 20px;
 
   .inner_round {
-    width: 11px;
-    height: 11px;
-    border-radius: 11px;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
     background-color: ${({ isSelected  })=>isSelected ? constants/* colors.primary700Default */.O9.primary700Default : undefined};
   }
 `;
@@ -1084,14 +1097,13 @@ const StyledRequestTextInput = emotion_styled_esm/* default.input */.Z.input`
   border-radius: 6px;
   width: 100%;
 `;
-const Button = (0,emotion_styled_esm/* default */.Z)(components/* MText */.HP)`
+const Button = (0,emotion_styled_esm/* default */.Z)(components/* MineryButton */.Cn)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 58px;
+  border: none;
   border-radius: 6px;
-  background-color: ${constants/* colors.primary700Default */.O9.primary700Default};
+  background-color: ${({ isActive  })=>isActive ? constants/* colors.primary700Default */.O9.primary700Default : constants/* colors.gray200 */.O9.gray200};
 `;
 
 ;// CONCATENATED MODULE: ./src/order/components/index.ts

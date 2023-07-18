@@ -59,7 +59,8 @@ const dummySnack = {
         "https://images.kosher.com/details.slide/g/a/Game_Day_Snack_Mix_-_Stacey_Berk%281%29.jpg",
         "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c25hY2t8ZW58MHx8MHx8fDA%3D&w=1000&q=80", 
     ],
-    contentImage: ""
+    contentImage: "",
+    foodDescription: ""
 };
 
 ;// CONCATENATED MODULE: ./src/common/models/Country.ts

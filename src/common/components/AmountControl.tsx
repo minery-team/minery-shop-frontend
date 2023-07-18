@@ -8,8 +8,8 @@ export function AmountControl({ value, onIncrease, onDecrease }: Props) {
     <CountBox>
       <StyledButton onClick={onDecrease} type="button">
         <MinusIcon
-          width={12}
-          height={12}
+          width={'12px'}
+          height={'12px'}
           color={value > 1 ? colors.gray900 : colors.gray400}
         />
       </StyledButton>
@@ -19,7 +19,7 @@ export function AmountControl({ value, onIncrease, onDecrease }: Props) {
         </Text>
       </Flex.Center>
       <StyledButton onClick={onIncrease} type="button">
-        <PlusIcon width={12} height={12} color={colors.gray900} />
+        <PlusIcon width={'12px'} height={'12px'} color={colors.gray900} />
       </StyledButton>
     </CountBox>
   );

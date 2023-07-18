@@ -336,7 +336,7 @@ const Rectangle = styled.div`
 const StyledTabBar = styled(TabBar)`
   background: white;
   position: sticky;
-  top: 50px;
+  top: calc(env(safe-area-inset-top) + 50px);
   z-index: 2;
   padding-top: 4px;
 `;

@@ -18,7 +18,7 @@ const WineReview = ({ review, showImages = true, isModal = false }: Props) => {
     isModal ? 0 : review.id
   );
 
-  const hiddenName = hideName(review.name)
+  const hiddenName = hideName(review.name);
 
   return (
     <ReviewContainer
@@ -92,13 +92,13 @@ const ReviewContainer = styled.div`
 `;
 
 function hideName(name: string): string {
-  const nameArray = [...name];
+  const nameArray = name.split('');
   if (nameArray.length > 2) {
-      for (let i = 1; i < nameArray.length - 1; i++) {
-          nameArray[i] = '*';
-      }
+    for (let i = 1; i < nameArray.length - 1; i++) {
+      nameArray[i] = '*';
+    }
   } else if (nameArray.length === 2) {
-      nameArray[nameArray.length - 1] = '*';
+    nameArray[nameArray.length - 1] = '*';
   }
   return nameArray.join('');
 }

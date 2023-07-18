@@ -53,7 +53,7 @@
             "queryString": true
           },
           "lambda@edge": {
-            "origin-request": "arn:aws:lambda:us-east-1:917306879000:function:q36d2mi-jxqodkl:1"
+            "origin-request": "arn:aws:lambda:us-east-1:917306879000:function:vqld47c-931zthj:1"
           }
         },
         "_next/image*": {
@@ -75,7 +75,7 @@
             ]
           },
           "lambda@edge": {
-            "origin-request": "arn:aws:lambda:us-east-1:917306879000:function:q36d2mi-142jdek:1"
+            "origin-request": "arn:aws:lambda:us-east-1:917306879000:function:vqld47c-f3wssf:1"
           }
         },
         "_next/data/*": {
@@ -95,8 +95,8 @@
             "queryString": true
           },
           "lambda@edge": {
-            "origin-request": "arn:aws:lambda:us-east-1:917306879000:function:minery-wine-shop-frontend-live:50",
-            "origin-response": "arn:aws:lambda:us-east-1:917306879000:function:minery-wine-shop-frontend-live:50"
+            "origin-request": "arn:aws:lambda:us-east-1:917306879000:function:minery-wine-shop-frontend-live:64",
+            "origin-response": "arn:aws:lambda:us-east-1:917306879000:function:minery-wine-shop-frontend-live:64"
           }
         }
       }
@@ -125,8 +125,8 @@
       "PATCH"
     ],
     "lambda@edge": {
-      "origin-request": "arn:aws:lambda:us-east-1:917306879000:function:minery-wine-shop-frontend-live:50",
-      "origin-response": "arn:aws:lambda:us-east-1:917306879000:function:minery-wine-shop-frontend-live:50"
+      "origin-request": "arn:aws:lambda:us-east-1:917306879000:function:minery-wine-shop-frontend-live:64",
+      "origin-response": "arn:aws:lambda:us-east-1:917306879000:function:minery-wine-shop-frontend-live:64"
     },
     "compress": true
   }

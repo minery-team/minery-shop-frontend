@@ -8,7 +8,7 @@ import { useProductList } from './queries/useWineList';
 import { useCart } from './useCart';
 
 export function useOrderingItems(options?: UseQueryOptions<CartItem[]>) {
-  const [products] = useProductList();
+  const [products] = useProductList({ suspense: options?.suspense });
   const directOrderItem = useMemo<CartItem | null>(() => {
     const data = {
       id: Number(QS.get('productId')),

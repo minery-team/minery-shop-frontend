@@ -23,7 +23,9 @@ exports.modules = {
 
 
 function useOrderingItems(options) {
-    const [products] = (0,_queries_useWineList__WEBPACK_IMPORTED_MODULE_4__/* .useProductList */ .u)();
+    const [products] = (0,_queries_useWineList__WEBPACK_IMPORTED_MODULE_4__/* .useProductList */ .u)({
+        suspense: options === null || options === void 0 ? void 0 : options.suspense
+    });
     const directOrderItem = (0,react__WEBPACK_IMPORTED_MODULE_2__.useMemo)(()=>{
         const data = {
             id: Number(_boxfoxs_next__WEBPACK_IMPORTED_MODULE_0__.QS.get("productId")),

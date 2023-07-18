@@ -1,5 +1,5 @@
 {
-  "name": "q36d2mi-142jdek",
+  "name": "vqld47c-f3wssf",
   "hash": "pPUeR+SxxrCKpJj3Mt0bz/syC5Czn5AKCyOhOtBPZTc=",
   "description": "Image Lambda@Edge for Next CloudFront distribution",
   "memory": 512,
@@ -12,6 +12,6 @@
   "role": {
     "arn": "arn:aws:iam::917306879000:role/8m1ef18-etyjhsc"
   },
-  "arn": "arn:aws:lambda:us-east-1:917306879000:function:q36d2mi-142jdek",
+  "arn": "arn:aws:lambda:us-east-1:917306879000:function:vqld47c-f3wssf",
   "region": "us-east-1"
 }

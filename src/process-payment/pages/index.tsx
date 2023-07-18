@@ -16,7 +16,7 @@ export default withSuspense(function ProcessPayment() {
   const orderList = useOrderingItems({ suspense: true });
 
   const submit = useCallbackOnce(async () => {
-    const cost = sumBy(orderList, (item) => item.amount * item.product.price);
+    const cost = Number(query.amount);
     const directItems = orderList
       .filter((item) => item.isDirect)
       .map((i) => ({ productId: i.product.id, amount: i.amount }));
