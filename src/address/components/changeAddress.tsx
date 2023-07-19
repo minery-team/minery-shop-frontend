@@ -4,10 +4,10 @@ import styled from '@emotion/styled';
 import Image from 'next/image';
 import { colors } from 'common/constants';
 import { useCallback } from 'react';
-import { useToast } from 'common/components/modal/Toast';
+import { useToast } from 'common/layout/ToastProvider';
 
 export function useNewToast() {
-  const { open } = useToast('new-address-toast');
+  const { open } = useToast();
 
   return useCallback(() => {
     open({
@@ -21,7 +21,7 @@ export function useNewToast() {
 }
 
 export function useAddToast() {
-  const { open } = useToast('add-address-toast');
+  const { open } = useToast();
 
   return useCallback(() => {
     open({

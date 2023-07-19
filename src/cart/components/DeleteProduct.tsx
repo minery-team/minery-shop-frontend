@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { colors } from 'common/constants';
 import { useCallback } from 'react';
 import { ConfirmModal } from 'common/components';
-import { useToast } from 'common/components/modal/Toast';
+import { useToast } from 'common/layout/ToastProvider';
 
 export default function DeleteProduct({
   onConfirm,
@@ -42,7 +42,7 @@ export function useDeleteProduct() {
 }
 
 export function useDeleteProductToast() {
-  const { open } = useToast('delete-product-toast');
+  const { open } = useToast();
 
   return useCallback(() => {
     open({
