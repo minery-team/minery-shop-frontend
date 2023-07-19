@@ -42,21 +42,20 @@ const OrderListItem = ({ order }: Props) => {
       </OrderListItemHeader>
       <Spacing height={20} />
       {order.items.map((item) => (
-        <Link href={`/product/${item.product.id}`}  key={item.id}>
-        <OrderProductListItem>
-          <ProductImage src={item.product.image} alt={item.product.name} />
-          <ProductInfoContainer>
-            <ProductTitle weight="semibold">{item.product.name}</ProductTitle>
-            <Text size="sm" color={colors.gray600}>
-              {item.amount}개
-            </Text>
-            <Text weight="semibold" size="2xl">
-              {commaizeNumber(item.product.price * item.amount)}원
-            </Text>
-          </ProductInfoContainer>
-        </OrderProductListItem>
+        <Link href={`/product/${item.product.id}`} key={item.id}>
+          <OrderProductListItem>
+            <ProductImage src={item.product.image} alt={item.product.name} />
+            <ProductInfoContainer>
+              <ProductTitle weight="semibold">{item.product.name}</ProductTitle>
+              <Text size="sm" color={colors.gray600}>
+                {item.amount}개
+              </Text>
+              <Text weight="semibold" size="2xl">
+                {commaizeNumber(item.product.price * item.amount)}원
+              </Text>
+            </ProductInfoContainer>
+          </OrderProductListItem>
         </Link>
-
       ))}
     </OrderListItemContainer>
   );
@@ -97,8 +96,8 @@ const OrderProductListItem = styled.div`
 `;
 
 const ProductImage = styled.img`
-  width: 63px;
-  height: 73px;
+  width: 70px;
+  height: 79px;
 `;
 
 const ProductInfoContainer = styled.div`

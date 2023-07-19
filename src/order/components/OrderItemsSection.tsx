@@ -121,12 +121,13 @@ const CardWrapper = styled.div`
 const ImageWrapper = styled.div`
   width: 70px;
   height: 79px;
+  margin-right: 6px;
 `;
 
 const WineInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 12px;
+  margin-left: 6px;
   gap: 8px;
 `;
 
