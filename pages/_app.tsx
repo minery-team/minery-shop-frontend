@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
 
 import { PopupProvider, PortalProvider } from '@boxfoxs/bds-web';
+import { ToastProvider } from 'common/layout/ToastProvider';
 import { LoggerRoot } from 'common/components';
 import 'react-spring-bottom-sheet/dist/style.css';
 import '../styles/colors.css';
@@ -36,16 +37,18 @@ export default function App({ Component, pageProps }: AppProps) {
             <QueryClientProvider client={queryClient}>
               <PortalProvider zIndex={3}>
                 <PopupProvider>
-                  <AxiosProvider>
-                    <RootContainer>
-                      <Component {...pageProps} />
-                    </RootContainer>
-                    <ReactChannelIO
-                      pluginKey={process.env.NEXT_PUBLIC_CHANNEL_TALK_KEY!}
-                      language="ko"
-                      autoBoot
-                    />
-                  </AxiosProvider>
+                  <ToastProvider>
+                    <AxiosProvider>
+                      <RootContainer>
+                        <Component {...pageProps} />
+                      </RootContainer>
+                      <ReactChannelIO
+                        pluginKey={process.env.NEXT_PUBLIC_CHANNEL_TALK_KEY!}
+                        language="ko"
+                        autoBoot
+                      />
+                    </AxiosProvider>
+                  </ToastProvider>
                 </PopupProvider>
               </PortalProvider>
             </QueryClientProvider>
