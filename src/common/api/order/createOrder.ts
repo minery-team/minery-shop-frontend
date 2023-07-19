@@ -19,5 +19,6 @@ export interface InstantPaymentDTO {
     amount: number;
   }[];
   addressId: number;
+  deliveryMessage: string;
   url?: string;
 }

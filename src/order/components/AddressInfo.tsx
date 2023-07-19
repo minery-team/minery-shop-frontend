@@ -8,10 +8,21 @@ import { Address } from 'common/models';
 import Router from 'next/router';
 import { DeliveryRequest } from 'order/components';
 
-export function AddressInfo({ value }: { value?: Address }) {
+export function AddressInfo({
+  value,
+  setDeliveryMessage,
+}: {
+  value?: Address;
+  setDeliveryMessage: (str: string) => void;
+}) {
   const [requestText, setRequestText] = useState('');
 
-  const openDeliveryRequestModal = useDeliveryRequestModal(setRequestText);
+  const openDeliveryRequestModal = useDeliveryRequestModal(
+    (message: string) => {
+      setRequestText(message);
+      setDeliveryMessage(message);
+    }
+  );
 
   return (
     <Wrapper>

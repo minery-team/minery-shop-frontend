@@ -5,7 +5,11 @@ import { useUserQuery, useAddressList } from 'common/hooks/queries';
 import { colors } from 'common/constants';
 import { formatPhoneNumber } from 'common/utils';
 
-export function ShippingInfo() {
+export function ShippingInfo({
+  deliveryMessage,
+}: {
+  deliveryMessage: string | null;
+}) {
   const [userInfo] = useUserQuery(0);
   const [addressList] = useAddressList();
   const defaultAddress = addressList?.filter((address) => address.default)[0];
@@ -40,14 +44,16 @@ export function ShippingInfo() {
           {`${defaultAddress?.address}(${defaultAddress?.detailAddress})`}
         </Text>
       </TextWrapper>
-      <TextWrapper>
-        <Text size="base" weight="semibold" color={colors.gray900}>
-          배송 메시지
-        </Text>
-        <Text size="base" weight="medium" color={colors.gray900}>
-          부재시 문 앞에 놓아주세요.
-        </Text>
-      </TextWrapper>
+      {deliveryMessage && (
+        <TextWrapper>
+          <Text size="base" weight="semibold" color={colors.gray900}>
+            배송 메시지
+          </Text>
+          <Text size="base" weight="medium" color={colors.gray900}>
+            {deliveryMessage}
+          </Text>
+        </TextWrapper>
+      )}
     </Wrapper>
   );
 }
