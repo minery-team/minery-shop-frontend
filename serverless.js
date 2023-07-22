@@ -1,6 +1,6 @@
 const stage = process.env.STAGE;
 const name = `minery-wine-shop-frontend-${stage}`;
-const distributionId = stage === 'alpha ' ? undefined : 'E3UEKP0PSVMGFD';
+const distributionId = stage === 'alpha' ? 'E12RP9WQE7IIBV' : 'E3UEKP0PSVMGFD';
 
 module.exports = {
   stage: stage,

@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint --fix",
     "clean": "rm -rf .next && rm -rf .serverless && rm -rf .serverless_nextjs",
-    "deploy": "yarn clean && export STAGE=live && sls"
+    "deploy:live": "yarn clean && export STAGE=live && sls",
+    "deploy:alpha": "yarn clean && export STAGE=alpha && sls"
   },
   "dependencies": {
     "@boxfoxs/axios": "^0.0.7",
@@ -77,6 +78,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^8.0.3",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "serverless": "^3.33.0"
   }
 }

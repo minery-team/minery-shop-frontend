@@ -1,0 +1,17 @@
+{
+  "name": "jt3f0fs-ndeajv",
+  "hash": "quBzD0PCSUGhOT6LGsHVtQrtDZdJzZBPKaf4/CrJ9z0=",
+  "description": "API Lambda@Edge for Next CloudFront distribution",
+  "memory": 512,
+  "timeout": 10,
+  "code": "/Users/boxfox/Desktop/projects/minery-frontend2/.serverless_nextjs/api-lambda",
+  "shims": [],
+  "handler": "index.handler",
+  "runtime": "nodejs14.x",
+  "env": {},
+  "role": {
+    "arn": "arn:aws:iam::917306879000:role/8m1ef18-etyjhsc"
+  },
+  "arn": "arn:aws:lambda:us-east-1:917306879000:function:jt3f0fs-ndeajv",
+  "region": "us-east-1"
+}

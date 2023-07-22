@@ -17,7 +17,7 @@ jobs:
       - run:
           name: build
           command: yarn build
-  deploy:
+  deploy-live:
     docker:
       - image: cimg/node:16.10
     steps:
@@ -29,7 +29,20 @@ jobs:
           command: yarn clean
       - run:
           name: deploy
-          command: yarn deploy
+          command: yarn deploy:live
+  deploy-alpha:
+    docker:
+      - image: cimg/node:16.10
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: clean
+          command: yarn clean
+      - run:
+          name: deploy
+          command: yarn deploy:live
 
 workflows:
   run:
@@ -38,7 +51,11 @@ workflows:
           filters:
             branches:
               ignore: main
-      - deploy:
+      - deploy-live:
+          filters:
+            branches:
+              only: main
+      - deploy-alpha:
           filters:
             branches:
               only: publish
