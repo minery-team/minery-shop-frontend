@@ -79,6 +79,6 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
-    "serverless": "^3.33.0"
+    "serverless": "^2.72.4"
   }
 }
