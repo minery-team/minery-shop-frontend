@@ -1,0 +1,62 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.7
+  serverless-framework: circleci/serverless-framework@2.0.1
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:16.10
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: clean
+          command: yarn clean
+      - run:
+          name: build
+          command: yarn build
+  deploy-live:
+    docker:
+      - image: cimg/node:16.10
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: clean
+          command: yarn clean
+      - run:
+          name: deploy
+          command: yarn deploy:live
+  deploy-alpha:
+    docker:
+      - image: cimg/node:16.10
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: clean
+          command: yarn clean
+      - run:
+          name: deploy
+          command: yarn deploy:live
+
+workflows:
+  run:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: main
+      - deploy-live:
+          filters:
+            branches:
+              only: main
+      - deploy-alpha:
+          filters:
+            branches:
+              only: develop
