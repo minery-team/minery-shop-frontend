@@ -31,7 +31,12 @@ const FAQToggle = ({ question, answer }: Props) => {
           }}
         />
       </QuestionContainer>
-      <AnswerContainer expanded={expanded}>{answer}</AnswerContainer>
+      <AnswerContainer expanded={expanded}>
+        <div>
+          <Dot />
+        </div>
+        {answer}
+      </AnswerContainer>
     </LocalContainer>
   );
 };
@@ -59,10 +64,19 @@ const AnswerContainer = styled.div<{ expanded: boolean }>`
   overflow: hidden;
   display: inline-block;
   width: calc(100%);
+  display: flex;
 
   color: var(--gray-700, #4f4f4f);
   /* Base/Regular */
   font-size: 14px;
   font-family: Pretendard;
   line-height: 140%;
+`;
+
+const Dot = styled.div`
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  margin: 7px 10px;
+  background: ${colors.gray700};
 `;

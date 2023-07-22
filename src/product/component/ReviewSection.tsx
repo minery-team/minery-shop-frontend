@@ -17,14 +17,15 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 const ReviewSection = ({ product, ...props }: Props) => {
   const [expanded, setExpanded] = useState(false);
   // TODO: DB에 와인데이터 들어가면, fallback 처리 제거
-  const reviews: Review[] = WineReviews[product.name] || WineReviews['브레드 & 버터, 피노누아']
+  const reviews: Review[] = WineReviews[product.id] || [];
 
   const displayableReviews = expanded ? reviews : reviews.slice(0, 3);
   const reviewsForPreview = reviews
     .filter((review) => review.images !== undefined)
     .slice(0, 4);
-  const averageRating =
-    (reviews.reduce((acc, cur) => acc + cur.rating, 0) / reviews.length).toFixed(1);
+  const averageRating = (
+    reviews.reduce((acc, cur) => acc + cur.rating, 0) / reviews.length
+  ).toFixed(1);
 
   return (
     <Section {...props}>

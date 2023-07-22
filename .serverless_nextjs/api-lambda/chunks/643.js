@@ -90,6 +90,8 @@ function IamportProvider({ children , key  }) {
 var react_channel_plugin_lib = __webpack_require__(50814);
 // EXTERNAL MODULE: ./node_modules/recoil/cjs/index.js
 var cjs = __webpack_require__(94715);
+// EXTERNAL MODULE: ./src/common/layout/ToastProvider.tsx + 1 modules
+var ToastProvider = __webpack_require__(80923);
 // EXTERNAL MODULE: ./src/common/components/index.ts + 27 modules
 var components = __webpack_require__(94312);
 // EXTERNAL MODULE: ./node_modules/react-spring-bottom-sheet/dist/style.css
@@ -103,6 +105,7 @@ var constants = __webpack_require__(16439);
 // EXTERNAL MODULE: ./src/common/hooks/index.ts + 7 modules
 var hooks = __webpack_require__(61441);
 ;// CONCATENATED MODULE: ./pages/_app.tsx
+
 
 
 
@@ -137,19 +140,21 @@ function App({ Component , pageProps  }) {
                             children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* PortalProvider */.Xp, {
                                 zIndex: 3,
                                 children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* PopupProvider */.g8, {
-                                    children: /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(AxiosProvider, {
-                                        children: [
-                                            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(RootContainer, {
-                                                children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(Component, {
-                                                    ...pageProps
+                                    children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(ToastProvider/* ToastProvider */.V, {
+                                        children: /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(AxiosProvider, {
+                                            children: [
+                                                /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(RootContainer, {
+                                                    children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(Component, {
+                                                        ...pageProps
+                                                    })
+                                                }),
+                                                /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(react_channel_plugin_lib.ReactChannelIO, {
+                                                    pluginKey: process.env.NEXT_PUBLIC_CHANNEL_TALK_KEY,
+                                                    language: "ko",
+                                                    autoBoot: true
                                                 })
-                                            }),
-                                            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(react_channel_plugin_lib.ReactChannelIO, {
-                                                pluginKey: process.env.NEXT_PUBLIC_CHANNEL_TALK_KEY,
-                                                language: "ko",
-                                                autoBoot: true
-                                            })
-                                        ]
+                                            ]
+                                        })
                                     })
                                 })
                             })
@@ -359,7 +364,7 @@ var utils = __webpack_require__(73373);
 
 
 async function confirmPass(impUid) {
-    const res = await api_requester/* requester.post */.L.post("/pass/confirm", {
+    const res = await api_requester/* requester.post */.L.post("/auth/pass/confirm", {
         impUid
     });
     await (0,utils/* setAccessToken */.M8)(res.data.access_token);
@@ -2042,7 +2047,6 @@ function useMaintainScroll(key) {
     const router = (0,next_router.useRouter)();
     (0,react.useEffect)(()=>{
         const pos = sessionStorage.getItem(`@scroll-position/${key}/${history.state.key}`);
-        console.log(pos, "asd");
         if (pos) {
             var ref;
             (ref = target.current) === null || ref === void 0 ? void 0 : ref.scrollTo(0, Number(pos));
@@ -2438,6 +2442,91 @@ function useUser(options) {
 
 /***/ }),
 
+/***/ 80923:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "V": () => (/* binding */ ToastProvider),
+  "p": () => (/* binding */ useToast)
+});
+
+// EXTERNAL MODULE: ./node_modules/@emotion/react/jsx-runtime/dist/emotion-react-jsx-runtime.esm.js
+var emotion_react_jsx_runtime_esm = __webpack_require__(68847);
+// EXTERNAL MODULE: ./node_modules/recoil/cjs/index.js
+var cjs = __webpack_require__(94715);
+// EXTERNAL MODULE: ./node_modules/@emotion/styled/dist/emotion-styled.esm.js
+var emotion_styled_esm = __webpack_require__(56361);
+;// CONCATENATED MODULE: ./src/common/recoil/toast.ts
+
+const toastState = (0,cjs/* atom */.cn)({
+    key: "toastState",
+    default: ""
+});
+
+;// CONCATENATED MODULE: ./src/common/layout/ToastProvider.tsx
+
+
+
+
+const ToastItem = ({ content  })=>{
+    return /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(Container, {
+        children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(Wrapper, {
+            children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(ContentWrapper, {
+                children: content
+            })
+        })
+    });
+};
+function ToastProvider({ children  }) {
+    const toastContent = (0,cjs/* useRecoilValue */.sJ)(toastState);
+    return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)("div", {
+        children: [
+            toastContent && /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(ToastItem, {
+                content: toastContent
+            }),
+            children
+        ]
+    });
+}
+function useToast() {
+    const setToastContent = (0,cjs/* useSetRecoilState */.Zl)(toastState);
+    const open = ({ children  })=>{
+        setToastContent(children);
+        setTimeout(()=>{
+            setToastContent("");
+        }, 1000);
+    };
+    return {
+        open
+    };
+}
+const Container = emotion_styled_esm/* default.div */.Z.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const Wrapper = emotion_styled_esm/* default.div */.Z.div`
+  position: fixed;
+  top: 50px;
+  width: calc(100% - 40px);
+  max-width: 460px;
+  padding: 14px 16px;
+  border-radius: 6px;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+`;
+const ContentWrapper = emotion_styled_esm/* default.div */.Z.div`
+  display: flex;
+  align-items: center;
+`;
+
+
+/***/ }),
+
 /***/ 79201:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -2824,7 +2913,7 @@ const StyledImage = (0,emotion_styled_esm/* default */.Z)((image_default()))`
 /***/ 97020:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-c67a75d1b6f99dc8.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/2ZEBGSGRh_EMQ5m9KE5Ox/_buildManifest.js","static/2ZEBGSGRh_EMQ5m9KE5Ox/_ssgManifest.js"],"rootMainFiles":[],"pages":{"/":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/177-587644f64ebb8c5e.js","static/chunks/pages/index-f390ecff4ea1fddc.js"],"/_app":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/css/725018c0f7133c1b.css","static/chunks/pages/_app-ba1d2d4f9a26852b.js"],"/_error":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/_error-a4ba2246ff8fb532.js"],"/address/add-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-ec8cfd74416fdfdb.js","static/chunks/pages/address/add-address-90765eb5e533598a.js"],"/address/new-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-ec8cfd74416fdfdb.js","static/chunks/pages/address/new-address-e6f86e3be7d3f025.js"],"/auth":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth-1f4c3da0818d35bc.js"],"/auth/code":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/code-37e14e96d689e049.js"],"/auth/phone":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/phone-9a89e287ad6c5d57.js"],"/cart":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/cart-d6adf607634b27ec.js"],"/complete-order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/797-00e6ae9224286350.js","static/chunks/pages/complete-order-d6c6ccf4a692bd14.js"],"/customer-service":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/customer-service-200a36f2c50b1fb0.js"],"/my":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/my-0119660fffdb3aac.js"],"/order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/797-00e6ae9224286350.js","static/chunks/pages/order-1e43d69bd7c08aa9.js"],"/order/list":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/order/list-5296aed320838490.js"],"/process-payment":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/process-payment-efb1b98409cf9b9d.js"],"/product/[id]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-f1721ad2c69fbe54.js","static/chunks/177-587644f64ebb8c5e.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]-5061e0f3cb4d35aa.js"],"/product/[id]/label":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-f1721ad2c69fbe54.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/label-72bbc137151266d1.js"],"/product/[id]/review/[reviewId]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-f1721ad2c69fbe54.js","static/chunks/177-587644f64ebb8c5e.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/review/[reviewId]-7b85e80a919b8e1b.js"]},"ampFirstPages":[]}');
+module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-c67a75d1b6f99dc8.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/MtKkWYJdzmyjLUtk3lSJr/_buildManifest.js","static/MtKkWYJdzmyjLUtk3lSJr/_ssgManifest.js"],"rootMainFiles":[],"pages":{"/":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/177-6f3b0c367fda4ba1.js","static/chunks/pages/index-9af6e92007e63a37.js"],"/_app":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/css/725018c0f7133c1b.css","static/chunks/pages/_app-3e32d338772db7e0.js"],"/_error":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/_error-a4ba2246ff8fb532.js"],"/address/add-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-082060bd53a24bcc.js","static/chunks/pages/address/add-address-90765eb5e533598a.js"],"/address/new-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-082060bd53a24bcc.js","static/chunks/pages/address/new-address-e6f86e3be7d3f025.js"],"/auth":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth-1f4c3da0818d35bc.js"],"/auth/code":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/code-37e14e96d689e049.js"],"/auth/phone":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/phone-9a89e287ad6c5d57.js"],"/cart":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/cart-d89318e26191a728.js"],"/complete-order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/797-339923a144547d8f.js","static/chunks/pages/complete-order-e75ae81534391f21.js"],"/customer-service":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/customer-service-43fbf8e06261dc7e.js"],"/my":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/my-fde055c5c7eef750.js"],"/order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/797-339923a144547d8f.js","static/chunks/pages/order-44984135405526bb.js"],"/order/list":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/order/list-5add69b4a3f64571.js"],"/process-payment":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/process-payment-8fb9159429b4ef77.js"],"/product/[id]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/chunks/177-6f3b0c367fda4ba1.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]-52378d9a07619e08.js"],"/product/[id]/label":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/label-c146654fa0d73180.js"],"/product/[id]/review/[reviewId]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/chunks/177-6f3b0c367fda4ba1.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/review/[reviewId]-7b85e80a919b8e1b.js"]},"ampFirstPages":[]}');
 
 /***/ }),
 

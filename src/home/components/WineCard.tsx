@@ -7,9 +7,8 @@ import { colors } from 'common/constants';
 import { WineReviews } from 'common/constants/wine-review';
 import { NAME_BY_WINE_TYPE, Product, WineType } from 'common/models';
 import { Review } from 'common/models/Review';
-import { formatPrice } from 'common/utils';
+import React from 'react';
 
-// price만 별도로 사용
 export function WineCard({
   data,
   onClick,
@@ -18,15 +17,14 @@ export function WineCard({
   onClick: () => void;
 }) {
   const reviews: Review[] = WineReviews[data.name];
-  const averageRating =
-    reviews
-      ? (reviews.reduce((acc, cur) => acc + cur.rating, 0) / reviews.length).toFixed(1)
-      : 4.2;
+  const averageRating = reviews
+    ? (
+        reviews.reduce((acc, cur) => acc + cur.rating, 0) / reviews.length
+      ).toFixed(1)
+    : 4.2;
   const reviewCount = reviews ? reviews.length : 29;
 
   return (
-    // FIXME: eslint 에러제거 필요
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
     <article
       onClick={onClick}
       css={css({
@@ -38,26 +36,30 @@ export function WineCard({
     >
       <img width={158} height={180} src={data.image} alt="wine" />
       <Space bottom="12px" />
-      <div
-        css={css`
-          display: flex;
-        `}
-      >
-        <Text size="sm" weight="medium" color={`${colors.gray700}`}>
-          {data.wine.country}
-        </Text>
-        <Space right="5px" />
-        <Text size="sm" weight="medium" color={`${colors.gray300}`}>
-          |
-        </Text>
-        <Space right="5px" />
-        <Text size="sm" weight="medium" color={`${colors.gray700}`}>
-          {NAME_BY_WINE_TYPE[data.wine.type as WineType]}
-        </Text>
-      </div>
-      <Space bottom="8px" />
+      {data.wine != null && (
+        <React.Fragment>
+          <div
+            css={css`
+              display: flex;
+            `}
+          >
+            <Text size="sm" weight="medium" color={`${colors.gray700}`}>
+              {data.wine.country}
+            </Text>
+            <Space right="5px" />
+            <Text size="sm" weight="medium" color={`${colors.gray300}`}>
+              |
+            </Text>
+            <Space right="5px" />
+            <Text size="sm" weight="medium" color={`${colors.gray700}`}>
+              {NAME_BY_WINE_TYPE[data.wine.type as WineType]}
+            </Text>
+          </div>
+          <Space bottom="8px" />
+        </React.Fragment>
+      )}
       <Text size="base" weight="semibold" color={`${colors.gray900}`}>
-        {data.wine.name}
+        {data.name}
       </Text>
       <Space bottom="8px" />
       {data.originalPrice && (
@@ -94,8 +96,7 @@ export function WineCard({
         <Space right="2px" />
         <Text size="caption" weight="regular" color={`${colors.gray500}`}>
           {/* TODO: 리뷰기능 정식 출시 되면, 리뷰 wine.viewCount 변경 */}
-          {/* ({data.wine.viewCount}) */}
-          ({reviewCount})
+          {/* ({data.wine.viewCount}) */}({reviewCount})
         </Text>
       </div>
     </article>

@@ -7,21 +7,24 @@ import {
   MineryButton,
   useBottomSheet,
 } from 'common/components';
+import { useUser } from 'common/hooks';
 import { useControlCart } from 'common/hooks/useCart';
 import { Product, ProductForSnack } from 'common/models';
 import Router from 'next/router';
 import { useCallback, useState } from 'react';
 import { useFinishAddToCartSheet } from './FinishAddToCardSheet';
+import { useAdultCartGuide } from 'cart/components/AdultCertGuidePopUp';
 
 export function useStartOrderSheet(product: Product | ProductForSnack) {
   const { open } = useBottomSheet();
+  const [user] = useUser();
   const openCartAdded = useFinishAddToCartSheet();
 
   return useCallback(async () => {
     open({
       children: <StartOrderSheet onCart={openCartAdded} product={product} />,
     });
-  }, [product, open, openCartAdded]);
+  }, [product, open, openCartAdded, user]);
 }
 
 export function StartOrderSheet({
@@ -32,6 +35,9 @@ export function StartOrderSheet({
   onCart: () => void;
 }) {
   const [value, setValue] = useState(1);
+  const [user] = useUser();
+  const opneAdult = useAdultCartGuide();
+
   const handleIncease = () => {
     setValue((prev) => prev + 1);
   };
@@ -47,6 +53,14 @@ export function StartOrderSheet({
   };
 
   const handleOrderClick = async () => {
+    if (
+      !!user &&
+      (!user.birthday ||
+        new Date(user.birthday).getFullYear() > new Date().getFullYear() - 19)
+    ) {
+      opneAdult();
+      return;
+    }
     Router.push(
       `/order${QS.create({ productId: product.id, orderAmount: value })}`
     );

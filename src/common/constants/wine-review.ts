@@ -1,7 +1,7 @@
 import { Review } from 'common/models/Review';
 
 export const WineReviews: Record<string, Review[]> = {
-  '브레드 & 버터, 피노누아': [
+  1: [
     {
       id: 1,
       name: '강수민',
@@ -147,7 +147,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '그냥저냥 ㄱㅊㄱㅊ',
     },
   ],
-  '브레드 & 버터, 샤도네이': [
+  2: [
     {
       id: 19,
       name: '강현우',
@@ -245,7 +245,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '후기가 좋아서 사봤는데 나쁘지 않네여',
     },
   ],
-  '텍스트북, 나파 카베르네 소비뇽': [
+  3: [
     {
       id: 31,
       name: '정준호',
@@ -376,7 +376,7 @@ export const WineReviews: Record<string, Review[]> = {
         '과일 향과 약간의 오크 향이 정말 멋지게 어우러져서 균형 잡힌 와인을 즐길 수 있습니다~!',
     },
   ],
-  '투핸즈, 엔젤스 쉐어 쉬라즈': [
+  4: [
     {
       id: 46,
       name: '최현우',
@@ -472,7 +472,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '무난한데 특별함ㅋㅌㅋ',
     },
   ],
-  '투핸즈, 섹시 비스트': [
+  5: [
     {
       id: 58,
       name: '최현우',
@@ -581,7 +581,7 @@ export const WineReviews: Record<string, Review[]> = {
         '와인 애호가들에게 인기 많은 와인이래요~~ 근데 초보자가 먹어도 맛있음ㅋㅋ',
     },
   ],
-  '클라우디 베이, 소비뇽 블랑': [
+  6: [
     {
       id: 72,
       name: '정준호',
@@ -724,7 +724,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '샤워 후 잠깐의 행복이었다... 또 살게요....',
     },
   ],
-  '섹슈얼 초콜릿': [
+  7: [
     {
       id: 90,
       name: '박윤아',
@@ -826,7 +826,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '괜찮습니다. 초콜릿향은 거의 못느꼈어요',
     },
   ],
-  '몰리두커, 더 복서': [
+  8: [
     {
       id: 102,
       name: '강미나',
@@ -934,7 +934,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '청량해요! 고기 먹을때 같이 먹었는데, 입안이 깔끔~!',
     },
   ],
-  '몰리두커, 블루아이드보이': [
+  9: [
     {
       id: 115,
       name: '임민서',
@@ -1027,7 +1027,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '묵직~합니다',
     },
   ],
-  '오이스터 베이 소비뇽 블랑': [
+  10: [
     {
       id: 126,
       name: '박윤아',
@@ -1127,7 +1127,7 @@ export const WineReviews: Record<string, Review[]> = {
       ],
     },
   ],
-  '미스터 블랙스 리틀북 쉬라즈': [
+  11: [
     {
       id: 138,
       name: '박서윤',
@@ -1197,7 +1197,7 @@ export const WineReviews: Record<string, Review[]> = {
       ],
     },
   ],
-  '푸나무, 소비뇽 블랑': [
+  12: [
     {
       id: 146,
       name: '최민준',
@@ -1355,7 +1355,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '뉴질랜드 대표와인! 녹옥을 뜻합니다. \n신선하고 청량해요',
     },
   ],
-  '트라피체 이스까이 말벡 까베르네 프랑': [
+  13: [
     {
       id: 166,
       name: '이서연',
@@ -1476,7 +1476,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '탄닌이 적절히 조화롭게\b있고, 균형잡힌 산도와 풍미가 있어용!',
     },
   ],
-  '캔달 잭슨 빈트너스 리저브 샤르도네': [
+  14: [
     {
       id: 181,
       name: '강민서',
@@ -1598,7 +1598,7 @@ export const WineReviews: Record<string, Review[]> = {
         '과일향이 좋은데 너무 달지도 않고 적당하게 씁스름함이 섞여있어서 더 좋았다.',
     },
   ],
-  '롱반 메를로': [
+  15: [
     {
       id: 196,
       name: '이민준',
@@ -1720,7 +1720,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '롱반 메를로 최고!',
     },
   ],
-  '롱반 피노누아': [
+  16: [
     {
       id: 211,
       name: '이민지',
@@ -1836,7 +1836,7 @@ export const WineReviews: Record<string, Review[]> = {
       ],
     },
   ],
-  '토마시, 아마로네 델라 발폴리첼라 클라시코': [
+  17: [
     {
       id: 225,
       name: '강민주',
@@ -1960,7 +1960,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '바디감이 꽤나 있는 와인. 알콜도수도 생각보다 높아서 훅 취해요',
     },
   ],
-  '샤또 딸보': [
+  18: [
     {
       id: 240,
       name: '김지원',
@@ -2022,7 +2022,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '저렴하게 판매해주세요',
     },
   ],
-  '샤또 몽페라': [
+  19: [
     {
       id: 247,
       name: '한지윤',
@@ -2134,7 +2134,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '잘 마셨습니다!',
     },
   ],
-  '카멜 로드 몬테레이 피노 누아': [
+  20: [
     {
       id: 262,
       name: '임지아',
@@ -2214,7 +2214,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '마케팅을 잘 한 것 같다. ',
     },
   ],
-  '트라피체, 브로켈 말벡': [
+  21: [
     {
       id: 272,
       name: '송서진',
@@ -2333,7 +2333,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '입문용 말벡으로 추천합니다. 그 위로는.. 잘모르겠습니다.',
     },
   ],
-  '몬테스 알파 카베르네 소비뇽': [
+  22: [
     {
       id: 287,
       name: '강지아',
@@ -2443,7 +2443,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '풍부한 과일 향과 균형 잡힌 맛!',
     },
   ],
-  '덕혼 디코이 카르베네 소비뇽': [
+  23: [
     {
       id: 301,
       name: '최지윤',
@@ -2523,7 +2523,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '탄닌이 적절한 와인! ',
     },
   ],
-  '피치니 메모로 로쏘 레드': [
+  24: [
     {
       id: 312,
       name: '박지민',
@@ -2586,7 +2586,7 @@ export const WineReviews: Record<string, Review[]> = {
       ],
     },
   ],
-  '헨켈 트로켄': [
+  25: [
     {
       id: 319,
       name: '강지아',
@@ -2661,7 +2661,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '아직 안먹었어용 기대되네용',
     },
   ],
-  '핀카 로스 알히베스 셀렉투스': [
+  26: [
     {
       id: 328,
       name: '이승현',
@@ -2756,7 +2756,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '한번쯤 먹어봐도 좋을 와인',
     },
   ],
-  '마쩨이 필리프 2019': [
+  27: [
     {
       id: 340,
       name: '박준형',
@@ -2854,7 +2854,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '마시기전 기대중',
     },
   ],
-  '크로닉 셀라 핑크 페달스 로제': [
+  28: [
     {
       id: 352,
       name: '김지원',
@@ -2918,7 +2918,7 @@ export const WineReviews: Record<string, Review[]> = {
       ],
     },
   ],
-  '간치아 모스카토 다스티': [
+  29: [
     {
       id: 359,
       name: '한유진',
@@ -2998,7 +2998,7 @@ export const WineReviews: Record<string, Review[]> = {
       content: '탄산이 너무 쎄지 않아서 조아욥 ^^ ❤️',
     },
   ],
-  '샌드맨 파인 루비 포트': [
+  30: [
     {
       id: 368,
       name: '김서연',

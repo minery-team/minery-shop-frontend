@@ -98,6 +98,8 @@ var emotion_styled_esm = __webpack_require__(56361);
 var lodash = __webpack_require__(96486);
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__(67294);
+// EXTERNAL MODULE: ./node_modules/recoil/cjs/index.js
+var cjs = __webpack_require__(94715);
 // EXTERNAL MODULE: ./src/common/components/index.ts + 27 modules
 var components = __webpack_require__(94312);
 // EXTERNAL MODULE: ./src/common/constants/index.ts + 2 modules
@@ -234,6 +236,8 @@ const EnrollAddressPopUp_StyledText = (0,emotion_styled_esm/* default */.Z)(dist
   align-items: center;
 `;
 
+// EXTERNAL MODULE: ./src/order/recoil/delivery.ts
+var delivery = __webpack_require__(64833);
 // EXTERNAL MODULE: ./src/cart/model/Price.ts
 var Price = __webpack_require__(96369);
 // EXTERNAL MODULE: ./node_modules/@boxfoxs/next/dist/index.js
@@ -252,9 +256,12 @@ var next_dist = __webpack_require__(23399);
 
 
 
-function PaymentButton({ userInfo , orderList , isCheckSelfReceving , address  }) {
+
+
+function PaymentButton({ userInfo , orderList , isCheckSelfReceving , address , deliveryMessage  }) {
     const openCheckSelfReceving = useCheckSelfReceving();
     const openEnrollAddress = useEnrollAddress();
+    const setDeliveryMessage = (0,cjs/* useSetRecoilState */.Zl)(delivery/* deliveryMessageState */.a);
     const totalPrice = (0,react.useMemo)(()=>{
         const price = (0,lodash.sumBy)(orderList, (item)=>item.amount * item.product.price);
         const originalPrice = (0,lodash.sumBy)(orderList, (item)=>item.amount * item.product.originalPrice);
@@ -267,6 +274,7 @@ function PaymentButton({ userInfo , orderList , isCheckSelfReceving , address  }
         if (!address) openEnrollAddress();
         else if (!isCheckSelfReceving) openCheckSelfReceving();
         else {
+            setDeliveryMessage(deliveryMessage);
             const { protocol , host  } = window.location;
             const orderId = `minery_${Date.now()}_${orderList.length}`;
             const params = {
@@ -948,11 +956,12 @@ const CardWrapper = emotion_styled_esm/* default.div */.Z.div`
 const ImageWrapper = emotion_styled_esm/* default.div */.Z.div`
   width: 70px;
   height: 79px;
+  margin-right: 6px;
 `;
 const WineInfoWrapper = emotion_styled_esm/* default.div */.Z.div`
   display: flex;
   flex-direction: column;
-  margin-left: 12px;
+  margin-left: 6px;
   gap: 8px;
 `;
 const PriceInfoWrapper = emotion_styled_esm/* default.div */.Z.div`
@@ -1113,6 +1122,31 @@ const Button = (0,emotion_styled_esm/* default */.Z)(components/* MineryButton *
 
 
 
+
+
+/***/ }),
+
+/***/ 64833:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "a": () => (/* binding */ deliveryMessageState)
+/* harmony export */ });
+/* harmony import */ var recoil__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(94715);
+/* harmony import */ var recoil_persist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6983);
+
+
+const sessionStorage =  false ? 0 : undefined;
+const { persistAtom  } = (0,recoil_persist__WEBPACK_IMPORTED_MODULE_1__/* .recoilPersist */ .J)({
+    storage: sessionStorage
+});
+const deliveryMessageState = (0,recoil__WEBPACK_IMPORTED_MODULE_0__/* .atom */ .cn)({
+    key: "deliveryMessageState",
+    default: "",
+    effects_UNSTABLE: [
+        persistAtom
+    ]
+});
 
 
 /***/ })

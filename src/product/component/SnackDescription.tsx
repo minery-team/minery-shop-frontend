@@ -18,14 +18,15 @@ const SnackDescription = () => {
         }}
       >
         <img
-          src="/assets/snack_example.png"
+          src="https://static.minery.co.kr/market/images/snack/%E1%84%89%E1%85%B3%E1%84%82%E1%85%A2%E1%86%A8%E1%84%83%E1%85%A1%E1%86%AB%E1%84%8E%E1%85%A6.jpg"
           style={{ objectFit: 'contain', width: '100%', height: '100%' }}
         />
       </div>
       <Section>
         <Text color={colors.gray900} size="base" weight="regular">
-          구성 : 견과 5종(땅콩, 아몬드, 호두, 크랜베리, 캐슈넛) 5g, 올리브 5g,
-          땅콩버터 건빵 3g
+          구성 : 피넛버터 프레첼 35g, 트위스츠 프레첼 30g
+          <br />
+          <br />* 스낵 구성은 재고에 따라 달라질 수 있습니다.
         </Text>
       </Section>
     </>

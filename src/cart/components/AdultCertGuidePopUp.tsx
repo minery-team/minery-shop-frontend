@@ -1,10 +1,9 @@
-import { useRouter } from 'next/router';
 import { Text, usePopup } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
+import { useRouter } from 'next/router';
 
-import { colors } from 'common/constants';
 import { ConfirmModal } from 'common/components';
-import { IMP } from 'common/utils/IMP';
+import { colors } from 'common/constants';
 import { useCallback } from 'react';
 
 export function AdultCertGuidePopUp({ onClose }: { onClose: () => void }) {
@@ -30,17 +29,9 @@ export function useAdultCartGuide() {
   const router = useRouter();
   const { open, close } = usePopup('adult-cart-guide-popup');
 
-  const adultCertification = async () => {
-    close();
-
-    await IMP.requestCertification(`${Date.now()}`).then((res) => {
-      if (res.success) router.push('/order');
-    });
-  };
-
   return useCallback(() => {
     open({
-      children: <AdultCertGuidePopUp onClose={adultCertification} />,
+      children: <AdultCertGuidePopUp onClose={close} />,
       onClose: close,
     });
   }, [open, close]);
