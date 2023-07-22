@@ -59,4 +59,4 @@ workflows:
       - deploy-alpha:
           filters:
             branches:
-              only: publish
+              only: develop
