@@ -15,7 +15,7 @@ exports.modules = {
 /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(56361);
 /* harmony import */ var common_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16439);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67294);
-/* harmony import */ var common_components_modal_Toast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(70406);
+/* harmony import */ var common_layout_ToastProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(80923);
 
 
 
@@ -23,7 +23,7 @@ exports.modules = {
 
 
 function useNewToast() {
-    const { open  } = (0,common_components_modal_Toast__WEBPACK_IMPORTED_MODULE_4__/* .useToast */ .p)("new-address-toast");
+    const { open  } = (0,common_layout_ToastProvider__WEBPACK_IMPORTED_MODULE_4__/* .useToast */ .p)();
     return (0,react__WEBPACK_IMPORTED_MODULE_3__.useCallback)(()=>{
         open({
             children: /*#__PURE__*/ _emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsx */ .tZ(_boxfoxs_bds_web__WEBPACK_IMPORTED_MODULE_0__/* .Text */ .xv, {
@@ -38,7 +38,7 @@ function useNewToast() {
     ]);
 }
 function useAddToast() {
-    const { open  } = (0,common_components_modal_Toast__WEBPACK_IMPORTED_MODULE_4__/* .useToast */ .p)("add-address-toast");
+    const { open  } = (0,common_layout_ToastProvider__WEBPACK_IMPORTED_MODULE_4__/* .useToast */ .p)();
     return (0,react__WEBPACK_IMPORTED_MODULE_3__.useCallback)(()=>{
         open({
             children: /*#__PURE__*/ (0,_emotion_react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__/* .jsxs */ .BX)(AddToastWrapper, {

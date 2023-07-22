@@ -13,6 +13,8 @@ import { colors } from 'common/constants';
 import { withAuth } from 'common/hocs';
 import { useCart } from 'common/hooks/useCart';
 import Router from 'next/router';
+import { useAdultCartGuide } from 'cart/components/AdultCertGuidePopUp';
+import { useUser } from 'common/hooks';
 
 export default withAuth(function CartPage() {
   const { value: cartList } = useCart();
@@ -32,11 +34,23 @@ export default withAuth(function CartPage() {
     return '상품을 선택해주세요';
   }, [priceInfo]);
 
+  const opneAdult = useAdultCartGuide();
+  const [user] = useUser();
+
   const handleCTAClick = () => {
     if (!priceInfo.price) return;
 
     if (priceInfo.price > 5000000) {
       openMaxPriceGuide();
+      return;
+    }
+
+    if (
+      !!user &&
+      (!user.birthday ||
+        new Date(user.birthday).getFullYear() > new Date().getFullYear() - 19)
+    ) {
+      opneAdult();
       return;
     }
 

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Flex, Spacing, Text } from '@boxfoxs/bds-web';
 import OrderListFilter from '../component/OrderListFilter';
 import OrderListItem from '../component/OrderListItem';
+import { LoggingState } from '@boxfoxs/logger';
 
 const OrderListPage = () => {
   const [filterStatus, setFilterStatus] = useState<OrderStatusForFilter>('ALL');
@@ -15,24 +16,26 @@ const OrderListPage = () => {
   );
 
   return (
-    <Container style={{ background: colors.gray100 }}>
-      <AppBar back backgrounded>
-        <AppBar.Title>주문내역</AppBar.Title>
-      </AppBar>
-      <OrderListFilter
-        filterStatus={filterStatus}
-        onFilterChange={setFilterStatus}
-      />
-      <OrderListContainer>
-        {filteredOrders?.length ? (
-          filteredOrders.map((order) => (
-            <OrderListItem order={order} key={order.id} />
-          ))
-        ) : (
-          <EmptyBox />
-        )}
-      </OrderListContainer>
-    </Container>
+    <LoggingState name="Page View - order list">
+      <Container style={{ background: colors.gray100 }}>
+        <AppBar back backgrounded>
+          <AppBar.Title>주문내역</AppBar.Title>
+        </AppBar>
+        <OrderListFilter
+          filterStatus={filterStatus}
+          onFilterChange={setFilterStatus}
+        />
+        <OrderListContainer>
+          {filteredOrders?.length ? (
+            filteredOrders.map((order) => (
+              <OrderListItem order={order} key={order.id} />
+            ))
+          ) : (
+            <EmptyBox />
+          )}
+        </OrderListContainer>
+      </Container>
+    </LoggingState>
   );
 };
 

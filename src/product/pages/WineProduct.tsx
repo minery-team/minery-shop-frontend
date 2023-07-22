@@ -1,4 +1,6 @@
 import { Spacing, Text } from '@boxfoxs/bds-web';
+import { useCombinedRefs } from '@boxfoxs/core-hooks';
+import { LoggingClick, LoggingState } from '@boxfoxs/logger';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 import {
@@ -6,12 +8,13 @@ import {
   FixedBottomCTA,
   NotifyVisible,
   Section,
-  SectionDivider,
 } from 'common/components';
+import { CartButton } from 'common/components/appbar/CartButton';
 import { Carousel } from 'common/components/carousel';
 import { Container } from 'common/components/layout/Container';
 import { TabBar } from 'common/components/tabbar';
 import { colors } from 'common/constants';
+import { useMaintainScroll } from 'common/hooks';
 import { NAME_BY_WINE_TYPE, Product, getWineFlagLabel } from 'common/models';
 import { useStartOrderSheet } from 'product/component/bottom-sheet/StartOrderSheet';
 import { useRef, useState } from 'react';
@@ -19,11 +22,6 @@ import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import DescriptionSection from '../component/DescriptionSection';
 import RefundNotice from '../component/RefundNotice';
 import ReviewSection from '../component/ReviewSection';
-import WineLabelSection from '../component/WineLabelSection';
-import { CartButton } from 'common/components/appbar/CartButton';
-import { LoggingState } from '@boxfoxs/logger';
-import { useMaintainScroll } from 'common/hooks';
-import { useCombinedRefs } from '@boxfoxs/core-hooks';
 
 type TabType = 'description' | 'review' | 'label';
 
@@ -265,9 +263,11 @@ const WineProduct = ({ product }: Props) => {
             </NotifyVisible>
             {/* 주문하기 */}
             <Spacing height={HEADER_SIZE} />
-            <FixedBottomCTA full onClick={open}>
-              주문하기
-            </FixedBottomCTA>
+            <LoggingClick name="Tap - CTA in Bottom">
+              <FixedBottomCTA full onClick={open}>
+                주문하기
+              </FixedBottomCTA>
+            </LoggingClick>
           </StyledContainer>
         )}
       </NotifyVisible.Parent>

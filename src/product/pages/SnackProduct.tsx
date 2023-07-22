@@ -18,6 +18,7 @@ import { useRef } from 'react';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import RefundNotice from '../component/RefundNotice';
 import SnackDescription from '../component/SnackDescription';
+import { LoggingClick, LoggingState } from '@boxfoxs/logger';
 
 const HEADER_SIZE = 79;
 
@@ -30,90 +31,95 @@ const SnackProduct = ({ product }: Props) => {
 
   const open = useStartOrderSheet(product);
 
-  const imagesForCarousel = product.images;
-
   return (
-    <StyledContainer ref={containerRef}>
-      <AppBar back floating backgrounded right={<CartButton />} />
-      <Carousel
-        dots
-        dotsClass=""
-        // eslint-disable-next-line react/no-unstable-nested-components
-        appendDots={(dots) => {
-          return <CarouselDotsWrapper>{dots}</CarouselDotsWrapper>;
-        }}
-      >
-        {imagesForCarousel.map((image) => (
-          <Rectangle key={image} style={{ background: colors.gray200 }}>
-            <img src={image} alt="상품 이미지" style={{ width: '100%' }} />
-          </Rectangle>
-        ))}
-      </Carousel>
-      <Section>
-        {/* 국가 및 와인 타입 */}
-        <div
-          style={{
-            display: 'flex',
-            gap: '6px',
-            color: colors.gray700,
-            alignItems: 'center',
+    <LoggingState
+      name="Page View - Product Detail"
+      params={{ type: 'snack', product: product.id }}
+    >
+      <StyledContainer ref={containerRef}>
+        <AppBar back backgrounded right={<CartButton />} />
+        <Carousel
+          dots
+          dotsClass=""
+          // eslint-disable-next-line react/no-unstable-nested-components
+          appendDots={(dots) => {
+            return <CarouselDotsWrapper>{dots}</CarouselDotsWrapper>;
           }}
         >
-          <span>🍿</span>
-          <Text>와인에 곁들여요</Text>
-        </div>
-        {/* 타이틀 */}
-        <Spacing height={12} />
-        <Text size="xl" weight="semibold">
-          {product.name}
-        </Text>
-        <Text size="base" weight="regular" color={colors.gray600}>
-          {product.enName}
-        </Text>
-
-        {/* 가격 */}
-        <Spacing height={12} />
-        <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
-          <Text
-            color={colors.primary700Default}
-            size="heading4"
-            weight="semibold"
-          >
-            {Math.ceil(
-              ((product.originalPrice - product.price) /
-                product.originalPrice) *
-                100
-            )}
-            %
-          </Text>
-          <Text size="heading4" weight="semibold">
-            {commaizeNumber(product.price)}원
-          </Text>
-          <Text
+          {product.images.map((image) => (
+            <Rectangle key={image} style={{ background: colors.gray200 }}>
+              <img src={image} alt="상품 이미지" style={{ width: '100%' }} />
+            </Rectangle>
+          ))}
+        </Carousel>
+        <Section>
+          {/* 국가 및 와인 타입 */}
+          <div
             style={{
-              textDecoration: 'line-through',
+              display: 'flex',
+              gap: '6px',
+              color: colors.gray700,
+              alignItems: 'center',
             }}
-            color={colors.gray500}
           >
-            {commaizeNumber(product.originalPrice)}원
+            <span>🍿</span>
+            <Text>와인에 곁들여요</Text>
+          </div>
+          {/* 타이틀 */}
+          <Spacing height={12} />
+          <Text size="xl" weight="semibold">
+            {product.name}
           </Text>
-        </div>
-      </Section>
-      {/* 배송비 */}
-      <DeliveryFeeNotice />
-      <Spacing height={20} />
-      <SectionDivider />
-      <Spacing height={20} />
-      <SnackDescription />
-      <Spacing height={20} />
-      <RefundNotice />
-      <Spacing height={20} />
-      {/* 주문하기 */}
-      <Spacing height={HEADER_SIZE} />
-      <FixedBottomCTA full onClick={open}>
-        주문하기
-      </FixedBottomCTA>
-    </StyledContainer>
+          <Text size="base" weight="regular" color={colors.gray600}>
+            {product.enName}
+          </Text>
+
+          {/* 가격 */}
+          <Spacing height={12} />
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
+            <Text
+              color={colors.primary700Default}
+              size="heading4"
+              weight="semibold"
+            >
+              {Math.ceil(
+                ((product.originalPrice - product.price) /
+                  product.originalPrice) *
+                  100
+              )}
+              %
+            </Text>
+            <Text size="heading4" weight="semibold">
+              {commaizeNumber(product.price)}원
+            </Text>
+            <Text
+              style={{
+                textDecoration: 'line-through',
+              }}
+              color={colors.gray500}
+            >
+              {commaizeNumber(product.originalPrice)}원
+            </Text>
+          </div>
+        </Section>
+        {/* 배송비 */}
+        <DeliveryFeeNotice />
+        <Spacing height={20} />
+        <SectionDivider />
+        <Spacing height={20} />
+        <SnackDescription />
+        <Spacing height={20} />
+        <RefundNotice />
+        <Spacing height={20} />
+        {/* 주문하기 */}
+        <Spacing height={HEADER_SIZE} />
+        <LoggingClick name="Tap - CTA in Bottom">
+          <FixedBottomCTA full onClick={open}>
+            주문하기
+          </FixedBottomCTA>
+        </LoggingClick>
+      </StyledContainer>
+    </LoggingState>
   );
 };
 

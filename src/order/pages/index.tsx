@@ -2,6 +2,7 @@ import { Divider } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import { useState } from 'react';
 
+import { LoggingClick, LoggingState } from '@boxfoxs/logger';
 import { AppBar } from 'common/components';
 import { colors } from 'common/constants';
 import { withAuth } from 'common/hocs';
@@ -36,30 +37,34 @@ export default withAuth(function OrderPage() {
   }
 
   return (
-    <Wrapper>
-      <AppBar back>
-        <AppBar.Title>결제하기</AppBar.Title>
-      </AppBar>
-      <StyledDivider width="100%" height={6} color={colors.gray100} />
-      <OrderItemsSection data={cartList ?? []} />
-      <StyledDivider width="100%" height={6} color={colors.gray100} />
-      <AddressInfo value={address} setDeliveryMessage={setDeliveryMessage} />
-      <StyledDivider width="100%" height={6} color={colors.gray100} />
-      <UserInfo
-        userInfo={user}
-        setIsCheckSelfReceving={setIsCheckSelfReceving}
-      />
-      <StyledDivider width="100%" height={6} color={colors.gray100} />
-      <PaymentInfo orderList={cartList ?? []} />
-      <Warning />
-      <PaymentButton
-        userInfo={user}
-        orderList={cartList ?? []}
-        isCheckSelfReceving={isCheckSelfReceving}
-        address={address}
-        deliveryMessage={deliveryMessage}
-      />
-    </Wrapper>
+    <LoggingState name="Page View - Order">
+      <Wrapper>
+        <AppBar back>
+          <AppBar.Title>결제하기</AppBar.Title>
+        </AppBar>
+        <StyledDivider width="100%" height={6} color={colors.gray100} />
+        <OrderItemsSection data={cartList ?? []} />
+        <StyledDivider width="100%" height={6} color={colors.gray100} />
+        <AddressInfo value={address} setDeliveryMessage={setDeliveryMessage} />
+        <StyledDivider width="100%" height={6} color={colors.gray100} />
+        <UserInfo
+          userInfo={user}
+          setIsCheckSelfReceving={setIsCheckSelfReceving}
+        />
+        <StyledDivider width="100%" height={6} color={colors.gray100} />
+        <PaymentInfo orderList={cartList ?? []} />
+        <Warning />
+        <LoggingClick name="Tap - Payment in Bottom">
+          <PaymentButton
+            userInfo={user}
+            orderList={cartList ?? []}
+            isCheckSelfReceving={isCheckSelfReceving}
+            address={address}
+            deliveryMessage={deliveryMessage}
+          />
+        </LoggingClick>
+      </Wrapper>
+    </LoggingState>
   );
 });
 

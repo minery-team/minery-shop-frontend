@@ -34,6 +34,18 @@ export function WineList({
     );
   }
 
+  const renderItem = (item: Product) => {
+    return (
+      <LoggingClick name="Tap - Product in Home" params={{ product: item.id }}>
+        <WineCard
+          key={item.id}
+          data={item}
+          onClick={() => handleWineDetailClick(item)}
+        />
+      </LoggingClick>
+    );
+  };
+
   return (
     <section
       css={css({
@@ -45,21 +57,8 @@ export function WineList({
         placeItems: 'center',
       })}
     >
-      {data.map((item: Product, idx: number) => {
-        return (
-          <LoggingClick
-            name="Tap - Product in Home"
-            params={{ product: item.id }}
-          >
-            <WineCard
-              // eslint-disable-next-line react/no-array-index-key
-              key={item.wine.id + idx}
-              data={item}
-              onClick={() => handleWineDetailClick(item)}
-            />
-          </LoggingClick>
-        );
-      })}
+      {data.filter((i) => i.type === 'wine').map(renderItem)}
+      {data.filter((i) => i.type === 'snack').map(renderItem)}
     </section>
   );
 }

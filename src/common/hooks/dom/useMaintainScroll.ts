@@ -11,7 +11,6 @@ export function useMaintainScroll(key: string) {
     const pos = sessionStorage.getItem(
       `@scroll-position/${key}/${history.state.key}`
     );
-    console.log(pos, 'asd');
     if (pos) {
       target.current?.scrollTo(0, Number(pos));
     }
