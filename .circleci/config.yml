@@ -1,0 +1,44 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.7
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:16.10
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: clean
+          command: yarn clean
+      - run:
+          name: build
+          command: yarn build
+  deploy:
+    docker:
+      - image: cimg/node:16.10
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: clean
+          command: yarn clean
+      - run:
+          name: deploy
+          command: yarn deploy
+
+workflows:
+  run:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: main
+      - deploy:
+          filters:
+            branches:
+              only: publish
