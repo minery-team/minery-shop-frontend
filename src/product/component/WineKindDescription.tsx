@@ -6,7 +6,6 @@ import {
   WineSpecies,
 } from 'common/constants/wineSpecies';
 import { Product } from 'common/models';
-import Image from 'next/image';
 import { useMemo, useState } from 'react';
 
 interface Props {
@@ -20,11 +19,11 @@ const WineKindDescription = ({ product }: Props) => {
     return extractWineSpecies(rawWineKind.name);
   }, [rawWineKind?.name]);
   const wineSpeciesData = useMemo(() => {
-    if (!wineSpecies) return null;
+    if (wineSpecies === null) return null;
     return WINE_SPECIES_DATA[wineSpecies];
   }, [wineSpecies]);
   const wineSpeciesDescription = useMemo(() => {
-    if (!wineSpecies) return null;
+    if (wineSpecies === null) return null;
     return DESCRIPTION_BY_WINE_SPECIES[wineSpecies];
   }, [wineSpecies]);
 
@@ -119,7 +118,7 @@ const WineKindDescription = ({ product }: Props) => {
 export default WineKindDescription;
 
 function extractWineSpecies(kindName: string) {
-  const targetSpecies = kindName.replace(' ', '').toLowerCase();
+  const targetSpecies = kindName.replaceAll(' ', '').toLowerCase();
 
   // TODO: Speice 표시 정책 결정 필요
   // Client에서 매핑하는 것 보단, BE에서 모든 정보를 내려주면 어떨지
