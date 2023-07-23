@@ -6,6 +6,7 @@ import Router from 'next/router';
 import { ComponentProps, ReactNode } from 'react';
 import { ControlBox } from './ControlBox';
 import { FloatingAppBarContainer } from './FloatingAppBarContainer';
+import { QS } from '@boxfoxs/next';
 export * from './CartButton';
 
 interface Props {
@@ -36,12 +37,15 @@ export const AppBar = ({
   children,
   right,
 }: Props) => {
+  const backUrl = QS.get('backTo');
   const content = (
     <InnerContainer elevated={elevated} backgrounded={backgrounded}>
       {children && <ContentContainer>{children}</ContentContainer>}
       {logo && <Logo />}
       {back && (
-        <ControlBox onClick={() => Router.back()}>
+        <ControlBox
+          onClick={() => (backUrl ? Router.push(backUrl) : Router.back())}
+        >
           {back === 'x' ? (
             <XMarkIcon width={28} color={colors.gray900} strokeWidth={1.5} />
           ) : (

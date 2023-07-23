@@ -11,6 +11,7 @@ import { useOrderingItems } from 'common/hooks/useOrderingItems';
 import { deliveryMessageState } from 'order/recoil/delivery';
 import { withSuspense } from '@boxfoxs/react';
 import { useCallbackOnce } from '@boxfoxs/core-hooks';
+import { LoggingState } from '@boxfoxs/logger';
 
 export default withSuspense(function ProcessPayment() {
   const router = useRouter();
@@ -50,18 +51,20 @@ export default withSuspense(function ProcessPayment() {
   }, [submit]);
 
   return (
-    <Wrapper>
-      <UrlLottie
-        src="https://assets6.lottiefiles.com/packages/lf20_XgfqoVFulv.json"
-        options={{ loop: true, autoPlay: true }}
-        style={{ width: '200px' }}
-      />
-      <Spacing height={14} />
-      <Text size="lg" color={colors.gray600}>
-        결제 처리중입니다
-      </Text>
-      <Spacing height={60} />
-    </Wrapper>
+    <LoggingState name="Page View - Process Payment">
+      <Wrapper>
+        <UrlLottie
+          src="https://assets6.lottiefiles.com/packages/lf20_XgfqoVFulv.json"
+          options={{ loop: true, autoPlay: true }}
+          style={{ width: '200px' }}
+        />
+        <Spacing height={14} />
+        <Text size="lg" color={colors.gray600}>
+          결제 처리중입니다
+        </Text>
+        <Spacing height={60} />
+      </Wrapper>
+    </LoggingState>
   );
 });
 

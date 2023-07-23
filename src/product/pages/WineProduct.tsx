@@ -57,7 +57,7 @@ const WineProduct = ({ product }: Props) => {
   return (
     <LoggingState
       name="Page View - Product Detail"
-      params={{ product: product.id }}
+      params={{ type: 'wine', product: product.id }}
     >
       <NotifyVisible.Parent>
         {(notifyRef) => (

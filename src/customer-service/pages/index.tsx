@@ -1,4 +1,5 @@
 import { Spacing } from '@boxfoxs/bds-web';
+import { LoggingState } from '@boxfoxs/logger';
 import styled from '@emotion/styled';
 import { AppBar, Container } from 'common/components';
 import { KAKAO_CHANNEL_LINK, colors } from 'common/constants';
@@ -8,31 +9,33 @@ import Link from 'next/link';
 
 const CustomerServicePage = () => {
   return (
-    <Container
-      style={{
-        backgroundColor: colors.gray100,
-      }}
-    >
-      <AppBar back backgrounded>
-        <AppBar.Title>문의하기</AppBar.Title>
-      </AppBar>
-      <CustomerServiceContainer>
-        {FAQList.map((faq) => (
-          <FAQToggle
-            key={faq.question}
-            question={faq.question}
-            answer={faq.answer}
-          />
-        ))}
-      </CustomerServiceContainer>
-      <OneOnOneContainer>
-        <p>더 궁금한 점이 있으신가요?</p>
-        <Link href={KAKAO_CHANNEL_LINK}>
-          <OneOnOneButton>1:1 문의하기</OneOnOneButton>
-        </Link>
-      </OneOnOneContainer>
-      <Spacing height={24} />
-    </Container>
+    <LoggingState name="Page View - FAQ List">
+      <Container
+        style={{
+          backgroundColor: colors.gray100,
+        }}
+      >
+        <AppBar back backgrounded>
+          <AppBar.Title>문의하기</AppBar.Title>
+        </AppBar>
+        <CustomerServiceContainer>
+          {FAQList.map((faq) => (
+            <FAQToggle
+              key={faq.question}
+              question={faq.question}
+              answer={faq.answer}
+            />
+          ))}
+        </CustomerServiceContainer>
+        <OneOnOneContainer>
+          <p>더 궁금한 점이 있으신가요?</p>
+          <Link href={KAKAO_CHANNEL_LINK}>
+            <OneOnOneButton>1:1 문의하기</OneOnOneButton>
+          </Link>
+        </OneOnOneContainer>
+        <Spacing height={24} />
+      </Container>
+    </LoggingState>
   );
 };
 
