@@ -115,7 +115,7 @@ const WineProduct = ({ product }: Props) => {
               {Math.ceil(
                 ((product.originalPrice - product.price) /
                   product.originalPrice) *
-                  100
+                100
               )}
               %
             </Text>
@@ -143,15 +143,11 @@ const WineProduct = ({ product }: Props) => {
           상품구성
         </Text>
         <Spacing height={20} />
-        <div style={{ display: 'flex', gap: '16px', overflow: 'scroll' }}>
-          <div
-            style={{
-              width: '106px',
-            }}
-          >
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+          <div style={{ flex: 1 }}>
             <img
               style={{
-                width: '106px',
+                width: '100%',
                 height: '120px',
                 borderRadius: '6px',
                 objectFit: 'cover',
@@ -163,14 +159,10 @@ const WineProduct = ({ product }: Props) => {
               마이너리 추천 와인 1병
             </Text>
           </div>
-          <div
-            style={{
-              width: '106px',
-            }}
-          >
+          <div style={{ flex: 1 }}>
             <img
               style={{
-                width: '106px',
+                width: '100%',
                 height: '120px',
                 borderRadius: '6px',
                 background: colors.gray200,
@@ -183,14 +175,10 @@ const WineProduct = ({ product }: Props) => {
               와인과 잘 어울리는 스낵 세트 1개
             </Text>
           </div>
-          <div
-            style={{
-              width: '106px',
-            }}
-          >
+          <div style={{ flex: 1 }}>
             <img
               style={{
-                width: '106px',
+                width: '100%',
                 height: '120px',
                 borderRadius: '6px',
                 background: colors.gray200,
