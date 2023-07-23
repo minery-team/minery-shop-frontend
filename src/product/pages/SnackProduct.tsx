@@ -1,4 +1,5 @@
 import { Spacing, Text } from '@boxfoxs/bds-web';
+import { LoggingClick, LoggingState } from '@boxfoxs/logger';
 import { commaizeNumber } from '@boxfoxs/utils';
 import styled from '@emotion/styled';
 import {
@@ -9,16 +10,13 @@ import {
   SectionDivider,
 } from 'common/components';
 import { Carousel } from 'common/components/carousel';
-import { Container } from 'common/components/layout/Container';
 import { TabBar } from 'common/components/tabbar';
 import { colors } from 'common/constants';
 import { ProductForSnack } from 'common/models';
 import { useStartOrderSheet } from 'product/component/bottom-sheet/StartOrderSheet';
-import { useRef } from 'react';
 import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import RefundNotice from '../component/RefundNotice';
 import SnackDescription from '../component/SnackDescription';
-import { LoggingClick, LoggingState } from '@boxfoxs/logger';
 
 const HEADER_SIZE = 79;
 
@@ -27,8 +25,6 @@ interface Props {
 }
 
 const SnackProduct = ({ product }: Props) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   const open = useStartOrderSheet(product);
 
   return (
@@ -36,100 +32,99 @@ const SnackProduct = ({ product }: Props) => {
       name="Page View - Product Detail"
       params={{ type: 'snack', product: product.id }}
     >
-      <StyledContainer ref={containerRef}>
-        <AppBar back backgrounded right={<CartButton />} />
-        <Carousel
-          dots
-          dotsClass=""
-          // eslint-disable-next-line react/no-unstable-nested-components
-          appendDots={(dots) => {
-            return <CarouselDotsWrapper>{dots}</CarouselDotsWrapper>;
+      <AppBar
+        back
+        floating
+        backgrounded
+        takeSpace
+        fixed
+        right={<CartButton />}
+      />
+      <Carousel
+        dots
+        dotsClass=""
+        // eslint-disable-next-line react/no-unstable-nested-components
+        appendDots={(dots) => {
+          return <CarouselDotsWrapper>{dots}</CarouselDotsWrapper>;
+        }}
+      >
+        {product.images.map((image) => (
+          <Rectangle key={image} style={{ background: colors.gray200 }}>
+            <img src={image} alt="상품 이미지" style={{ width: '100%' }} />
+          </Rectangle>
+        ))}
+      </Carousel>
+      <Section>
+        {/* 국가 및 와인 타입 */}
+        <div
+          style={{
+            display: 'flex',
+            gap: '6px',
+            color: colors.gray700,
+            alignItems: 'center',
           }}
         >
-          {product.images.map((image) => (
-            <Rectangle key={image} style={{ background: colors.gray200 }}>
-              <img src={image} alt="상품 이미지" style={{ width: '100%' }} />
-            </Rectangle>
-          ))}
-        </Carousel>
-        <Section>
-          {/* 국가 및 와인 타입 */}
-          <div
-            style={{
-              display: 'flex',
-              gap: '6px',
-              color: colors.gray700,
-              alignItems: 'center',
-            }}
-          >
-            <span>🍿</span>
-            <Text>와인에 곁들여요</Text>
-          </div>
-          {/* 타이틀 */}
-          <Spacing height={12} />
-          <Text size="xl" weight="semibold">
-            {product.name}
-          </Text>
-          <Text size="base" weight="regular" color={colors.gray600}>
-            {product.enName}
-          </Text>
+          <span>🍿</span>
+          <Text>와인에 곁들여요</Text>
+        </div>
+        {/* 타이틀 */}
+        <Spacing height={12} />
+        <Text size="xl" weight="semibold">
+          {product.name}
+        </Text>
+        <Text size="base" weight="regular" color={colors.gray600}>
+          {product.enName}
+        </Text>
 
-          {/* 가격 */}
-          <Spacing height={12} />
-          <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
-            <Text
-              color={colors.primary700Default}
-              size="heading4"
-              weight="semibold"
-            >
-              {Math.ceil(
-                ((product.originalPrice - product.price) /
-                  product.originalPrice) *
-                  100
-              )}
-              %
-            </Text>
-            <Text size="heading4" weight="semibold">
-              {commaizeNumber(product.price)}원
-            </Text>
-            <Text
-              style={{
-                textDecoration: 'line-through',
-              }}
-              color={colors.gray500}
-            >
-              {commaizeNumber(product.originalPrice)}원
-            </Text>
-          </div>
-        </Section>
-        {/* 배송비 */}
-        <DeliveryFeeNotice />
-        <Spacing height={20} />
-        <SectionDivider />
-        <Spacing height={20} />
-        <SnackDescription />
-        <Spacing height={20} />
-        <RefundNotice />
-        <Spacing height={20} />
-        {/* 주문하기 */}
-        <Spacing height={HEADER_SIZE} />
-        <LoggingClick name="Tap - CTA in Bottom">
-          <FixedBottomCTA full onClick={open}>
-            주문하기
-          </FixedBottomCTA>
-        </LoggingClick>
-      </StyledContainer>
+        {/* 가격 */}
+        <Spacing height={12} />
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
+          <Text
+            color={colors.primary700Default}
+            size="heading4"
+            weight="semibold"
+          >
+            {Math.ceil(
+              ((product.originalPrice - product.price) /
+                product.originalPrice) *
+                100
+            )}
+            %
+          </Text>
+          <Text size="heading4" weight="semibold">
+            {commaizeNumber(product.price)}원
+          </Text>
+          <Text
+            style={{
+              textDecoration: 'line-through',
+            }}
+            color={colors.gray500}
+          >
+            {commaizeNumber(product.originalPrice)}원
+          </Text>
+        </div>
+      </Section>
+      {/* 배송비 */}
+      <DeliveryFeeNotice />
+      <Spacing height={20} />
+      <SectionDivider />
+      <Spacing height={20} />
+      <SnackDescription />
+      <Spacing height={20} />
+      <RefundNotice />
+      <Spacing height={20} />
+      {/* 주문하기 */}
+      <Spacing height={HEADER_SIZE} />
+      <LoggingClick name="Tap - CTA in Bottom">
+        <FixedBottomCTA full onClick={open}>
+          주문하기
+        </FixedBottomCTA>
+      </LoggingClick>
     </LoggingState>
   );
 };
 
 export default SnackProduct;
-
-const StyledContainer = styled(Container)`
-  max-height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-`;
 
 const CarouselDotsWrapper = styled.ul`
   position: absolute;
