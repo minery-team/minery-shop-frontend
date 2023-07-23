@@ -7,6 +7,7 @@ import {
 } from 'common/constants/wineSpecies';
 import { Product } from 'common/models';
 import { useMemo, useState } from 'react';
+import { checkLastWord } from 'product/util/formatKorean';
 
 interface Props {
   product: Product;
@@ -29,11 +30,20 @@ const WineKindDescription = ({ product }: Props) => {
 
   const [expanded, setExpanded] = useState(false);
 
+  const checkKorean = (name: string) => {
+    const lastChar = name.charCodeAt(name.length - 1);
+    const isThereLastChar = (lastChar - 0xac00) % 28;
+    if (isThereLastChar) {
+      return `${name}이란`;
+    }
+    return `${name}란`;
+  };
+
   const toggleExpanded = () => {
     setExpanded((prev) => !prev);
   };
 
-  if (!wineSpeciesData || !wineSpeciesDescription) return null
+  if (!wineSpeciesData || !wineSpeciesDescription) return null;
 
   return (
     <div
@@ -72,7 +82,8 @@ const WineKindDescription = ({ product }: Props) => {
               {wineSpeciesData.kindNameEn}
             </Text>
             <Text color={colors.gray700} size="xl" weight="semibold">
-              {wineSpeciesData.kindNameKo}이란?
+              {wineSpeciesData.kindNameKo}
+              {checkLastWord(wineSpeciesData.kindNameKo)}?
             </Text>
           </div>
         </div>
@@ -173,5 +184,5 @@ function extractWineSpecies(kindName: string) {
       return WineSpecies.SAUGIOVESE;
   }
 
-  return null
+  return null;
 }
