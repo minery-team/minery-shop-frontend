@@ -55,7 +55,7 @@ export function Footer() {
           `}
         >
           <Text size="sm" weight="regular" color={colors.gray600}>
-            {`상호명: 주식회사 마이너리대표자: 박유선\n고객센터 번호: 031-714-3222\n이메일 : minery.app@gmail.com\n사업자등록번호 : 359-87-02819\n경기 성남시 분당구 동판교로 122 204동 2502호\n\nⓒ 2023 Minery. All rights reserved.`}
+            {`상호명: 주식회사 마이너리\n대표자: 박유선\n이메일 : minery.app@gmail.com\n사업자등록번호 : 359-87-02819\n경기 성남시 분당구 동판교로 122 204동 2502호\n\nⓒ 2023 Minery. All rights reserved.`}
           </Text>
         </div>
       </div>
