@@ -88,8 +88,8 @@ export default function WineListItem({
                 </WineImageBox>
                 <WineImageBox>
                   <img
-                    src={item.product.image}
-                    alt={`${item.id}`}
+                    src="images/snack.jpg"
+                    alt="snack"
                     width={70}
                     height={79}
                   />
@@ -176,6 +176,6 @@ const WineImageWrapper = styled.div`
 const WineImageBox = styled.div`
   width: 70px;
   height: 79px;
-  border: 1px solid ${colors.gray300};
   border-radius: 6px;
+  overflow: hidden;
 `;

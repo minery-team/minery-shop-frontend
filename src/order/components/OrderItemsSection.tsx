@@ -32,8 +32,8 @@ export function OrderItemsSection({ data, initialVisible = false }: Props) {
               </ImageWrapper>
               <ImageWrapper>
                 <img
-                  src={item.product.image}
-                  alt={`${item.product.id}_${index}`}
+                  src="images/snack.jpg"
+                  alt="snack"
                   width={70}
                   height={79}
                 />
