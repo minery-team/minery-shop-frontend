@@ -77,10 +77,9 @@ const RefundNotice = () => {
             불가합니다.
           </Text>
 
-          {/* 채널톡 메시지 ID 채우기 */}
           <Text color={colors.gray500} size="sm" weight="regular">
             • 제품의 불량, 파손, 오배송일 경우 수령 후 3일 이내 톡채널
-            메시지(000000)로 교환 및 반품을 접수 해주세요.
+            메시지(마이너리)로 교환 및 반품을 접수 해주세요.
           </Text>
 
           <Text color={colors.gray500} size="sm" weight="regular">
