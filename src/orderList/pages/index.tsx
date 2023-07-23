@@ -54,7 +54,7 @@ function EmptyBox() {
       />
       <Spacing height={24} />
       <Text size="lg" color={colors.gray600}>
-        아직 주문내역이 없어요
+        아직 내역이 없어요
       </Text>
     </EmptyContainer>
   );
