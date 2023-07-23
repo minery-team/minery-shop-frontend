@@ -23,7 +23,7 @@ export function PaymentInfo({ orderList }: { orderList: CartItem[] }) {
   }, [orderList]);
 
   const shippingPrice = useMemo(() => {
-    if (FREE_SHIPPING_PRICE - originalTotalPrice > 0) return SHIPPING_PRICE;
+    if (FREE_SHIPPING_PRICE - totalPrice > 0) return SHIPPING_PRICE;
     return 0;
   }, []);
 

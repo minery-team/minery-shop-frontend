@@ -21,7 +21,7 @@ export function PaymentInfo({ order }: { order: Order }) {
   }, [order]);
 
   const shippingPrice = useMemo(() => {
-    if (FREE_SHIPPING_PRICE - originalTotalPrice > 0) return SHIPPING_PRICE;
+    if (FREE_SHIPPING_PRICE - totalPrice > 0) return SHIPPING_PRICE;
     return 0;
   }, []);
 

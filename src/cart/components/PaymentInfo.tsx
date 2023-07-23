@@ -12,8 +12,7 @@ export default function PaymentInfo({
   priceInfo: { price: number; originalPrice: number };
 }) {
   const shippingPrice = useMemo(() => {
-    if (FREE_SHIPPING_PRICE - priceInfo.originalPrice > 0)
-      return SHIPPING_PRICE;
+    if (FREE_SHIPPING_PRICE - priceInfo.price > 0) return SHIPPING_PRICE;
     return 0;
   }, [priceInfo]);
 
@@ -40,7 +39,7 @@ export default function PaymentInfo({
           <Text size="base" weight="regular" color={colors.gray900}>
             배송비
           </Text>
-          {FREE_SHIPPING_PRICE - priceInfo.originalPrice > 0 && (
+          {FREE_SHIPPING_PRICE - priceInfo.price > 0 && (
             <>
               <Text
                 size="sm"
@@ -48,10 +47,8 @@ export default function PaymentInfo({
                 color={colors.primary700Default}
                 style={{ margin: '0 4px 0 8px' }}
               >
-                {`${commaizeNumber(
-                  FREE_SHIPPING_PRICE - priceInfo.originalPrice
-                )}`}
-                원 더 담으면
+                {`${commaizeNumber(FREE_SHIPPING_PRICE - priceInfo.price)}`}원
+                더 담으면
               </Text>
 
               <Text
