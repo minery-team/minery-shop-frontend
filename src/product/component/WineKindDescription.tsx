@@ -16,12 +16,15 @@ interface Props {
 const WineKindDescription = ({ product }: Props) => {
   const [rawWineKind] = product.wine.kinds;
   const wineSpecies = useMemo(() => {
+    if (!rawWineKind) return null;
     return extractWineSpecies(rawWineKind.name);
-  }, [rawWineKind.name]);
+  }, [rawWineKind?.name]);
   const wineSpeciesData = useMemo(() => {
+    if (!wineSpecies) return null;
     return WINE_SPECIES_DATA[wineSpecies];
   }, [wineSpecies]);
   const wineSpeciesDescription = useMemo(() => {
+    if (!wineSpecies) return null;
     return DESCRIPTION_BY_WINE_SPECIES[wineSpecies];
   }, [wineSpecies]);
 
@@ -30,6 +33,8 @@ const WineKindDescription = ({ product }: Props) => {
   const toggleExpanded = () => {
     setExpanded((prev) => !prev);
   };
+
+  if (!wineSpeciesData || !wineSpeciesDescription) return null
 
   return (
     <div
@@ -116,44 +121,58 @@ export default WineKindDescription;
 function extractWineSpecies(kindName: string) {
   const targetSpecies = kindName.replace(' ', '').toLowerCase();
 
+  // TODO: Speice 표시 정책 결정 필요
+  // Client에서 매핑하는 것 보단, BE에서 모든 정보를 내려주면 어떨지
   switch (targetSpecies) {
     case '카베르네소비뇽':
     case 'cabernetsauvignon':
+    case '카베르네소비뇽(cabernetsauvignon)':
       return WineSpecies.CABERNET_SAUVIGNON;
     case '피노누아':
     case 'pinotnoir':
+    case '피노누아(pinotnoir)':
       return WineSpecies.PINOT_NOIR;
     case '시라/쉬라즈':
     case 'syrah/shiraz':
+    case '시라/쉬라즈(syrah/shiraz)':
       return WineSpecies.SYRAH;
     case '리슬링':
     case 'riesling':
+    case '리슬링(riesling)':
       return WineSpecies.RIESLING;
     case '슈냉블랑':
     case 'cheninblanc':
+    case '슈냉블랑(cheninblanc)':
       return WineSpecies.CHENIN_BLANC;
     case '모스카토':
     case 'moscato':
+    case '모스카토(moscato)':
       return WineSpecies.MOSCATO;
     case '말벡':
     case 'malbec':
+    case '말벡(malbec)':
       return WineSpecies.MALBEC;
     case '샤르도네':
     case 'chardonnay':
+    case '샤르도네(chardonnay)':
       return WineSpecies.CHARDONNAY;
     case '소비뇽블랑':
     case 'sauvignonblanc':
+    case '소비뇽블랑(sauvignonblanc)':
       return WineSpecies.SAUVIGNON_BLANC;
     case '메를로':
     case 'merlot':
+    case '메를로(merlot)':
       return WineSpecies.MERLOT;
     case '템프라니요':
     case 'tempranillo':
+    case '템프라니요(tempranillo)':
       return WineSpecies.TEMPRANILLO;
     case '산지오베제':
     case 'sangiovese':
+    case '산지오베제(sangiovese)':
       return WineSpecies.SAUGIOVESE;
-    default:
-      return WineSpecies.CABERNET_SAUVIGNON;
   }
+
+  return null
 }
