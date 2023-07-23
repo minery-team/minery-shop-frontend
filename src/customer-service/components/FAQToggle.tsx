@@ -31,11 +31,17 @@ const FAQToggle = ({ question, answer }: Props) => {
           }}
         />
       </QuestionContainer>
-      <AnswerContainer expanded={expanded}>
-        <div>
-          <Dot />
-        </div>
-        {answer}
+      <AnswerContainer>
+        {(expanded ? answer.split('\n') : [answer.split('\n')[0]]).map(
+          (text) => (
+            <div style={{ display: 'flex', width: '100%' }}>
+              <div>
+                <Dot />
+              </div>
+              <AnswerText expanded={expanded}>{text}</AnswerText>
+            </div>
+          )
+        )}
       </AnswerContainer>
     </LocalContainer>
   );
@@ -57,20 +63,23 @@ const QuestionContainer = styled.div`
   border-bottom: 1px solid ${colors.gray100};
 `;
 
-const AnswerContainer = styled.div<{ expanded: boolean }>`
+const AnswerContainer = styled.div`
   padding-top: 11px;
-  text-overflow: ${(props) => (props.expanded ? 'unset' : 'ellipsis')};
-  white-space: ${(props) => (props.expanded ? 'unset' : 'nowrap')};
   overflow: hidden;
   display: inline-block;
-  width: calc(100%);
-  display: flex;
+  width: 100%;
+`;
 
+const AnswerText = styled.div<{ expanded: boolean }>`
   color: var(--gray-700, #4f4f4f);
   /* Base/Regular */
   font-size: 14px;
   font-family: Pretendard;
   line-height: 140%;
+  flex: 1;
+  text-overflow: ${(props) => (props.expanded ? 'unset' : 'ellipsis')};
+  white-space: ${(props) => (props.expanded ? 'unset' : 'nowrap')};
+  overflow: hidden;
 `;
 
 const Dot = styled.div`

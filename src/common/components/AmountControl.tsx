@@ -19,7 +19,7 @@ export function AmountControl({ value, onIncrease, onDecrease }: Props) {
         </Text>
       </Flex.Center>
       <StyledButton onClick={onIncrease} type="button">
-        <PlusIcon width={'12px'} height={'12px'} color={colors.gray900} />
+        <PlusIcon width={12} color={colors.gray900} />
       </StyledButton>
     </CountBox>
   );
@@ -42,4 +42,5 @@ const StyledButton = styled.button`
   justify-content: center;
   height: 25px;
   width: 25px;
+  padding: 0;
 `;

@@ -39,26 +39,28 @@ export default function InputPhonePage() {
   });
 
   return (
-    <Container>
-      <AppBar back />
-      <Section>
-        <Text size="xxl" weight="semibold" color={colors.gray900}>
-          우선, 휴대폰 번호를 알려주세요
-        </Text>
-        <Spacing height={6} />
-        <Text size="base" weight="regular" color={colors.gray600}>
-          본인 확인을 위해 입력한 번호로 인증번호를 전송할게요
-        </Text>
-        <Spacing height={24} />
-        <InputField
-          label="휴대폰 번호"
-          value={formatPhoneNumber(phone)}
-          onChange={onPhoneChange}
-          placeholder="010-0000-0000"
-          autoFocus
-          type="tel"
-        />
-      </Section>
+    <div>
+      <Container>
+        <AppBar back />
+        <Section>
+          <Text size="xxl" weight="semibold" color={colors.gray900}>
+            우선, 휴대폰 번호를 알려주세요
+          </Text>
+          <Spacing height={6} />
+          <Text size="base" weight="regular" color={colors.gray600}>
+            본인 확인을 위해 입력한 번호로 인증번호를 전송할게요
+          </Text>
+          <Spacing height={24} />
+          <InputField
+            label="휴대폰 번호"
+            value={formatPhoneNumber(phone)}
+            onChange={onPhoneChange}
+            placeholder="010-0000-0000"
+            autoFocus
+            type="tel"
+          />
+        </Section>
+      </Container>
       <FixedBottomCTA
         disabled={!checkValidPhoneNumber(phone)}
         onClick={cta.callback}
@@ -67,6 +69,6 @@ export default function InputPhonePage() {
       >
         다음
       </FixedBottomCTA>
-    </Container>
+    </div>
   );
 }

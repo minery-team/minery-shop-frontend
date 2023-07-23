@@ -2245,7 +2245,7 @@ export const WineReviews: Record<string, Review[]> = {
       date: '2023-04-26',
       content: '가격대비 괜찮넹.',
       images: [
-        'https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰4.jpg',
+        'https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰4.jpg',
       ],
     },
     {
@@ -2262,7 +2262,7 @@ export const WineReviews: Record<string, Review[]> = {
       date: '2023-04-08',
       content: '첫잔은 좀 떫어요. 10분정도 뒤에 마시는거 추천',
       images: [
-        'https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰6.jpg',
+        'https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰6.jpg',
       ],
     },
     {
@@ -2293,7 +2293,7 @@ export const WineReviews: Record<string, Review[]> = {
       date: '2023-02-04',
       content: '인기가 많아서 잘 찾기 힘들었는데 편하고 좋네요~',
       images: [
-        'https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰10.JPG',
+        'https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰10.JPG',
       ],
     },
     {
