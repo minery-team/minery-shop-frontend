@@ -34,12 +34,8 @@ export function PaymentButton({
 
   const totalPrice = useMemo(() => {
     const price = sumBy(orderList, (item) => item.amount * item.product.price);
-    const originalPrice = sumBy(
-      orderList,
-      (item) => item.amount * item.product.originalPrice
-    );
 
-    if (FREE_SHIPPING_PRICE - originalPrice > 0) return price + SHIPPING_PRICE;
+    if (FREE_SHIPPING_PRICE - price > 0) return price + SHIPPING_PRICE;
     return price;
   }, [orderList]);
 
