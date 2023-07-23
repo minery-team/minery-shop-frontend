@@ -41,4 +41,5 @@ const StyledContainer = styled(Container)<{
   max-width: 500px;
   margin: 0 auto;
   margin: 0 calc(calc(100vw - min(500px, 100vw)) / 2);
+  touch-action: none;
 `;
