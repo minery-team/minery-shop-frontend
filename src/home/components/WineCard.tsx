@@ -19,8 +19,8 @@ export function WineCard({
   const reviews: Review[] = WineReviews[data.id];
   const averageRating = reviews
     ? (
-        reviews.reduce((acc, cur) => acc + cur.rating, 0) / reviews.length
-      ).toFixed(1)
+      reviews.reduce((acc, cur) => acc + cur.rating, 0) / reviews.length
+    ).toFixed(1)
     : 4.2;
   const reviewCount = reviews ? reviews.length : 29;
 
@@ -75,30 +75,35 @@ export function WineCard({
       <Text size="lg" weight="semibold" color={`${colors.gray900}`}>
         {commaizeNumber(data.price)}원
       </Text>
-      <Space bottom="4px" />
-      <div
-        css={css({
-          display: 'flex',
-          width: '55px',
-          height: '12px',
-          alignItems: 'center',
-        })}
-      >
-        <img src="/assets/rating_star.svg" width={12} height={12} alt=" " />
-        <Space right="2px" />
-        <Text size="caption" weight="regular" color={`${colors.gray800}`}>
-          {averageRating}
-          {/* TODO: 리뷰기능 정식 출시 되면, 리뷰 wine.rate사용하도록 변경 */}
-          {/* {Number.isInteger(data.wine.rate)
+      {
+        data.type === 'wine' && <>
+          <Space bottom="4px" />
+          <div
+            css={css({
+              display: 'flex',
+              width: '55px',
+              height: '12px',
+              alignItems: 'center',
+            })}
+          >
+            <img src="/assets/rating_star.svg" width={12} height={12} alt=" " />
+            <Space right="2px" />
+            <Text size="caption" weight="regular" color={`${colors.gray800}`}>
+              {averageRating}
+              {/* TODO: 리뷰기능 정식 출시 되면, 리뷰 wine.rate사용하도록 변경 */}
+              {/* {Number.isInteger(data.wine.rate)
             ? `${data.wine.rate}.0`
             : data.wine.rate} */}
-        </Text>
-        <Space right="2px" />
-        <Text size="caption" weight="regular" color={`${colors.gray500}`}>
-          {/* TODO: 리뷰기능 정식 출시 되면, 리뷰 wine.viewCount 변경 */}
-          {/* ({data.wine.viewCount}) */}({reviewCount})
-        </Text>
-      </div>
+            </Text>
+            <Space right="2px" />
+            <Text size="caption" weight="regular" color={`${colors.gray500}`}>
+              {/* TODO: 리뷰기능 정식 출시 되면, 리뷰 wine.viewCount 변경 */}
+              {/* ({data.wine.viewCount}) */}({reviewCount})
+            </Text>
+          </div>
+        </>
+      }
+
     </article>
   );
 }
