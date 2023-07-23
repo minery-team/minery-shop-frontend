@@ -108,7 +108,6 @@ const DescriptionSection = ({ product, ...props }: Props) => {
           {product.foodDescription}과 잘 어울려요.
         </Text>
         <Spacing height={20} />
-
       </Section>
       <SectionDivider />
       <Spacing height={30} />
@@ -158,18 +157,20 @@ const DescriptionSection = ({ product, ...props }: Props) => {
               </Text>
             </td>{' '}
           </tr>
-          <tr>
-            <td>
-              <Text size="base" weight="regular" color={colors.gray900}>
-                음용 온도
-              </Text>
-            </td>
-            <td>
-              <Text size="base" weight="semibold" color={colors.gray900}>
-                {product.wine.minTemperature}~{product.wine.maxTemperature} ℃
-              </Text>
-            </td>{' '}
-          </tr>
+          {product.wine.minTemperature && product.wine.maxTemperature && (
+            <tr>
+              <td>
+                <Text size="base" weight="regular" color={colors.gray900}>
+                  음용 온도
+                </Text>
+              </td>
+              <td>
+                <Text size="base" weight="semibold" color={colors.gray900}>
+                  {product.wine.minTemperature}~{product.wine.maxTemperature} ℃
+                </Text>
+              </td>{' '}
+            </tr>
+          )}
           <tr>
             <td>
               <Text size="base" weight="regular" color={colors.gray900}>
@@ -178,7 +179,7 @@ const DescriptionSection = ({ product, ...props }: Props) => {
             </td>
             <td>
               <Text size="base" weight="semibold" color={colors.gray900}>
-                {product.wine.style ?? '정보 없음'}
+                {product.wine.kinds[0].name ?? '정보 없음'}
               </Text>
             </td>{' '}
           </tr>
