@@ -13,6 +13,7 @@ import { LoggerRoot } from 'common/components';
 import 'react-spring-bottom-sheet/dist/style.css';
 import '../styles/colors.css';
 
+import Head from 'next/head';
 import { SEOHeader } from '@boxfoxs/next-seo';
 import styled from '@emotion/styled';
 import { colors } from 'common/constants';

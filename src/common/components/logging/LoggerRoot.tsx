@@ -9,29 +9,23 @@ export const LoggerRoot = ({ children }: { children: ReactNode }) => {
   const rawFrom = QS.get('from');
   const [from, setFrom] = useSessionStorage('from');
 
+  const props = {
+    from,
+    version: 1,
+    service: 'minery-shop',
+  };
+
   useEffect(() => {
     trackFbPageView();
     if (rawFrom) {
       setFrom(rawFrom);
     }
-    logger.setUserProperties({
-      from,
-      version: 1,
-      service: 'minery-shop',
-    });
+    logger.setUserProperties(props);
   }, [rawFrom]);
 
   return (
     <LoggerProvider logger={logger}>
-      <LoggerParamsProvider
-        params={{
-          from,
-          service: 'minery-shop',
-          version: 1,
-        }}
-      >
-        {children}
-      </LoggerParamsProvider>
+      <LoggerParamsProvider params={props}>{children}</LoggerParamsProvider>
     </LoggerProvider>
   );
 };

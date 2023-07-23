@@ -9,6 +9,7 @@ export default function Document() {
           src="https://cdn.iamport.kr/v1/iamport.js"
           strategy="beforeInteractive"
         />
+        <meta name="viewport" content="width=device-width, minimal-ui" />
       </Head>
       <body>
         <Main />

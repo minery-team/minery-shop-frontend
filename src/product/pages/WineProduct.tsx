@@ -22,6 +22,7 @@ import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import DescriptionSection from '../component/DescriptionSection';
 import RefundNotice from '../component/RefundNotice';
 import ReviewSection from '../component/ReviewSection';
+import { Global, css } from '@emotion/react';
 
 type TabType = 'description' | 'review' | 'label';
 
@@ -59,6 +60,14 @@ const WineProduct = ({ product }: Props) => {
       name="Page View - Product Detail"
       params={{ type: 'wine', product: product.id }}
     >
+      <Global
+        styles={css`
+          body {
+            overflow: hidden;
+          }
+        `}
+      />
+      <AppBar back floating backgrounded fixed right={<CartButton />} />
       <NotifyVisible.Parent>
         {(notifyRef) => (
           <StyledContainer
@@ -67,14 +76,7 @@ const WineProduct = ({ product }: Props) => {
               el && ref(el);
             }}
           >
-            <AppBar
-              back
-              floating
-              backgrounded
-              takeSpace
-              fixed
-              right={<CartButton />}
-            />
+            <Spacing height={56} />
             <Carousel
               dots
               dotsClass=""
@@ -262,15 +264,15 @@ const WineProduct = ({ product }: Props) => {
               <ReviewSection id="review" product={product} />
             </NotifyVisible>
             {/* 주문하기 */}
-            <Spacing height={HEADER_SIZE} />
-            <LoggingClick name="Tap - CTA in Bottom">
-              <FixedBottomCTA full onClick={open}>
-                주문하기
-              </FixedBottomCTA>
-            </LoggingClick>
+            <Spacing height={150} />
           </StyledContainer>
         )}
       </NotifyVisible.Parent>
+      <LoggingClick name="Tap - CTA in Bottom">
+        <FixedBottomCTA full onClick={open}>
+          주문하기
+        </FixedBottomCTA>
+      </LoggingClick>
     </LoggingState>
   );
 };
@@ -281,6 +283,7 @@ const StyledContainer = styled(Container)`
   max-height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
+  padding-bottom: env(safe-area-inset-top);
 `;
 
 const CarouselDotsWrapper = styled.ul`

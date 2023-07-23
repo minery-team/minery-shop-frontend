@@ -92,7 +92,7 @@ const DescriptionSection = ({ product, ...props }: Props) => {
             tasteType="탄닌"
             tasteLevel={product.wine.tannins}
             lowerDescription="부드러운"
-            upperDescription="떪은"
+            upperDescription="떫은"
           />
         </div>
       </Section>
