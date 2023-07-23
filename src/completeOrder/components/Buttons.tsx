@@ -3,22 +3,32 @@ import { Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 
 import { colors } from 'common/constants';
+import { QS } from '@boxfoxs/next';
+import { LoggingClick } from '@boxfoxs/logger';
 
 export function Buttons() {
   const router = useRouter();
 
   return (
     <Wrapper>
-      <GoOrderList onClick={() => router.push('/order/list')}>
-        <Text size="xl" weight="medium" color={colors.gray900}>
-          주문 내역 보기
-        </Text>
-      </GoOrderList>
-      <GoShopping onClick={() => router.push('/')}>
-        <Text size="xl" weight="medium" color={colors.defaultWhite}>
-          쇼핑 계속하기
-        </Text>
-      </GoShopping>
+      <LoggingClick name="Tap - Go Order List">
+        <GoOrderList
+          onClick={() =>
+            router.push(`/order/list${QS.create({ backTo: '/' })}`)
+          }
+        >
+          <Text size="xl" weight="medium" color={colors.gray900}>
+            주문 내역 보기
+          </Text>
+        </GoOrderList>
+      </LoggingClick>
+      <LoggingClick name="Tap - Go Shopping">
+        <GoShopping onClick={() => router.push('/')}>
+          <Text size="xl" weight="medium" color={colors.defaultWhite}>
+            쇼핑 계속하기
+          </Text>
+        </GoShopping>
+      </LoggingClick>
     </Wrapper>
   );
 }

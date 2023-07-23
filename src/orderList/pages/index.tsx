@@ -16,7 +16,7 @@ const OrderListPage = () => {
   );
 
   return (
-    <LoggingState name="Page View - order list">
+    <LoggingState name="Page View - Order List">
       <Container style={{ background: colors.gray100 }}>
         <AppBar back backgrounded>
           <AppBar.Title>주문내역</AppBar.Title>

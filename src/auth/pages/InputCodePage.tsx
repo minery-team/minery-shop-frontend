@@ -20,6 +20,7 @@ import { useLocalCart } from 'common/hooks/useCart';
 import Router from 'next/router';
 import { useRef } from 'react';
 import { redirectAfterAuth } from '../utils/redirectAfterAuth';
+import { LoggingClick, LoggingState } from '@boxfoxs/logger';
 
 export default function InputCodePage() {
   const phone = QS.get('phone');
@@ -62,58 +63,62 @@ export default function InputCodePage() {
   }
 
   return (
-    <Container>
-      <AppBar back />
-      <Section>
-        <MText size="xxl" weight="semibold" color={colors.gray900}>
-          인증번호를 입력해주세요
-        </MText>
-        <Spacing height={6} />
-        <Text size="base" weight="regular" color={colors.gray600}>
-          입력해주신 휴대폰 번호로 인증번호를 발송했어요
-        </Text>
-        <Spacing height={24} />
-        <Flex.CenterVertical>
-          <InputField
-            ref={inputRef}
-            value={code.slice(0, 6)}
-            onChange={onCodeChange}
-            placeholder="인증번호"
-            autoFocus
-            type="tel"
-            inputMode="numeric"
-            pattern="[0-9]"
-            autoComplete="one-time-code"
-            maxLength={6}
-            right={
-              <CountdownLabel
-                minute={countdown.minutes}
-                second={countdown.seconds}
-              />
-            }
-          />
-          <Spacing width={20} />
-          <MineryButton
-            style={{ width: '90px', padding: 0 }}
-            height={46}
-            type="light"
-            textStyle={{ size: 'lg' }}
-            onClick={handleResendClick}
+    <LoggingState name="Page View - Input Code in Auth">
+      <Container>
+        <AppBar back />
+        <Section>
+          <MText size="xxl" weight="semibold" color={colors.gray900}>
+            인증번호를 입력해주세요
+          </MText>
+          <Spacing height={6} />
+          <Text size="base" weight="regular" color={colors.gray600}>
+            입력해주신 휴대폰 번호로 인증번호를 발송했어요
+          </Text>
+          <Spacing height={24} />
+          <Flex.CenterVertical>
+            <InputField
+              ref={inputRef}
+              value={code.slice(0, 6)}
+              onChange={onCodeChange}
+              placeholder="인증번호"
+              autoFocus
+              type="tel"
+              inputMode="numeric"
+              pattern="[0-9]"
+              autoComplete="one-time-code"
+              maxLength={6}
+              right={
+                <CountdownLabel
+                  minute={countdown.minutes}
+                  second={countdown.seconds}
+                />
+              }
+            />
+            <Spacing width={20} />
+            <MineryButton
+              style={{ width: '90px', padding: 0 }}
+              height={46}
+              type="light"
+              textStyle={{ size: 'lg' }}
+              onClick={handleResendClick}
+            >
+              재요청
+            </MineryButton>
+          </Flex.CenterVertical>
+        </Section>
+        <LoggingClick name="Tap - Next" params={{ step: 'input_code' }}>
+          <FixedBottomCTA
+            disabled={code.length < 6}
+            onClick={cta.callback}
+            loading={cta.isLoading}
+            type="default"
+            background
           >
-            재요청
-          </MineryButton>
-        </Flex.CenterVertical>
-      </Section>
-      <FixedBottomCTA
-        disabled={code.length < 6}
-        onClick={cta.callback}
-        loading={cta.isLoading}
-        type="default"
-        background
-      >
-        확인
-      </FixedBottomCTA>
-    </Container>
+            확인
+          </FixedBottomCTA>
+        </LoggingClick>
+      </Container>
+    </LoggingState>
   );
 }
 
