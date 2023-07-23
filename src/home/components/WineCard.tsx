@@ -16,7 +16,7 @@ export function WineCard({
   data: Product;
   onClick: () => void;
 }) {
-  const reviews: Review[] = WineReviews[data.name];
+  const reviews: Review[] = WineReviews[data.id];
   const averageRating = reviews
     ? (
         reviews.reduce((acc, cur) => acc + cur.rating, 0) / reviews.length
