@@ -16,7 +16,9 @@ export function PaymentInfo({ order }: { order: Order }) {
   const originalTotalPrice = useMemo(() => {
     return sumBy(
       order.items,
-      (item) => item.amount * item.product.originalPrice
+      (item) =>
+        item.amount * item.product.originalPrice ||
+        item.amount * item.product.price
     );
   }, [order]);
 
