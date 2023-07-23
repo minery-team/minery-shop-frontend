@@ -24,7 +24,7 @@ const SnackDescription = () => {
       </div>
       <Section>
         <Text color={colors.gray900} size="base" weight="regular">
-          구성 : 피넛버터 프레첼 35g, 트위스츠 프레첼 30g
+          구성 : 피넛버터 프레첼 30g, 트위스츠 프레첼 25g
           <br />
           <br />* 스낵 구성은 재고에 따라 달라질 수 있습니다.
         </Text>

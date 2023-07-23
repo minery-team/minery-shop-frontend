@@ -1,13 +1,20 @@
 import { Text } from '@boxfoxs/bds-web';
 import styled from '@emotion/styled';
 import { colors } from 'common/constants';
+import { useMemo } from 'react';
 import { useRouter } from 'next/router';
+import { sumBy } from 'lodash';
 import { useCart } from '../../hooks/useCart';
 import { StyledImage } from '../../../home/components/Header';
 
 export function CartButton({ onClick }: { onClick?: () => void }) {
   const { value } = useCart();
   const router = useRouter();
+
+  const cartItemsCount = useMemo(() => {
+    return sumBy(value, (items) => items.amount);
+  }, [value]);
+
   return (
     <Box onClick={onClick}>
       <StyledImage
@@ -20,7 +27,7 @@ export function CartButton({ onClick }: { onClick?: () => void }) {
       {value.length > 0 && (
         <CartCount>
           <Text size="caption" weight="regluar" color={colors.defaultWhite}>
-            {value.length}
+            {cartItemsCount}
           </Text>
         </CartCount>
       )}

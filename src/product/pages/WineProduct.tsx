@@ -195,7 +195,7 @@ const WineProduct = ({ product }: Props) => {
                       background: colors.gray200,
                       objectFit: 'contain',
                     }}
-                    src="/assets/snack_for_wine.png"
+                    src="/images/snack_for_wine.png"
                   />
                   <Spacing height={8} />
                   <Text size="base" weight="semibold">
@@ -215,7 +215,7 @@ const WineProduct = ({ product }: Props) => {
                       background: colors.gray200,
                       objectFit: 'contain',
                     }}
-                    src="/assets/package_for_wine.png"
+                    src="/images/package_for_wine.png"
                   />
                   <Spacing height={8} />
                   <Text size="base" weight="semibold">

@@ -1,6 +1,8 @@
 import { Divider, Spacing, Text } from '@boxfoxs/bds-web';
 import { commaizeNumber } from '@boxfoxs/utils';
+import { useMemo } from 'react';
 import styled from '@emotion/styled';
+import { sumBy } from 'lodash';
 
 import { useBooleanState } from '@boxfoxs/core-hooks';
 import { colors } from 'common/constants';
@@ -13,6 +15,9 @@ interface Props {
 
 export function OrderItemsSection({ data, initialVisible = false }: Props) {
   const [isOpen, , , toggle] = useBooleanState(initialVisible);
+  const orderItemsCount = useMemo(() => {
+    return sumBy(data, (items) => items.amount);
+  }, [data]);
 
   const renderWineList = () => {
     return (
@@ -32,8 +37,8 @@ export function OrderItemsSection({ data, initialVisible = false }: Props) {
               </ImageWrapper>
               <ImageWrapper>
                 <img
-                  src={item.product.image}
-                  alt={`${item.product.id}_${index}`}
+                  src="images/snack.jpg"
+                  alt="snack"
                   width={70}
                   height={79}
                 />
@@ -76,7 +81,7 @@ export function OrderItemsSection({ data, initialVisible = false }: Props) {
           </Text>
           <ListCountText onClick={toggle}>
             <Text size="lg" weight="semibold" color={colors.gray900}>
-              {data.length}개
+              {orderItemsCount}개
             </Text>
             <img
               src={`/assets/chevron_${isOpen ? 'up' : 'down'}.svg`}
