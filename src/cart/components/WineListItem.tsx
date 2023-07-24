@@ -86,14 +86,16 @@ export default function WineListItem({
                     height={79}
                   />
                 </WineImageBox>
-                <WineImageBox>
-                  <img
-                    src="images/snack.jpg"
-                    alt="snack"
-                    width={70}
-                    height={79}
-                  />
-                </WineImageBox>
+                {item.product.type !== 'snack' && (
+                  <WineImageBox>
+                    <img
+                      src="images/snack_for_wine.png"
+                      alt="snack"
+                      width={70}
+                      height={79}
+                    />
+                  </WineImageBox>
+                )}
               </WineImageWrapper>
               <div>
                 <AmountControl
@@ -112,7 +114,7 @@ export default function WineListItem({
                       marginTop: '4px',
                     }}
                   >
-                    {commaizeNumber(item.product.originalPrice)}원
+                    {commaizeNumber(item.amount * item.product.originalPrice)}원
                   </Text>
                 )}
                 <Text
@@ -121,7 +123,7 @@ export default function WineListItem({
                   color={colors.gray900}
                   style={{ marginTop: '4px' }}
                 >
-                  {commaizeNumber(item.product.price)}원
+                  {commaizeNumber(item.amount * item.product.price)}원
                 </Text>
               </div>
             </WineInfoWrapper>
