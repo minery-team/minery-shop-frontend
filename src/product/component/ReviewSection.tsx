@@ -79,7 +79,7 @@ const ReviewSection = ({ product, ...props }: Props) => {
           상품리뷰
         </Text>
         <Text color={colors.gray500} size="base" weight="medium">
-          68개
+          {reviews.length}개
         </Text>
       </div>
 
