@@ -19,8 +19,8 @@ export function WineCard({
   const reviews: Review[] = WineReviews[data.id];
   const averageRating = reviews
     ? (
-      reviews.reduce((acc, cur) => acc + cur.rating, 0) / reviews.length
-    ).toFixed(1)
+        reviews.reduce((acc, cur) => acc + cur.rating, 0) / reviews.length
+      ).toFixed(1)
     : 4.2;
   const reviewCount = reviews ? reviews.length : 29;
 
@@ -34,7 +34,16 @@ export function WineCard({
         height: '315px',
       })}
     >
-      <img width={158} height={180} src={data.image} alt="wine" />
+      <div
+        css={css`
+          width: 158px;
+          height: 180px;
+          border-radius: 6px;
+          overflow: hidden;
+        `}
+      >
+        <img width={158} height={180} src={data.image} alt="wine" />
+      </div>
       <Space bottom="12px" />
       {data.wine != null && (
         <React.Fragment>
@@ -75,8 +84,8 @@ export function WineCard({
       <Text size="lg" weight="semibold" color={`${colors.gray900}`}>
         {commaizeNumber(data.price)}원
       </Text>
-      {
-        data.type === 'wine' && <>
+      {data.type === 'wine' && (
+        <>
           <Space bottom="4px" />
           <div
             css={css({
@@ -102,8 +111,7 @@ export function WineCard({
             </Text>
           </div>
         </>
-      }
-
+      )}
     </article>
   );
 }
