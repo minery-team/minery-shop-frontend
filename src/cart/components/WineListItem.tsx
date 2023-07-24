@@ -89,7 +89,7 @@ export default function WineListItem({
                 {item.product.type !== 'snack' && (
                   <WineImageBox>
                     <img
-                      src="images/snack.jpg"
+                      src="images/snack_for_wine.png"
                       alt="snack"
                       width={70}
                       height={79}

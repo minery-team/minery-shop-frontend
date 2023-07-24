@@ -35,14 +35,16 @@ export function OrderItemsSection({ data, initialVisible = false }: Props) {
                   height={79}
                 />
               </ImageWrapper>
-              <ImageWrapper>
-                <img
-                  src="images/snack.jpg"
-                  alt="snack"
-                  width={70}
-                  height={79}
-                />
-              </ImageWrapper>
+              {item.product.type !== 'snack' && (
+                <ImageWrapper>
+                  <img
+                    src="images/snack_for_wine.png"
+                    alt="snack"
+                    width={70}
+                    height={79}
+                  />
+                </ImageWrapper>
+              )}
               <WineInfoWrapper>
                 <Text size="base" weight="semibold" color={colors.gray900}>
                   {item.product.name}
