@@ -20,6 +20,7 @@ import DeliveryFeeNotice from '../component/DeliveryFeeNotice';
 import DescriptionSection from '../component/DescriptionSection';
 import RefundNotice from '../component/RefundNotice';
 import ReviewSection from '../component/ReviewSection';
+import { css } from '@emotion/react';
 
 type TabType = 'description' | 'review' | 'label';
 
@@ -155,9 +156,15 @@ const WineProduct = ({ product }: Props) => {
               src={product.image}
             />
             <Spacing height={8} />
-            <Text size="base" weight="semibold">
-              마이너리 추천 와인 1병
-            </Text>
+            <div
+              css={css`
+                white-space: pre-wrap;
+              `}
+            >
+              <Text size="base" weight="semibold">
+                {`마이너리 추천 와인\n1병`}
+              </Text>
+            </div>
           </div>
           <div style={{ flex: 1 }}>
             <img
@@ -171,9 +178,15 @@ const WineProduct = ({ product }: Props) => {
               src="/images/snack_for_wine.png"
             />
             <Spacing height={8} />
-            <Text size="base" weight="semibold">
-              와인과 잘 어울리는 스낵 세트 1개
-            </Text>
+            <div
+              css={css`
+                white-space: pre-wrap;
+              `}
+            >
+              <Text size="base" weight="semibold">
+                {`와인과 잘 어울리는\n스낵 세트 1개`}
+              </Text>
+            </div>
           </div>
           <div style={{ flex: 1 }}>
             <img
@@ -187,9 +200,15 @@ const WineProduct = ({ product }: Props) => {
               src="/images/package_for_wine.png"
             />
             <Spacing height={8} />
-            <Text size="base" weight="semibold">
-              집에서 받아보는 안심포장 패키지 1개
-            </Text>
+            <div
+              css={css`
+                white-space: pre-wrap;
+              `}
+            >
+              <Text size="base" weight="semibold">
+                {`집에서 받아보는\n안심포장 패키지`}
+              </Text>
+            </div>
           </div>
         </div>
         <Spacing height={20} />
