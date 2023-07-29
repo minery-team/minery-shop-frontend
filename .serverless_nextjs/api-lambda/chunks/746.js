@@ -65,10 +65,19 @@ function useOrderingItems(options) {
 /* harmony export */   "x": () => (/* binding */ orderItems)
 /* harmony export */ });
 /* harmony import */ var recoil__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(94715);
+/* harmony import */ var recoil_persist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6983);
 
+
+const sessionStorage =  false ? 0 : undefined;
+const { persistAtom  } = (0,recoil_persist__WEBPACK_IMPORTED_MODULE_1__/* .recoilPersist */ .J)({
+    storage: sessionStorage
+});
 const orderItems = (0,recoil__WEBPACK_IMPORTED_MODULE_0__/* .atom */ .cn)({
     key: "orderItems",
-    default: []
+    default: [],
+    effects_UNSTABLE: [
+        persistAtom
+    ]
 });
 
 

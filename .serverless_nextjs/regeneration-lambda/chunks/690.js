@@ -24,8 +24,8 @@ var core_hooks_dom_dist = __webpack_require__(25646);
 var next_dist = __webpack_require__(23399);
 // EXTERNAL MODULE: ./src/common/api/auth/index.ts + 7 modules
 var auth = __webpack_require__(97173);
-// EXTERNAL MODULE: ./src/common/components/index.ts + 27 modules
-var components = __webpack_require__(94312);
+// EXTERNAL MODULE: ./src/common/components/index.ts + 28 modules
+var components = __webpack_require__(2126);
 // EXTERNAL MODULE: ./src/common/constants/index.ts + 2 modules
 var constants = __webpack_require__(16439);
 // EXTERNAL MODULE: ./src/common/hooks/index.ts + 7 modules
@@ -63,7 +63,10 @@ var router = __webpack_require__(11163);
 var router_default = /*#__PURE__*/__webpack_require__.n(router);
 // EXTERNAL MODULE: ./src/auth/utils/redirectAfterAuth.ts
 var redirectAfterAuth = __webpack_require__(849);
+// EXTERNAL MODULE: ./node_modules/@boxfoxs/logger/dist/index.js
+var logger_dist = __webpack_require__(255);
 ;// CONCATENATED MODULE: ./src/auth/pages/InputPhonePage.tsx
+
 
 
 
@@ -97,49 +100,62 @@ function InputPhonePage() {
             (0,redirectAfterAuth/* redirectAfterAuth */.t)();
         }
     });
-    return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(components/* Container */.W2, {
-        children: [
-            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(components/* AppBar */.xG, {
-                back: true
-            }),
-            /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(components/* Section */.$0, {
-                children: [
-                    /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Text */.xv, {
-                        size: "xxl",
-                        weight: "semibold",
-                        color: constants/* colors.gray900 */.O9.gray900,
-                        children: "우선, 휴대폰 번호를 알려주세요"
-                    }),
-                    /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Spacing */.Ki, {
-                        height: 6
-                    }),
-                    /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Text */.xv, {
-                        size: "base",
-                        weight: "regular",
-                        color: constants/* colors.gray600 */.O9.gray600,
-                        children: "본인 확인을 위해 입력한 번호로 인증번호를 전송할게요"
-                    }),
-                    /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Spacing */.Ki, {
-                        height: 24
-                    }),
-                    /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(components/* InputField */.UP, {
-                        label: "휴대폰 번호",
-                        value: (0,utils/* formatPhoneNumber */.un)(phone),
-                        onChange: onPhoneChange,
-                        placeholder: "010-0000-0000",
-                        autoFocus: true,
-                        type: "tel"
+    return /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(logger_dist.LoggingState, {
+        name: "Page View - Input Phone in Auth",
+        children: /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)("div", {
+            children: [
+                /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(components/* Container */.W2, {
+                    children: [
+                        /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(components/* AppBar */.xG, {
+                            back: true
+                        }),
+                        /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(components/* Section */.$0, {
+                            children: [
+                                /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Text */.xv, {
+                                    size: "xxl",
+                                    weight: "semibold",
+                                    color: constants/* colors.gray900 */.O9.gray900,
+                                    children: "우선, 휴대폰 번호를 알려주세요"
+                                }),
+                                /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Spacing */.Ki, {
+                                    height: 6
+                                }),
+                                /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Text */.xv, {
+                                    size: "base",
+                                    weight: "regular",
+                                    color: constants/* colors.gray600 */.O9.gray600,
+                                    children: "본인 확인을 위해 입력한 번호로 인증번호를 전송할게요"
+                                }),
+                                /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Spacing */.Ki, {
+                                    height: 24
+                                }),
+                                /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(components/* InputField */.UP, {
+                                    label: "휴대폰 번호",
+                                    value: (0,utils/* formatPhoneNumber */.un)(phone),
+                                    onChange: onPhoneChange,
+                                    placeholder: "010-0000-0000",
+                                    autoFocus: true,
+                                    type: "tel"
+                                })
+                            ]
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(logger_dist.LoggingClick, {
+                    name: "Tap - Next",
+                    params: {
+                        step: "input_phone"
+                    },
+                    children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(components/* FixedBottomCTA */.Hp, {
+                        disabled: !(0,utils/* checkValidPhoneNumber */.gb)(phone),
+                        onClick: cta.callback,
+                        loading: cta.isLoading,
+                        type: "default",
+                        children: "다음"
                     })
-                ]
-            }),
-            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(components/* FixedBottomCTA */.Hp, {
-                disabled: !(0,utils/* checkValidPhoneNumber */.gb)(phone),
-                onClick: cta.callback,
-                loading: cta.isLoading,
-                type: "default",
-                children: "다음"
-            })
-        ]
+                })
+            ]
+        })
     });
 };
 

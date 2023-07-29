@@ -116,7 +116,7 @@ const WineProduct = ({ product }: Props) => {
               {Math.ceil(
                 ((product.originalPrice - product.price) /
                   product.originalPrice) *
-                100
+                  100
               )}
               %
             </Text>
@@ -251,11 +251,17 @@ const WineProduct = ({ product }: Props) => {
       </NotifyVisible>
       {/* 주문하기 */}
       <Spacing height={80} />
-      <LoggingClick name="Tap - CTA in Bottom">
-        <FixedBottomCTA full onClick={open}>
-          주문하기
+      {product.soldOut ? (
+        <FixedBottomCTA full type="default">
+          일시품절
         </FixedBottomCTA>
-      </LoggingClick>
+      ) : (
+        <LoggingClick name="Tap - CTA in Bottom">
+          <FixedBottomCTA full onClick={open}>
+            주문하기
+          </FixedBottomCTA>
+        </LoggingClick>
+      )}
     </LoggingState>
   );
 };
@@ -267,7 +273,6 @@ function StickyTabBar(props: ComponentProps<typeof StyledTabBar>) {
   const [isSticky, setSticky] = useState(false);
   useWindowScrollEvent((e) => {
     const rect = ref.current?.getBoundingClientRect();
-    console.log('123');
     if (!rect) {
       return;
     }

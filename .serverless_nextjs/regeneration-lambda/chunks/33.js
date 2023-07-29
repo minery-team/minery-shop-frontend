@@ -100,8 +100,8 @@ var lodash = __webpack_require__(96486);
 var react = __webpack_require__(67294);
 // EXTERNAL MODULE: ./node_modules/recoil/cjs/index.js
 var cjs = __webpack_require__(94715);
-// EXTERNAL MODULE: ./src/common/components/index.ts + 27 modules
-var components = __webpack_require__(94312);
+// EXTERNAL MODULE: ./src/common/components/index.ts + 28 modules
+var components = __webpack_require__(2126);
 // EXTERNAL MODULE: ./src/common/constants/index.ts + 2 modules
 var constants = __webpack_require__(16439);
 // EXTERNAL MODULE: ./node_modules/@tosspayments/sdk/dist/tosspayments.cjs.js
@@ -264,8 +264,7 @@ function PaymentButton({ userInfo , orderList , isCheckSelfReceving , address , 
     const setDeliveryMessage = (0,cjs/* useSetRecoilState */.Zl)(delivery/* deliveryMessageState */.a);
     const totalPrice = (0,react.useMemo)(()=>{
         const price = (0,lodash.sumBy)(orderList, (item)=>item.amount * item.product.price);
-        const originalPrice = (0,lodash.sumBy)(orderList, (item)=>item.amount * item.product.originalPrice);
-        if (Price/* FREE_SHIPPING_PRICE */.M - originalPrice > 0) return price + Price/* SHIPPING_PRICE */.$;
+        if (Price/* FREE_SHIPPING_PRICE */.M - price > 0) return price + Price/* SHIPPING_PRICE */.$;
         return price;
     }, [
         orderList
@@ -338,7 +337,7 @@ function PaymentInfo({ orderList  }) {
         orderList
     ]);
     const shippingPrice = (0,react.useMemo)(()=>{
-        if (Price/* FREE_SHIPPING_PRICE */.M - originalTotalPrice > 0) return Price/* SHIPPING_PRICE */.$;
+        if (Price/* FREE_SHIPPING_PRICE */.M - totalPrice > 0) return Price/* SHIPPING_PRICE */.$;
         return 0;
     }, []);
     return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(PaymentInfo_Wrapper, {
@@ -815,8 +814,15 @@ var core_hooks_dist = __webpack_require__(28271);
 
 
 
+
+
 function OrderItemsSection({ data , initialVisible =false  }) {
     const [isOpen, , , toggle] = (0,core_hooks_dist.useBooleanState)(initialVisible);
+    const orderItemsCount = (0,react.useMemo)(()=>{
+        return (0,lodash.sumBy)(data, (items)=>items.amount);
+    }, [
+        data
+    ]);
     const renderWineList = ()=>{
         return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(emotion_react_jsx_runtime_esm/* Fragment */.HY, {
             children: [
@@ -839,10 +845,10 @@ function OrderItemsSection({ data , initialVisible =false  }) {
                                     height: 79
                                 })
                             }),
-                            /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(ImageWrapper, {
+                            item.product.type !== "snack" && /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(ImageWrapper, {
                                 children: /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("img", {
-                                    src: item.product.image,
-                                    alt: `${item.product.id}_${index}`,
+                                    src: "images/snack_for_wine.png",
+                                    alt: "snack",
                                     width: 70,
                                     height: 79
                                 })
@@ -913,7 +919,7 @@ function OrderItemsSection({ data , initialVisible =false  }) {
                                     weight: "semibold",
                                     color: constants/* colors.gray900 */.O9.gray900,
                                     children: [
-                                        data.length,
+                                        orderItemsCount,
                                         "개"
                                     ]
                                 }),
@@ -977,7 +983,7 @@ const OriginPriceText = (0,emotion_styled_esm/* default */.Z)(dist/* Text */.xv)
 ;// CONCATENATED MODULE: ./src/order/model/DeliveryRequestText.ts
 const DELIVERY_REQUEST_TEXT = [
     "부재 시 경비실에 맡겨주세요.",
-    "부재 시 집 앞에 놓고가 주세요.",
+    "부재 시 집 앞에 놓고 가주세요.",
     "배송 전 연락 바랍니다.",
     "직접 입력", 
 ];

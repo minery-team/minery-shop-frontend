@@ -17,6 +17,7 @@ export interface Product {
   labelImages: string[];
   contentImage: string;
   foodDescription: string;
+  soldOut: boolean;
 }
 
 export interface ProductOption {

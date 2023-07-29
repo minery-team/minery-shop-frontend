@@ -53,8 +53,8 @@ var emotion_styled_esm = __webpack_require__(56361);
 var constants = __webpack_require__(16439);
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__(67294);
-// EXTERNAL MODULE: ./src/common/components/index.ts + 27 modules
-var components = __webpack_require__(94312);
+// EXTERNAL MODULE: ./src/common/components/index.ts + 28 modules
+var components = __webpack_require__(2126);
 // EXTERNAL MODULE: ./src/common/components/carousel/index.tsx
 var carousel = __webpack_require__(85718);
 // EXTERNAL MODULE: ./src/common/constants/wine-review.ts

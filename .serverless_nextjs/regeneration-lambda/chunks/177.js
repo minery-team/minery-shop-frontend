@@ -805,6 +805,94 @@ const WineReviews = {
     ],
     8: [
         {
+            id: 115,
+            name: "임민서",
+            rating: 4,
+            date: "2023-02-17",
+            content: "비싼데 너무 맛있어요ㅠㅠㅠ"
+        },
+        {
+            id: 116,
+            name: "이현지",
+            rating: 3,
+            date: "2023-04-03",
+            content: "맛있어서 계속 생각나는 맛...! 드리아하고 묵직~한 맛 좋아하시는 분들은 꼭 드셔보세요",
+            images: [
+                "https://static.minery.co.kr/market/images/wine/review/09. 몰리두커, 블루아이드보이/9_리뷰2.jpeg", 
+            ]
+        },
+        {
+            id: 117,
+            name: "최지윤",
+            rating: 3,
+            date: "2023-04-27",
+            content: "더복서 먹다가 이게 더 윗단계라해서 사먹어봄. 가격은 윗단계 맞는듯ㅋ 근데...! 너무 맛있음!!!! 나 이제 더복서 안먹고 이거 먹을거임",
+            images: [
+                "https://static.minery.co.kr/market/images/wine/review/09. 몰리두커, 블루아이드보이/9_리뷰3.jpeg", 
+            ]
+        },
+        {
+            id: 118,
+            name: "강준서",
+            rating: 4,
+            date: "2023-01-25",
+            content: "이렇게 묵직한 와인..! 너무 오랜만이네요! 제 최애 리스트에 넣어드림~"
+        },
+        {
+            id: 119,
+            name: "김서연",
+            rating: 4,
+            date: "2023-06-24",
+            content: "맛나요 맛나~ 근데 가격대가 좀 있어서, 맨날먹다간 텅장~될듯"
+        },
+        {
+            id: 120,
+            name: "최민호",
+            rating: 4,
+            date: "2023-03-12",
+            content: "너무 비싸요... 근데 맛있어서 계속 생각나는 맛...! 특별한 날 꼭!!! 다시 살거에요ㅠ"
+        },
+        {
+            id: 121,
+            name: "송서은",
+            rating: 4,
+            date: "2023-04-02",
+            content: "하도 추천글이 많아서, 주문해봤어요ㅋㅋㅋ 왜 추천하는지 알겠네요 맛있습니다 굿!",
+            images: [
+                "https://static.minery.co.kr/market/images/wine/review/09. 몰리두커, 블루아이드보이/9_리뷰7.jpeg", 
+            ]
+        },
+        {
+            id: 122,
+            name: "박윤아",
+            rating: 3,
+            date: "2023-05-18",
+            content: "이거 꼭 먹어봐야한다 진짜루 애들아 이거 꼭 먹어봐ㅠㅠ"
+        },
+        {
+            id: 123,
+            name: "임지아",
+            rating: 4,
+            date: "2023-06-21",
+            content: "숨은 맛집, 숨은 강자! 이 와인..! 왜이렇게 맛있어요...???"
+        },
+        {
+            id: 124,
+            name: "정지아",
+            rating: 4,
+            date: "2023-01-25",
+            content: "고기 먹을때 와인 있어야지~"
+        },
+        {
+            id: 125,
+            name: "최민준",
+            rating: 3,
+            date: "2023-05-08",
+            content: "묵직~합니다"
+        }, 
+    ],
+    9: [
+        {
             id: 102,
             name: "강미나",
             rating: 4,
@@ -906,94 +994,6 @@ const WineReviews = {
             rating: 4,
             date: "2023-06-09",
             content: "청량해요! 고기 먹을때 같이 먹었는데, 입안이 깔끔~!"
-        }, 
-    ],
-    9: [
-        {
-            id: 115,
-            name: "임민서",
-            rating: 4,
-            date: "2023-02-17",
-            content: "비싼데 너무 맛있어요ㅠㅠㅠ"
-        },
-        {
-            id: 116,
-            name: "이현지",
-            rating: 3,
-            date: "2023-04-03",
-            content: "맛있어서 계속 생각나는 맛...! 드리아하고 묵직~한 맛 좋아하시는 분들은 꼭 드셔보세요",
-            images: [
-                "https://static.minery.co.kr/market/images/wine/review/09. 몰리두커, 블루아이드보이/9_리뷰2.jpeg", 
-            ]
-        },
-        {
-            id: 117,
-            name: "최지윤",
-            rating: 3,
-            date: "2023-04-27",
-            content: "더복서 먹다가 이게 더 윗단계라해서 사먹어봄. 가격은 윗단계 맞는듯ㅋ 근데...! 너무 맛있음!!!! 나 이제 더복서 안먹고 이거 먹을거임",
-            images: [
-                "https://static.minery.co.kr/market/images/wine/review/09. 몰리두커, 블루아이드보이/9_리뷰3.jpeg", 
-            ]
-        },
-        {
-            id: 118,
-            name: "강준서",
-            rating: 4,
-            date: "2023-01-25",
-            content: "이렇게 묵직한 와인..! 너무 오랜만이네요! 제 최애 리스트에 넣어드림~"
-        },
-        {
-            id: 119,
-            name: "김서연",
-            rating: 4,
-            date: "2023-06-24",
-            content: "맛나요 맛나~ 근데 가격대가 좀 있어서, 맨날먹다간 텅장~될듯"
-        },
-        {
-            id: 120,
-            name: "최민호",
-            rating: 4,
-            date: "2023-03-12",
-            content: "너무 비싸요... 근데 맛있어서 계속 생각나는 맛...! 특별한 날 꼭!!! 다시 살거에요ㅠ"
-        },
-        {
-            id: 121,
-            name: "송서은",
-            rating: 4,
-            date: "2023-04-02",
-            content: "하도 추천글이 많아서, 주문해봤어요ㅋㅋㅋ 왜 추천하는지 알겠네요 맛있습니다 굿!",
-            images: [
-                "https://static.minery.co.kr/market/images/wine/review/09. 몰리두커, 블루아이드보이/9_리뷰7.jpeg", 
-            ]
-        },
-        {
-            id: 122,
-            name: "박윤아",
-            rating: 3,
-            date: "2023-05-18",
-            content: "이거 꼭 먹어봐야한다 진짜루 애들아 이거 꼭 먹어봐ㅠㅠ"
-        },
-        {
-            id: 123,
-            name: "임지아",
-            rating: 4,
-            date: "2023-06-21",
-            content: "숨은 맛집, 숨은 강자! 이 와인..! 왜이렇게 맛있어요...???"
-        },
-        {
-            id: 124,
-            name: "정지아",
-            rating: 4,
-            date: "2023-01-25",
-            content: "고기 먹을때 와인 있어야지~"
-        },
-        {
-            id: 125,
-            name: "최민준",
-            rating: 3,
-            date: "2023-05-08",
-            content: "묵직~합니다"
         }, 
     ],
     10: [
@@ -2153,7 +2153,7 @@ const WineReviews = {
             date: "2023-04-26",
             content: "가격대비 괜찮넹.",
             images: [
-                "https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰4.jpg", 
+                "https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰4.jpg", 
             ]
         },
         {
@@ -2170,7 +2170,7 @@ const WineReviews = {
             date: "2023-04-08",
             content: "첫잔은 좀 떫어요. 10분정도 뒤에 마시는거 추천",
             images: [
-                "https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰6.jpg", 
+                "https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰6.jpg", 
             ]
         },
         {
@@ -2201,7 +2201,7 @@ const WineReviews = {
             date: "2023-02-04",
             content: "인기가 많아서 잘 찾기 힘들었는데 편하고 좋네요~",
             images: [
-                "https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰10.JPG", 
+                "https://static.minery.co.kr/market/images/wine/review/21. 트라피체, 브로켈 말벡/21_리뷰10.JPG", 
             ]
         },
         {
