@@ -45,6 +45,7 @@ export function AddressInfo({
           size="base"
           weight="semibold"
           color={colors.primary700Default}
+          style={{ width: '50px', textAlign: 'right' }}
           onClick={() =>
             Router.push(value ? 'address/add-address' : '/address/new-address')
           }

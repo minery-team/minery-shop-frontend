@@ -104,9 +104,7 @@ const DescriptionSection = ({ product, ...props }: Props) => {
           이런 음식과 잘 어울려요
         </Text>
         <Spacing height={12} />
-        <Text color={colors.gray900}>
-          {product.foodDescription}과 잘 어울려요.
-        </Text>
+        <Text color={colors.gray900}>{product.foodDescription}</Text>
         <Spacing height={20} />
       </Section>
       <SectionDivider />

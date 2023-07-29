@@ -250,7 +250,7 @@ const WineProduct = ({ product }: Props) => {
         <ReviewSection id="review" product={product} />
       </NotifyVisible>
       {/* 주문하기 */}
-      <Spacing height={150} />
+      <Spacing height={80} />
       <LoggingClick name="Tap - CTA in Bottom">
         <FixedBottomCTA full onClick={open}>
           주문하기
