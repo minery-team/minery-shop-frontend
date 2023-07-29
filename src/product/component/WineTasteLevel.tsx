@@ -28,9 +28,13 @@ const WineTasteLevel = ({
       case 5:
         return `많이 ${upperDescription}`;
       default:
-        throw new Error('Invalid tasteLevel');
+        return '';
     }
   }, [lowerDescription, tasteLevel, upperDescription]);
+
+  if (!tasteLevel) {
+    return <div />;
+  }
 
   return (
     <div
