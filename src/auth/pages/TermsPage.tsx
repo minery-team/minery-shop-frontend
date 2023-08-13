@@ -65,8 +65,9 @@ export default function TermsPage() {
 
   const cta = useCallback(() => {
     safeLocalStorage.remove(AGREE_LOCAL_STORAGE_KEY);
-    Router.push('auth/phone');
-    // redirectAfterAuth();
+    Router.push(
+      `/auth/phone${QS.create({ redirectUrl: QS.get('redirectUrl') })}`
+    );
   }, []);
 
   return (
