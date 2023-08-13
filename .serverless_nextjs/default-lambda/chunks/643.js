@@ -303,9 +303,8 @@ async function validateSmsCode(phoneNumber, code) {
         });
         await (0,access_token/* setAccessToken */.M8)(res.data.access_token);
     } catch (e) {
-        var ref;
         (0,dist.assertAxiosError)(e);
-        if (((ref = e.response) === null || ref === void 0 ? void 0 : ref.status) === 400) {
+        if (e.response?.status === 400) {
             throw new InvalidSmsCodeError();
         }
     }
@@ -334,9 +333,8 @@ async function fetchCurrentUser() {
         const res = await api_requester/* requester.get */.L.get("/user/me");
         return res.data;
     } catch (e) {
-        var ref;
         (0,dist.assertAxiosError)(e);
-        if (((ref = e.response) === null || ref === void 0 ? void 0 : ref.status) === 401) {
+        if (e.response?.status === 401) {
             return undefined;
         }
         throw e;
@@ -1270,8 +1268,7 @@ const LoggingRead = ({ children , ...rest })=>{
             return;
         }
         const handler = ()=>{
-            var ref1;
-            const rect = (ref1 = ref.current) === null || ref1 === void 0 ? void 0 : ref1.getBoundingClientRect();
+            const rect = ref.current?.getBoundingClientRect();
             if (!rect) {
                 return;
             }
@@ -1310,8 +1307,8 @@ const ParentContext = /*#__PURE__*/ (0,react.createContext)(null);
 var hooks = __webpack_require__(61441);
 // EXTERNAL MODULE: ./src/common/utils/index.ts + 3 modules
 var utils = __webpack_require__(73373);
-// EXTERNAL MODULE: ./src/common/utils/trackFbPageView.ts + 1 modules
-var trackFbPageView = __webpack_require__(79920);
+// EXTERNAL MODULE: ./src/common/utils/trackFbPageView.ts
+var trackFbPageView = __webpack_require__(91338);
 ;// CONCATENATED MODULE: ./src/common/components/logging/LoggerRoot.tsx
 
 
@@ -1329,7 +1326,7 @@ const LoggerRoot = ({ children  })=>{
         service: "minery-shop"
     };
     (0,react.useEffect)(()=>{
-        (0,trackFbPageView/* trackFbPageView */.j)();
+        (0,trackFbPageView/* trackFbPageView */.jY)();
         if (rawFrom) {
             setFrom(rawFrom);
         }
@@ -1505,9 +1502,8 @@ function useBottomSheet() {
                 /** @ts-ignore */ ref: ref,
                 ...options,
                 onClose: ()=>{
-                    var ref;
                     close();
-                    (ref = options.onClose) === null || ref === void 0 ? void 0 : ref.call(options);
+                    options.onClose?.();
                 }
             }, Date.now().toString())
         });
@@ -1515,10 +1511,7 @@ function useBottomSheet() {
         open,
         close
     ]);
-    const closeSheet = (0,react.useCallback)(()=>{
-        var ref1;
-        return (ref1 = ref.current) === null || ref1 === void 0 ? void 0 : ref1.close();
-    }, []);
+    const closeSheet = (0,react.useCallback)(()=>ref.current?.close(), []);
     return {
         open: openSheet,
         close: closeSheet
@@ -1532,9 +1525,7 @@ const WrappedBottomSheet = /*#__PURE__*/ react.forwardRef(function WrappedBottom
     return /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(react_spring_bottom_sheet_dist/* BottomSheet */.R, {
         open: state,
         onDismiss: close,
-        onSpringEnd: ({ type  })=>{
-            return type === "CLOSE" && (onClose === null || onClose === void 0 ? void 0 : onClose());
-        },
+        onSpringEnd: ({ type  })=>type === "CLOSE" && onClose?.(),
         ...props,
         children: children
     });
@@ -1558,8 +1549,7 @@ const NotifyVisible_NotifyVisible = Object.assign(/*#__PURE__*/ react.forwardRef
     const ref = (0,react.useRef)(null);
     const prevVisible = (0,react.useRef)(false);
     const update = (0,react.useCallback)(()=>{
-        var ref1;
-        const rect = (ref1 = ref.current) === null || ref1 === void 0 ? void 0 : ref1.getBoundingClientRect();
+        const rect = ref.current?.getBoundingClientRect();
         if (!rect) {
             return;
         }
@@ -1568,7 +1558,7 @@ const NotifyVisible_NotifyVisible = Object.assign(/*#__PURE__*/ react.forwardRef
         const state = rect.top <= topOffset && rect.bottom > bottomOffset;
         if (state !== prevVisible.current) {
             prevVisible.current = state;
-            onVisible === null || onVisible === void 0 ? void 0 : onVisible(state);
+            onVisible?.(state);
         }
     }, []);
     const parentContainer = (0,react.useContext)(NotifyVisible_ParentContext);
@@ -1949,7 +1939,7 @@ var queries = __webpack_require__(74653);
 
 const useOrders = ({ status  })=>{
     const [orders] = useOrderList(status);
-    const filteredOrders = orders === null || orders === void 0 ? void 0 : orders.filter((order)=>{
+    const filteredOrders = orders?.filter((order)=>{
         if (status === "ALL") {
             return true;
         }
@@ -2054,8 +2044,7 @@ function useMaintainScroll(key) {
     useEffect(()=>{
         const pos = sessionStorage.getItem(`@scroll-position/${key}/${history.state.key}`);
         if (pos) {
-            var ref;
-            (ref = target.current) === null || ref === void 0 ? void 0 : ref.scrollTo(0, Number(pos));
+            target.current?.scrollTo(0, Number(pos));
         }
     }, [
         router.route,
@@ -2158,7 +2147,7 @@ const useCartList = (options)=>{
     const [user] = (0,useUser/* useUser */.a)();
     const query = (0,lib.useQuery)([
         "/cart",
-        user === null || user === void 0 ? void 0 : user.id
+        user?.id
     ], cart/* fetchCartList */.As, options);
     return [
         query.data,
@@ -2360,12 +2349,7 @@ function useControlCart() {
         local
     ]);
     const add = (0,react.useCallback)(async (data)=>{
-        const item = value.find((i)=>{
-            return i.product.id === data.productId && i.options.every((o)=>{
-                var ref;
-                return ((ref = data.options.find((o2)=>o.option.id === o2.optionId)) === null || ref === void 0 ? void 0 : ref.amount) === o.amount;
-            });
-        });
+        const item = value.find((i)=>i.product.id === data.productId && i.options.every((o)=>data.options.find((o2)=>o.option.id === o2.optionId)?.amount === o.amount));
         if (item) {
             return updateAmount(item.id, item.amount + data.amount);
         }
@@ -2648,7 +2632,9 @@ __webpack_require__.d(__webpack_exports__, {
   "un": () => (/* reexport */ formatPhoneNumber),
   "hP": () => (/* reexport */ access_token/* getAccessToken */.hP),
   "kg": () => (/* reexport */ logger),
-  "M8": () => (/* reexport */ access_token/* setAccessToken */.M8)
+  "M8": () => (/* reexport */ access_token/* setAccessToken */.M8),
+  "bP": () => (/* reexport */ trackFbPageView/* startOrder */.bP),
+  "pm": () => (/* reexport */ trackFbPageView/* submitOrder */.pm)
 });
 
 // UNUSED EXPORTS: ACCESS_TOKEN_KEY, FORMATTED_PHONE_NUMBER_REGEX, PHONE_NUMBER_REGEX, createWebAmplitudeLogger, formatPrice, formatTimeLeft, generateSessionStorage, generateStorage, safeLocalStorage, safeSessionStorage, trackFbPageView
@@ -2721,8 +2707,8 @@ function formatTimeLeft(timeLeft) {
 
 // EXTERNAL MODULE: ./src/common/utils/Storage.ts
 var Storage = __webpack_require__(79201);
-// EXTERNAL MODULE: ./src/common/utils/trackFbPageView.ts + 1 modules
-var trackFbPageView = __webpack_require__(79920);
+// EXTERNAL MODULE: ./src/common/utils/trackFbPageView.ts
+var trackFbPageView = __webpack_require__(91338);
 ;// CONCATENATED MODULE: ./src/common/utils/index.ts
 
 
@@ -2735,45 +2721,35 @@ var trackFbPageView = __webpack_require__(79920);
 
 /***/ }),
 
-/***/ 79920:
+/***/ 91338:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "j": () => (/* binding */ trackFbPageView)
-});
-
-// EXTERNAL MODULE: ./node_modules/@boxfoxs/next/dist/index.js
-var dist = __webpack_require__(23399);
-// EXTERNAL MODULE: ./node_modules/next/config.js
-var config = __webpack_require__(11752);
-;// CONCATENATED MODULE: ./src/common/utils/stage.ts
-
-function stage() {
-    const { publicRuntimeConfig  } = (0,config["default"])();
-    return publicRuntimeConfig.STAGE;
-}
-function isAlpha() {
-    return stage() === "alpha";
-}
-function isLive() {
-    return !isAlpha();
-}
-
-;// CONCATENATED MODULE: ./src/common/utils/trackFbPageView.ts
-
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "bP": () => (/* binding */ startOrder),
+/* harmony export */   "jY": () => (/* binding */ trackFbPageView),
+/* harmony export */   "pm": () => (/* binding */ submitOrder)
+/* harmony export */ });
+/* harmony import */ var _boxfoxs_next__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(23399);
+/* harmony import */ var _boxfoxs_next__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_boxfoxs_next__WEBPACK_IMPORTED_MODULE_0__);
 
 // @TODO pxiel id 설정 필요
-const PIXEL_ID = "";
+const PIXEL_ID = "6995384113825981";
 const trackFbPageView = async ()=>{
-    if (isAlpha() || (0,dist.isServer)()) {
+    if ((0,_boxfoxs_next__WEBPACK_IMPORTED_MODULE_0__.isServer)()) {
         return;
     }
     const ReactPixel = (__webpack_require__(51767)["default"]);
     ReactPixel.init(PIXEL_ID);
     ReactPixel.pageView();
 };
+function startOrder() {
+    const ReactPixel = (__webpack_require__(51767)["default"]);
+    ReactPixel.track("StartOrder");
+}
+function submitOrder() {
+    const ReactPixel = (__webpack_require__(51767)["default"]);
+    ReactPixel.track("SubmitOrder");
+}
 
 
 /***/ }),
@@ -2919,7 +2895,7 @@ const StyledImage = (0,emotion_styled_esm/* default */.Z)((image_default()))`
 /***/ 97020:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-c67a75d1b6f99dc8.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/0sFa8hRFAB9Y8bdCrT_3U/_buildManifest.js","static/0sFa8hRFAB9Y8bdCrT_3U/_ssgManifest.js"],"rootMainFiles":[],"pages":{"/":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/177-89066147dfd01bf9.js","static/chunks/pages/index-2741a3e279a233d0.js"],"/_app":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/css/9e85e6e2b6f4bbd6.css","static/chunks/pages/_app-ded4536ae5d4cfda.js"],"/_error":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/_error-a4ba2246ff8fb532.js"],"/address/add-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-05aec3b80de6526d.js","static/chunks/pages/address/add-address-9e0c93afbb97d35e.js"],"/address/new-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-05aec3b80de6526d.js","static/chunks/pages/address/new-address-682fe4689ae8285a.js"],"/auth":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth-d8271f68860aa935.js"],"/auth/code":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/code-5979099c66a28846.js"],"/auth/phone":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/phone-a80182aea4353517.js"],"/cart":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/cart-333bc504ccb24b0b.js"],"/complete-order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/797-c3117c16fed7c671.js","static/chunks/pages/complete-order-6d1b3708fc1eb0a2.js"],"/customer-service":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/customer-service-e087a77ccb5573fe.js"],"/my":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/my-d474f3dac852caa2.js"],"/order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/797-c3117c16fed7c671.js","static/chunks/pages/order-f7a446d755fd4808.js"],"/order/list":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/order/list-4f4a54cd292e1dc8.js"],"/process-payment":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/process-payment-792906f0de18e0e8.js"],"/product/[id]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/chunks/177-89066147dfd01bf9.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]-515d86f4e3c947c7.js"],"/product/[id]/label":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/label-78fefa863323bdde.js"],"/product/[id]/review/[reviewId]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/chunks/177-89066147dfd01bf9.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/review/[reviewId]-180bcd44f0b6155f.js"]},"ampFirstPages":[]}');
+module.exports = JSON.parse('{"polyfillFiles":["static/chunks/polyfills-c67a75d1b6f99dc8.js"],"devFiles":[],"ampDevFiles":[],"lowPriorityFiles":["static/XO-MSJyvG54R224rrExGJ/_buildManifest.js","static/XO-MSJyvG54R224rrExGJ/_ssgManifest.js"],"rootMainFiles":[],"pages":{"/":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/177-89066147dfd01bf9.js","static/chunks/pages/index-2741a3e279a233d0.js"],"/_app":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/css/9e85e6e2b6f4bbd6.css","static/chunks/pages/_app-505a4300d111062a.js"],"/_error":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/_error-a4ba2246ff8fb532.js"],"/address/add-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-05aec3b80de6526d.js","static/chunks/pages/address/add-address-9e0c93afbb97d35e.js"],"/address/new-address":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/159-05aec3b80de6526d.js","static/chunks/pages/address/new-address-682fe4689ae8285a.js"],"/auth":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth-d8271f68860aa935.js"],"/auth/code":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/code-5979099c66a28846.js"],"/auth/phone":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/auth/phone-a80182aea4353517.js"],"/cart":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/cart-333bc504ccb24b0b.js"],"/complete-order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/797-c3117c16fed7c671.js","static/chunks/pages/complete-order-6d1b3708fc1eb0a2.js"],"/customer-service":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/customer-service-e087a77ccb5573fe.js"],"/my":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/my-d474f3dac852caa2.js"],"/order":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/797-c3117c16fed7c671.js","static/chunks/pages/order-f7a446d755fd4808.js"],"/order/list":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/order/list-4f4a54cd292e1dc8.js"],"/process-payment":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/pages/process-payment-a58200aae242b05e.js"],"/product/[id]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/chunks/177-89066147dfd01bf9.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]-cc1a4790e4fc61c7.js"],"/product/[id]/label":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/label-78fefa863323bdde.js"],"/product/[id]/review/[reviewId]":["static/chunks/webpack-5761f3a204ffdf4a.js","static/chunks/framework-4556c45dd113b893.js","static/chunks/main-a9843dfedfe4c8a6.js","static/chunks/842-94820a0fc076d09a.js","static/chunks/177-89066147dfd01bf9.js","static/css/738e8f61204d6bba.css","static/chunks/pages/product/[id]/review/[reviewId]-180bcd44f0b6155f.js"]},"ampFirstPages":[]}');
 
 /***/ }),
 

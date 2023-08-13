@@ -214,7 +214,6 @@ const Rectangle = emotion_styled_esm/* default.div */.Z.div`
 
 
 const WineReview = ({ review , showImages =true , isModal =false  })=>{
-    var ref;
     const productId = Number(next_dist.Path.get("id"));
     const openDetailedReview = useDetailedReview(isModal ? 0 : productId, isModal ? 0 : review.id);
     const hiddenName = hideName(review.name);
@@ -270,7 +269,7 @@ const WineReview = ({ review , showImages =true , isModal =false  })=>{
                     display: "flex",
                     gap: "12px"
                 },
-                children: showImages && ((ref = review.images) === null || ref === void 0 ? void 0 : ref.map((image)=>/*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("img", {
+                children: showImages && review.images?.map((image)=>/*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("img", {
                         style: {
                             width: "74px",
                             height: "74px",
@@ -278,7 +277,7 @@ const WineReview = ({ review , showImages =true , isModal =false  })=>{
                         },
                         src: image,
                         alt: "와인 리뷰 이미지"
-                    }, image)))
+                    }, image))
             }),
             /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Text */.xv, {
                 children: review.content

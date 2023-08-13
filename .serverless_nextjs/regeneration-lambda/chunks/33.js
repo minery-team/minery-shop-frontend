@@ -123,7 +123,7 @@ async function requestPay(orderId, orderName, name, cost, options) {
         orderId,
         orderName,
         customerName: name,
-        successUrl: (options === null || options === void 0 ? void 0 : options.successUrl) ?? window.location.href,
+        successUrl: options?.successUrl ?? window.location.href,
         failUrl: window.location.href
     });
 }
@@ -461,13 +461,13 @@ function UserInfo({ userInfo , setIsCheckSelfReceving  }) {
                                 size: "base",
                                 weight: "medium",
                                 color: constants/* colors.gray900 */.O9.gray900,
-                                children: userInfo === null || userInfo === void 0 ? void 0 : userInfo.name
+                                children: userInfo?.name
                             }),
                             /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Text */.xv, {
                                 size: "base",
                                 weight: "medium",
                                 color: constants/* colors.gray900 */.O9.gray900,
-                                children: userInfo === null || userInfo === void 0 ? void 0 : userInfo.phone
+                                children: userInfo?.phone
                             })
                         ]
                     }),
@@ -744,7 +744,6 @@ function Warning() {
                     }),
                     /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(ItemWrapper, {
                         children: isShowWaring[index] && item.content.map((texts)=>{
-                            var ref;
                             return /*#__PURE__*/ (0,emotion_react_jsx_runtime_esm/* jsxs */.BX)(emotion_react_jsx_runtime_esm/* Fragment */.HY, {
                                 children: [
                                     /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ(dist/* Divider */.iz, {
@@ -764,7 +763,7 @@ function Warning() {
                                                 children: texts.title
                                             }),
                                             /*#__PURE__*/ emotion_react_jsx_runtime_esm/* jsx */.tZ("br", {}),
-                                            (ref = texts.content) === null || ref === void 0 ? void 0 : ref.map((text)=>textIndent(text.prefix, text.suffix, text.suffixContent))
+                                            texts.content?.map((text)=>textIndent(text.prefix, text.suffix, text.suffixContent))
                                         ]
                                     })
                                 ]

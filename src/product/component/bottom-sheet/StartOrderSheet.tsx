@@ -14,6 +14,7 @@ import Router from 'next/router';
 import { useCallback, useState } from 'react';
 import { useFinishAddToCartSheet } from './FinishAddToCardSheet';
 import { useAdultCartGuide } from 'cart/components/AdultCertGuidePopUp';
+import { startOrder } from 'common/utils';
 
 export function useStartOrderSheet(product: Product | ProductForSnack) {
   const { open } = useBottomSheet();
@@ -21,6 +22,7 @@ export function useStartOrderSheet(product: Product | ProductForSnack) {
   const openCartAdded = useFinishAddToCartSheet();
 
   return useCallback(async () => {
+    startOrder();
     open({
       children: <StartOrderSheet onCart={openCartAdded} product={product} />,
     });

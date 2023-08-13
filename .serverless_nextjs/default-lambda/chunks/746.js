@@ -24,14 +24,14 @@ exports.modules = {
 
 function useOrderingItems(options) {
     const [products] = (0,_queries_useWineList__WEBPACK_IMPORTED_MODULE_4__/* .useProductList */ .u)({
-        suspense: options === null || options === void 0 ? void 0 : options.suspense
+        suspense: options?.suspense
     });
     const directOrderItem = (0,react__WEBPACK_IMPORTED_MODULE_2__.useMemo)(()=>{
         const data = {
             id: Number(_boxfoxs_next__WEBPACK_IMPORTED_MODULE_0__.QS.get("productId")),
             amount: Number(_boxfoxs_next__WEBPACK_IMPORTED_MODULE_0__.QS.get("orderAmount"))
         };
-        const product = products === null || products === void 0 ? void 0 : products.find((p)=>p.id === data.id);
+        const product = products?.find((p)=>p.id === data.id);
         if (!data.id || !data.amount || !product) {
             return null;
         }

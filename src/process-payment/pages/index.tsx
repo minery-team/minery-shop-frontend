@@ -12,6 +12,7 @@ import { deliveryMessageState } from 'order/recoil/delivery';
 import { withSuspense } from '@boxfoxs/react';
 import { useCallbackOnce } from '@boxfoxs/core-hooks';
 import { LoggingState } from '@boxfoxs/logger';
+import { submitOrder } from 'common/utils';
 
 export default withSuspense(function ProcessPayment() {
   const router = useRouter();
@@ -37,6 +38,7 @@ export default withSuspense(function ProcessPayment() {
         addressId: Number(query.addressId),
         deliveryMessage,
       });
+      submitOrder();
       router.push(`/complete-order?orderId=${order.id}`);
     } catch {
       router.back();
