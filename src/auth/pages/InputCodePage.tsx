@@ -18,7 +18,7 @@ import { colors } from 'common/constants';
 import { useCountdown, useUser } from 'common/hooks';
 import { useLocalCart } from 'common/hooks/useCart';
 import Router from 'next/router';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { redirectAfterAuth } from '../utils/redirectAfterAuth';
 import { LoggingClick, LoggingState } from '@boxfoxs/logger';
 
@@ -48,6 +48,16 @@ export default function InputCodePage() {
     }
   });
 
+  useEffect(() => {
+    if (!phone && isClient()) {
+      Router.replace('/auth');
+    }
+  }, [])
+
+  if (!phone && isClient()) {
+    return null;
+  }
+
   const handleResendClick = async () => {
     if (!phone) {
       return;
@@ -56,11 +66,6 @@ export default function InputCodePage() {
     countdown.reset();
     inputRef.current?.focus();
   };
-
-  if (!phone && isClient()) {
-    Router.replace('/auth');
-    return null;
-  }
 
   return (
     <LoggingState name="Page View - Input Code in Auth">
