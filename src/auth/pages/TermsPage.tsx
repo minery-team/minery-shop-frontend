@@ -71,7 +71,7 @@ export default function TermsPage() {
   }, []);
 
   return (
-    <LoggingState name="Page View - Input Phone in Auth">
+    <LoggingState name="Page View - Agree Terms">
       <div>
         <Container>
           <AppBar back />
