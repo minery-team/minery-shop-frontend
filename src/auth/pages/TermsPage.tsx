@@ -192,7 +192,7 @@ export default function TermsPage() {
             <Spacing height={24} />
           </Section>
         </Container>
-        <LoggingClick name="Tap - Next" params={{ step: 'input_phone' }}>
+        <LoggingClick name="Tap - Next" params={{ step: 'terms_agree' }}>
           <FixedBottomCTA
             disabled={!isAllAgree}
             onClick={cta}
