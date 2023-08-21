@@ -17,6 +17,7 @@ import { IMP } from 'common/utils/IMP';
 import Router from 'next/router';
 import { redirectAfterAuth } from '../utils/redirectAfterAuth';
 import { LoggingClick, LoggingState } from '@boxfoxs/logger';
+import { useEffect } from 'react';
 
 export default function InputPhonePage() {
   const [, reload] = useUser();
@@ -38,6 +39,18 @@ export default function InputPhonePage() {
       redirectAfterAuth();
     }
   });
+
+  useEffect(() => {
+    const impUid = QS.get('imp_uid');
+    if (!impUid) {
+      return;
+    }
+    (async () => {
+      await confirmPass(impUid);
+      await reload();
+      redirectAfterAuth();
+    })();
+  }, []);
 
   return (
     <LoggingState name="Page View - Input Phone in Auth">

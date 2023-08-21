@@ -11,7 +11,7 @@ export const LoggerRoot = ({ children }: { children: ReactNode }) => {
 
   const props = {
     from,
-    version: 1,
+    version: 2,
     service: 'minery-shop',
   };
 

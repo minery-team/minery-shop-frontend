@@ -19,7 +19,8 @@ export namespace IMP {
         {
           pg: 'A010002002',
           merchant_uid: id,
-          popup: true,
+          popup: false,
+          m_redirect_url: window.location.href,
         },
         resolve
       );
