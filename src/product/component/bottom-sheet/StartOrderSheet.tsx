@@ -15,6 +15,7 @@ import { useCallback, useState } from 'react';
 import { useFinishAddToCartSheet } from './FinishAddToCardSheet';
 import { useAdultCartGuide } from 'cart/components/AdultCertGuidePopUp';
 import { startOrder } from 'common/utils';
+import { LoggingClick } from '@boxfoxs/logger';
 
 export function useStartOrderSheet(product: Product | ProductForSnack) {
   const { open } = useBottomSheet();
@@ -83,11 +84,15 @@ export function StartOrderSheet({
       </Flex.CenterVertical>
       <Spacing height={24} />
       <Flex.CenterVertical>
-        <MineryButton type="light" onClick={handleAddToCartClick}>
-          장바구니 담기
-        </MineryButton>
+        <LoggingClick name="Tap - CTA in Bottom - Add To Cart">
+          <MineryButton type="light" onClick={handleAddToCartClick}>
+            장바구니 담기
+          </MineryButton>
+        </LoggingClick>
         <Spacing width={10} />
-        <MineryButton onClick={handleOrderClick}>주문하기</MineryButton>
+        <LoggingClick name="Tap - CTA in Bottom - Order">
+          <MineryButton onClick={handleOrderClick}>주문하기</MineryButton>
+        </LoggingClick>
       </Flex.CenterVertical>
     </Container>
   );
