@@ -26,7 +26,13 @@ const OrderListItem = ({ order }: Props) => {
           </Text>
           {order.waybillNumber && (
             <Text size="sm" weight="regular" color={colors.gray600}>
-              운송장번호 {order.waybillNumber}
+              운송장번호{' '}
+              <DeliveryStatusLink
+                href={`https://trace.cjlogistics.com/web/detail.jsp?slipno=${order.waybillNumber}%20`}
+                target="_blank"
+              >
+                {order.waybillNumber}
+              </DeliveryStatusLink>
             </Text>
           )}
         </div>
@@ -114,6 +120,11 @@ const ProductTitle = styled(Text)`
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+`;
+
+const DeliveryStatusLink = styled.a`
+  text-decoration: underline;
+  cursor: pointer;
 `;
 
 // YYYY.MM.DD HH:mm
