@@ -2,7 +2,7 @@ import '../styles/global.css';
 
 import { AxiosProvider, FontProvider } from 'common/context';
 import type { AppProps } from 'next/app';
-import { StrictMode } from 'react';
+import { StrictMode, useEffect } from 'react';
 import { ReactChannelIO } from 'react-channel-plugin';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
@@ -17,11 +17,17 @@ import { SEOHeader } from '@boxfoxs/next-seo';
 import styled from '@emotion/styled';
 import { colors } from 'common/constants';
 import { useMaintainScrollGlobal } from 'common/hooks';
+import Router from 'next/router';
 
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
   useMaintainScrollGlobal();
+  useEffect(() => {
+    if (Router.pathname !== '/') {
+      Router.replace('/');
+    }
+  }, []);
 
   return (
     <StrictMode>
