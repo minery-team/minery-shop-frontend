@@ -12,9 +12,9 @@ export const orderStatusToHumanReadable = (status: OrderStatus) => {
     case OrderStatus.PREPARE:
       return '준비중';
     case OrderStatus.SENT:
-      return '배송중';
+      return '픽업가능';
     case OrderStatus.DONE:
-      return '배송완료';
+      return '픽업완료';
     default:
       throw new Error('Invalid OrderStatus');
   }

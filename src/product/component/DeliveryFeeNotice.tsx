@@ -36,12 +36,12 @@ const DeliveryFeeNotice = () => {
           }}
         >
           <img
-            src="/assets/notice.svg"
+            src="/assets/home.svg"
             width={16}
             height={16}
             alt="배송비 안내"
           />
-          <Text color={colors.gray700}>70,000원 이상 무료배송</Text>
+          <Text color={colors.gray700}>A 와인마트</Text>
         </div>
         <img
           src="/assets/chevron_up_gray.svg"
@@ -57,19 +57,15 @@ const DeliveryFeeNotice = () => {
       {expanded && (
         <div
           style={{
-            marginTop: '20px',
             borderTop: `1px solid ${colors.gray200}`,
-            paddingTop: '20px',
+            paddingTop: '10px',
           }}
         >
           <Text color={colors.gray700} size="sm" weight="regular">
-            70,000원 이상 주문시 무료배송
+            주소 화양동 46-30번지 401호
           </Text>
           <Text color={colors.gray700} size="sm" weight="regular">
-            70,000원 미만 주문시 배송비 3,500원
-          </Text>
-          <Text color={colors.gray700} size="sm" weight="regular">
-            제주, 도서 지역 시 2,000원 추가
+            전화 000-000-0000
           </Text>
         </div>
       )}

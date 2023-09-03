@@ -4,8 +4,12 @@ import { Text } from '@boxfoxs/bds-web';
 import { KAKAO_CHANNEL_LINK, colors } from 'common/constants';
 import Link from 'next/link';
 import { Space } from '../space';
+import { Icon } from '@iconify/react';
+import { useState } from 'react';
 
 export function Footer() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <section
       css={css`
@@ -54,8 +58,37 @@ export function Footer() {
             white-space: pre-wrap;
           `}
         >
+          <div style={{ display: 'flex' }}>
+            <Text size="sm" weight="regular" color={colors.gray600}>
+              {`상호명: 주식회사 마이너리`}
+            </Text>
+            <img
+              onClick={() => {
+                setIsOpen((prev) => !prev);
+              }}
+              src={isOpen ? '/assets/upArrow.svg' : '/assets/downArrow.svg'}
+              width={16}
+              height={16}
+              alt=""
+              style={{ cursor: 'pointer' }}
+            />
+          </div>
+          {isOpen && (
+            <>
+              <Text size="sm" weight="regular" color={colors.gray600}>
+                {`대표자: 박유선\n이메일 : minery.app@gmail.com\n사업자등록번호 : 359-87-02819\n경기 성남시 분당구 동판교로 122 204동 2502호`}
+              </Text>
+              <Space bottom="30px" />
+            </>
+          )}
+
+          <Space bottom="13px" />
+          <Text size="base" weight="regular" color={colors.defaultBlack}>
+            {`'마이너리'는 주류통신판매수단제공자로서 '마이너리'의\n거래당사자가 아니며 제휴 업체가 판매의 주체입니다.`}
+          </Text>
+          <Space bottom="20px" />
           <Text size="sm" weight="regular" color={colors.gray600}>
-            {`상호명: 주식회사 마이너리\n대표자: 박유선\n이메일 : minery.app@gmail.com\n사업자등록번호 : 359-87-02819\n경기 성남시 분당구 동판교로 122 204동 2502호\n\nⓒ 2023 Minery. All rights reserved.`}
+            {`ⓒ 2023 Minery. All rights reserved.`}
           </Text>
         </div>
       </div>
