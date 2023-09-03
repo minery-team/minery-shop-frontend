@@ -29,19 +29,17 @@ export function AddressInfo({
       <DeleveryWrapper>
         <DeleveryInfoWrapper>
           <Text size="lg" weight="semibold" color={colors.gray900}>
-            배송지 정보
+            픽업지 정보
           </Text>
           <Text
             size="base"
             weight="regular"
             color={value ? colors.gray900 : colors.gray600}
           >
-            {value
-              ? `${value.address}(${value.detailAddress})`
-              : '배송받을 주소를 등록해주세요.'}
+            A 와인마트 (화양동 46-30번지 401호)
           </Text>
         </DeleveryInfoWrapper>
-        <Text
+        {/* <Text
           size="base"
           weight="semibold"
           color={colors.primary700Default}
@@ -51,7 +49,7 @@ export function AddressInfo({
           }
         >
           {value ? '변경하기' : '등록하기'}
-        </Text>
+        </Text> */}
       </DeleveryWrapper>
       <DeleveryRequestWrapper onClick={openDeliveryRequestModal}>
         <Text

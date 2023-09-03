@@ -33,7 +33,7 @@ export default withAuth(function CompleteOrder() {
             {`${userInfo?.name}님의 상품이\n성공적으로 주문되었어요.`}
           </MText>
           <Text size="base" weight="regular" color={colors.gray600}>
-            곧 배송이 시작될 예정이에요. 조금만 기다려주세요.
+            상품을 준비 중에 있어요. 조금만 기다려주세요.
           </Text>
         </TitleWrapper>
         <StyledDivider width="100%" height={6} color={colors.gray100} />

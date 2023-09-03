@@ -18,7 +18,7 @@ export default function PaymentInfo({
 
   return (
     <Wrapper>
-      <TextWrapper>
+      {/* <TextWrapper>
         <Text size="base" weight="regular" color={colors.gray900}>
           상품금액
         </Text>
@@ -64,10 +64,10 @@ export default function PaymentInfo({
         <Text size="base" weight="medium" color={colors.gray900}>
           {`+${commaizeNumber(shippingPrice)}원`}
         </Text>
-      </TextWrapper>
+      </TextWrapper> */}
       <TextWrapper>
         <Text size="lg" weight="semibold" color={colors.gray900}>
-          결제 예정금액
+          총 결제 금액
         </Text>
         <Text size="xl" weight="semibold" color={colors.gray900}>
           {`${commaizeNumber(priceInfo.price + shippingPrice)}원`}

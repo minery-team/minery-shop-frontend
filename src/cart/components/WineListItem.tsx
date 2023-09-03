@@ -72,7 +72,7 @@ export default function WineListItem({
           <ItemWrapper>
             <label htmlFor={`${index}`}>
               <Text size="base" weight="semibold">
-                {item.product.name}
+                와인숍 명
               </Text>
             </label>
             <Spacing height={12} />
@@ -97,7 +97,12 @@ export default function WineListItem({
                   </WineImageBox>
                 )}
               </WineImageWrapper>
+
               <div>
+                <Text size="base" weight="semibold">
+                  {item.product.name}
+                </Text>
+                <Spacing height={8} />
                 <AmountControl
                   onIncrease={plusWine}
                   onDecrease={minusWine}

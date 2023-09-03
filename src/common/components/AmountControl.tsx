@@ -31,7 +31,7 @@ interface Props {
 }
 
 const CountBox = styled(Flex.CenterVertical)`
-  min-width: 70px;
+  width: 70px;
   border: 1px solid ${colors.gray300};
   border-radius: 4px;
 `;
