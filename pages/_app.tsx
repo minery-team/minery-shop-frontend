@@ -2,14 +2,14 @@ import '../styles/global.css';
 
 import { AxiosProvider, FontProvider } from 'common/context';
 import type { AppProps } from 'next/app';
-import { StrictMode, useEffect } from 'react';
+import { StrictMode } from 'react';
 import { ReactChannelIO } from 'react-channel-plugin';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
 
 import { PopupProvider, PortalProvider } from '@boxfoxs/bds-web';
-import { ToastProvider } from 'common/layout/ToastProvider';
 import { LoggerRoot } from 'common/components';
+import { ToastProvider } from 'common/layout/ToastProvider';
 import 'react-spring-bottom-sheet/dist/style.css';
 import '../styles/colors.css';
 
@@ -17,17 +17,11 @@ import { SEOHeader } from '@boxfoxs/next-seo';
 import styled from '@emotion/styled';
 import { colors } from 'common/constants';
 import { useMaintainScrollGlobal } from 'common/hooks';
-import Router from 'next/router';
 
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
   useMaintainScrollGlobal();
-  useEffect(() => {
-    if (Router.pathname !== '/') {
-      Router.replace('/');
-    }
-  }, []);
 
   return (
     <StrictMode>
